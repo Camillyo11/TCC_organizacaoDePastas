@@ -86,17 +86,51 @@
             <h2>STATUS DO PEDIDO</h2>
 
             <div class="button-status">
-                <button class="button-atualiza">Preparando</button>
-                <button class="button-atualiza">Pronto para envio</button>
+                <button class="button-atualiza">Pedido Confirmado</button>
+                <button class="button-atualiza">Pedido em preparo</button>
                 <button  class="button-atualiza">Saiu para entrega</button>
                 <button class="entregue-button">Entregue</button>
             </div>
         </div>
 
-     
+     <script>
+  const botoes = document.querySelectorAll('.button-atualiza, .entregue-button');
+
+  const statusMap = {
+    "Pedido Confirmado": 1,
+    "Pedido em preparo": 2,
+    "Saiu para entrega": 3,
+    "Entregue": 4
+  };
+
+  botoes.forEach((botao) => {
+    botao.addEventListener('click', () => {
+      const status = botao.innerText;
+      const statusValue = statusMap[status];
+      
+      // Salva o status e tempo no localStorage
+      localStorage.setItem('pedidoStatus', statusValue);
+      localStorage.setItem('tempoEstimado', calcularTempo(statusValue));
+
+      alert(`Status alterado para: ${status}`);
+    });
+  });
+
+  function calcularTempo(status) {
+    switch (status) {
+      case 1: return "30 minutos";
+      case 2: return "25 minutos";
+      case 3: return "15 minutos";
+      case 4: return "Entregue";
+      default: return "";
+    }
+  }
+</script>
+
+
 
     <!-- Bootstrap JS (opcional) -->
-    <<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>

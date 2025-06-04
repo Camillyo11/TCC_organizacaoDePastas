@@ -1,20 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Status do Pedido</title>
-    <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" a href="../assets/css/components.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
+  <link rel="stylesheet" a href="../assets/css/forms.css">
+  <link rel="stylesheet" a href="../assets/css/main.css">
+  <link rel="stylesheet" a href="../assets/css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Status pedidos</title>
 </head>
 
-<body class="backgrond-black">
-    <div id="header-container"></div>
+<body>
+  <div id="header-container"></div>
+
 
     <main>
         <section class="conteiner-status text-center">
@@ -90,6 +92,13 @@
             </div>
 
 
+
+
+
+
+
+
+
             <section class="detalhes container">
                 <h3>Meus pedidos</h3>
                 <div class="detalhes-pedido">
@@ -146,48 +155,83 @@
             <div class="contato-suporte">
                 <div class="text-center fw-bold">Problemas no seu pedido? <strong><a href="contato.html">Fale Conosco !</a></strong></div>
             </div>
+
+
         </section>
     </main>
 
 
-     <!--   FOOTER   -->
-     <footer class="footer-conteiner">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
-          </div>
-          <div class="col">
-            <h5>Endereço</h5>
-            <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
-            <p>São Paulo-SP</p>
-          </div>
-          <div class="col">
-            <h5>Telefone</h5>
-            <p>(11)9002-0922</p>
-            <p>(11)9002-0922</p>
-          </div>
-          <div class="col">
-            <h5>Horário de funcionamento</h5>
-            <h6>Terça a Quinta</h6>
-            <p> Das 17:00 ás 00:00</p>
-            <h6>Sexta á Sábado</h6>
-            <p> Das 17:00 ás 01:00</p>
-          </div>
+ <!--   FOOTER   -->
+  <footer class="footer-conteiner">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
         </div>
-  
-        <!-- Redes Sociais abaixo das colunas -->
-        <div class="row">
-          <div class="col redes-sociais">
-            <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
-            <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
-            <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
-          </div>
+        <div class="col">
+          <h5>Endereço</h5>
+          <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+          <p>São Paulo-SP</p>
+        </div>
+        <div class="col">
+          <h5>Telefone</h5>
+          <p>(11)9002-0922</p>
+          <p>(11)9002-0922</p>
+        </div>
+        <div class="col">
+          <h5>Horário de funcionamento</h5>
+          <h6>Terça a Quinta</h6>
+          <p> Das 17:00 ás 00:00</p>
+          <h6>Sexta á Sábado</h6>
+          <p> Das 17:00 ás 01:00</p>
         </div>
       </div>
-    </footer>
-    <script>
-        fetch('../UserPages/header.html')
+
+      <!-- Redes Sociais abaixo das colunas -->
+      <div class="row">
+        <div class="col redes-sociais">
+          <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+<script>
+  window.onload = function () {
+    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+    const tempos = ["23:26", "23:33", "23:40", "23:55"];
+    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+
+    // Atualiza a barra de progresso
+    const barra = document.querySelector('.barra div');
+    barra.style.width = `${(statusAtual - 1) * 33}%`;
+
+    // Atualiza estimativa de tempo
+    document.querySelector('.status1 p').innerHTML = `
+      <strong class="text-success">Codigo do pedido: 00001</strong> <br>
+      Tempo estimado: ${estimado}
+    `;
+
+    // Atualiza status de progresso
+    const statusList = document.querySelectorAll('.progresso-tempo');
+    statusList.forEach((item, index) => {
+      item.classList.remove('current', 'active');
+      if (index + 1 < statusAtual) {
+        item.classList.add('active');
+      } else if (index + 1 === statusAtual) {
+        item.classList.add('current');
+      }
+    });
+  };
+</script>
+
+<script>
+
+       fetch('../UserPages/header.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('header-container').innerHTML = data;
@@ -204,27 +248,35 @@
        offcanvasTriggerList.map(function (offcanvasTriggerEl) {
          new bootstrap.Offcanvas(offcanvasTriggerEl);
        }); 
-        setTimeout(function(){
-            const currenttempo = document.querySelector('.progresso-tempo.current');
-            if (currenttempo) {
-                currenttempo.classList.remove('current');
-
-                currenttempo.classList.add('active');
-
-                const nexttempo = currenttempo.nextElementSibling;
-
-                if (nexttempo) {
-                    nexttempo.classList.add('current');
-
-                    barra.style.width = '100%';
-                }
-            } 
-        
-        },10000);
 
 
-        
-    </script>
+
+  function checarStatus() {
+    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+    atualizarStatusNaTela(statusAtual);
+  }
+
+  function atualizarStatusNaTela(status) {
+    const statusList = document.querySelectorAll('.progresso-tempo');
+    const barra = document.querySelector('.barra div');
+    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+
+    barra.style.width = `${(status - 1) * 33}%`;
+    document.querySelector('.status1 p').innerHTML = `
+      <strong class="text-success">Codigo do pedido: 00001</strong> <br>
+      Tempo estimado: ${estimado}
+    `;
+
+    statusList.forEach((item, index) => {
+      item.classList.remove('current', 'active');
+      if (index + 1 < status) item.classList.add('active');
+      else if (index + 1 === status) item.classList.add('current');
+    });
+  }
+
+  // Checa a cada 10 segundos
+  setInterval(checarStatus, 10000);
+</script>
 
 
     <!-- BOOTSTARP JS -->
@@ -239,10 +291,3 @@
 </body>
 
 </html>
-
-
-
- 
-  
-    
-
