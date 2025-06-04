@@ -1,0 +1,417 @@
+
+/* HOME ADM */
+body{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+.nav-adm{
+  
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    flex-direction: row;
+  
+   
+}
+
+.backgrond-black{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.img-logo{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  
+
+}
+
+.img-logo img{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.on-off{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+
+
+
+
+.menu-btn {
+    background-color: #6c6765;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px auto;
+    width: 80%;
+    border: none;
+}
+.menu-btn:hover {
+    background-color: #5a5553;
+}
+.menu-icon {
+    width: 24px;
+}
+
+
+/* ÚLTIMOS PEDIDOS */
+.body-pedidos h3{
+    margin-top: 40px;
+}
+.body-pedidos{
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    color: black;
+    margin: 20px;
+
+}
+
+h3{
+    font-weight: bold;  
+}
+.pedido-list{
+    display: flex;
+    gap:8px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;  /* Faz com que as divs ocupem o espaço disponível igualmente */
+    margin: 5px;
+    list-style: none;
+    width: 100%;
+}
+
+.pedido-direita {
+    display: flex;  /* Coloca os itens da seção em linha */
+    gap: 8px;  /* Espaço entre os itens */
+    margin-left: auto;  /* Empurra a seção para a direita */
+
+}
+#order-pedido {
+  display: flex;
+    justify-content: space-between;  /* Coloca os elementos nas extremidades */
+    align-items: center;  /* Centraliza verticalmente */
+   
+}
+
+.pedido  {
+    text-decoration: none;
+    list-style: none;
+}
+
+.status-img{
+    text-decoration: none;
+    list-style: none;
+}
+
+.status-img img{
+    width:25px;
+    height:25px;
+
+}
+
+/* DETALHES DO PEDIDO */
+
+.Body-detalhes-pedido {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+}
+.pedido-info p {
+    margin: 5px 0;
+}
+.itens-pedido ul {
+    list-style: none;
+    padding: 0;
+}
+.itens-pedido li {
+    background-color: #959494;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+h1{
+  text-align: right;
+}
+.status-pedido {
+    margin-top: 20px;
+}
+.button-status{
+    list-style: none;
+    padding: 0;
+}
+.button-atualiza{
+    background-color: #dd5d0e;
+    padding: 10px;
+    color:#ddd;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  
+}
+.button-atualiza:hover{
+    background-color: rgb(152, 2, 2);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+ }
+
+
+.entregue-button{
+    background-color: #dd0e0e ;
+    padding: 10px;
+    color:#ddd;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
+.entregue-button:hover{
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+ }
+
+
+ /* AVALIAÇÃO ADM */
+
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    color:black
+}
+
+h1 {
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 100px;
+}
+.avaliacao {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #ff7b00;
+}
+.avaliacao h3 {
+    margin-top: 0;
+    color: #000000;
+}
+.resposta-admin {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #a61616;
+    border-radius: 4px;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+.btn-responder {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+.cardapio-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+.nav-categorias {
+    
+    background-color: #F77F00;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.barra-pesquisa{
+    margin-bottom: 50px;
+   
+    
+}
+
+
+
+.sabores-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.categoria-titulo {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 15px;
+border-radius: 10px;
+    padding-bottom: 5px;
+   text-align: center;
+   background-color: #ea4a2e;
+  
+}
+
+.pizza-card {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+}
+
+.pizza-nome {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.pizza-preco {
+    font-weight: bold;
+    color: #388e3c;
+    font-size: 1.2rem;
+}
+
+.borda-option {
+    background-color: #d4d2d2;
+    color: #000000;
+    border-radius: 20px;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.opcoes-borda-radio{
+    
+    justify-content: right;
+    display: flex;
+    margin-right: 50px;
+}
+
+.button-vermelho{
+    background-color:#000000;
+    color: #ffffff;
+    border: none;
+    font-weight: bolder;
+    font-size: 16px;
+    padding: 20px;
+    border-radius:30px;
+    width: 200px;
+  
+
+}
+.button-vermelho:hover{
+    background-color:#962c0c;
+    color: rgb(0, 0, 0);
+}
+.button-vermelho-position {
+    justify-content: right;
+    display: flex;
+    margin-top: 10px;
+
+}
+
+
+/* Estilo para a barra de scroll */
+.sabores-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sabores-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.sabores-container::-webkit-scrollbar-thumb {
+    background: #d32f2f;
+    border-radius: 10px;
+}
+
+.btn_retirar{
+    background-color:#ef8a2c;
+    border: none;
+    font-weight: bolder;
+    color: #fff;
+    font-size: 16px;
+    padding: 20px;
+    border-radius:30px;
+    width: 95px;
+
+}
+
+.retirar-voltar-itens{
+    justify-content: right;
+    display: flex;
+    margin-right: 20px;
+    gap:20px
+}
+
+.btn_voltar{
+    background-color:#e94c34;
+    border: none;
+    font-weight: bolder;
+    color: #fff;
+    font-size: 16px;
+    padding: 20px;
+    border-radius:30px;
+    width: 90px;
+    
+}
+
+.btn_retirar:hover{
+    background-color:#000000;
+    color: white;
+}
+
+.btn_voltar:hover{
+    background-color:#000000;
+    color: white;
+}

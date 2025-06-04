@@ -1,0 +1,1647 @@
+/* HEADER/NAVBBAR */
+/* main footer{
+    position: fixed;
+    min-width: 300px;
+    max-width: 900px;
+    flex-direction: row
+ */
+
+ .backgrond-black {
+    background-color: black !important;
+    
+}
+@media (max-width: 768px) { /* Para telas menores que 768px */
+
+    html, body {
+        /* margin: 0;
+        padding: 10px; 
+        height: 100%; */
+        flex-direction: row;
+        
+  
+    }
+}
+
+@media (max-width: 480px) { /* Para telas menores que 480px (celulares bem pequenos) */
+    html, body {
+        margin: 0;
+        padding: 0px; 
+        height: 100%;
+        
+        flex-direction: row;
+    }
+
+}
+
+/* HEADER */
+.navbar-brand{
+    font-size:24px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    height: 100px;
+    z-index: 1000;
+  
+   
+}
+
+.navbar-brand img{
+    width: 80px;
+    height: 80px;
+}
+
+a.login-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    background-color: rgb(144, 33, 6) !important ;
+    color:white;
+    font-size: 14px;
+    padding: 5px 5px ;
+    border-radius: 50px;
+    text-decoration: none;
+    transition:0.3s background-color !important; 
+    border:none;
+    
+    
+}
+  
+  /* Remove o sublinhado no hover */
+  a.login-button:hover {
+    background-color: rgb(211, 35, 11) !important ;
+    text-decoration: none !important;
+}
+
+.button-navbar{
+    display: flex;
+    margin-left: auto;
+    gap: 10px;  
+    padding: 10px;
+    
+}
+
+ button.login-button{
+    background-color: rgb(144, 33, 6) !important ;
+    color:white;
+    font-size: 14px;
+    padding: 5px 5px ;
+    border-radius: 50px;
+    text-decoration: none;
+    transition:0.3s background-color !important; 
+    margin-right: 20px;
+    border:none;
+    gap: 8px; /* Espaço entre a imagem e o texto */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    
+}
+ 
+button.login-button:hover, a.login-button:hover{
+    background-color: rgb(211, 35, 11) !important ;
+}
+
+
+button.login-button img, a.login-button img {
+    display: inline-block; /* Garante que a imagem fique alinhada corretamente */
+    flex-shrink: 0; /* Impede que a imagem diminua */
+}
+
+
+@media (max-width: 420px) {
+    .button-navbar {
+        flex-direction: row; 
+        gap: 5px; 
+        margin-left: 0; 
+        width: 80%; 
+        justify-content: flex-end;
+    }
+
+    .login-button {
+    background-color: rgb(144, 33, 6) !important ;
+    color:white;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition:0.3s background-color !important; 
+    border:none;
+
+    }
+    
+}
+
+
+@media (max-width: 767.98px) {
+    .button-navbar {
+        flex-direction: row; 
+        gap: 10px; 
+        justify-content: flex-end;
+        width: 75%;
+    }
+
+    .login-button {
+        background-color: rgb(144, 33, 6) !important ;
+        color:white;
+        font-size: 14px;
+        padding: 5px 10px ;
+        border-radius: 50px;
+        text-decoration: none;
+        transition:0.3s background-color !important; 
+        border:none;
+       
+
+        
+    }
+}
+
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+    color:#ffffff;
+    
+   
+
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+    outline: none;
+    box-sizing: none;
+    
+    
+}
+
+.nav-link{
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    
+}
+
+.nav-link:hover, .nav-link:active{
+    color: #eeeeee;
+} 
+
+@media (min-width:991px){
+    .nav-link::before{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 2px;
+        visibility: hidden;
+        transition: 0.3 ease-in-out;
+    }
+   }
+
+.nav-link:hover::before, .nav-link.active::before{
+    visibility: visible;
+}
+
+/* MODAL */
+.modal-header-preto{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 16px;
+
+}
+.modal-body{
+    background-color: rgb(144, 33, 6);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+   
+   
+}
+/* MODAL DE ENDEREÇO */
+/* Estilo para os itens de endereço */
+.endereco-item {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000;
+    width: 100%;
+    padding: 10px 10px;
+    font-weight:40;
+    border-radius: 30px;
+    margin: 5px 0;
+    flex-direction: row;
+    display: flex;
+    gap: 10px; 
+  }
+  .endereco-item h7 {
+    font-weight: bold;
+    color: #535151;
+
+  }
+
+  .coluna{
+    margin-top:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    margin: 10px;
+  }
+  
+  
+  /* Ajustes para o offcanvas-bottom */
+  .offcanvas-bottom {
+    height: 90vh !important; /* Ajuste a porcentagem conforme necessário */
+    max-height: 90vh !important; /* Evita ultrapassar a tela */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  /* EDIÇÃO DE ENDEREÇO */
+
+  /* PARTE TESTE  */
+
+  .btn-address-type {
+    width: 100%;
+    padding: 15px 5px;
+    background-color: transparent;
+    border: 2px solid #ff6b00;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+  
+  .btn-address-type:hover {
+    background-color: rgba(255, 107, 0, 0.1);
+  }
+  
+  .btn-address-type.active {
+    background-color: #ff6b00;
+    color: white;
+  }
+  
+  .btn-address-type img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .btn-address-type.active img {
+    filter: none;
+  }
+
+  /*  ENDEREÇO*/
+  
+  .offcanva-edicao-endereco{
+    background-color: rgb(144, 33, 6) !important;
+    color: white;
+    font-size: 20px;
+    padding: 15px 15px ;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgb(191,0, 0);
+}
+.check-laranja{
+    background-color: #F77F00;
+    color: white;
+    font-weight: bold;  
+    border-radius: 10px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+   
+}
+  
+.buttons-opcao-endereco{
+   margin: 20px;
+    gap: 10px;  
+}
+
+.button-branco{
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 8px 10px;
+    border-radius:30px;
+    width: 160px;
+
+    
+}
+.button-branco:hover{
+    background-color:#f47a00;
+    color: white;
+}
+
+/* MEUS DADOS */
+/* Estilos para o offcanvas Meus Dados */
+.dado-section {
+    margin-bottom: 1.5rem;
+}
+
+.dado-title {
+    color:#f47a00;
+    font-weight: 750;
+    font-size: larger;
+    margin-bottom: 1rem;
+}
+
+.dado-item {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #333;
+}
+
+.dado-label {
+    font-weight: bold;
+    margin-left: 15px;
+    color: #000000;
+}
+
+.dado-value {
+    color: #ffffff;
+}
+
+.btn-editar {
+    background-color:#F77F00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: left;
+    justify-content: center;
+    display: flex;
+    
+
+}
+
+.btn-editar img {
+    margin-right: 10px;
+}
+/* Estilos para o formulário de edição */
+#formEditarDados {
+    background-color:#F77F00;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+
+ 
+
+
+
+
+
+
+
+  /* Estilo para o modal */
+  .modal-vermelhor {
+    background-color: rgb(144, 33, 6);
+    color: white;
+  }
+  
+  .modal-todo-vermelhor .modal-content {
+    border-radius: 16px;
+  }
+
+
+/* LOGIN */
+.form-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.form-container p {
+    text-align: center;
+    font-weight: 500;
+
+}
+
+.form-vermelho  input{
+    border-radius: 100px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background-color: white;
+
+}
+
+.link-recuperar-senha a {
+    color: white;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid white; /* Cor da linha */
+    margin: 10px;
+}
+/* OFFCANVA DE PERFIL DO USUARIO */
+.offcanvas-perfil {
+    background-color: #991C08 !important;
+}
+
+.offcanvas-title{
+  
+    color: #eeeeee;
+}
+.buttons-perfil{
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+    flex-direction: column;
+}
+.button-laranja-perfil{
+    background-color: #f47a00;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius:10px;
+    right: 20px;
+
+}
+
+.button-branco-perfil{
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius:10px;
+    right: 20px;
+}
+
+.progress-fidelidade {
+    background-color: #F77F00;
+    border-radius:40px;
+    margin-top: 20px;
+
+
+  
+}
+
+
+.progress-fidelidade h6 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bolder;
+    flex-direction: column;
+
+}
+.progress-fidelidade p{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top: 10px;
+    display: flex;
+}
+
+
+.card-fidelidade{
+    background-color: #F77F00 !important;
+    border-radius: 70px !important;
+    padding: 10px;
+    margin: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.button-sair{
+    background-color: #d31212 ;
+    color: white ;
+    font-weight: bold;  
+    border-radius: 10px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+    
+   
+}
+.button-sair:hover{
+    background-color:#f47a00;
+}
+.position-button-sair h6{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bolder;
+    flex-direction: column;
+  margin-top: 60px;
+}
+
+
+/* OFFCANVA -> PEDIDO  */
+
+        /* Estilos para o offcanvas de pedidos */
+        .pedido-item {
+           border-radius: 20px;
+          margin: 20px 5px;
+            background-color: #ffffff;
+            padding:20px;
+
+        }
+        
+        
+        .pedido-numero {
+            font-weight: bold;
+            color: #000000;
+            font-size: 1.1rem;
+        }
+
+        
+        .pedido-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .status-entregue {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-andamento {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-cancelado {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .pedido-detalhes {
+            flex: 1;
+        }
+        
+        .pedido-tamanho {
+            font-weight: bold;
+        }
+        
+        .pedido-data {
+            color: #6c757d;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 3px;
+        }
+        
+        .offcanvas-pedidos {
+            width: 400px;
+        }
+        
+        .offcanvas-header-pedidos {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 1rem;
+        }
+        
+        .offcanvas-title-pedidos {
+            color:#f47a00;
+            font-weight: bold;
+        }
+        
+/* INTRODUÇÃO -> IMAGEM DE FUNDO */
+
+.conteiner-intro{
+    background: url('../img/fundopizza.png') center/cover no-repeat;
+    color: white;
+    text-align: left;
+    padding: 80px 20px;
+    margin-top: 100px;
+    justify-content: center !important;
+    align-items: center !important;
+   width: 100vh ;
+    height: 100% !important;
+}
+       
+
+.btn-custom  {
+    background-color: #f47a00 !important ;
+    color: white !important;
+    font-weight: bold;  
+    border-radius: 90px !important;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+     display: inline-block;
+}
+
+
+/* SOBRE NÓS */
+.sobre-nos {
+    background-color: rgb(142, 8, 8);
+    color: rgb(255, 255, 255);
+    padding:  8px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 20px;
+  border-radius: 20px;
+}
+   
+.sobre-nos .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+
+
+}
+
+.sobre-nos img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+/* CARDÁPIO  */
+.cardapio-intro{
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    
+}
+
+.cardapio-intro .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+   
+}
+.col-8{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.cardapio-intro img {
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.pizza-oculos img{
+    width: 50%;
+    height: 50%;
+}
+
+.button-cardapio{
+    background-color: rgb(142, 8, 8);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 28, 28, 0.5);
+    transition: 0.3s;
+  
+    flex-grow: 1;
+    min-width: 120px;
+    max-width: 200px;
+    min-height: 120px;
+    max-height: 200px;  
+    transition: 0.3s;
+
+    
+}
+ .button-cardapio:hover{
+    background-color: rgb(183, 1, 1);
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 28, 28, 0.5);
+    transition: 0.3s;
+ }
+
+ /* FOOTER/RODAPÉ */
+ .footer-conteiner {
+    background-color: rgb(50, 48, 48);
+    color: rgb(255, 255, 255);
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 30%;
+    bottom: 0;
+ 
+
+ }
+
+.logo-grande {
+    width: 200px;
+    height: 200px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    gap: 50px;
+}
+
+.redes-sociais .midia {
+    gap: 40px;
+    
+   
+    
+}
+
+.redes-sociais .midia img {
+    height: 40px;
+    width: 40px;
+}
+
+
+
+  /* PÁGINA CONTATO */
+
+  .contato-banner {
+    background: url('../img/fundo contato.png') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 10px !important;
+
+   
+}
+
+  .form-contato{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(144, 33, 6);
+    padding: 15px 15px ;
+    color: white;
+    font-size: 16px;
+    border-radius: 15px;
+    
+    
+  }
+
+
+  .button-black{
+    background-color: #000000 ;
+    color: white ;
+    font-weight: bold;  
+    border-radius: 90px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 500;
+    
+   
+}
+.button-black:hover{
+    background-color:#f47a00;
+}
+.center-button {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center-button a {
+    text-decoration: none;
+    color: #eeeeee;
+    
+}
+
+/* PÁGINA CADASTRO */
+
+.title h1{
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 10px;
+    justify-items: center;
+    text-align: center;
+    
+
+}
+
+.form-vermelho-cadastro{
+    margin-top: 20%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(144, 33, 6);
+    padding: 15px 15px ;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgb(191,0, 0);
+}
+
+.form-vermelho-cadastro label{
+
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+  
+}
+
+
+/* AVALIAÇÃO CLIENTE */
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-self:left;
+    margin-left: 20px;
+    
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 40px;
+    color: rgb(184, 179, 179);
+    cursor: pointer;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+
+.avalicao-estrelas{
+    margin-top: 20%;
+    margin-left: 0;
+}
+
+.avalicao-estrelas h1{
+    color: #2c2c2c;
+    text-align: center;
+    margin-top: 120px;
+   
+}
+
+.form-group-avaliacao{
+    flex-direction: column;
+    display: flex;
+    margin: 20px;
+
+}
+
+.label-comentario{
+    margin-top: 5px;
+    flex-direction: column;
+    color: #eeeeee;
+}
+
+/* PAGAMENTO */
+
+    
+.pagamento-conteiner{
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px auto;
+    margin-top: 100px;
+    }
+    
+.pagamento-conteiner h3{
+        text-decoration: underline black;
+        color: #000000;
+        font-size: 165%;
+        font-weight: 700;
+    }
+
+.conteiner-valor {
+        background-color: #959595;
+        color: #000000;
+        font-weight: 600;
+        padding: 10px;
+        font-size: 20px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 20px;
+    }
+    
+.corpreta{
+        color: black;
+    }
+    
+    /* FORMULARIOS */
+.opções{
+        display: flex;
+        justify-content:space-around;
+        gap: 15px;
+    }
+    
+    /* BOTÃO DE COPIA E COLA */
+.btn-info{
+        border-radius: 20px;
+        color:white;
+        text-decoration: none;
+        border:none;
+    }
+    
+
+    /* BOTÃO DE AVANÇAR */
+.button-laranja{
+        background-color: #F77F00;
+        border: none;
+        font-weight: bolder;
+        padding: 20px;
+        border-radius:30px;
+        width: 200px;
+        margin-top: 20px;
+        right: 20px;
+        
+      
+    
+    }
+ .button-laranja:hover{
+        background-color:#000000;
+        color: white;
+    }
+.qrcode img {
+        background: white;
+        padding: 10px;
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+
+       
+    }
+    
+    /* PARTE DOS CODIGO DO QRCODE */
+.pix-chave{
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+   /* PAGINA DE CONFIRMAÇÃO DO PEDIDO */ 
+.body-vermelho{
+    background-color:#991C08;
+}
+
+.conteiner-confirmacao{
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.texto-confirmacao {
+    background-color: #090909;
+    color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 140px
+}
+
+.endereco-confirmacao {
+    border-radius: 20px;
+    background-color: white;
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+}
+
+.link-alteraca-confirmacao {
+    text-align: center;
+}
+
+.box-confirmacao {
+    background-color: #F77F00;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.escolha-confirmacao  {
+    background-color: #991C08;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.borda-confirmacao {
+    background-color: #991C08;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: inline-block;
+}
+
+.preço-confirmacao {
+    text-align: right;
+    font-weight: bold;
+}
+
+.total-confirmacao{
+    background-color: #F77F00;
+    border: 10px solid #F77F00;
+    border-radius: 30px;
+    padding: 10px;
+    color: white;
+    font-size: 24px;
+    margin-top: 10px;
+    margin: 0 auto;
+
+
+}
+
+
+textarea {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.add-pedido span {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.add-pedido button {
+
+    margin: 10px auto;
+    background-color: #F77F00;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.opcoes {
+    justify-content: space-between;
+    display: block;
+    gap: 10px;
+}
+
+.opcão-delivery{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+.button-black-centralizar{
+    text-align: center;
+}
+
+.tempo-estimado {
+    color: white;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.comentario-confirmacao {
+    height: 100px ;
+}
+    
+
+ /* CARDAPIO PARA SELECIONAR PIZZA */
+
+.selecao-cardapio{
+    background-color: rgb(255, 181, 181);
+    padding: 0px;
+    margin-top: 150px;
+ 
+}
+.menu1{
+    
+    background-color: #F77F00;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.menu1 a{
+    text-decoration: none;
+    color: black;
+    padding: 5px 5px;
+    font-weight: 700;
+    
+}
+.menu a:hover{
+    text-decoration: underline;
+}
+.img_banner{
+    height: auto;
+    width: 100%;
+   
+}
+
+.text-menu{
+    margin-top: 0px;
+  
+    
+}
+
+.pizza-item{
+    display: flex;
+    align-items: center;
+
+    margin: 10px;
+   border-radius: 30px #0000;
+   background-color: #959595;  
+   
+   
+}
+
+.detalhes-pizza{
+    text-decoration: none;
+    list-style: none;
+    margin-left:0px;
+    justify-items: left;
+   
+}
+
+
+
+.pizza-item img{
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.pizza-info{
+    flex-grow: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+   
+}
+.preço-selecao-cardapio{
+    color: red;
+    font-weight: bolder;
+}
+.btn_retirar{
+    display: flex;
+    align-items: center;
+
+}
+.btn_adicionar{
+  
+    align-items: center;
+}
+
+.quantidade{
+    background-color: rgb(8, 8, 8);
+    border: none;
+    padding: 5px 50px;
+    margin: 0 auto;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 130px;
+    margin-right: 10px;
+    
+}
+.quantidade-itens{
+color: #ffffff;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  
+}
+
+.bordas{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 30px;
+    margin-left: 15px;
+}
+h3{
+    margin-top: 100px;
+    background-color: #f9a622;
+    color: white;
+    border-radius: auto;
+    padding: 15px;
+}
+.botão-container{
+   
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.btnfinal{
+    background-color: #F77F00;
+    color: black;
+    border-radius: 15px;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+.btnfinal:active{
+    background-color: green;
+}
+
+
+
+
+
+
+
+/* AVALIAÇÕES E RESPOSTAS  */
+
+
+.cardapio-container {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 140px;
+    margin-bottom: 20px;
+}
+.nav-categorias {
+    
+    background-color: #F77F00;
+    border-radius: 10px;
+    font-weight: bold;
+   
+}
+
+.barra-pesquisa{
+    margin-bottom: 50px;
+   
+    
+}
+
+
+
+.sabores-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.categoria-titulo {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 15px;
+border-radius: 10px;
+    padding-bottom: 5px;
+   text-align: center;
+  
+}
+
+.pizza-card {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+}
+
+.pizza-nome {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.pizza-preco {
+    font-weight: bold;
+    color: #388e3c;
+    font-size: 1.2rem;
+}
+
+.borda-option {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.opcoes-borda-radio{
+    
+    justify-content: right;
+    display: flex;
+    margin-right: 50px;
+}
+
+.button-vermelho{
+    background-color:#991C08;
+    border: none;
+    font-weight: bolder;
+    font-size: 16px;
+    padding: 20px;
+    border-radius:30px;
+    width: 200px;
+
+}
+.button-vermelho:hover{
+    background-color:#f47a00;
+    color: white;
+}
+.button-vermelho-position {
+    justify-content: right;
+    display: flex;
+    margin-top: 10px;
+
+}
+
+
+/* Estilo para a barra de scroll */
+.sabores-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sabores-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.sabores-container::-webkit-scrollbar-thumb {
+    background: #d32f2f;
+    border-radius: 10px;
+}
+/* PÁGINA SOBRE NÓS */
+
+.sobre-nos-banner {
+    background: url('../img/SobreNosimg.png') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 115px;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 10px !important;
+
+   
+}
+
+.horario-funcionamento{
+    margin-top: 10%;
+    margin: 50px;
+   
+}
+
+.colunas-horario{
+    padding: 30PX;
+    
+}
+
+
+
+ .semana{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px ;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 17px;
+} 
+
+table {
+   width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-right: 30px;
+   align-items: center;
+   margin: 10px 0;
+   color: rgb(0, 0, 0);
+   font-weight: bold;
+   font-size: 17px; 
+
+
+  
+   }
+.semana-center th{
+
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.semana-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+    background-color: #991C08;
+   
+
+
+}
+
+.localizacao{
+    margin: 15px;
+}
+
+.titulo-central{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Montserrat', 'Open Sans', 'Lato', Arial, sans-serif;
+    margin-top: 70px;
+ 
+}
+
+.endereco-map{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+  
+}
+.img-localizacao{
+  gap:10px;
+    display: flex;
+}
+
+.img-localizacao img{
+width: 60px;
+height: 60px;
+}
+
+
+
+
+.avaliacao-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    
+  }
+  
+  .avaliacao-bloco {
+    background-color: #FF8C00; /* Laranja */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    max-width: 300px;
+    width: 100%;
+  }
+  .avaliacao-nota{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+  }
+  .avaliacao-nota h2{
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+  
+  .avaliacao-contagem {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .avaliacao-estrelas {
+    font-size: 20px;
+    letter-spacing: 2px;
+ 
+    color: #FFD700;
+  }
+  
+  .avaliacao-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px dashed white;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .avaliacao-link:hover {
+    border-bottom: 1px solid white;
+  }
+
+
+
+  .evaluation-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    color: #eeeeee;
+    background-color:#991C08;
+}
+.admin-response {
+    background-color:#f47a00;
+    border-left: 4px solid #f35308;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+}
+.star-rating {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+.evaluation-date {
+    color: #c5c5c5;
+    font-size: 0.9rem;
+}
+
+/* PÁGINA STATUS PEDIDO */
+
+.conteiner-status{
+    margin-top: 120px;
+    color:rgb(255, 255, 255);
+}
+.status{
+    border-radius: 15px;
+    background-color:#F77F00;
+    padding: 5px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 30px;
+}
+.status1{
+    text-align: left;
+    margin-left: 20px;
+}
+.status2{
+    text-align: center;
+    margin-bottom: 5%;
+    background-color:#F77F00;
+    border-radius: 15px;
+}
+.progress{
+    margin-top:5%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+}

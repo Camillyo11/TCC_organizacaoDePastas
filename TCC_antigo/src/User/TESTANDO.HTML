@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Bella Massa</title>
+
+  <link rel="stylesheet" a href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body class="backgrond-black">
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand me-auto" href="index.html">
+                <img src="../img/WhatsApp Image 2024-10-09 at 22.04.01.png" alt="Logo da Bella Massa"
+                    width="100" height="100">
+            </a>
+            <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BELLA MASSA</h5>
+                    <button type="button" class="btn-close btn-close-white btn-primary btn-sm"
+                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 text-white">
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2 active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Sobre nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Promoções</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link mx-lg-2" href="#">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Botões do Navbar -->
+            <div class="button-navbar ms-auto">
+                <!-- Botão de Conta/Perfil - será modificado via JavaScript -->
+                <a href="#" id="accountButton" class="login-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="../img/do-utilizador (3).png" height="25" width="25"> Conta</a>
+             
+         
+                <button class="login-button" data-bs-toggle="offcanvas" data-bs-target="#meuspedidosOffcanvas">
+                  <img src="../img/carrinho-de-compras.png" height="30" width="30"> Pedidos
+              </button>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        
+
+    </nav>
+
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header modal-header-preto">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container p-5">
+                        <form class="form-vermelho" id="loginForm">
+                            <div class="mb-3">
+                                <div class="title">
+                                    <h1>Acesse sua conta</h1>
+                                </div>
+                                <label for="email" class="form-label">Digite seu email:</label>
+                                <input type="email" name="email_usuario" placeholder="Digite seu email" id="email"
+                                    class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="">Digite sua senha:</label>
+                                <input type="password" name="senha_usuario" placeholder="Digite sua senha"
+                                    id="senha" class="form-control" required>
+                            </div>
+                            <div class="link-recuperar-senha">
+                                <a href="#">esqueci minha senha</a>
+                            </div>
+                            <div class="center-button">
+                                <button type="submit" class="button-black btn-submit">Conectar</button>
+                            </div>
+                            <div class="form-container">
+                                <div class="divider">
+                                    <span>ou</span>
+                                </div>
+                                <p>Ainda não tem cadastro?</p>
+                                <div class="center-button">
+                                    <button type="submit" class="button-black btn-submit"><a
+                                            href="../src/formscadastro.html">Quero me
+                                            cadastrar</a></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Modal DE ENDEREÇO -->
+<div class="modal modal-todo-vermelhor fade" id="exampleModalSegundo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-vermelhor">
+        <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">MEUS ENDEREÇOS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="offcanvas-title-pedidos">Endereços salvos</h4>
+      
+        
+        <div class="container conteiner-endereço">
+          <!-- Lista de endereços salvos -->
+         
+          <div class="d-flex justify-content-between align-items-center " 
+               data-bs-toggle="offcanvas" data-bs-target="#edicaoEnderecoOffcanvas" data-endereco-id="1">
+               <button class="endereco-item">
+                <img src="../img/fixar-mapa (1).png" alt="Casa do meu namorado" width="30" class="img-fluid">
+               <h7>Minha casa</h7>
+              </button>
+            </div>
+      
+          <div class="d-flex justify-content-between align-items-center " 
+            data-bs-toggle="offcanvas" data-bs-target="#edicaoEnderecoOffcanvas" data-endereco-id="1">
+            <button class="endereco-item">
+              <img src="../img/fixar-mapa (1).png" alt="Casa do meu namorado" width="30" class="img-fluid">
+             <h7>Casa do meu namorado</h7>
+            </button>
+          </div>
+            
+          
+          <div class="coluna">
+               <h6>Deseja cadastrar um novo endereço?</h6>
+               <button class="button-black" data-bs-toggle="offcanvas"
+                data-bs-target="#cadastroEnderecoOffcanvas" >
+                Cadastrar novo endereço</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Offcanvas para cadastro de novo endereço -->
+<div class=" offcanva-edicao-endereco offcanvas offcanvas-bottom" tabindex="-1" id="cadastroEnderecoOffcanvas" aria-labelledby="cadastroEnderecoOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="cadastroEnderecoOffcanvasLabel">Cadastrar novo endereço</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+      <div class="mb-4">
+        <label class="form-label"><strong>CEP:</strong></label>
+        <input type="text" class="form-control" placeholder="Digite seu CEP">
+        <a href="#" class="small text-light">Não sei meu CEP</a>
+      </div>
+      
+      <div class="mb-4">
+        <label class="form-label"><strong>Endereço:</strong></label>
+        <input type="text" class="form-control" placeholder="Endereço">
+      </div>
+      
+      <div class="mb-4 row">
+          <div class="col-4">
+            <label class="form-label"><strong>Número:</strong></label>
+            <input type="number" class="form-control" placeholder="Número">
+          </div>
+          <div class="col-8">
+            <label class="form-label"><strong>Complemento:</strong></label>
+            <input type="text" class="form-control" placeholder="Complemento">
+          </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label"><strong>Bairro:</strong></label>
+        <input type="text" class="form-control" placeholder="Bairro">
+      </div>
+      
+      <div class="mb-4">
+        <label class="form-label"><strong>Tem algum ponto de referência?</strong></label>
+        <textarea class="form-control" rows="1" placeholder="Se sim, pode facilitar a entrega!"></textarea>
+      </div>  
+
+
+      <div class="buttons-opcao-endereco row">
+        <h8 class="text-light text-center mb-3"><strong>Como deseja favoritar esse endereço?</strong></h8>
+        
+        <!-- Botão Casa -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type active" data-address-type="casa">
+            <img src="../img/casa (1).png" width="30" class="img-fluid mb-2">
+            <div>Casa</div>
+            <input type="radio" name="tipoEndereco" value="Casa" checked hidden>
+          </button>
+        </div>
+        
+        <!-- Botão Empresa -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type" data-address-type="empresa">
+            <img src="../img/apartamento.png" width="30" class="img-fluid mb-2">
+            <div>Empresa</div>
+            <input type="radio" name="tipoEndereco" value="Empresa" hidden>
+          </button>
+        </div>
+        
+        <!-- Botão Outros -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type" data-address-type="outros">
+            <img src="../img/estrela.png" width="30" class="img-fluid mb-2">
+            <div>Outros</div>
+            <input type="radio" name="tipoEndereco" value="Outros" hidden>
+          </button>
+        </div>
+        
+        <!-- Campo para nome personalizado (aparece apenas quando "Outros" está selecionado) -->
+        <div class="col-12 mt-3" id="custom-address-name-container" style="display: none;">
+          <label class="form-label"><strong>Digite o nome do endereço:</strong></label>
+          <input type="text" class="form-control" id="custom-address-name" placeholder="Ex: Casa da praia, Apartamento do trabalho">
+        </div>
+      </div>
+
+
+
+
+
+        
+        <!-- Campo de texto para "Outro" (inicialmente escondido) 
+        <div id="outroEnderecoContainer" class="mt-3 col-12" style="display: none;">
+          <div class="input-group">
+            <input type="text" class="form-control" id="nomeOutroEndereco" placeholder="Digite o nome do endereço">
+            <button class="btn btn-orange check-laranja " id="btnSalvarEndereco" type="button">
+              <i class="fas fa-save"></i> Salvar
+            </button>
+          </div>
+        </div>
+        -->
+        
+     <!--    Botão de confirmação (sempre visível)
+        <div class="col-12 mt-3 text-center">
+          <button class="btn btn-orange" id="btnConfirmarEndereco">
+            <i class="fas fa-check"></i> Confirmar Endereço
+          </button>
+        </div>
+      </div>
+ -->
+
+
+
+      
+      <div class="buttons-opcao-endereco">
+        <button class="button-branco" type="button" data-bs-dismiss="offcanvas">Cancelar</button>
+        <button class="button-black" type="button">Salvar endereço</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Offcanvas de Meus Dados -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="meusDadosOffcanvas" aria-labelledby="meusDadosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="meusDadosOffcanvasLabel">meus dados</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="dado-section">
+      <h6 class="dado-title">Dados pessoais</h6>
+      <div class="dado-item">
+        <span class="dado-label">Nome:</span>
+        <span class="dado-value" id="dadoNome"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">Aniversário:</span>
+        <span class="dado-value" id="dadoNascimento"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">CPF:</span>
+        <span class="dado-value" id="dadoCpf"></span>
+      </div>
+    </div>
+    
+    <div class="dado-section">
+      <h6 class="dado-title">Dados de contatos</h6>
+      <div class="dado-item">
+        <span class="dado-label">Telefone:</span>
+        <span class="dado-value" id="dadoTelefone"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">Email:</span>
+        <span class="dado-value" id="dadoEmail"></span>
+      </div>
+    </div>
+    
+   
+      
+    <!-- Mensagem para usuários não cadastrados -->
+    <div id="semCadastroMsg" class="text-center py-4" style="display: none;">
+      <img src="../img/aviso.png" width="60" class="mb-3">
+      <h6>Você ainda não possui cadastro</h6>
+      <p>Faça seu cadastro para acessar todas as funcionalidades</p>
+      <a href="../src/formscadastro.html" class="btn btn-danger mt-2">Cadastrar agora</a>
+    </div>
+    
+    <!-- Conteúdo para usuários cadastrados (inicialmente escondido) -->
+    <div id="dadosUsuarioContent" style="display: none;">
+      <div class="dado-section">
+        <h6 class="dado-title">Editar meus dados</h6>
+        
+        <!-- Botão para ativar a edição -->
+        <button id="btnEditarDados" class="btn-editar ">
+          <img src="../img/caneta-do-usuario.png" width="20"> Editar Informações
+        </button>
+        
+        <!-- Formulário de edição (inicialmente oculto) -->
+        <form id="formEditarDados" style="display: none;">
+          
+          <div class="mb-3">
+            <label class="dado-label">Nome Completo</label>
+            <input type="text" class="form-control" id="editarNome">
+          </div>
+         
+          
+          <div class="mb-3">
+            <label class="dado-label">Telefone</label>
+            <div class="row">
+              <div class="col-3">
+                <input type="text" class="form-control" id="editarDDD" placeholder="DDD">
+              </div>
+              <div class="col-9">
+                <input type="text" class="form-control" id="editarTelefone" placeholder="Número">
+              </div>
+            </div>
+          </div>
+          
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-light" onclick="cancelarEdicao()">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Offcanvas de Pedidos Atuais -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="meuspedidosOffcanvas" aria-labelledby="meuspedidosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="meuspedidosOffcanvasLabel">Meus Pedidos</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #1234</span>
+        <span class="pedido-status status-andamento">em andamento</span>
+      </div>
+      <div>Mussarela / <strong>GRANDE</strong></div>
+      <small class="text-muted">06/03/2025 às 21:28</small>
+    </div>
+  </div>
+</div>
+
+<!-- Offcanvas do Histórico de Pedidos -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="pedidosOffcanvas" aria-labelledby="pedidosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="pedidosOffcanvasLabel">Histórico de Pedidos</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #4301</span>
+        <span class="pedido-status status-entregue">entregue</span>
+      </div>
+      <div>Calabresa / <strong>MÉDIA</strong></div>
+      <small class="text-muted">01/04/2025 às 20:28</small>
+    </div>
+    
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #6074</span>
+        <span class="pedido-status status-entregue">entregue</span>
+      </div>
+      <div>Quatro Queijos / <strong>MÉDIA</strong></div>
+      <small class="text-muted">12/01/2025 às 23:48</small>
+    </div>
+    
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #8912</span>
+        <span class="pedido-status status-cancelado">cancelado</span>
+      </div>
+      <div>Portuguesa / <strong>GRANDE</strong></div>
+      <small class="text-muted">05/02/2025 às 19:15</small>
+    </div>
+  </div>
+</div>
+
+<!-- Offcanvas de Perfil -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="profileOffcanvas">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title">MEU PERFIL</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+      <div class="text-center">
+          <img src="../img/do-utilizador (3).png" width="100" class="rounded-circle mb-3">
+          <h6>Bem-vindo de volta!</h6>
+      </div>
+      <div class="buttons-perfil mt-4">
+          <button class="button-laranja-perfil mb-2" id="historicoPedidosBtn">
+              <img src="../img/rapido.png" width="25">Histórico de Pedidos
+          </button>
+          <button class="button-branco-perfil mb-2" id="enderecosBtn">
+              <img src="../img/fixar-mapa (1).png" width="25">Endereços Salvos
+          </button>
+          <button class="button-laranja-perfil mb-2" id="minhasInfoBtn">
+              <img src="../img/caneta-do-usuario.png" width="25">Minhas informações
+          </button>
+      </div>
+      
+      <h5 class="section-title">Programa de Fidelidade</h5>
+      <div class="card card-fidelidade mb-3">
+          <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-award me-2"></i> Pontos acumulados: </h5>
+              <p class="card-text">Próxima recompensa:</p>
+              <div class="progress mb-3">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="200"></div>
+              </div>
+              <small class="text-muted">Você está a 50 pontos da próxima recompensa!</small>
+          </div>
+      </div>
+
+      <div class="position-button-sair">
+        <h6>Desconectar da conta</h6>
+        <button class="button-sair" id="profileLogout">
+          <img src="../img/deixar.png" width="25">Sair
+        </button>
+      </div>
+  </div>
+</div>
+
+<main>
+    <!-- área de introdução  img-fluid, rouede-->
+    <section class=" conteiner-intro hero container-fluid text-white">
+      <div class="container">
+        <h1 class="fw-bold">A melhor pizza do Jardim Ângela</h1>
+        <p>A melhor de São Paulo</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="btn btn-custom px-4 py-2"><strong>Promoções</strong></a>
+          <a href="#" class="btn btn-custom px-4 py-2"><strong>Faça seu pedido</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section class="sobre-nos container">
+      <div class="row d-flex justify-content-center align-items-center text-center">
+
+        <div class="col ">
+          <img src="../src/img/WhatsApp Image 2024-10-09 at 22.04.01.png" alt="Pizza" class="img-fluid">
+        </div>
+
+        <div class="col ">
+          <h2>Sobre nós</h2>
+          <p>Desde 1999 a Bella Massa é referência em pizzas de qualidade, com ingredientes selecionados e um sabor
+            inigualável. Venha conhecer nosso cardápio e se surpreender com a qualidade de nossos produtos.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="cardapio container">
+      <div class="cardapio-intro conteiner text-center">
+        <div class="row justify-content-md-center">
+          <div class="col-lg-2">
+            <img src="../src/img/pizza.png" alt="Pizza" class="img-fluid">
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <h2>EXPLORE NOSSO CARDÁPIO!</h2>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, aperiam? Possimus officiis perferendis
+                iure deleniti fugit! Aut rem voluptatibus consequatur consequuntur, minima atque deserunt, porro
+                adipisci accusantium ratione, aliquam eveniet!</p>
+            </div>
+            <div class="col-4">
+              <div class="pizza-oculos">
+                <img src="../src/img/image.png" alt="Pizza" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=" row row-cols-1 row-cols-md-3 g-4">
+          <!-- Primeira coluna -->
+          <div class="col">
+            <button class="button-cardapio">
+              <a herf="#" alt="pizza"><img
+                  src="../src/img/ai-generated-a-slice-of-pizza-is-shown-with-melted-cheese-free-png.png"
+                  alt="Pizza salgada"></a>
+              <h5 class="button-cardapio-title">Pizza Salgada</h5>
+            </button>
+          </div>
+
+          <!-- Segunda coluna -->
+          <div class="col">
+            <button class="button-cardapio">
+              <img src="../src/img/ai-generated-a-slice-of-pizza-is-shown-with-melted-cheese-free-png.png"
+                alt="Pizza doce">
+
+              <h5 class="button-cardapio-title">Pizza Doce</h5>
+
+            </button>
+          </div>
+
+          <!-- Terceira coluna -->
+          <div class="col">
+            <button class="button-cardapio">
+              <img
+                src="../src/img/png-transparent-soft-drink-coca-cola-juice-milkshake-coke-clear-drinking-glass-filled-with-beverage-drink-illustration-food-drop-the-cocacola-company-thumbnail.png"
+                alt="refrigerante">
+
+              <h5 class="button-cardapio-title">Refrigerante</h5>
+
+            </button>
+          </div>
+
+        </div>
+    </section>
+
+    <!-- PROMOÇÕES -->
+    <section>
+
+    </section>
+
+    <!-- CONTATO -->
+    <section>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-conteiner">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img class="logo-grande" src="../img/WhatsApp Image 2024-10-09 at 22.04.01.png" alt="">
+      </div>
+      <div class="col">
+        <h5>Endereço</h5>
+        <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+        <p>São Paulo-SP</p>
+      </div>
+      <div class="col">
+        <h5>Telefone</h5>
+        <p>(11)9002-0922</p>
+        <p>(11)9002-0922</p>
+      </div>
+      <div class="col">
+        <h5>Horário de funcionamento</h5>
+        <h6>Terça a Quinta</h6>
+        <p> Das 17:00 ás 00:00</p>
+        <h6>Sexta á Sábado</h6>
+        <p> Das 17:00 ás 01:00</p>
+      </div>
+    </div>
+
+    <!-- Redes Sociais abaixo das colunas -->
+    <div class="row">
+      <div class="col redes-sociais">
+        <a href="#" class="midia"><img src="../img/whatsapp.png" height="30" width="30"></a>
+        <a href="#" class="midia"><img src="../img/instagram.png" height="30" width="30"></a>
+        <a href="#" class="midia"><img src="../img/tik-tok (1).png" height="30" width="30"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+  
+  // Quando abrir o offcanvas
+document.querySelectorAll('[data-bs-toggle="offcanvas"]').forEach(element => {
+  element.addEventListener('click', function() {
+    // Fecha o modal primeiro
+    var modal = bootstrap.Modal.getInstance(document.getElementById('exampleModalSegundo'));
+    modal.hide();
+    
+    // Depois abre o offcanvas
+    var offcanvasEl = document.getElementById('edicaoEnderecoOffcanvas');
+    var offcanvas = new bootstrap.Offcanvas(offcanvasEl);
+    offcanvas.show();
+  });
+}); 
+ // Verifica o status de login ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    updateAccountButton();
+});
+// Manipula o formulário de login
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Validação simples (substitua pela sua lógica real)
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    
+    if (email && senha) {
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        // Fecha o modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+        modal.hide();
+        
+        // Atualiza o botão
+        updateAccountButton();
+        
+        // Redireciona para o perfil (opcional)
+        // window.location.href = "perfil.html";
+    } else {
+        alert('Por favor, preencha todos os campos!');
+    }
+});
+
+// 1. Verifica se está logado ao carregar
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        configureProfileButton();
+    }
+});
+
+
+  // Atualiza o botão de conta baseado no status de login
+  function updateAccountButton() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const accountBtn = document.getElementById('accountButton');
+    
+    if (!accountBtn) return;
+    
+    if (isLoggedIn) {
+      accountBtn.innerHTML = '<img src="../img/do-utilizador (3).png" height="25" width="25"> Meu Perfil';
+      accountBtn.removeAttribute('data-bs-toggle');
+      accountBtn.removeAttribute('data-bs-target');
+      accountBtn.href = "#";
+      accountBtn.onclick = function(e) {
+        e.preventDefault();
+        showProfileOffcanvas();
+      };
+    } else {
+      accountBtn.innerHTML = '<img src="../img/do-utilizador (3).png" height="25" width="25"> Conta';
+      accountBtn.setAttribute('data-bs-toggle', 'modal');
+      accountBtn.setAttribute('data-bs-target', '#exampleModal');
+      accountBtn.onclick = null;
+    }};
+  
+
+  // Mostra o offcanvas do perfil
+  function configureProfileButton() {
+    const accountBtn = document.getElementById('accountButton');
+    
+    // Modifica APENAS o botão de perfil
+    accountBtn.innerHTML = '<img src="../img/do-utilizador (3).png" height="28" width="28">Meu Perfil';
+    accountBtn.onclick = function(e) {
+        e.preventDefault();
+    const offcanvasHTML = `
+    <div class="offcanvas-perfil offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="profileOffcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">MEU PERFIL</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="text-center">
+          <img src="../img/do-utilizador (3).png" width="100" class="rounded-circle mb-3">
+          <h6>Bem-vindo de volta!</h6>
+        </div>
+        <div class="buttons-perfil mt-4">
+          <button class="button-laranja-perfil mb-2" id="historicoPedidosBtn">
+            <img src="../img/rapido.png" width="25">Histórico de Pedidos
+          </button>
+          <button class="button-branco-perfil mb-2" id="enderecosBtn">
+            <img src="../img/fixar-mapa (1).png" width="25">Endereços Salvos
+          </button>
+          <button class="button-laranja-perfil mb-2" id="minhasInfoBtn">
+            <img src="../img/caneta-do-usuario.png" width="25">Minhas informações
+          </button>
+        </div>
+        
+        <h5 class="section-title">Programa de Fidelidade</h5>
+        <div class="card card-fidelidade mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-award me-2"></i> Pontos acumulados: </h5>
+            <p class="card-text">Próxima recompensa:</p>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="200"></div>
+            </div>
+            <small class="text-muted">Você está a 50 pontos da próxima recompensa!</small>
+          </div>
+        </div>
+
+        <div class="position-button-sair">
+          <h6>Desconectar da conta</h6>
+          <button class="button-sair" id="profileLogout">
+            <img src="../img/deixar.png" width="25">Sair
+          </button>
+        </div>
+      </div>
+    </div>`;
+    
+    // Adiciona o offcanvas ao body
+    document.body.insertAdjacentHTML('beforeend', offcanvasHTML);
+    const profileOffcanvas = new bootstrap.Offcanvas(document.getElementById('profileOffcanvas'));
+    profileOffcanvas.show();
+    
+    // Configura os botões dentro do perfil
+    document.getElementById('historicoPedidosBtn')?.addEventListener('click', function() {
+      profileOffcanvas.hide();
+      const pedidosOffcanvas = new bootstrap.Offcanvas(document.getElementById('pedidosOffcanvas'));
+      pedidosOffcanvas.show();
+    });
+    
+    document.getElementById('enderecosBtn')?.addEventListener('click', function() {
+      profileOffcanvas.hide();
+      const enderecosModal = new bootstrap.Modal(document.getElementById('exampleModalSegundo'));
+      enderecosModal.show();
+    });
+
+
+
+
+    
+   /* MINHAS INFORMAÇÕES  */
+  // Funções auxiliares para formatação (adicione no início do seu JavaScript)
+function formatarCPF(cpf) {
+    if (!cpf) return 'Não informado';
+    return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
+
+function formatarTelefone(telefone) {
+    if (!telefone) return 'Não informado';
+    return telefone.replace(/(\d{5})(\d{4})/, '$1-$2');
+}
+
+// Variável global para armazenar o usuário
+let usuario;
+
+// Modifique a função configureProfileButton para incluir o correto tratamento do botão Minhas Informações
+function configureProfileButton() {
+    const accountBtn = document.getElementById('accountButton');
+    
+    accountBtn.innerHTML = '<img src="../img/do-utilizador (3).png" height="28" width="28">Meu Perfil';
+    accountBtn.onclick = function(e) {
+        e.preventDefault();
+        const offcanvasHTML = `
+        <div class="offcanvas-perfil offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="profileOffcanvas">
+            <!-- ... (mantenha o conteúdo existente do offcanvas de perfil) ... -->
+        </div>`;
+        
+        document.body.insertAdjacentHTML('beforeend', offcanvasHTML);
+        const profileOffcanvas = new bootstrap.Offcanvas(document.getElementById('profileOffcanvas'));
+        profileOffcanvas.show();
+        
+        // Configuração do botão Minhas Informações - CORREÇÃO PRINCIPAL
+        document.getElementById('minhasInfoBtn')?.addEventListener('click', function() {
+            // Carrega os dados do usuário
+            usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+            
+            // Preenche os dados no offcanvas Meus Dados
+            if (usuario) {
+                document.getElementById('dadoNome').textContent = usuario.nome || 'Não informado';
+                document.getElementById('dadoNascimento').textContent = usuario.nascimento || 'Não informado';
+                document.getElementById('dadoCpf').textContent = formatarCPF(usuario.cpf);
+                document.getElementById('dadoTelefone').textContent = usuario.ddd && usuario.telefone ? 
+                    `(${usuario.ddd}) ${formatarTelefone(usuario.telefone)}` : 'Não informado';
+                document.getElementById('dadoEmail').textContent = usuario.email || 'Não informado';
+                document.getElementById('emailAtual').value = usuario.email || '';
+            }
+            
+            // Fecha o offcanvas do perfil e abre o de Meus Dados
+            profileOffcanvas.hide();
+            const meusDadosOffcanvas = new bootstrap.Offcanvas(document.getElementById('meusDadosOffcanvas'));
+            meusDadosOffcanvas.show();
+        });
+
+        // ... (mantenha o resto do seu código existente para os outros botões)
+    };
+}
+document.getElementById('minhasInfoBtn')?.addEventListener('click', function() {
+  // Carrega os dados do usuário
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const semCadastroMsg = document.getElementById('semCadastroMsg');
+  const dadosUsuarioContent = document.getElementById('dadosUsuarioContent');
+  
+  // Verifica se existe cadastro
+  if (!usuario) {
+    // Mostra mensagem para não cadastrados
+    semCadastroMsg.style.display = 'block';
+    dadosUsuarioContent.style.display = 'none';
+    
+    // Opcional: fecha o offcanvas de perfil se estiver aberto
+    const profileOffcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('profileOffcanvas'));
+    if (profileOffcanvas) profileOffcanvas.hide();
+    
+    // Abre o offcanvas de Meus Dados
+    const meusDadosOffcanvas = new bootstrap.Offcanvas(document.getElementById('meusDadosOffcanvas'));
+    meusDadosOffcanvas.show();
+    return;
+  }
+  
+  // Se tiver cadastro, mostra os dados normalmente
+  semCadastroMsg.style.display = 'none';
+  dadosUsuarioContent.style.display = 'block';
+  
+  // Preenche os dados (mantenha seu código atual aqui)
+  document.getElementById('dadoNome').textContent = usuario.nome;
+  // ... (restante do seu código de preenchimento)
+  
+  // Fecha o offcanvas de perfil e abre o de Meus Dados
+  const profileOffcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('profileOffcanvas'));
+  if (profileOffcanvas) profileOffcanvas.hide();
+  
+  const meusDadosOffcanvas = new bootstrap.Offcanvas(document.getElementById('meusDadosOffcanvas'));
+  meusDadosOffcanvas.show();
+});
+// Variável global para o offcanvas
+let meusDadosOffcanvas;
+
+// Função para o botão "Editar Informações"
+document.getElementById('btnEditarDados')?.addEventListener('click', function() {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  
+  // Preenche o formulário com os dados atuais
+  document.getElementById('editarNome').value = usuario.nome || '';;
+  document.getElementById('editarDDD').value = usuario.ddd || '';
+  document.getElementById('editarTelefone').value = usuario.telefone || '';
+  
+  // Mostra o formulário e esconde o botão
+  document.getElementById('formEditarDados').style.display = 'block';
+  this.style.display = 'none';
+});
+
+// Função para cancelar a edição
+window.cancelarEdicao = function() {
+  document.getElementById('formEditarDados').style.display = 'none';
+  document.getElementById('btnEditarDados').style.display = 'block';
+};
+
+// Função para salvar as alterações
+document.getElementById('formEditarDados')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  
+  // Atualiza os dados
+  usuario.nome = document.getElementById('editarNome').value;
+  usuario.ddd = document.getElementById('editarDDD').value;
+  usuario.telefone = document.getElementById('editarTelefone').value;
+  
+  // Salva no localStorage
+  localStorage.setItem('usuario', JSON.stringify(usuario));
+  
+  // Atualiza a exibição dos dados
+  atualizarExibicaoDados();
+  
+  // Volta para o modo de visualização
+  cancelarEdicao();
+  
+  // Feedback para o usuário
+  alert('Dados atualizados com sucesso!');
+});
+
+// Função para atualizar a exibição dos dados
+function atualizarExibicaoDados() {
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  
+  if (usuario) {
+    document.getElementById('dadoNome').textContent = usuario.nome || 'Não informado';
+
+    document.getElementById('dadoTelefone').textContent = 
+      (usuario.ddd && usuario.telefone) ? `(${usuario.ddd}) ${formatarTelefone(usuario.telefone)}` : 'Não informado';
+  }
+}
+
+
+
+
+
+
+
+
+    
+    // Configura o logout
+    document.getElementById('profileLogout')?.addEventListener('click', function() {
+      if(confirm('Tem certeza que deseja sair?')) {
+        localStorage.removeItem('isLoggedIn');
+        profileOffcanvas.hide();
+        updateAccountButton();
+      }
+    });
+    
+    // Adicione este código ao seu JavaScript existente
+    document.querySelector('#cadastroEnderecoOffcanvas button.button-black').addEventListener('click', function() {
+  // Fecha o modal de endereços
+  const enderecosModal = bootstrap.Modal.getInstance(document.getElementById('exampleModalSegundo'));
+  enderecosModal.hide();
+  
+  // Abre o offcanvas de cadastro
+  const cadastroOffcanvas = new bootstrap.Offcanvas(document.getElementById('cadastroEnderecoOffcanvas'));
+  cadastroOffcanvas.show();
+}); 
+    // Remove o offcanvas quando fechado
+    document.getElementById('profileOffcanvas')?.addEventListener('hidden.bs.offcanvas', function() {
+      this.remove();
+    });
+    }
+  }
+
+/* BUTÃO DE ENDEREÇO */
+  document.addEventListener('DOMContentLoaded', function() {
+  // Seleciona todos os botões de tipo de endereço
+  const addressButtons = document.querySelectorAll('.btn-address-type');
+  const customNameContainer = document.getElementById('custom-address-name-container');
+  const customNameInput = document.getElementById('custom-address-name');
+  
+  // Adiciona evento de clique para cada botão
+  addressButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove a classe 'active' de todos os botões
+      addressButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.querySelector('input[type="radio"]').removeAttribute('checked');
+      });
+      
+      // Adiciona 'active' apenas ao botão clicado
+      this.classList.add('active');
+      this.querySelector('input[type="radio"]').setAttribute('checked', 'checked');
+      
+      // Mostra ou esconde o campo de nome personalizado
+      if (this.dataset.addressType === 'outros') {
+        customNameContainer.style.display = 'block';
+        customNameInput.required = true;
+      } else {
+        customNameContainer.style.display = 'none';
+        customNameInput.required = false;
+      }
+    });
+  });
+  
+  // Garante que o campo personalizado seja limpo quando outro tipo for selecionado
+  customNameInput.addEventListener('change', function() {
+    if (this.value.trim() !== '') {
+      document.querySelector('[data-address-type="outros"] input[type="radio"]').value = this.value;
+    }
+
+    // Para pegar o tipo selecionado
+const selectedType = document.querySelector('input[name="tipoEndereco"]:checked').value;
+
+// Se for "Outros", pegue o valor do campo personalizado
+if (selectedType === "Outros") {
+  const customName = document.getElementById('custom-address-name').value;
+  // Use customName como o nome do endereço
+}
+  });
+});
+
+
+</script>
+
+
+
+
+
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
