@@ -7,8 +7,7 @@
 
     <title>Status do Pedido</title>
     <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
-    <link rel="stylesheet" a href="../assets/css/auth.css">
-    <link rel="stylesheet" a href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" a href="../assets/css/components.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -19,121 +18,227 @@
 
     <main>
         <section class="conteiner-status text-center">
-            <h3>Status do Pedido</h3>
-
             <div class="status">
-                <h3>Pedido em preparo</h3>
+                <h3>Status do Pedido</h3>
+                <p>Nós cuidamos de tudo para você!</p>
             </div>
+
             <br>
             <div class="status1">
-                <p><strong>Codigo do pedido: 001</strong></p>
-                <p><strong>Tempo estimado: 30 minutos</strong></p>
-            </div>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-            </div>
-            <div class="status2">
-                <table style="width:100%">
-                    <tr>
-                        <th>Pedido recebido</th>
-                        <th>Pedido confirmado</th>
-                        <th>Pedido em preparo</th>
-                        <th>Pedido a caminho</th>
-                        <th>Pedido entregue</th>
-                    </tr>
-                </table>
+                <p><strong class="text-success">Codigo do pedido: 00001</strong> <br>
+                    Tempo estimado: 30 minutos</p>
             </div>
 
-            <!--   MAPA ONLINE   -->
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.38358367543!2d-46.76851652385652!3d-23.697992278706298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5212f9627de5%3A0x1c5ccd29c1a3e96a!2sEtec%20Jardim%20%C3%82ngela!5e0!3m2!1spt-BR!2sbr!4v1716510745441!5m2!1spt-BR!2sbr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            <div class="barra">
+                <div style="width: 75%;"></div>
+            </div>
 
+
+
+            <div class="status-timeline">
+                <div class="progresso-tempo active">
+                    <div class="status-icone">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Confirmado</h3>
+                        <p>Seu pedido foi recebido e confirmado pela BellaMassa.</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:26 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo active">
+                    <div class="status-icone">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido em Preparação</h3>
+                        <p>Sua pizza está sendo preparada com todo amor da BellaMassa.</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:33 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo current">
+                    <div class="status-icone">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Saiu para Entrega</h3>
+                        <p>Seu pedido saiu para entrega. Jajá você ira degustar do melhor da BellaMassa !</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:40 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo">
+                    <div class="status-icone">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Entregue</h3>
+                        <p>Seu pedido foi entregue com sucesso. Bom apetite!</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:55 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="detalhes container">
+                <h3>Meus pedidos</h3>
+                <div class="detalhes-pedido">
+                    <div class="info-detalhes">
+
+                        <span class="info-dados text-capitalize">data de pedido:</span>
+                        <span class="info-valores text-right">11/05/2025 - 11:30 </span>
+                    </div>
+
+                    <div class="info-detalhes">
+
+                        <span class="info-dados text-capitalize">endereço da entrega:</span>
+                        <span class="info-valores text-right text-capitalize">rua anesio soares publio, 321 -
+                            <br>jardim
+                            herculano - SP </span>
+                    </div>
+
+                    <P class="text-success fw-bold col-12 ">Obrigado por confiar em nós. Bom apetite !</P>
+
+                </div>
+
+                <div class="itens-pedido">
+                    <h3 class="text-center">Itens do Pedido</h3>
+                    <ul class="lista-item">
+
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">1x</span>
+                            <span>Pizza de frango com catupiry</span>
+                            <span class="valor-item text-dark">R$ 45,90</span>
+
+                        </li>
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">2x</span>
+                            <span>Refrigerante Coca-Cola</span>
+                            <span class="valor-item text-dark">R$ 24,50</span>
+
+                        </li>
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">1x</span>
+                            <span> Pizza de Calabresa</span>
+                            <span class="valor-item text-dark">R$ 45,90</span>
+
+                        </li>
+
+                        <li style="padding-top: 10px; border-top: 1px solid rgb(32, 32, 32); font-weight: 600;">
+                            <span class="fw-bolder text-capitalize">total do pedido:</span>
+                            <span class="valor-item text-dark fw-bold">R$ 116,30 </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <div class="contato-suporte">
+                <div class="text-center fw-bold">Problemas no seu pedido? <strong><a href="contato.html">Fale Conosco !</a></strong></div>
+            </div>
         </section>
     </main>
-  <!--   FOOTER   -->
-  <footer class="footer-conteiner">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
+
+
+     <!--   FOOTER   -->
+     <footer class="footer-conteiner">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
+          </div>
+          <div class="col">
+            <h5>Endereço</h5>
+            <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+            <p>São Paulo-SP</p>
+          </div>
+          <div class="col">
+            <h5>Telefone</h5>
+            <p>(11)9002-0922</p>
+            <p>(11)9002-0922</p>
+          </div>
+          <div class="col">
+            <h5>Horário de funcionamento</h5>
+            <h6>Terça a Quinta</h6>
+            <p> Das 17:00 ás 00:00</p>
+            <h6>Sexta á Sábado</h6>
+            <p> Das 17:00 ás 01:00</p>
+          </div>
         </div>
-        <div class="col">
-          <h5>Endereço</h5>
-          <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
-          <p>São Paulo-SP</p>
-        </div>
-        <div class="col">
-          <h5>Telefone</h5>
-          <p>(11)9002-0922</p>
-          <p>(11)9002-0922</p>
-        </div>
-        <div class="col">
-          <h5>Horário de funcionamento</h5>
-          <h6>Terça a Quinta</h6>
-          <p> Das 17:00 ás 00:00</p>
-          <h6>Sexta á Sábado</h6>
-          <p> Das 17:00 ás 01:00</p>
+  
+        <!-- Redes Sociais abaixo das colunas -->
+        <div class="row">
+          <div class="col redes-sociais">
+            <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+            <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+            <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+          </div>
         </div>
       </div>
-
-      <!-- Redes Sociais abaixo das colunas -->
-      <div class="row">
-        <div class="col redes-sociais">
-          <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
-          <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
-          <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-   
-<script src="../assets/js/auth.js"></script>
-  <script src="/TCC_organizacaoDePastas/src/frontend/assets/js/loadHeader.js"></script>
-  <script src="../assets/js/navbar.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-
-
-
-     <!--  // Abra o console do navegador (F12) e execute:
-localStorage.removeItem('isLoggedIn');
-localStorage.removeItem('usuario');
-localStorage.clear();
-console.log(localStorage.getItem('isLoggedIn')); -->
-
-
-<!-- Script de carregamento (coloque no FINAL do body, após o bootstrap) -->
-<script>
-  fetch('../UserPages/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    })
-    .catch(error => console.error('Erro ao carregar o header:', error));
+    </footer>
+    <script>
+        fetch('../UserPages/header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => console.error('Erro ao carregar o header:', error));
+        
+       // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
+       const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+       modalTriggerList.map(function (modalTriggerEl) {
+         new bootstrap.Modal(modalTriggerEl);
+       });
     
-   // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
-   const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
-   modalTriggerList.map(function (modalTriggerEl) {
-     new bootstrap.Modal(modalTriggerEl);
-   });
+       const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+       offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+         new bootstrap.Offcanvas(offcanvasTriggerEl);
+       }); 
+        setTimeout(function(){
+            const currenttempo = document.querySelector('.progresso-tempo.current');
+            if (currenttempo) {
+                currenttempo.classList.remove('current');
 
-   const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-   offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-     new bootstrap.Offcanvas(offcanvasTriggerEl);
-   });
-   const form = document.getElementById("avaliacaoForm");
+                currenttempo.classList.add('active');
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  // lógica do envio
-});
-</script>
+                const nexttempo = currenttempo.nextElementSibling;
+
+                if (nexttempo) {
+                    nexttempo.classList.add('current');
+
+                    barra.style.width = '100%';
+                }
+            } 
+        
+        },10000);
+
+
+        
+    </script>
+
+
+    <!-- BOOTSTARP JS -->
+    <script src="JAVASCRIPT/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>
 
 
 
@@ -141,7 +246,3 @@ form.addEventListener("submit", function (e) {
   
     
 
-
-  </body>
-
-</html>
