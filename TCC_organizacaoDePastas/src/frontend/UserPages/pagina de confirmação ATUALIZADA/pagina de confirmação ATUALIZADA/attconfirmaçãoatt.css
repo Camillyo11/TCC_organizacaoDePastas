@@ -1,0 +1,914 @@
+ /* MONTSERRAT ALTERNATIVES */
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+ /* MONTSERRAT SLAB */
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
+
+ :root {
+     --font1: "Montserrat Alternates";
+     --font2: "Montagu Slab";
+ }
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     background-color: #991C08;
+ }
+
+
+ @media (max-width: 768px) {
+     /* Para telas menores que 768px */
+
+     html,
+     body {
+         /* margin: 0;
+        padding: 10px; 
+        height: 100%; */
+         flex-direction: row;
+
+
+     }
+ }
+
+ @media (max-width: 480px) {
+
+     /* Para telas menores que 480px (celulares bem pequenos) */
+     html,
+     body {
+         margin: 0;
+         padding: 0px;
+         height: 100%;
+
+         flex-direction: row;
+     }
+
+ }
+
+ /* HEADER */
+ .navbar-brand {
+     font-size: 24px;
+     font-weight: 500;
+     color: rgb(255, 255, 255);
+     margin-left: 20px;
+     height: 100px;
+     z-index: 1000;
+
+
+ }
+
+ .navbar-brand img {
+     width: 80px;
+     height: 80px;
+ }
+
+ a.login-button {
+     display: inline-flex;
+     align-items: center;
+     text-decoration: none !important;
+     cursor: pointer;
+
+     background-color: rgb(144, 33, 6) !important;
+     color: white;
+     font-size: 14px;
+     padding: 5px 5px;
+     border-radius: 50px;
+     text-decoration: none;
+     transition: 0.3s background-color !important;
+     border: none;
+
+
+ }
+
+ /* Remove o sublinhado no hover */
+ a.login-button:hover {
+     background-color: rgb(211, 35, 11) !important;
+     text-decoration: none !important;
+ }
+
+ .button-navbar {
+     display: flex;
+     margin-left: auto;
+     gap: 10px;
+     padding: 10px;
+
+ }
+
+ button.login-button {
+     background-color: rgb(144, 33, 6) !important;
+     color: white;
+     font-size: 14px;
+     padding: 5px 5px;
+     border-radius: 50px;
+     text-decoration: none;
+     transition: 0.3s background-color !important;
+     margin-right: 20px;
+     border: none;
+     gap: 8px;
+     /* Espaço entre a imagem e o texto */
+     white-space: nowrap;
+     /* Impede que o texto quebre em várias linhas */
+
+ }
+
+ button.login-button:hover,
+ a.login-button:hover {
+     background-color: rgb(211, 35, 11) !important;
+ }
+
+
+ button.login-button img,
+ a.login-button img {
+     display: inline-block;
+     /* Garante que a imagem fique alinhada corretamente */
+     flex-shrink: 0;
+     /* Impede que a imagem diminua */
+ }
+
+
+ @media (max-width: 420px) {
+     .button-navbar {
+         flex-direction: row;
+         gap: 5px;
+         margin-left: 0;
+         width: 80%;
+         justify-content: flex-end;
+     }
+
+     .login-button {
+         background-color: rgb(144, 33, 6) !important;
+         color: white;
+         font-size: 10px;
+         padding: 5px 10px;
+         border-radius: 50px;
+         text-decoration: none;
+         transition: 0.3s background-color !important;
+         border: none;
+
+     }
+
+ }
+
+
+ @media (max-width: 767.98px) {
+     .button-navbar {
+         flex-direction: row;
+         gap: 10px;
+         justify-content: flex-end;
+         width: 75%;
+     }
+
+     .login-button {
+         background-color: rgb(144, 33, 6) !important;
+         color: white;
+         font-size: 14px;
+         padding: 5px 10px;
+         border-radius: 50px;
+         text-decoration: none;
+         transition: 0.3s background-color !important;
+         border: none;
+
+
+
+     }
+ }
+
+ .navbar-toggler {
+     border: none;
+     font-size: 1.25rem;
+     color: #ffffff;
+
+
+
+ }
+
+ .navbar-toggler:focus,
+ .btn-close:focus {
+     outline: none;
+     box-sizing: none;
+
+
+ }
+
+ .nav-link {
+     color: rgb(255, 255, 255);
+     font-weight: 500;
+
+ }
+
+ .nav-link:hover,
+ .nav-link:active {
+     color: #eeeeee;
+ }
+
+ @media (min-width:991px) {
+     .nav-link::before {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 100%;
+         height: 2px;
+         visibility: hidden;
+         transition: 0.3 ease-in-out;
+     }
+ }
+
+ .nav-link:hover::before,
+ .nav-link.active::before {
+     visibility: visible;
+ }
+
+ /* MODAL */
+ .modal-header-preto {
+     background-color: rgb(0, 0, 0);
+     color: white;
+     font-size: 16px;
+
+ }
+
+ .modal-body {
+     background-color: rgb(144, 33, 6);
+     justify-content: center;
+     align-items: center;
+     color: white;
+     justify-content: center;
+     align-items: center;
+     font-size: 20px;
+
+
+ }
+
+ /* MODAL DE ENDEREÇO */
+ /* Estilo para os itens de endereço */
+ .endereco-item {
+     cursor: pointer;
+     background-color: #ffffff;
+     color: #000;
+     width: 100%;
+     padding: 10px 10px;
+     font-weight: 40;
+     border-radius: 30px;
+     margin: 5px 0;
+     flex-direction: row;
+     display: flex;
+     gap: 10px;
+ }
+
+ .endereco-item h7 {
+     font-weight: bold;
+     color: #535151;
+
+ }
+
+ .coluna {
+     margin-top: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     justify-items: center;
+     margin: 10px;
+ }
+
+
+ /* Ajustes para o offcanvas-bottom */
+ .offcanvas-bottom {
+     height: 90vh !important;
+     /* Ajuste a porcentagem conforme necessário */
+     max-height: 90vh !important;
+     /* Evita ultrapassar a tela */
+     border-top-left-radius: 16px;
+     border-top-right-radius: 16px;
+ }
+
+ .offcanva-edicao-endereco {
+     background-color: rgb(144, 33, 6) !important;
+     color: white;
+     font-size: 20px;
+     padding: 15px 15px;
+     border-radius: 15px;
+     margin: 10px;
+     margin-right: 10px;
+     width: 100%;
+     height: auto;
+     box-shadow: 0 4px 8px rgb(191, 0, 0);
+ }
+
+ .check-laranja {
+     background-color: #F77F00;
+     color: white;
+     font-weight: bold;
+     border-radius: 10px;
+     padding: 10px 20px;
+     font-size: 18px;
+     justify-content: left;
+
+ }
+
+ .buttons-opcao-endereco {
+     margin: 20px;
+     gap: 10px;
+ }
+
+ .button-branco {
+     background-color: #ffffff;
+     color: black;
+     font-weight: bolder;
+     padding: 8px 10px;
+     border-radius: 30px;
+     width: 160px;
+
+
+ }
+
+ .button-branco:hover {
+     background-color: #f47a00;
+     color: white;
+ }
+
+ /* Estilo para o modal */
+ .modal-vermelhor {
+     background-color: rgb(144, 33, 6);
+     color: white;
+ }
+
+ .modal-todo-vermelhor .modal-content {
+     border-radius: 16px;
+ }
+
+
+ /* LOGIN */
+ .form-container {
+     text-align: center;
+     margin-top: 20px;
+ }
+
+ .form-container p {
+     text-align: center;
+     font-weight: 500;
+
+ }
+
+ .form-vermelho input {
+     border-radius: 100px;
+     padding: 12px;
+     font-size: 16px;
+     width: 100%;
+     background-color: white;
+
+ }
+
+ .link-recuperar-senha a {
+     color: white;
+     font-size: 15px;
+     text-decoration: underline;
+ }
+
+ .divider {
+     display: flex;
+     align-items: center;
+     text-align: center;
+     font-weight: bold;
+     color: white;
+ }
+
+ .divider::before,
+ .divider::after {
+     content: "";
+     flex: 1;
+     border-bottom: 2px solid white;
+     /* Cor da linha */
+     margin: 10px;
+ }
+
+ /* OFFCANVA DE PERFIL DO USUARIO */
+ .offcanvas-perfil {
+     background-color: #991C08 !important;
+ }
+
+ .offcanvas-title {
+
+     color: #eeeeee;
+ }
+
+ .buttons-perfil {
+     display: flex;
+     gap: 10px;
+     margin: 30px;
+     flex-direction: column;
+ }
+
+ .button-laranja-perfil {
+     background-color: #f47a00;
+     color: black;
+     font-weight: bolder;
+     padding: 5px;
+     border-radius: 10px;
+     right: 20px;
+
+ }
+
+ .button-branco-perfil {
+     background-color: #ffffff;
+     color: black;
+     font-weight: bolder;
+     padding: 5px;
+     border-radius: 10px;
+     right: 20px;
+ }
+
+ .progress-fidelidade {
+     background-color: #F77F00;
+     border-radius: 40px;
+     margin-top: 20px;
+
+
+
+ }
+
+
+ .progress-fidelidade h6 {
+     color: #000000;
+     font-size: 16px;
+     font-weight: bolder;
+     flex-direction: column;
+
+ }
+
+ .progress-fidelidade p {
+     color: #ffffff;
+     font-size: 16px;
+     font-weight: bolder;
+     margin-top: 10px;
+     display: flex;
+ }
+
+
+ .card-fidelidade {
+     background-color: #F77F00 !important;
+     border-radius: 70px !important;
+     padding: 10px;
+     margin: 20px;
+     color: #ffffff;
+     font-weight: bold;
+     text-align: center;
+ }
+
+ .button-sair {
+     background-color: #d31212;
+     color: white;
+     font-weight: bold;
+     border-radius: 10px;
+     padding: 10px 20px;
+     font-size: 18px;
+     justify-content: left;
+
+
+ }
+
+ .button-sair:hover {
+     background-color: #f47a00;
+ }
+
+ .position-button-sair h6 {
+     color: #ffffff;
+     font-size: 16px;
+     font-weight: bolder;
+     flex-direction: column;
+     margin-top: 60px;
+ }
+
+
+ /* OFFCANVA -> PEDIDO  */
+
+ /* Estilos para o offcanvas de pedidos */
+ .pedido-item {
+     border-radius: 20px;
+     margin: 20px 5px;
+     background-color: #ffffff;
+     padding: 20px;
+
+ }
+
+
+ .pedido-numero {
+     font-weight: bold;
+     color: #000000;
+     font-size: 1.1rem;
+ }
+
+
+ .pedido-status {
+     display: inline-block;
+     padding: 3px 8px;
+     border-radius: 12px;
+     font-size: 12px;
+     font-weight: bold;
+     margin-left: 10px;
+ }
+
+ .status-entregue {
+     background-color: #d4edda;
+     color: #155724;
+ }
+
+ .status-andamento {
+     background-color: #fff3cd;
+     color: #856404;
+ }
+
+ .status-cancelado {
+     background-color: #f8d7da;
+     color: #721c24;
+ }
+
+ .pedido-detalhes {
+     flex: 1;
+ }
+
+ .pedido-tamanho {
+     font-weight: bold;
+ }
+
+ .pedido-data {
+     color: #6c757d;
+     font-size: 0.9rem;
+     display: block;
+     margin-top: 3px;
+ }
+
+ .offcanvas-pedidos {
+     width: 400px;
+ }
+
+ .offcanvas-header-pedidos {
+     border-bottom: 1px solid #dee2e6;
+     padding-bottom: 1rem;
+ }
+
+ .offcanvas-title-pedidos {
+     color: #f47a00;
+     font-weight: bold;
+ }
+
+
+ /* PAGINA DE CONFIRMAÇÃO DO PEDIDO */
+
+/*  .conteiner-confirmacao {
+     padding: 20px;
+     border-radius: 15px;
+ } */
+
+ /* h1 principal */
+/*  .texto-confirmacao {
+     font-family: var(--font2);
+     background-color: #090909;
+     color: #ffffff;
+     border-radius: 20px;
+     text-align: center;
+     padding: 20px;
+     margin-bottom: 20px;
+     margin-top: 140px;
+
+
+ } */
+
+ /* parte do endereço */
+ /* .endereco-confirmacao {
+     margin: 0 auto;
+     border-radius: 20px;
+     width: 900px;
+     background-color: white;
+     color: #000000;
+     padding: 8px;
+     text-align: left;
+     padding-left: 15px;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 10px;
+     align-items: center;
+
+ }
+
+ @media (max-width:768px) {
+     .endereco-confirmacao {
+         width: 400px;
+
+     }
+ }
+
+ .endereco-confirmacao p {
+     text-align: center;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     gap: 0.7rem;
+ }
+ */
+ /* deseja adicionar novo endereço? */
+ .novo-endereço {
+     font-family: var(--font1);
+     text-align: right;
+     background-color: #991C08;
+     border-radius: 10px;
+     border: none;
+     cursor: pointer;
+     padding: 8px;
+     font-weight: 700;
+
+ }
+
+ a {
+     text-decoration: none;
+     color: #000;
+ }
+
+
+ .link-alteraca-confirmacao {
+     text-align: center;
+ }
+
+ /* área dos pedidos  */
+ .box-confirmacao {
+     background-color: #F77F00;
+     margin-bottom: 15px;
+     border-radius: 15px;
+     width: 100%;
+     margin: 0 auto;
+     margin-top: 40px;
+     padding: 20px;
+     text-align: left;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+     transition: transform 0.5s ease;
+     margin-bottom: 50px;
+
+ }
+
+ .box-confirmacao:hover {
+     transform: scale(1.02);
+ }
+
+ /* bordinha pequena informando o tipo de pizza */
+ .escolha-confirmacao {
+     background-color: #991C08;
+     border-radius: 15px;
+     padding: 5px 15px;
+     color: rgb(255, 255, 255);
+     font-weight: bold;
+ }
+
+ .box-confirmacao h3 {
+     color: #000;
+     font-family: var(--font2);
+     font-weight: 600;
+ }
+
+ .box-confirmacao p {
+     font-family: var(--font1);
+     color: #181515;
+     font-weight: 400;
+     margin-top: 20px;
+ }
+
+
+ .borda-confirmacao {
+     font-family: var(--font1);
+     font-weight: 500;
+     background-color: #991C08;
+     border-radius: 30px;
+     padding: 10px 20px;
+     color: white;
+     text-decoration: none;
+     font-size: 24px;
+     display: inline-block;
+ }
+
+ .preço-confirmacao {
+     font-family: var(--font2);
+     color: white;
+     font-size: 1.5em;
+     text-align: right;
+     font-weight: bold;
+ }
+
+ .total-confirmacao {
+     font-family: var(--font1);
+     font-weight: 500;
+     background-color: #000000 !important;
+     border-radius: 30px;
+     width: 100%;
+     padding: 8px;
+     color: white;
+     font-size: 24px;
+     margin: 0 auto;
+     justify-content: space-between;
+     display: flex;
+     margin-top: 10px;
+ }
+
+ .total-confirmacao-total {
+     font-family: var(--font1);
+     font-weight: 800;
+     justify-content: space-between;
+     background-color: #f47a00;
+     border-radius: 30px;
+     width: 900px;
+     padding: 5px;
+     color: white;
+     font-size: 24px;
+     margin: 0 auto;
+     display: flex;
+     margin-top: 30px;
+ }
+
+ @media (max-width:768px) {
+     .total-confirmacao-total {
+         width: 300px;
+     }
+ }
+
+ .cupom-desconto {
+     display: flex;
+     flex-direction: column;
+     padding: 8px;
+     margin-top: 30px;
+     margin-bottom: 30px;
+ }
+
+ .cupom-desconto span {
+     font-family: var(--font2);
+     color: white;
+     font-size: 2.0em;
+ }
+
+ #insire {
+     font-family: var(--font1);
+     font-size: 20px;
+ }
+
+ input {
+     margin-top: 50px;
+     width: 500px;
+     margin: 0 auto;
+     border-radius: 10px;
+     border: none;
+     padding: 10px;
+ }
+
+ .cupom-desconto button{
+    margin-left: 900px;
+    cursor: pointer;
+    padding: 8px 15px;
+    justify-content: center;
+    justify-items: center;
+    
+ }
+
+
+ .seta-pulando {
+     display: inline-block;
+     animation: pularSeta 1s infinite;
+     margin-bottom: 20px;
+ }
+
+ .seta-svg {
+     width: 24px;
+     height: 24px;
+     color: orange;
+ }
+
+ @keyframes pularSeta {
+
+     0%,
+     100% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(8px);
+     }
+ }
+
+ .aplicar{
+    font-family: var(--font1);
+    border-radius: 15px;
+    background-color: #f47a00;
+    width: 200px;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    margin-top: -40px;
+
+    
+   
+ }
+
+
+
+ .add-pedido button {
+     margin: 10px auto;
+     border: none;
+     background-color: #F77F00;
+     color: rgb(0, 0, 0);
+     font-weight: bolder;
+     padding: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 30px;
+     margin-top: 30px;
+ }
+
+
+
+
+ .button-black-centralizar {
+     text-align: right;
+ }
+
+ .botão-pagamento {
+     font-family: var(--font1);
+     background-color: #f47a00;
+     color: #000;
+     font-weight: 700;
+     border-radius: 50px;
+     border: none;
+     padding: 8px;
+     gap: 8px;
+     display: inline-flex;
+     align-items: center;
+     transition: 0.3s;
+     margin-top: 30px;
+ }
+
+
+
+
+ .botão-pagamento:hover {
+     background-color: #000;
+     color: white;
+ }
+
+
+
+ .comentario-confirmacao {
+     height: 200px;
+ }
+
+
+ /* FOOTER/RODAPÉ */
+ .footer-conteiner {
+     background-color: rgb(50, 48, 48);
+     color: rgb(255, 255, 255);
+     padding: 20px 0px;
+     text-align: center;
+     font-size: 14px;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     width: 100%;
+     height: auto;
+     margin-top: 50px;
+     bottom: 0;
+
+
+ }
+
+ .logo-grande {
+     width: 200px;
+     height: 200px;
+ }
+
+ .col {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .redes-sociais {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: row;
+     margin-top: 20px;
+     padding: 10px;
+     width: 100%;
+     gap: 50px;
+ }
+
+ .redes-sociais .midia {
+     gap: 40px;
+ }
+
+ .redes-sociais .midia img {
+     height: 40px;
+     width: 40px;
+ }

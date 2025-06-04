@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Pizzas</title>
+  <!-- Seus CSS existentes -->
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <!-- CSS específico para esta página -->
+  <link rel="stylesheet" href="../assets/css/gerenciar-pizzas.css">
+</head>
+<body>
+  <!-- Sua navbar administrativa existente -->
+  
+  <div class="container">
+    <h1>Gerenciar Disponibilidade de Pizzas</h1>
+    
+    <div class="pizza-grid" id="pizzaContainer">
+      <!-- As pizzas serão carregadas aqui via JavaScript -->
+    </div>
+    
+    <div class="actions">
+      <button id="voltarUltima" class="btn btn-secondary">Voltar Última Retirada</button>
+    </div>
+  </div>
+
+  <!-- Seus scripts existentes -->
+  <script src="../assets/js/helpers/api.js"></script>
+  <!-- Script específico para esta página -->
+  <script src="../assets/js/gerenciar-pizzas.js"></script>
+</body>
+
+
+<script>
+    // Array para controlar pizzas retiradas
+let removedPizzas = [];
+
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    // 1. Carrega as pizzas do backend
+    const pizzas = await fetchPizzas();
+    renderPizzas(pizzas);
+    
+    // 2. Configura o botão "Voltar Última"
+    document.getElementById('voltarUltima').addEventListener('click', returnLastRemoved);
+    
+  } catch (error) {
+    console.error('Erro ao carregar pizzas:', error);
+    alert('Erro ao carregar pizzas. Tente novamente.');
+  }
+});
+
+// Função para buscar pizzas
+async function fetchPizzas() {
+  const response = await fetch('/api/menu/pizzas');
+  if (!response.ok) throw new Error('Falha ao carregar pizzas');
+  return await response.json();
+}
+
+// Função para renderizar as pizzas
+function renderPizzas(pizzas) {
+  const container = document.getElementById('pizzaContainer');
+  container.innerHTML = '';
+  
+  pizzas.forEach(pizza => {
+    const pizzaCard = document.createElement('div');
+    pizzaCard.className = `pizza-card ${pizza.disponivel ? '' : 'unavailable'}`;
+    
+    pizzaCard.innerHTML = `
+      <img src="${pizza.imagem || '../public/img/produto/default-pizza.jpg'}" alt="${pizza.sabor}">
+      <h3>${pizza.sabor}</h3>
+      <p>${pizza.ingredientes}</p>
+      <span class="status">${pizza.disponivel ? 'Disponível' : 'Indisponível'}</span>
+      <button class="toggle-btn" data-id="${pizza.id_pizza}" data-available="${pizza.disponivel}">
+        ${pizza.disponivel ? 'Retirar' : 'Voltar'}
+      </button>
+    `;
+    
+    container.appendChild(pizzaCard);
+  });
+  
+  // Adiciona eventos aos botões
+  document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', toggleAvailability);
+  });
+}
+
+// Função para alternar disponibilidade
+async function toggleAvailability(e) {
+  const btn = e.target;
+  const pizzaId = btn.dataset.id;
+  const isAvailable = btn.dataset.available === 'true';
+  
+  try {
+    if (isAvailable) {
+      // Retira a pizza
+      await fetch(`/api/menu/pizzas/${pizzaId}`, { method: 'DELETE' });
+      removedPizzas.push(pizzaId);
+    } else {
+      // Volta a pizza (simulando update)
+      const pizza = await fetchPizzaDetails(pizzaId);
+      await fetch('/api/menu/pizzas', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pizza)
+      });
+      removedPizzas = removedPizzas.filter(id => id !== pizzaId);
+    }
+    
+    // Recarrega a lista
+    const pizzas = await fetchPizzas();
+    renderPizzas(pizzas);
+    
+  } catch (error) {
+    console.error('Erro ao atualizar pizza:', error);
+    alert('Erro ao atualizar disponibilidade.');
+  }
+}
+
+// Função auxiliar para buscar detalhes de uma pizza
+async function fetchPizzaDetails(id) {
+  const response = await fetch(`/api/menu/pizzas/${id}`);
+  if (!response.ok) throw new Error('Falha ao carregar pizza');
+  return await response.json();
+}
+
+// Função para voltar a última pizza retirada
+async function returnLastRemoved() {
+  if (removedPizzas.length === 0) {
+    alert('Nenhuma pizza foi retirada recentemente!');
+    return;
+  }
+  
+  const lastRemovedId = removedPizzas[removedPizzas.length - 1];
+  await toggleAvailability({ 
+    target: { 
+      dataset: { 
+        id: lastRemovedId, 
+        available: 'false' 
+      } 
+    } 
+  });
+}
+</script>
+
+
+</html>

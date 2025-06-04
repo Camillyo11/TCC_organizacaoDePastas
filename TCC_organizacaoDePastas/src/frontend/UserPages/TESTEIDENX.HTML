@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<!--ATALHO DE ICONES-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!--BOOTSTRAP-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" a href="paginicialedição.css">
+
+<script src="src/paginainicial.js"></script>
+</head>
+
+<body>
+  <header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="index.html">
+          <img src="img/WhatsApp Image 2024-10-09 at 22.04.01 (3).png" alt="Logo da Bella Massa" width="100"
+            height="100">
+        </a>
+        <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BELLA MASSA</h5>
+            <button type="button" class="btn-close btn-close-white btn-primary btn-sm" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 text-white">
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2 active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Sobre nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Promoções</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link mx-lg-2" href="#">Contato</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Botões do Navbar -->
+        <div class="button-navbar ms-auto">
+          <button type="button" class="login-button btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            <img src="img/icone de login.png" height="30" width="30"> Conta
+          </button>
+          <button class="login-button"><a href=""></a>
+            <img src="img/icone de carrinho.png" height="30" width="30"> Pedidos
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal (movido para fora do navbar) -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="container p-5">
+              <form class="form-vermelho">
+                <div class="mb-3">
+                  <div class="title">
+                    <h1>Acesse sua conta</h1>
+                  </div>
+                  <label for="email" class="form-label">Digite seu email:</label>
+                  <input type="email" name="email_usuario" placeholder="Digite seu email" id="email"
+                    class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="">Digite sua senha:</label>
+                  <input type="password" name="senha_usuario" placeholder="Digite sua senha" id="senha"
+                    class="form-control" required>
+                </div>
+                <div class="link-recuperar-senha">
+                  <a href="#">esqueci minha senha</a>
+                </div>
+                <div class="center-button">
+                  <button type="submit" class="button-black btn-submit">Conectar</button>
+                </div>
+                <div class="form-container">
+                  <div class="divider">
+                    <span>ou</span>
+                  </div>
+                  <p>Ainda não tem cadastro?</p>
+                  <div class="center-button">
+                    <button type="submit" class="button-black btn-submit"><a href="../src/formscadastro.html">Quero me
+                        cadastrar</a></button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+   -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <mian>
+    <!-- área de introdução  img-fluid, rouede-->
+    <section class="text-white">
+      <div class="introdução">
+        <div class="imagem" id="imagem1">
+          <h1 class="diferente1 fw-bold">A melhor pizza do Jardim Ângela</h1>
+          <p class="diferente2">Para nós, a melhor da região!!!</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-warning fw-bold">Promoções</a>
+            <a href="#" class="btn btn-warning fw-bold">Faça seu pedido online</a>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <div class="container my-3">
+      <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-12 d-flex justify-content-center align-items-center mb-4 mb-md-0">
+          <img src="../public/icons/LogoBellaMessa.png" alt="logo"
+            class="logo-imagem img-fluid rounded-circle" style="max-width: 250px;">
+        </div>
+
+
+        <section class="sobre-nos col-lg-9 col-12">
+          <div class="texto text-center" style="max-width: 800px;">
+            <p style="font-size: 1.5rem; line-height: 1.6;" class="m-0">Desde 1999 a Bella Massa é referência em pizzas de
+              qualidade,
+              com ingredientes selecionados e um sabor
+              inigualável. Venha conhecer nosso cardápio e se surpreender com a qualidade de nossos produtos.
+              Desde 1999 a Bella Massa é referência em pizzas de qualidade, com ingredientes selecionados e um sabor
+              inigualável. Venha conhecer nosso cardápio e se surpreender com a qualidade de nossos produtos.
+              Desde 1999 a Bella Massa é referência em pizzas de qualidade, com ingredientes selecionados e um sabor
+              inigualável.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+    <!-- ESCOLHA NÓS -->
+    <section class="sobrenós">
+      <div class="botão-amarelo">
+        <p class="fw-bold">Escolha nós!!!</p>
+      </div>
+
+      <p class=" sobre h3">Porque escolher a bella Massa?</p>
+
+
+      <div class="accordion">
+        <div class="accordion-item active">
+          <div class="accordion-header">
+            <span>Qualidade</span>
+            <span class="arrow">&#8594</span>
+          </div>
+          <div class="accordion-content">
+            Aqui na Dalle Pizza, somos apaixonados pelo que fazemos, por isso buscamos desenvolver nossos produtos
+            sempre com um diferencial. Trabalhamos com ingredientes selecionados que fazem das nossas pizzas serem
+            únicas. Buscamos oferecer sempre o melhor ao nosso cliente.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Sabores</span>
+            <span class="arrow">&#8594</span>
+          </div>
+          <div class="accordion-content">
+            Temos uma variedade incrível de sabores! Desde os tradicionais até os mais ousados, para agradar todos os
+            gostos.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Promoções</span>
+            <span class="arrow">&#8594</span>
+          </div>
+          <div class="accordion-content">
+            Toda semana novas promoções para você aproveitar o melhor da nossa pizza pagando menos.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Atendimento</span>
+            <span class="arrow">&#8594</span>
+          </div>
+          <div class="accordion-content">
+            Atendimento rápido, cordial e com muito carinho. Aqui você é tratado como família.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- BENEFÍCIOS -->
+
+
+
+    <div class=" col-md-4 me-5"> <img src="../public/icons/LogoBellaMessa.png" alt="logo"
+        class=" logo img-fluid rounded-circle" style="max-width: 250px;">
+    </div>
+    <div class="container position-relative">
+      <div class="textbeneficios">
+        <h2 class="text-end">Peça pelo<br> nosso site e<br> ganhe<br> benefícios !!!</h2>
+      </div>
+    </div>
+
+    <section class="qualidade container position-relative">
+
+      <div class="benefits-container">
+        <div class="beneficios">
+          <img class="icones-beneficios" src="../public/icons/fidelidade.png" alt="programa de fidelidade">
+          <div class="beneficios-texto">
+            <h3>Programa de fidelidade</h3>
+            <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus accusantium ducimus culpa nulla
+              nemo,
+              eligendi nam ratione consectetur impedit? Deleniti quia et temporibus aperiam voluptatem corrupti
+              quibusdam
+              iusto nisi.</P>
+          </div>
+        </div>
+
+
+        <div class="beneficios">
+          <img class="icones-beneficios" src="../public/icons/bolo-de-aniversario.png" alt="promoção para aniversariantes">
+          <div class="beneficios-texto">
+            <h3>Aniversariantes</h3>
+            <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus accusantium ducimus culpa
+              nulla
+              nemo,
+              eligendi nam ratione consectetur impedit? Deleniti quia et temporibus aperiam voluptatem corrupti
+              quibusdam
+              iusto nisi.</P>
+          </div>
+        </div>
+
+        <div class="beneficios">
+          <img class="icones-beneficios" src="../public/icons/desconto.png" alt="descontos semanais">
+          <div class="beneficios-texto">
+            <h3>Promoções semanais</h3>
+            <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus accusantium ducimus culpa
+              nulla
+              nemo,
+              eligendi nam ratione consectetur impedit? Deleniti quia et temporibus aperiam voluptatem corrupti
+              quibusdam
+              iusto nisi.</P>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-cadastrar">CADASTRE-SE</button>
+    </div>
+
+
+    <!--PROMOÇÕES-->
+    <section class="part-promoções">
+      <div class="container">
+        <div class="col-md-5">
+          <div class="apvpromo">
+            <h3>Aproveite nossas promoções</h3>
+
+            <P>Fique por dentro das ofertas especiais da Bella Massa
+              todos os dias temos promoções especiais para você !</P>
+          </div>
+          <div class="text-center p-5">
+            <button type="button" class="btn btn-promoções">
+              <img src="../public/icons/food_15026869.png" alt="icone Bella Massa" width="50px">
+              PROMOÇÕES
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="text-center">
+        <div class="logopromoção">
+          <img src="../public/icons/LogoBellaMessa.png" alt="logo bella massa"
+            class="logo-promoção rounded-circle">
+        </div>
+      </div>
+
+    </section>
+
+    <!--PARTE DA AVALIAÇÃO-->
+    <section class="avaliação">
+      <div class="container-fluid">
+        <img src="../public/icons/user-account_12192257 (1).png" class="imgusuario img-fluid rounded-circle"
+          alt="imagem de usuario">
+        <h4 class="text-center fw-bolder">
+          O que os clientes pensam sobre nós?
+        </h4>
+
+
+
+        <div class="todos-p text-capitalize text-center">
+          <P class="comentarios text-center">"pizza maravilhosa, bem recheada e com bastante massa"</P>
+          <P class="nome text-center">gabriel basilio</P>
+          <P class="text-center fw-semibold">Instagram</P>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+    <!--   FOOTER   -->
+    <footer class="footer-conteiner">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="">
+          </div>
+          <div class="col">
+            <h5>Endereço</h5>
+            <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+            <p>São Paulo-SP</p>
+          </div>
+          <div class="col">
+            <h5>Telefone</h5>
+            <p>(11)9002-0922</p>
+            <p>(11)9002-0922</p>
+          </div>
+          <div class="col">
+            <h5>Horário de funcionamento</h5>
+            <h6>Terça a Quinta</h6>
+            <p> Das 17:00 ás 00:00</p>
+            <h6>Sexta á Sábado</h6>
+            <p> Das 17:00 ás 01:00</p>
+          </div>
+        </div>
+
+        <!-- Redes Sociais abaixo das colunas -->
+        <div class="row">
+          <div class="col redes-sociais">
+            <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+            <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+            <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const items = document.querySelectorAll('.accordion-item');
+
+        items.forEach(item => {
+          const header = item.querySelector('.accordion-header');
+
+          header.addEventListener('click', () => {
+            items.forEach(i => {
+              if (i !== item) i.classList.remove('active');
+            });
+            item.classList.toggle('active');
+          });
+        });
+      </script>
+
+
+</html>

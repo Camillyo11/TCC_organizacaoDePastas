@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" a href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" a href="../assets/css/forms.css">
+  <link rel="stylesheet" a href="../assets/css/main.css">
+  <link rel="stylesheet" a href="../assets/css/components.css">
+  <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
+  <title>Cardapio/selecionar pizza</title>
+  
+
+</head>
+
+<body class="body-vermelho">
+  <div id="header-container"></div>
+
+  <div class="container cardapio-container">
+    <div class="row full-width-row">
+
+      <div class="col-md-12">
+        <!-- <h2 class="text-center mb-4">Nossas Pizzas</h2> -->
+
+        <!-- Abas de navegação entre categorias -->
+        <ul class="nav-categorias nav nav-tabs justify-content-center mb-4 " id="pizzaTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class=" nav-link-categoria nav-link active text-dark " id="salgadas-tab" data-bs-toggle="tab"
+              data-bs-target="#salgadas" type="button" role="tab">Pizzas
+              Salgadas</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class=" nav-link-categoria nav-link text-dark " id="doces-tab" data-bs-toggle="tab"
+              data-bs-target="#doces" type="button" role="tab">Pizzas Doces</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link-categoria nav-link  text-dark" id="bebidas-tab" data-bs-toggle="tab"
+              data-bs-target="#bebidas" type="button" role="tab">Bebidas</button>
+          </li>
+        </ul>
+
+
+
+        <div class="barra_pesquisa">
+          <input type="text" class="form-control" id="barraPesquisa" placeholder="🔍 Pesquisar">
+        </div>
+        <!-- Checkbox Meio a Meio -->
+        <div class="form-check form-check-inline my-3">
+          <input class="form-check-input" type="radio" name="modoPizza" id="radioInteira" value="inteira" checked>
+          <label class="form-check-label text-light" for="radioInteira">Pizza Inteira</label>
+        </div>
+
+        <div class="form-check form-check-inline my-3">
+          <input class="form-check-input" type="radio" name="modoPizza" id="radioMeioMeio" value="meio">
+          <label class="form-check-label text-light" for="radioMeioMeio">Meio a Meio</label>
+        </div>
+
+
+        <!-- Botão de confirmar Meio a Meio -->
+        <div id="confirmarMeioMeio" class="mb-3 " style="display: none;">
+          <button class="btn btn-success " onclick="confirmarMeioMeio()">Confirmar Meio a Meio</button>
+        </div>
+
+        <!-- botão de confirmar pizzza inteira -->
+        <div id="confirmarPizzaInteira" class="mb-3" style="display: block;">
+          <button class="btn btn-primary " onclick="confirmarPizzaInteira()">Confirmar Pizza Inteira</button>
+        </div>
+
+
+
+        <!-- Conteúdo das abas -->
+        <div class="tab-content" id="pizzaTabsContent">
+          <!-- Tab Pizzas Salgadas -->
+
+          <div class="tab-pane fade show active sabores-container" id="salgadas" role="tabpanel">
+            <h3 class="categoria-titulo">Pizzas Salgadas</h3>
+            <div class="row">
+
+              <!-- Pizza 1 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaFrangoComCatupiry.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Frango com Catupiry</h5>
+                    <p class="card-text">Molho, Mussarela, frango desfiado e catupiry</p>
+                   <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 2 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaBaiana.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Baiana</h5>
+                    <p class="card-text">Ervilha, cebola, mussarela, calabresa ralada, molho e
+                      pimenta</p>
+                  <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 3 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaCalabreza.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Calabresa</h5>
+                    <p class="card-text">Calabresa fatiada e cebola</p>
+              <div class="pizza-preco" data-preco="43.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 43,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 4 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaQuatroQueijo.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Quatro Queijo</h5>
+                    <p class="card-text">Mussarela, orégano e tomate</p>
+                    <div class="pizza-preco" data-preco="43.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 43,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 5 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaPalmito.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Palmito</h5>
+                    <p class="card-text">Combinação especial de mussarela e catupiry</p>
+                 <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 6 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaCalabrezaComCatupiry.png" class="card-img-top"
+                      alt="...">
+                    <h5 class="card-title pizza-nome">Calabresa com Catupiry</h5>
+                    <p class="card-text">Combinação especial de Calabresa e Cebola com catupiry</p>
+                     <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- Pizza 7 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaportuguesa.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Portuguesa</h5>
+                    <p class="card-text">Combinação especial de presunto, cebola, ovo e mussarela
+                    </p>
+                   <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- Pizza 8 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaFrangoComMilho.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Frango com milho</h5>
+                    <p class="card-text">Combinação especial de frango e milho</p>
+                 <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- Pizza 9 -->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaQueijoBranco.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Queijo branco</h5>
+                    <p class="card-text">Combinação especial de mussarela e queijo fresco</p>
+              <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- Pizza 10-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaStrogonoff.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Strogonoff</h5>
+                    <p class="card-text">Combinação especial de frango, mussarela e batata palha</p>
+             <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 11-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaBaconComCatupiry.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Canadense</h5>
+                    <p class="card-text">Combinação especial de Lombo, bacon, ervilha e mussarela
+                    </p>
+              <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <!-- Pizza 12-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/imgPizzas/pizzaPalmito.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Jardineira</h5>
+                    <p class="card-text">Combinação especial de calabresa, palmito, cebola e
+                      mussarela</p>
+                    <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+
+
+
+              <!-- Adicione mais pizzas conforme necessário -->
+            </div>
+
+
+          </div>
+
+
+          <!-- Tab Pizzas Doces-->
+
+          <div class="tab-pane fade sabores-container" id="doces" role="tabpanel">
+            <h3 class="categoria-titulo">Pizzas Doces</h3>
+            <div class="row">
+
+              <!-- Pizza 1-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaBananaCondensado.png" class="card-img-top"
+                      alt="...">
+                    <h5 class="card-title pizza-nome">Banana Condensada</h5>
+                    <p class="card-text">Banana com leite condensado</p>
+                 <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- Pizza 2-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaBrigadeiro.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Brigadeiro</h5>
+                    <p class="card-text">Chocolate ao leite e granulado</p>
+                 <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- Pizza 3-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaChocorango.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Pizza Chocorango</h5>
+                    <p class="card-text">Chocolate ao leite com morango</p>
+                 <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- Pizza 4-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaChocoUva.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Pizza ChocoUva</h5>
+                    <p class="card-text">Chocolate ao leite com uva verde</p>
+              <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- Pizza 5-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaM&M.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Pizza M&M</h5>
+                    <p class="card-text">Chocolate ao leite com M&M</p>
+                   <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+              <!-- Pizza 6-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Doces/pizzaRomeuJulieta.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Pizza Romeu e Julieta</h5>
+                    <p class="card-text">Mussarela com goiabada</p>
+                  <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
+                    <p class="pizza-preco">R$ 47,90</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+
+
+          <!-- Tab Bebidas-->
+          <div class="tab-pane fade sabores-container" id="bebidas" role="tabpanel">
+            <h3 class="categoria-titulo">Bebidas</h3>
+            <div class="row">
+              <!-- Bebida 1-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/Coca-cola1L.png" class="card-img-top" alt="...">
+                    <h5 class="card-title pizza-nome">Coca-Cola 1L</h5>
+                <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Bebida 2-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/Coca-cola2L.jpg" class="card-img-top" alt="...">
+                    <h5 class="card-title bebida-nome">Coca-cola 2L </h5>
+                   <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Bebida 3-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/Guarana2L.png" class="card-img-top" alt="...">
+                    <h5 class="card-title bebida-nome">Guarana 2L</h5>
+                     <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Bebida 4-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/Sprite.png" class="card-img-top" alt="...">
+                    <h5 class="card-title bebida-nome">Sprite 2L</h5>
+                   <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Bebida 5-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/FantaUva.png" class="card-img-top" alt="...">
+                    <h5 class="card-title bebida-nome">Fanta Uva 2L</h5>
+                      <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Bebida 6-->
+              <section class="col-md-6 col-lg-4">
+                <div class="card pizza-card h-100">
+                  <div class="card-body">
+                    <img src="../public/produtos/Bebidas/Tubaina2L.png" class="card-img-top" alt="...">
+                    <h5 class="card-title bebida-nome">Itubaina 2L</h5>
+            <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
+                    <p class="pizza-preco">R$ 15,00</p>
+                    <div class="quantidade">
+                      <div class="quantidade-itens">
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <span class="mx-2">0</span>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <section class="borda">
+        <h3 class="categoria-titulo mt-5">Opções de Borda</h3>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="borda-option">
+              <h5>Borda Tradicional</h5>
+              <p>+R$ 0,00</p>
+              <div class="opcoes-borda-radio text-start mt-3">
+                <label class="radio-label">
+                  <input class="borda-radio form-check-input" type="radio" name="pagamento" checked>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="borda-option">
+              <h5>Borda de Catupiry</h5>
+              <p class="borda-preco">+R$ 10,00</p>
+              <div class="opcoes-borda-radio text-start mt-3">
+                <label class="radio-label">
+                  <input class="borda-radio form-check-input" type="radio" name="pagamento">
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="borda-option">
+              <h5>Borda de Cheddar</h5>
+              <p  class="borda-preco">+R$ 10,00</p>
+              <div class="opcoes-borda-radio text-start mt-3">
+                <label class="radio-label">
+                  <input class="borda-radio form-check-input" type="radio" name="pagamento">
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="borda-option">
+              <h5>Borda de Chocolate</h5>
+              <p  class="borda-preco">+R$ 15,00</p>
+              <div class="opcoes-borda-radio text-start mt-3">
+                <label class="radio-label">
+                  <input class="borda-radio form-check-input" type="radio" name="pagamento">
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botões de ação -->
+      <section>
+        <div class="button-laranja-position mt-4">
+          <button id="btnIrCarrinho" class="button-laranja" onclick="irParaCarrinho()" disabled>Ir para o carrinho</button>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!--   FOOTER   -->
+
+  <footer class="footer-conteiner">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
+        </div>
+        <div class="col">
+          <h5>Endereço</h5>
+          <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+          <p>São Paulo-SP</p>
+        </div>
+        <div class="col">
+          <h5>Telefone</h5>
+          <p>(11)9002-0922</p>
+          <p>(11)9002-0922</p>
+        </div>
+        <div class="col">
+          <h5>Horário de funcionamento</h5>
+          <h6>Terça a Quinta</h6>
+          <p> Das 17:00 ás 00:00</p>
+          <h6>Sexta á Sábado</h6>
+          <p> Das 17:00 ás 01:00</p>
+        </div>
+      </div>
+
+      <!-- Redes Sociais abaixo das colunas -->
+      <div class="row">
+        <div class="col redes-sociais">
+          <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+ 
+  <!-- Script de carregamento (coloque no FINAL do body, após o bootstrap) -->
+  <script>
+    fetch('../UserPages/header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-container').innerHTML = data;
+      })
+      .catch(error => console.error('Erro ao carregar o header:', error));
+
+    // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
+    const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+    modalTriggerList.map(function (modalTriggerEl) {
+      new bootstrap.Modal(modalTriggerEl);
+    });
+
+
+
+            // Barra de pesquisa
+document.getElementById("barraPesquisa").addEventListener("input", function() {
+  const termo = this.value.toLowerCase();
+  const abaAtiva = document.querySelector(".tab-pane.active");
+  
+  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
+    const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
+    card.parentElement.style.display = (nome.includes(termo) || descricao.includes(termo)) ? "" : "none";
+  });
+});
+     
+
+
+    const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+    offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+      new bootstrap.Offcanvas(offcanvasTriggerEl);
+    });
+    const form = document.getElementById("avaliacaoForm");
+    let meioMeioAtivo = false;
+    let pizzasSelecionadas = [];
+
+    function isPizzaTab(tabId) {
+      return tabId === "salgadas" || tabId === "doces";
+    }
+
+    function atualizarVisibilidadePizzas() {
+      const abaAtiva = document.querySelector(".tab-pane.active");
+      const tabId = abaAtiva.id;
+
+      abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const span = card.querySelector(".quantidade span");
+        const qtd = parseInt(span.innerText);
+        const selecionada = card.classList.contains("selecionada");
+
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          if (qtd > 0 || pizzasSelecionadas.length < 2 || selecionada) {
+            card.parentElement.style.display = "";
+          } else {
+            card.parentElement.style.display = "none";
+          }
+        } else {
+          card.parentElement.style.display = "";
+        }
+      });
+    }
+
+    document.querySelectorAll('input[name="modoPizza"]').forEach(radio => {
+      radio.addEventListener("change", function () {
+        meioMeioAtivo = (this.value === "meio");
+        pizzasSelecionadas = [];
+
+
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+
+        abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+          const span = card.querySelector(".quantidade span");
+          const qtd = parseInt(span.innerText);
+          const nome = card.querySelector(".pizza-nome")?.innerText;
+
+          if (isPizzaTab(tabId)) {
+            if (meioMeioAtivo) {
+              // Se já havia 1 unidade, usar como seleção inicial
+              if (qtd === 1 && pizzasSelecionadas.length < 2) {
+                card.classList.add("selecionada");
+                pizzasSelecionadas.push(nome);
+              } else {
+                // Zera apenas o que for além disso
+                span.innerText = "0";
+                card.classList.remove("selecionada");
+              }
+            } else {
+              // Se desligar o modo, apenas remove visuais
+              card.classList.remove("selecionada");
+            }
+          }
+
+          card.parentElement.style.display = "";
+        });
+
+        document.getElementById("confirmarPizzaInteira").style.display = meioMeioAtivo ? "none" : "block";
+        document.getElementById("confirmarMeioMeio").style.display = meioMeioAtivo && pizzasSelecionadas.length === 2 ? "block" : "none";
+
+      });
+    });
+
+
+    document.querySelectorAll(".btn_adicionar").forEach(button => {
+      button.addEventListener("click", function () {
+        const card = this.closest(".pizza-card");
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+        const span = card.querySelector(".quantidade span");
+        let valor = parseInt(span.innerText);
+
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          if (valor < 1 && pizzasSelecionadas.length < 2) {
+            span.innerText = valor + 1;
+            card.classList.add("selecionada");
+            pizzasSelecionadas.push(nome);
+          }
+        } else if (!meioMeioAtivo) {
+          if (valor < 10) {
+            span.innerText = valor + 1;
+          }
+        }
+
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          atualizarVisibilidadePizzas();
+          document.getElementById("confirmarMeioMeio").style.display =
+            pizzasSelecionadas.length === 2 ? "block" : "none";
+        }
+      });
+    });
+
+    document.querySelectorAll(".btn_retirar").forEach(button => {
+      button.addEventListener("click", function () {
+        const card = this.closest(".pizza-card");
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+        const span = card.querySelector(".quantidade span");
+        let valor = parseInt(span.innerText);
+
+        if (valor > 0) {
+          span.innerText = valor - 1;
+          if (meioMeioAtivo && isPizzaTab(tabId) && valor - 1 === 0) {
+            card.classList.remove("selecionada");
+            pizzasSelecionadas = pizzasSelecionadas.filter(p => p !== nome);
+          }
+        }
+
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          atualizarVisibilidadePizzas();
+          document.getElementById("confirmarMeioMeio").style.display =
+            pizzasSelecionadas.length === 2 ? "block" : "none";
+        }
+      });
+    });
+/* função de confirmar meio a meio */
+function confirmarMeioMeio() {
+  if (pizzasSelecionadas.length !== 2) {
+    alert("Selecione duas metades de pizza para o modo meio a meio.");
+    return;
+  }
+
+  const bebidasSelecionadas = [];
+  document.querySelectorAll("#bebidas .pizza-card").forEach(card => {
+    const nome = card.querySelector(".bebida-nome")?.innerText;
+    const qtd = parseInt(card.querySelector(".quantidade span").innerText || "0");
+    if (qtd > 0) bebidasSelecionadas.push({ nome, qtd });
+  });
+
+  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+  const bordaLabel = bordaSelecionada?.closest(".borda-option")?.querySelector("h5")?.innerText || "Nenhuma";
+
+  const pedido = {
+    tipo: "meio a meio",
+    pizzas: pizzasSelecionadas,
+    borda: bordaLabel,
+    bebidas: bebidasSelecionadas,
+    preco: calcularPrecoPizza("meio", [], bebidasSelecionadas)
+  };
+
+  alert(`Você selecionou Meio a Meio: ${pizzasSelecionadas.join(" + ")} com borda: ${bordaLabel}
+${bebidasSelecionadas.length > 0 ? "Bebidas: " + bebidasSelecionadas.map(b => b.nome + " x" + b.qtd).join(", ") : ""}`);
+
+  // Salva no localStorage
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  carrinho.push(pedido);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  // Reset visual
+  pizzasSelecionadas = [];
+  document.querySelectorAll(".pizza-card").forEach(card => {
+    card.classList.remove("selecionada");
+    card.querySelector(".quantidade span").innerText = "0";
+    card.parentElement.style.display = "";
+  });
+
+  document.getElementById("confirmarMeioMeio").style.display = "block";
+  atualizarBotaoCarrinho();
+}
+
+
+/* função de confirmar pizza inteira */
+function confirmarPizzaInteira() {
+  const abaAtiva = document.querySelector(".tab-pane.active");
+  const pizzasSelecionadasInteiras = [];
+
+  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+    const nome = card.querySelector(".pizza-nome")?.innerText;
+    const span = card.querySelector(".quantidade span");
+    const qtd = parseInt(span.innerText);
+
+    if (qtd > 0) {
+      pizzasSelecionadasInteiras.push({ nome, qtd });
+    }
+  });
+
+  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+  const bordaLabel = bordaSelecionada?.closest(".borda-option")?.querySelector("h5")?.innerText || "Nenhuma";
+
+  const bebidasSelecionadas = [];
+  document.querySelectorAll("#bebidas .pizza-card").forEach(card => {
+    const nome = card.querySelector(".bebida-nome")?.innerText;
+    const qtd = parseInt(card.querySelector(".quantidade span").innerText || "0");
+    if (qtd > 0) bebidasSelecionadas.push({ nome, qtd });
+  });
+
+  if (pizzasSelecionadasInteiras.length === 0) {
+    alert("Nenhuma pizza foi selecionada.");
+    return;
+  }
+
+  const pedido = {
+    tipo: "inteira",
+    pizzas: pizzasSelecionadasInteiras,
+    borda: bordaLabel,
+    bebidas: bebidasSelecionadas,
+    preco: calcularPrecoPizza("inteira", pizzasSelecionadasInteiras, bebidasSelecionadas)
+  };
+
+  alert(`Você selecionou: ${pizzasSelecionadasInteiras.map(p => `${p.nome} x${p.qtd}`).join(", ")} com borda: ${bordaLabel}
+${bebidasSelecionadas.length > 0 ? "Bebidas: " + bebidasSelecionadas.map(b => b.nome + " x" + b.qtd).join(", ") : ""}`);
+
+  // Salvar no localStorage
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  carrinho.push(pedido);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  // Resetar visuais
+  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+    card.querySelector(".quantidade span").innerText = "0";
+  });
+
+  atualizarBotaoCarrinho();
+}
+
+
+
+    document.getElementById("barraPesquisa").addEventListener("input", function () {
+      const termo = this.value.toLowerCase();
+      const abaAtiva = document.querySelector(".tab-pane.active");
+
+      // Verifica se a aba é de pizza ou bebida
+      const isPizzaTab = abaAtiva.id === "salgadas" || abaAtiva.id === "doces";
+
+      abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+        const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
+        const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
+        const corresponde = nome.includes(termo) || descricao.includes(termo);
+
+        if (isPizzaTab && meioMeioAtivo) {
+          const qtd = parseInt(card.querySelector(".quantidade span").innerText);
+          const selecionada = card.classList.contains("selecionada");
+          const podeExibir = corresponde && (qtd > 0 || pizzasSelecionadas.length < 2 || selecionada);
+          card.parentElement.style.display = podeExibir ? "" : "none";
+        } else {
+          card.parentElement.style.display = corresponde ? "" : "none";
+        }
+      });
+      
+    });
+
+
+
+ // Função principal chamada ao clicar em "Adicionar ao Carrinho"
+function adicionarAoCarrinho() {
+  const modoPizza = document.querySelector('input[name="modoPizza"]:checked')?.value;
+  const carrinho = [];
+
+  // Coletar borda
+  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+  const bordaLabel = bordaSelecionada?.closest(".borda-option")?.querySelector("h5")?.innerText || "Nenhuma";
+
+  // Coletar bebidas
+  const bebidasSelecionadas = [];
+  document.querySelectorAll("#bebidas .pizza-card").forEach(card => {
+    const nome = card.querySelector(".bebida-nome")?.innerText || "";
+    const qtd = parseInt(card.querySelector(".quantidade span")?.innerText || "0");
+    if (qtd > 0) {
+      bebidasSelecionadas.push({ nome, qtd });
+    }
+  });
+
+  // Coletar pizzas
+  if (modoPizza === "meio") {
+    if (pizzasSelecionadas.length !== 2) {
+      alert("Selecione duas pizzas para o modo meio a meio.");
+      return;
+    }
+
+    carrinho.push({
+      tipo: "meio a meio",
+      pizzas: pizzasSelecionadas,
+      borda: bordaLabel,
+      bebidas: bebidasSelecionadas,
+      preco: calcularPrecoPizza("meio", [], bebidasSelecionadas)
+    });
+
+  } else if (modoPizza === "inteira") {
+    const pizzasInteiras = [];
+    document.querySelectorAll("#salgadas .pizza-card, #doces .pizza-card").forEach(card => {
+      const nome = card.querySelector(".pizza-nome")?.innerText;
+      const qtd = parseInt(card.querySelector(".quantidade span")?.innerText);
+      if (qtd > 0) {
+        pizzasInteiras.push({ nome, qtd });
+      }
+    });
+
+    if (pizzasInteiras.length === 0) {
+      alert("Selecione ao menos uma pizza inteira.");
+      return;
+    }
+
+    carrinho.push({
+      tipo: "inteira",
+      pizzas: pizzasInteiras,
+      borda: bordaLabel,
+      bebidas: bebidasSelecionadas,
+      preco: calcularPrecoPizza("inteira", pizzasInteiras, bebidasSelecionadas)
+    });
+
+  } else {
+    alert("Selecione se deseja pizza inteira ou meio a meio.");
+    return;
+  }
+
+  // Salvar no localStorage e redirecionar para carrinho
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  window.location.href = "carrinho.html";
+}
+
+// Função para calcular o preço total
+function calcularPrecoPizza(tipo, pizzas = [], bebidas = []) {
+  let preco = 0;
+
+  if (tipo === "meio") {
+    preco += 71.00; // Preço fixo para meio a meio
+  } else {
+    pizzas.forEach(p => {
+      preco += 47.90 * p.qtd; // Preço por pizza inteira
+    });
+  }
+
+
+  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+  const bordaTipo = bordaSelecionada?.value;
+  if (["catupiry", "cheddar",].includes(bordaTipo)) {
+    preco += 10.00;
+  }
+   if (["chocolate"].includes(bordaTipo)) {
+    preco += 15.00;
+  }
+
+  
+  bebidas.forEach(b => {
+    preco += b.qtd * 15.00; // Exemplo: cada bebida custa R$15
+  });
+
+  return preco;
+}
+
+function atualizarBotaoCarrinho() {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  document.getElementById("btnIrCarrinho").disabled = carrinho.length === 0;
+}
+
+function irParaCarrinho() {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  if (carrinho.length === 0) {
+    alert("Você ainda não confirmou nenhum pedido.");
+    return;
+  }
+  window.location.href = "carrinho.html";
+}
+
+// Chama ao carregar a página
+document.addEventListener("DOMContentLoaded", atualizarBotaoCarrinho);
+
+
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</script>
+</body>
+
+
+
+<!-- Seu FOOTER já pronto viria aqui -->
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</footer>
+
+</html>

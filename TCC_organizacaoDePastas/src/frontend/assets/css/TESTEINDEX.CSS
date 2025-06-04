@@ -1,0 +1,401 @@
+
+/* DIFERENTES TIPOS DE FONTES */
+
+.diferente1 {
+    font-family: var(--font2);
+}
+
+.diferente2 {
+    font-family: var(--font1);
+    color: #000;
+    font-weight: 700;
+}
+
+/* IMAGEM DA PIZZA DO COMEÇO DA PAGINA */
+.imagem {
+    color: white;
+    box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.473);
+    position: relative;
+    width: 600%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+   
+
+
+    /* fixa o fundo */
+    background-attachment: fixed;
+}
+
+div#imagem1 {
+    background-image: url("img/ChatGPT\ Image\ 13_04_2025\,\ 19_56_00.png");
+}
+.imglogo1{
+    max-width: 250px;
+    height: auto;
+    margin-right: 50px;
+    border-radius: 50%;
+    display: block;
+}
+
+/* INTRODUÇÃO PARA TELAS MENORES */
+@media (max-width: 768px) {
+    .introdução h1{
+        font-size: 1.3em;
+        
+    }
+} 
+@media (max-width: 400px) {
+    .introdução h1{
+        font-size: 0.8em;
+        
+    }
+} 
+
+
+/* SOBRE NÓS */
+.sobre-nos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.texto{
+    flex: 1;
+    min-width: 200px;
+    text-align: justify;
+
+}
+.texto p{
+    color: #000;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    font-family: var(--font1);
+}
+
+@media (max-width:768px) {
+    .sobre-nos{
+        font-size: 1.2em;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        flex-direction: column;
+
+    }
+
+    .texto p{
+        font-family: var(--font1);
+        text-align: center;
+        flex-direction: column;
+        max-width: 90%;
+        margin: 0 auto;
+        font-size: 1.3em;
+        word-wrap: break-word;
+        white-space: pre-line;
+    }
+
+    .logo-imagem{
+        margin-bottom: 20px;
+        width: 200px !important;
+    }
+}
+
+/* FIM DA PARTE SOBRE NÓS */
+
+
+/* ESCOLHA NÓS */
+.sobrenós{
+    background-color: #000;
+    padding: 20px;
+    margin-bottom: 30px;
+    
+
+}
+.sobre{
+    color: #991C08;
+    font-family: var(--font2);
+    text-align: center;
+}
+.botão-amarelo{
+   
+    border-radius: 15px;
+    color: white;
+    background-color: #f47a00;
+    width: 150px;
+    text-align: center;
+    font-family: var(--font1);
+}
+
+/* ACCORDION (PARTE DAS GAVETAS) */
+.accordion {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 30px;
+  }
+
+
+
+  .accordion-item {
+    border-bottom: 1px solid transparent;
+    padding: 15px 0;
+    background-color: #000000;
+    border: none;
+   
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #000000;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-header:hover {
+    color: #f47a00;
+  }
+
+  .accordion-header .arrow {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-item.active .arrow {
+    transform: rotate(90deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: none 0.4s ease;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: medium;
+    padding-right: 10px;
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 500px;
+    margin-top: 10px;
+  }
+
+  /* FIM DO ACCORDION */
+
+  /* PAGINA DE BENEFICIOS */
+  .qualidade{
+    padding: 40px 20px;
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+.textbeneficios{
+    font-family: var(--font2);
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+  .logo{
+    max-width: 220px;
+    position: absolute;
+    margin-bottom: 2em;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px){
+    .logo{
+        margin-bottom: 50px;
+
+    }
+  }
+.benefits-container{
+    max-width: 800px;
+    width: 100%;
+}
+.beneficios{
+    margin-bottom: 40px;
+    display: flex ;
+    align-items: flex-start;
+    max-width: 800px;
+    justify-content: flex-start;
+ }
+
+.beneficios-texto h3{
+    font-family: var(--font2);
+    font-weight: 500;
+    text-align: center;
+    color: #000;
+    
+}
+.beneficios-texto p{
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+    line-height: 1.5;
+
+}
+.icones-beneficios{
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+.beneficios-texto{
+    flex: 1;
+}
+.beneficios{
+    flex-direction: column;
+}
+.beneficios-texto{
+    text-align: center;
+}
+.icones-beneficios{
+    margin-right: 0;
+    margin-bottom: 15px;
+}
+.btn-cadastrar{
+    background-color: #f47a00;
+    color: white;
+    font-weight: 800px;
+    border-radius: 50px;
+    border: none;
+    padding: 8px;
+    transition: 0.3s;
+    margin-bottom: 30px;
+ 
+}
+.btn-cadastrar:hover{
+    background-color: black;
+}
+
+/* FIM DA PARTE DE BENEFICIOS */
+
+/* PARTE DE PROMOÇÕES */
+.part-promoções{
+    background-color: #000;
+    color: white;
+    position: relative;
+    margin: 0 auto;
+    height: 300px;
+    padding-top: 60px;
+    
+
+}
+.apvpromo h3{
+    font-weight: 700px;
+    font-family: var(--font2);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+.apvpromo p{
+    font-family: var(--font1);
+    margin-top: 10px;
+    font-size: 1.0em;
+}
+.btn-promoções{
+    background-color: #f47a00;
+    color: white;
+    font-weight: 800px;
+    border-radius: 50px;
+    border: none;
+    padding: 8px;
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    transition: 0.3s;
+}
+.btn-promoções:hover{
+    background-color: rgb(255, 255, 255);
+    color: #000;
+}
+
+@media (max-width:400px) {
+    .btn-promoções{
+       margin: 0 auto;
+       justify-items: center;
+    }
+}
+.logo-promoção{
+   
+    object-fit: cover;
+    margin-bottom: 2rem;
+    position: absolute;
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 150px;
+    width: auto;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) { /* A LOGO NÃO APARECE EM TELAS MENORES */
+    .logopromoção {
+      visibility: hidden;
+    }
+}
+.avaliação{
+    color: white;
+    text-align: center;
+    padding:4px 2px;
+}
+
+.imgusuario{
+    max-width: 180px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    margin-top: 30px;
+}
+
+.avaliação h4{
+    font-family: var(--font1);
+    font-weight: 700px;
+    font-size: 2.8em;
+    margin-top: 5px;
+    color: white;
+}
+
+@media (max-width:768px) {
+    .avaliação h4{
+        font-size: 1.7em;
+    }
+}
+
+.comentarios{
+    color: #000;
+    font-weight: 900px;
+}
+
+.nome{
+    color: orange;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {  /* PARA PAGINAS MENORES */
+    .part-promoções {
+      text-align: center;
+    }
+}
+.logopromoção{
+   float: right;
+   margin: auto;
+
+}
+
+/* FIM DA PARTE DE PROMOÇÕES */

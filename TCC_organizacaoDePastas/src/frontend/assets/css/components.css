@@ -1,0 +1,1152 @@
+/* ESTÁ PAGINA CONTÉM O CSS DE BUTTONS, CARDS, BLOCOS E IMAGENS  */
+
+/*---------------------------SESSÃO DE BUTTONS-------------------------- */
+
+/* BUTTON PÁGINA ENDEREÇO */
+
+.buttons-opcao-endereco{
+    margin: 20px;
+     gap: 10px;  
+ }
+
+ /* EDIÇÃO DE ENDEREÇO */
+
+
+
+ .button-branco{
+     background-color: #ffffff;
+     color: black;
+     font-weight: bolder;
+     padding: 8px 10px;
+     border-radius:30px;
+     width: 160px;
+ }
+ .button-branco:hover{
+     background-color:#f47a00;
+     color: white;
+ }
+ 
+
+/* BUTTON MEUS DADOS */
+
+.btn-editar {
+    background-color:#F77F00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: left;
+    justify-content: center;
+    display: flex;
+    
+}
+
+
+/* OFFCANVA DE PERFIL DO USUARIO */
+.buttons-perfil{
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+    flex-direction: column;
+}
+.button-laranja-perfil{
+    background-color: #f47a00;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius:10px;
+    right: 20px;
+
+}
+
+.button-branco-perfil{
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius:10px;
+    right: 20px;
+}
+
+/* buttonde sair da conta  */
+
+.button-sair{
+    background-color: #d31212 ;
+    color: white ;
+    font-weight: bold;  
+    border-radius: 10px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+    
+   
+}
+.button-sair:hover{
+    background-color:#f47a00;
+}
+
+
+ /* PÁGINA CONTATO */
+
+ .button-black{
+    background-color: #000000 ;
+    color: white ;
+    font-weight: bold;  
+    border-radius: 90px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 500;
+    
+   
+}
+.button-black:hover{
+    background-color:#f47a00;
+}
+.center-button {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.center-button a {
+    text-decoration: none;
+    color: #eeeeee;
+    
+}
+.button-black-centralizar{
+    text-align: center;
+}
+
+   /* FORMULARIO BOTÃO DE AVANÇAR */
+
+   /* BOTÃO DE AVANÇAR */
+.button-laranja {
+    background-color: #F77F00;
+    border: none;
+    font-weight: bolder;
+    padding: 20px;
+    border-radius: 30px;
+    width: 200px;
+    margin-top: 30px;
+    right: 20px;
+}
+.button-laranja-position {
+    justify-content: right;
+    display: flex;
+    margin-top: 10px;
+}
+
+.button-laranja:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.button-laranja{
+    margin-bottom: 30px;
+    color: white;
+    font-family: var(--font1);
+    padding: 10px;
+    font-weight: 800;
+}
+.pix-texto{
+    font-family: var(--font1);
+    font-size: medium;
+    font-weight: 600;
+}
+
+
+/* PAGAMENTO-> FORMULARIO BOTÃO DE COPIA E COLA  */
+.btn-info {
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: none;
+}
+
+
+
+
+
+
+
+    /* CARRINHO */
+    .add-pedido button {
+
+        margin: 10px auto;
+        background-color: #F77F00;
+        color: white;
+        font-weight: bolder;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+   
+
+
+.quantidade{
+    background-color: rgb(8, 8, 8);
+    border: none;
+    padding: 5px 50px;
+    margin: 0 auto;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 130px;
+    margin-right: 10px;
+    
+}
+    .selecionada {
+      border: 2px solid green;
+      background-color: #e6ffe6;
+    }
+.quantidade-itens{
+color: #ffffff;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  
+}
+
+.button-vermelho {
+    background-color:#991C08;
+    border: none;
+    font-weight: bolder;
+    font-size: 16px;
+    padding: 10px;
+    border-radius:30px;
+    width: 200px;
+ 
+}
+a{
+    text-decoration: none !important;
+    color:inherit !important;
+    outline: none !important;
+    cursor:pointer !important;
+} 
+.button-vermelho:hover{
+    background-color:#f47a00;
+    color: white;
+}
+.button-vermelho-position {
+    justify-content: right;
+    display: flex;
+    margin-top: 10px;
+
+}
+
+.borda-radio{
+margin-top: -45px !important;
+margin-bottom: 10px !important;
+margin-right: -50px !important;
+display: flex !important;  
+width: 40px  !important;
+height: 40px  !important;
+box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
+}
+
+
+/* PROMOÇÃO */
+
+.button-promoção {
+    background-color: #F77F00;
+    color: #fff;
+    padding: 15px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+   
+    
+}
+  /* AVALIAÇÃO CLIENTE  */
+  .btn-enviar {		
+    padding: 0.8rem 2rem;
+    color: white;
+    background-color: orange;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.2em;
+    border: none;
+    margin-top: 30px;
+    gap: 8px;
+
+}
+
+.btn-enviar:hover {
+    background-color: #000;
+}
+
+
+
+
+
+
+/*------------------------------------- ----SESSÃO DE BLOCOS E CARDS------------------------------------------------ */
+ 
+/* PROMOÇÃO */
+.promocoes {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 20px;
+    min-height: 100vh;
+    width: 100%;
+    background: #991C08;
+}
+
+.card-card {
+    font-family: var(--font1);
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    padding: 15px;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-card:hover {
+    transform: translateY(-10px);
+    background-color: #F77F00;
+    color: #fff
+}
+
+.card-card:hover .card-conteudo h3 {
+    background-color: white;
+    color: #000000;
+}
+.subtitle {
+    color: #F77F00;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .promocoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: #991C08;
+  }
+
+  .card-promocao {
+    background: #f4f4f4;
+    color: #000;
+    padding: 15px;
+    width: 280px; 
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .promocoes :hover {
+    background-color: #F77F00;
+    color: #fff
+  }
+
+  .regulamento {
+    background: #222;
+    padding: 20px;
+    text-align: center;
+    color: #F77F00;
+  }
+  .regulamento p {
+    color: #fff;
+  }
+
+
+/* EDIÇÃO DE ENDEREÇO -> bloco de opções */
+ .check-laranja{
+    background-color: #F77F00;
+    color: white;
+    font-weight: bold;  
+    border-radius: 10px ;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+   
+}
+
+/* OFFCANVA DE PERFIL DO USUARIO */
+.progress-fidelidade {
+    background-color: #F77F00;
+    border-radius:40px;
+    margin-top: 20px;
+ 
+}
+
+/* offcanava de meu perfil */
+.card-fidelidade{
+    background-color: #F77F00 !important;
+    border-radius: 70px !important;
+    padding: 10px;
+    margin: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* SOBRE NÓS */
+.sobre-nos {
+    background-color: rgb(142, 8, 8);
+    color: rgb(255, 255, 255);
+    padding:  8px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 20px;
+  border-radius: 20px;
+}
+   
+.sobre-nos .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+
+
+}
+
+/* pagina pagamento */
+.redondo{
+    border-radius: 50px;
+
+}
+
+
+.opções-entrega {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+.opções-entrega:hover > :not(:hover){
+    opacity: .7;
+    transform: scale(0.9);
+}
+
+.card-opção{
+    font-family: var(--font1);
+    background-color: #397a89;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    padding: 10px;
+    width: 170px;
+    height: 100px;
+    /* margin-top: 50px; */
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.card-opção input{
+    display: none;
+    
+}
+
+.card-opção #opção-paga-agora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-opção #opção-paga-retirada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.card-opção input:checked + #opção-paga-agora{
+    background-color: #f47a00;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+}
+
+.card-opção input:checked + #opção-paga-retirada{
+    background-color: #f47a00;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+
+}
+
+.card-opção:hover{
+    background-color: #3c9450;
+    transform: scale(1.0);
+    cursor: pointer;
+
+}
+/* CARRINHO */
+.conteiner-confirmacao {
+     padding: 20px;
+     border-radius: 15px;
+ }
+  /* deseja adicionar novo endereço? */
+ .novo-endereço {
+     font-family: var(--font1);
+     text-align: right;
+     background-color: #991C08;
+     border-radius: 10px;
+     border: none;
+     cursor: pointer;
+     padding: 8px;
+     font-weight: 700;
+
+ }
+
+ a {
+     text-decoration: none;
+     color: #000;
+ }
+
+
+ .link-alteraca-confirmacao {
+     text-align: center;
+ }
+
+ /* área dos pedidos  */
+ .box-confirmacao {
+     background-color: #F77F00;
+     margin-bottom: 15px;
+     border-radius: 15px;
+     width: 100%;
+     margin: 0 auto;
+     margin-top: 40px;
+     padding: 20px;
+     text-align: left;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+     transition: transform 0.5s ease;
+     margin-bottom: 50px;
+
+ }
+
+ .box-confirmacao:hover {
+     transform: scale(1.02);
+ }
+
+ /* bordinha pequena informando o tipo de pizza */
+ .escolha-confirmacao {
+     background-color: #991C08;
+     border-radius: 15px;
+     padding: 5px 15px;
+     color: rgb(255, 255, 255);
+     font-weight: bold;
+ }
+
+ .box-confirmacao h3 {
+     color: #000;
+     font-family: var(--font2);
+     font-weight: 600;
+ }
+
+ .box-confirmacao p {
+     font-family: var(--font1);
+     color: #181515;
+     font-weight: 400;
+     margin-top: 20px;
+ }
+
+
+ .borda-confirmacao {
+     font-family: var(--font1);
+     font-weight: 500;
+     background-color: #991C08;
+     border-radius: 30px;
+     padding: 10px 20px;
+     color: white;
+     text-decoration: none;
+     font-size: 24px;
+     display: inline-block;
+ }
+
+ .preço-confirmacao {
+     font-family: var(--font2);
+     color: white;
+     font-size: 1.5em;
+     text-align: right;
+     font-weight: bold;
+ }
+
+ .total-confirmacao {
+     font-family: var(--font1);
+     font-weight: 500;
+     background-color: #000000;
+     border-radius: 30px;
+     width: 100%;
+     padding: 8px;
+     color: white;
+     font-size: 24px;
+     margin: 0 auto;
+     justify-content: space-between;
+     display: flex;
+     margin-top: 10px;
+ }
+
+ .total-confirmacao-total {
+     font-family: var(--font1);
+     font-weight: 800;
+     justify-content: space-between;
+     background-color: #f47a00;
+     border-radius: 30px;
+     width: 900px;
+     padding: 5px;
+     color: white;
+     font-size: 24px;
+     margin: 0 auto;
+     display: flex;
+     margin-top: 30px;
+ }
+
+ @media (max-width:768px) {
+     .total-confirmacao-total {
+         width: 300px;
+     }
+ }
+
+ .cupom-desconto {
+     display: flex;
+     flex-direction: column;
+     padding: 8px;
+     margin-top: 30px;
+     margin-bottom: 30px;
+ }
+
+ .cupom-desconto span {
+     font-family: var(--font2);
+     color: white;
+     font-size: 2.0em;
+    
+        
+ }
+
+ #insire {
+     font-family: var(--font1);
+     font-size: 20px;
+    
+ }
+
+ input {
+     margin-top: 50px;
+     width: 500px;
+     margin: 0 auto;
+     border-radius: 10px;
+     border: none;
+     padding: 10px;
+ }
+
+ .cupom-desconto button{
+    margin-left: 750px;
+    cursor: pointer;
+    padding: 8px 8px;
+    justify-content: center;
+    justify-items: center;
+    
+ }
+
+
+ .seta-pulando {
+     display: inline-block;
+     animation: pularSeta 1s infinite;
+     margin-bottom: 20px;
+ }
+
+ .seta-svg {
+     width: 24px;
+     height: 24px;
+     color: orange;
+ }
+
+ @keyframes pularSeta {
+
+     0%,
+     100% {
+         transform: translateY(0);
+     }
+
+     50% {
+         transform: translateY(8px);
+     }
+ }
+
+ .aplicar{
+    font-family: var(--font1);
+    border-radius: 15px;
+    background-color: #f47a00;
+    width: 200px;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+    margin-top: -40px;
+
+    
+   
+ }
+
+
+
+ .add-pedido button {
+     margin: 10px auto;
+     border: none;
+     background-color: #F77F00;
+     color: rgb(0, 0, 0);
+     font-weight: bolder;
+     padding: 10px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 30px;
+     margin-top: 30px;
+ }
+
+
+
+
+ .button-black-centralizar {
+     text-align: right;
+ }
+
+ .botão-pagamento {
+     font-family: var(--font1);
+     background-color: #f47a00;
+     color: #000;
+     font-weight: 700;
+     border-radius: 50px;
+     border: none;
+     padding: 8px;
+     gap: 8px;
+     display: inline-flex;
+     align-items: center;
+     transition: 0.3s;
+     margin-top: 30px;
+ }
+
+
+
+
+ .botão-pagamento:hover {
+     background-color: #000;
+     color: white;
+ }
+
+
+
+ .comentario-confirmacao {
+     height: 200px;
+ }
+
+
+
+ /* parte do endereço */
+ .endereco-confirmacao {
+     margin: 0 auto;
+     border-radius: 20px;
+     width: 900px;
+     background-color: white;
+     color: #000000;
+     padding: 8px;
+     text-align: left;
+     padding-left: 15px;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 10px;
+     align-items: center;
+
+ }
+
+ @media (max-width:768px) {
+     .endereco-confirmacao {
+         width: 400px;
+
+     }
+ }
+
+ .endereco-confirmacao p {
+     text-align: center;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     gap: 0.7rem;
+ }
+
+
+.endereco-confirmacao {
+    border-radius: 20px;
+    background-color: white;
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.box-confirmacao {
+    background-color: #F77F00;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.escolha-confirmacao  {
+    background-color: #991C08;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+
+
+
+
+/* CARDAPIO */
+.cardapio-container {
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 140px;
+    margin-bottom: 20px;
+}
+
+.barra_pesquisa {
+    background-color: #F77F00;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-content {
+            height: 100%;
+        }
+        .cardapio-container {
+            min-height: 100vh;
+
+        } 
+
+        .full-width-row {
+            height: 100%;
+        }
+
+    
+
+.nav-categorias {  
+    background-color: #F77F00;
+    border-radius: 10px;
+    font-weight: bold;
+   
+}
+.sabores-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.pizza-card {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    
+}
+
+.pizza-card:hover {
+    transform: translateY(-5px);
+}
+
+.borda-option {
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.opcoes-borda-radio{
+    
+    justify-content: right;
+    display: flex;
+    margin-right: 50px;
+}
+/* pagina sobre nós */
+.avaliacao-bloco {
+    background-color: #FF8C00; /* Laranja */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .avaliacao-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    
+  }
+
+  /* RESPOSTAS E AVALIAÇÃO PÁGINA */
+
+  .evaluation-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    color: #eeeeee !important;
+    background-color:#991C08 !important;
+}
+
+.admin-response {
+    font-family: var(--font1);
+    background-color:#f47a00;
+    border-left: 4px solid #f35208a7;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+}
+/*------------------------------------- ----SESSÃO DE STATUS------------------------------------------------ */
+
+/* STATUS DO PEDIDO */
+.status{
+    border-radius: 15px;
+    background-color:#F77F00;
+    padding: 5px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 30px;
+}
+.status1{
+    text-align: left;
+    margin-left: 20px;
+}
+.status2{
+    text-align: center;
+    margin-bottom: 5%;
+    background-color:#F77F00;
+    border-radius: 15px;
+}
+.progress{
+    margin-top:5%;
+    margin-bottom: 2%;
+    border-radius: 15px;
+} 
+
+
+
+
+/*-----------------------------------------SESSÃO DE IMGS--------------------------------------------------  */
+
+
+
+  /* PÁGINA CONTATO */
+
+  .contato-banner {
+    background: url('../../public/banners/fundo contato.png') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 10px !important;
+
+   
+}
+
+/* PÁGINA SOBRE NÓS */
+.sobre-nos-banner {
+    background: url('../../public/banners/SobreNosimg.png') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 115px;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 10px !important;
+
+   
+}
+
+
+
+
+/* img do button de Meus dados  */
+.btn-editar img {
+    margin-right: 10px;
+}
+
+/*  sessaõ SOBRE NÓS */
+.sobre-nos img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+/* pagina sobre nós  */
+
+.img-localizacao{
+    gap:10px;
+      display: flex;
+  }
+  
+  .img-localizacao img{
+  width: 60px;
+  height: 60px;
+  }
+
+
+/* cardapio */
+.cardapio-intro img {
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    justify-items: center;
+}
+.card-img-top {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+.pizza-oculos img{
+    width: 50%;
+    height: 50%;
+}
+/* Pagamento */
+
+/* PARTE DOS CODIGO DO QRCODE */
+ .pix-chave {
+    font-size: 20px;
+    background-color: rgb(139, 129, 129);
+    border-radius: 15px;
+    padding: 5px;
+    border: none;
+    font-weight: 900;
+    width: 800px;
+    margin:0 auto;
+    margin-top: 40px;
+    
+}
+
+@media (max-width:768px) {
+    .pix-chave{
+        width: 430px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+} 
+.qrcode img {
+    background: white;
+    /* ANIMAÇÃO DE FADE NO QRCODE(UMA PEQUENA TRANSIÇÃO) */
+    animation: fadeInQr 2s ease forwards;
+    /* ease -> especifica um movimento com inicio lento e depois rapido */
+    transform: scale(0.9);
+    /* forwars -> quando a animação acaba ele fixar a imagem de qrcode pra ela nao sumir quando a animação acaba  */
+    opacity: 0;
+    padding: 10px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+
+}
+
+@keyframes fadeInQr {
+    to {
+        /* ajustamento da animação */
+        opacity: 1;
+        transform: scale(1);
+        /* defini o tamanho da imagem que vai ter quando a animação acontece  */
+    }
+
+
+} 
+.feedback {
+    font-family: var(--font1);
+    font-weight: 700;
+    color: #3c9450;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    display: none;
+}
+
+
+.validade{
+    font-family: var(--font1);
+    color: #c35454;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight:bolder;
+    text-decoration: underline;
+}
+
+/* PROMOÇÃO */
+
+
+
+.card-imagem {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    border-radius: 10px;
+}
+
+.card:hover .card-imagem img {
+    background-color: #F77F00;
+    color: #fff
+}
+
+.card-conteudo {
+    padding: 20px;
+}
+

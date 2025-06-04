@@ -1,0 +1,468 @@
+/*Estilo principal (importa todos os outros) */
+
+/* MONTSERRAT ALTERNATIVES */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+/* MONTSERRAT SLAB */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --font1: "Montserrat Alternates";
+    --font2: "Montagu Slab";
+}
+
+/* DIFERENTES TIPOS DE FONTES */
+
+.diferente1 {
+    font-family: var(--font2);
+}
+
+.diferente2 {
+    font-family: var(--font1)
+}
+
+
+
+@media (max-width: 768px) { /* Para telas menores que 768px */
+
+    html, body {
+        /* margin: 0;
+        padding: 10px; 
+        height: 100%; */
+        flex-direction: row;
+        
+  
+    }
+}
+
+@media (max-width: 480px) { /* Para telas menores que 480px (celulares bem pequenos) */
+    html, body {
+        margin: 0;
+        padding: 0px; 
+        height: 100%;
+        
+        flex-direction: row;
+    }
+
+}
+/* Estilo para o modal */
+.modal-vermelhor {
+    background-color: rgb(144, 33, 6);
+    color: white;
+  }
+
+  .body-vermelho{
+    background-color:#991C08;
+}
+
+.backgrond-black {
+    background-color: black !important;
+    
+}
+
+
+/*------------------------------------------------- TITULOS ----------------------------------------------------------*/
+
+/* AVALIAÇÃO DO CLIENTE */
+.avalicao-estrelas h1 {
+    font-family: var(--font2); /* <!--COLOQUEI A FONTE E FIZ ALGUMAS MUDANÇAS--!> */
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+    
+
+
+}
+
+
+/* avaliação e resposta */
+.avaliacao-nota h2{
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+  /* cardapio */
+  .categoria-titulo {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 15px;
+border-radius: 10px;
+    padding-bottom: 5px;
+   text-align: center;
+     background-color: #f9a622;
+    padding: 15px;
+} 
+
+/* CARRINHO  */
+ .texto-confirmacao {
+     font-family: var(--font2);
+     background-color: #090909;
+     color: #ffffff;
+     border-radius: 20px;
+     text-align: center;
+     padding: 20px;
+     margin-bottom: 20px;
+     margin-top: 140px;
+
+
+ }
+
+
+/* pagamento */
+
+.pagamento-conteiner h3 {
+    font-family: var(--font1);
+    text-decoration: underline black;
+    color: #000000;
+    padding-top: 30px;
+    margin-bottom: 40px;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.valor {
+    background-color: #f47a00;
+    color: #fff;
+    text-align: center;
+    justify-items: center;
+    font-weight: 700;
+    padding: 10px;          /* parte do valor total */
+    font-size: 20px;
+    width: 500px;
+    margin: 0 auto; 
+    border-radius: 30px;
+    border: 1px solid white;
+}
+
+@media (max-width: 768px) {         /* para celulares com telas pequenas */
+    .valor{
+        width: 400px;
+    }
+}
+/* PROMOÇÃO */
+.card h3 {
+    font-family: var(--font2);
+    background: #F77F00;
+    color: #f50000;
+    padding: 5px;
+    border-radius: 5px;
+}
+.card p strong {
+    color: #000000;
+}
+
+.destaque-promoção {
+    color: #000;
+    font-weight: bolder;
+}
+.regulamento {
+    background: #222;
+    padding: 20px;
+    text-align: center;
+    color: #F77F00;
+}
+
+.regulamento h2 {
+    font-family: var(--font2);
+}
+
+.regulamento p {
+    color: #fff;
+    font-family: var(--font1);
+}
+
+
+
+.titulo {
+    color: white;
+    font-family: var(--font2);
+}
+
+  .tituloPromocao h1{
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    
+  }
+
+  .tituloPromocao {
+    margin-top: 160px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------ESCRITAS----------------------------------------------------------------------- */
+
+/* pagamento */
+.pagamento-conteiner{
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px auto;
+    margin-top: 100px;
+  
+}
+
+.corpreta{
+    color: black;
+}
+
+
+/* carrinho */
+.pix-chave{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+
+.texto-confirmacao {
+    background-color: #090909;
+    color: #ffffff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 140px
+}
+
+.link-alteraca-confirmacao {
+    text-align: center;
+}
+
+.preço-confirmacao {
+    text-align: right;
+    font-weight: bold;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+.add-pedido span {
+    font-size: 25px;
+    margin-right: 10px;
+}
+ 
+.tempo-estimado {
+    color: white;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.comentario-confirmacao {
+    height: 100px ;
+}
+
+/* PAGINA SELEÇÃO DE PIZZA */
+.pizza-nome {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.pizza-preco {
+    font-weight: bold;
+    color: #388e3c;
+    font-size: 1.2rem;
+}
+
+
+/* PÁGINA SOBRE NÓS */
+
+.semana{
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px ;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 17px;
+} 
+
+table {
+   width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-right: 30px;
+   align-items: center;
+   margin: 10px 0;
+   color: rgb(0, 0, 0);
+   font-weight: bold;
+   font-size: 17px; 
+
+
+  
+   }
+.semana-center th{
+
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.semana-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+    background-color: #991C08;
+   
+
+
+}
+
+.horario-funcionamento{
+    margin-top: 10%;
+    margin: 50px;
+   
+}
+
+.localizacao{
+    margin: 15px;
+}
+
+.titulo-central{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Montserrat', 'Open Sans', 'Lato', Arial, sans-serif;
+    margin-top: 70px;
+ 
+}
+
+.endereco-map{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+  
+}
+
+/* Página contato  */
+.avaliacao-nota{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+  }
+  .avaliacao-contagem {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .avaliacao-estrelas {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #FFD700;
+  }
+  
+  .avaliacao-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px dashed white;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .avaliacao-link:hover {
+    border-bottom: 1px solid white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------ALEATORIOS----------------------------------------------- */
+
+/* carrinho */
+.conteiner-confirmacao{
+    padding: 20px;
+    border-radius: 15px;
+}
+.opcoes {
+    justify-content: space-between;
+    display: block;
+    gap: 10px;
+}
+
+.opcão-delivery{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+}
+
+/* cardapio */
+.barra-pesquisa{
+    margin-bottom: 50px;
+   
+}
+
+/* AVALIAÇÃO E RESPOSTA  */
+.star-rating {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+.evaluation-date {
+    color: #c5c5c5;
+    font-size: 0.9rem;
+} 
+
+/* PÁGINA STATUS PEDIDO */
+.conteiner-status{
+    margin-top: 120px;
+    color:rgb(255, 255, 255);
+}
+
+
+/* SCROOL */
+.sabores-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sabores-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.sabores-container::-webkit-scrollbar-thumb {
+    background: #d32f2f;
+    border-radius: 10px;
+}
+
+
+

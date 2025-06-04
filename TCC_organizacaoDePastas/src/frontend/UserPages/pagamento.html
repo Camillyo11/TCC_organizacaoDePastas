@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
+    <link rel="stylesheet" a href="../assets/css/forms.css">
+    <link rel="stylesheet" a href="../assets/css/main.css">
+    <link rel="stylesheet" a href="../assets/css/components.css">
+    <title>Pagamento na entrega</title>
+</head>
+
+<body class="body-vermelho">
+  <div id="header-container"></div>
+
+  <main>
+    <div class="pagamento-conteiner container">
+      <p style="text-align:center; color:white; font-family: montagu slab;">
+        Etapa 2 de 3: <strong>Pagamento</strong> → Entrega → Finalização
+      </p>
+      
+      <h1 class="bg-black p-2 text-white redondo text-align:center; color:white; font-family: montagu slab; ">Pagamento</h1>
+      <h3 class="mt-3 redondo">Qual a forma de pagamento?</h3>
+      <div class="conteiner">
+        <div class="valor mt-3 p-2">Valor total: R$100,80</div>
+      </div>
+
+      <div class="opções-entrega mt-3">
+        <label class="card-opção">
+          <input class="form-check-input" type="radio" name="pagamento" id="agora" checked onchange="mostrarAreaPix()">
+          <div id="opção-paga-agora">
+            <img src="../public/icons/icons8-pagamento-48.png" width="40px" height="40px"  alt="ícone de pagamento">
+            <strong>Pagar agora</strong>
+          </div>
+        </label>
+
+        <label class="card-opção">
+          <input class="form-check-input" type="radio" name="pagamento" id="retirada" onchange="mostrarAreaPix()">
+          <div id="opção-paga-retirada">
+            <img src="../public/icons/icons8-recepção-32.png" width="25px" height="25px"  alt="ícone de recepção">
+            <strong>Pagar na entrega</strong>
+          </div>
+        </label>
+      </div>
+
+      <!-- Área do Pix - inicialmente visível apenas se "Pagar agora" estiver selecionado -->
+      <div class="areaPix" id="areaPix" style="display: none;">
+        <div class="pix-texto">
+          <img src="../public/icons/icons8-pix.svg" width="300px" height="240px" alt="ícone do pix">
+          <h4 class="mt-4">Pix</h4>
+          <p>Leia o QR Code pelo seu pix</p>
+        </div>
+        <div class="qrcode">
+          <img src="../public/icons/QR_Code_Afinz.png" alt="QR Code para pagamento">
+        </div>
+
+        <p class="pix-chave">aB3cD9Ef6GH7JjK8L2M3NoPqR1StUvUXx</p>
+
+        <p class="validade mt-2"><strong>Código válido até: <span class="validade">21/11/2024 20:30</span></strong></p>
+        <div class="botão-copiar">
+          <button class="btn btn-info" onclick="copiarPix()">Copiar chave Pix</button>
+        </div>
+        <div class="feedback" id="feedback">
+          <img src="../public/icons/icons8-conta-verificada-48.png" alt="ícone de verificação" width="35px">
+          Chave pix copiada com sucesso!
+        </div>
+
+        
+      </div>
+     
+    </div>  
+    <button class="button-laranja float-end">Avançar</button>
+  </main>
+
+   <!--   FOOTER   -->
+   <footer class="footer-conteiner">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
+        </div>
+        <div class="col">
+          <h5>Endereço</h5>
+          <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+          <p>São Paulo-SP</p>
+        </div>
+        <div class="col">
+          <h5>Telefone</h5>
+          <p>(11)9002-0922</p>
+          <p>(11)9002-0922</p>
+        </div>
+        <div class="col">
+          <h5>Horário de funcionamento</h5>
+          <h6>Terça a Quinta</h6>
+          <p> Das 17:00 ás 00:00</p>
+          <h6>Sexta á Sábado</h6>
+          <p> Das 17:00 ás 01:00</p>
+        </div>
+      </div>
+
+      <!-- Redes Sociais abaixo das colunas -->
+      <div class="row">
+        <div class="col redes-sociais">
+          <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+          <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mostra ou esconde a área do Pix baseado na seleção
+    function mostrarAreaPix() {
+      const pagarAgora = document.getElementById('agora').checked;
+      const areaPix = document.getElementById('areaPix');
+      
+      if (pagarAgora) {
+        areaPix.style.display = 'block';
+      } else {
+        areaPix.style.display = 'none';
+      }
+    }
+
+    // Função para copiar o Pix
+    function copiarPix() {
+      const chave = "aB3cD9Ef6GH7JjK8L2M3NoPqR1StUvUXx";
+      navigator.clipboard.writeText(chave);
+      document.getElementById("feedback").style.display = "block";
+      
+      // Esconde o feedback após 3 segundos
+      setTimeout(() => {
+        document.getElementById("feedback").style.display = "none";
+      }, 3000);
+    }
+
+    // Mostra a área do Pix ao carregar a página se "Pagar agora" estiver selecionado
+    document.addEventListener('DOMContentLoaded', mostrarAreaPix);
+  
+
+  <!-- Seus scripts de biblioteca aqui -->
+
+
+  fetch('../UserPages/header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-container').innerHTML = data;
+    })
+    .catch(error => console.error('Erro ao carregar o header:', error));
+    
+   // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
+   const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+   modalTriggerList.map(function (modalTriggerEl) {
+     new bootstrap.Modal(modalTriggerEl);
+   });
+
+   const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+   offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+     new bootstrap.Offcanvas(offcanvasTriggerEl);
+   });
+</script>
+
+<script type="module" src="../assets/js/auth.js"></script>
+ <script type="module" src="../assets/js/checkout.js"></script>
+
+ 
+  
+    
+
+
+  </body>
+
+</html>

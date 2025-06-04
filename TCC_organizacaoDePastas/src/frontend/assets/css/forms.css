@@ -1,0 +1,400 @@
+/* CSS DOS FORMULARIOS */
+/* MONTSERRAT ALTERNATIVES */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+
+/* MONTSERRAT SLAB */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --font1: "Montserrat Alternates";
+    --font2: "Montagu Slab";
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+html, 
+body {
+
+    color: white;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    margin-top: 30px;
+}
+
+
+@media (max-width: 768px) {
+    /* Para telas menores que 768px */
+
+    html,
+    body {
+        /* margin: 0;
+        padding: 10px; 
+        height: 100%; */
+        flex-direction: row;
+
+
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Para telas menores que 480px (celulares bem pequenos) */
+    html,
+    body {
+        margin: 0;
+        padding: 0px;
+        height: 100%;
+
+        flex-direction: row;
+    }
+
+}
+
+
+
+/* PÁGINA CADASTRO */
+
+
+/* CONTAINER AJUSTADO */
+.container-cadastro {
+    border-radius: 30px;
+    margin: 20px 0;
+    margin: 0 auto;
+    width: 850px;
+    margin-bottom: 50px;
+    background-color: #820000e4;
+
+
+}
+/* BELLA MASSA */
+.title {
+    font-family: var(--font2);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+}
+/* SUBTITULO */
+.cadastro {
+    font-family: var(--font2);
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.3em;
+}
+
+.cadastro h3 {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #9436366b;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.cadastro p {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 1.0em;
+    color: white;
+
+}
+/* FINAL DO SUBTITULO */
+
+
+
+/* PARTE DO FORMULARIO */
+.form-cadastro {
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 15px;
+    width: 800px;
+
+}
+
+.form-label {
+    font-family: var(--font1);
+    font-weight: 500;
+    color: #000000;
+    font-size: 1.2em;
+    display: block;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 30px;
+}
+/* FINAL DO CSS DO FORMULARIO */
+
+
+
+
+/* BOTÃO DE CADASTRAR */
+.button {
+    font-family: var(--font1);
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 150px;
+    font-weight: 600;
+    background-color: #f47a00;
+    color: #000;
+    padding: 5px;
+    border: none;
+    font-size: 1.3em;
+
+}
+
+.button:hover {
+    background-color: #000;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/* AVALIAÇÃO CLIENTE */
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-self:left;
+    margin-left: 20px;
+    
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    font-size: 40px;
+    color: rgb(184, 179, 179);
+    cursor: pointer;
+}
+
+.stars input:checked ~ label,
+.stars label:hover,
+.stars label:hover ~ label {
+    color: gold;
+}
+
+.avalicao-estrelas{
+    margin-top: 20%;
+    margin-left: 0;
+}
+
+.avalicao-estrelas h1{
+    color: #2c2c2c;
+    text-align: center;
+    margin-top: 120px;
+   
+}
+
+.form-group-avaliacao{
+    flex-direction: column;
+    display: flex;
+    margin: 20px;
+
+}
+
+.label-comentario{
+    font-family: var(--font1);
+    font-weight: bold;
+    margin-top: 5px;
+    flex-direction: column;
+    color: white;
+
+}
+
+   
+  /* FORMULARIOS */
+  .opções{
+    display: flex;
+    justify-content:space-around;
+    gap: 15px;
+}
+
+/* Estilos para o formulário de edição  */
+#formEditarDados {
+    background-color:#F77F00;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+  } 
+
+/* FORM contato  */
+  .form-contato{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(144, 33, 6);
+    padding: 15px 15px ;
+    color: white;
+    font-size: 16px;
+    border-radius: 15px;
+    
+    
+  }
+
+
+  /* PAGINA DE ENDEREÇO */
+  
+
+  .container-cadastro {
+    border-radius: 30px;
+    margin: 20px 0;
+    margin: 0 auto;
+    margin-top: 120px;
+    width: 850px;
+    margin-bottom: 50px;
+
+    background-color: #820000e4;
+
+
+}
+
+.title {
+    font-family: var(--font2);
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+}
+
+.endereço {
+    font-family: var(--font2);
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.3em;
+}
+
+.endereço h3 {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #9436366b;
+    width: 280px;
+    margin: 0 auto;
+}
+
+.endereço p {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 1.0em;
+    color: white;
+
+}
+
+.form-cadastro {
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 15px;
+    width: 800px;
+
+}
+
+.form-label {
+    font-family: var(--font1);
+    font-weight: 500;
+    color: #000;
+    font-size: 1.2em;
+    display: block;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 30px;
+}
+
+
+.cep-link {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.cep-link a {
+    color: #fff;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+
+
+.button {
+    font-family: var(--font1);
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 150px;
+    font-weight: 600;
+    background-color: #f47a00;
+    color: #000;
+    padding: 5px;
+    border: none;
+    font-size: 1.3em;
+
+}
+
+.button:hover {
+    background-color: #000;
+    color: white;
+}
+/* Fundo desfocado */
+.img-fundo{
+    content: "";
+    background-image: url('../../public/banners/pizza-fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: fixed; /* Alterado de absolute para fixed */
+   top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 100%;
+
+
+
+/*     background-color: #991C08; /* Cor de fallback */ 
+}
+
+/* Garante que o conteúdo fique acima do fundo */
+.img-fundo{
+    position: relative;
+    z-index: 1;
+}

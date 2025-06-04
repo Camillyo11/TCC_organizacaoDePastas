@@ -1,0 +1,437 @@
+
+<head>
+  <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<!-- Bootstrap JS (no final do <body>) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/authFront.js"></script>
+</head>
+
+
+
+
+<header>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="../UserPages/index.html">
+          <img src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa" width="100" height="100">
+      </a>
+          <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+              aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BELLA MASSA</h5>
+                  <button type="button" class="btn-close btn-close-white btn-primary btn-sm"
+                      data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 text-white">
+                      <li class="nav-item">
+                          <a class="nav-link mx-lg-2 active" aria-current="page" href="../UserPages/index.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link mx-lg-2" href="../UserPages/SobreNos.html">Sobre nós</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link mx-lg-2" href="../UserPages/promocao.html">Promoções</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link mx-lg-2" href="../UserPages/contato.html">Contato</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+            <!-- Botões do Navbar -->
+            <div class="button-navbar ms-auto">
+                <!-- Botão de Conta/Perfil - será modificado via JavaScript -->
+                <a href="#" id="accountButton" class="login-button text-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="../public/icons/conta.png" height="25" width="25" > Conta</a>
+             
+         
+                <button class="login-button" data-bs-toggle="offcanvas" data-bs-target="#meuspedidosOffcanvas">
+                  <img src="../public/icons/pedidos.png" height="30" width="30"> Pedidos
+              </button>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        
+
+    </nav>
+
+    
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header modal-header-preto">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container p-5">
+                    <!-- Adicione esta div para mensagens de erro -->
+                    <div id="loginAlert" class="alert alert-danger d-none"></div>
+                    
+                    <form class="form-vermelho" id="loginForm">
+                        <div class="mb-3">
+                            <div class="title">
+                                <h1>Acesse sua conta</h1>
+                            </div>
+                            <label for="email" class="form-label">Digite seu email:</label>
+                            <input type="email" name="email" placeholder="Digite seu email" id="loginEmail"
+                                class="form-control" required>
+                            <div class="invalid-feedback">Por favor, insira um email válido</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="">Digite sua senha:</label>
+                            <input type="password" name="senha" placeholder="Digite sua senha"
+                                id="loginSenha" class="form-control" required>
+                            <div class="invalid-feedback">A senha deve ter pelo menos 6 caracteres</div>
+                        </div>
+                        <div class="link-recuperar-senha">
+                            <a href="#">esqueci minha senha</a>
+                        </div>
+                        <div class="center-button">
+                            <button type="submit" class="button-black btn-submit" id=" loginForm profileOffcanvas loginButton">
+                                Conectar
+                            </button>
+                        </div>
+                        <div class="form-container">
+                            <div class="divider">
+                                <span>ou</span>
+                            </div>
+                            <p>Ainda não tem cadastro?</p>
+                            <div class="center-button">
+                                <a href="../UserPages/formscadastro.html" class="button-black btn-submit">
+                                    Quero me cadastrar
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal DE ENDEREÇO -->
+<div class="modal modal-todo-vermelhor fade" id="exampleModalSegundo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-vermelhor">
+        <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">MEUS ENDEREÇOS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4 class="offcanvas-title-pedidos">Endereços salvos</h4>
+      
+        
+        <div class="container conteiner-endereço">
+          <!-- Lista de endereços salvos -->
+         
+          <div class="d-flex justify-content-between align-items-center " 
+               data-bs-toggle="offcanvas" data-bs-target="#edicaoEnderecoOffcanvas" data-endereco-id="1">
+               <button class="endereco-item">
+                <img src="../public/icons/fixar-mapa (1).png" alt="Casa do meu namorado" width="30" class="img-fluid">
+               <h7>Minha casa</h7>
+              </button>
+            </div>
+      
+          <div class="d-flex justify-content-between align-items-center " 
+            data-bs-toggle="offcanvas" data-bs-target="#edicaoEnderecoOffcanvas" data-endereco-id="1">
+            <button class="endereco-item">
+              <img src="../public/icons/fixar-mapa (1).png" alt="Casa do meu namorado" width="30" class="img-fluid">
+             <h7>Casa do meu namorado</h7>
+            </button>
+          </div>
+            
+          
+          <div class="coluna">
+               <h6>Deseja cadastrar um novo endereço?</h6>
+               <button class="button-black" data-bs-toggle="offcanvas"
+                data-bs-target="#cadastroEnderecoOffcanvas" >
+                Cadastrar novo endereço</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Offcanvas para cadastro de novo endereço -->
+<div class=" offcanva-edicao-endereco offcanvas offcanvas-bottom" tabindex="-1" id="cadastroEnderecoOffcanvas" aria-labelledby="cadastroEnderecoOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="cadastroEnderecoOffcanvasLabel">Cadastrar novo endereço</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+      <div class="mb-4">
+        <label class="form-label"><strong>CEP:</strong></label>
+        <input type="text" class="form-control" placeholder="Digite seu CEP">
+        <a href="#" class="small text-light">Não sei meu CEP</a>
+      </div>
+      
+      <div class="mb-4">
+        <label class="form-label"><strong>Endereço:</strong></label>
+        <input type="text" class="form-control" placeholder="Endereço">
+      </div>
+      
+      <div class="mb-4 row">
+          <div class="col-4">
+            <label class="form-label"><strong>Número:</strong></label>
+            <input type="number" class="form-control" placeholder="Número">
+          </div>
+          <div class="col-8">
+            <label class="form-label"><strong>Complemento:</strong></label>
+            <input type="text" class="form-control" placeholder="Complemento">
+          </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label"><strong>Bairro:</strong></label>
+        <input type="text" class="form-control" placeholder="Bairro">
+      </div>
+      
+      <div class="mb-4">
+        <label class="form-label"><strong>Tem algum ponto de referência?</strong></label>
+        <textarea class="form-control" rows="1" placeholder="Se sim, pode facilitar a entrega!"></textarea>
+      </div>  
+
+
+      <div class="buttons-opcao-endereco row">
+        <h8 class="text-light text-center mb-3"><strong>Como deseja favoritar esse endereço?</strong></h8>
+        
+        <!-- Botão Casa -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type active" data-address-type="casa">
+            <img src="../public/icons/casa (1).png" width="30" class="img-fluid mb-2">
+            <div>Casa</div>
+            <input type="radio" name="tipoEndereco" value="Casa" checked hidden>
+          </button>
+        </div>
+        
+        <!-- Botão Empresa -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type" data-address-type="empresa">
+            <img src="../public/icons/apartamento.png" width="30" class="img-fluid mb-2">
+            <div>Empresa</div>
+            <input type="radio" name="tipoEndereco" value="Empresa" hidden>
+          </button>
+        </div>
+        
+        <!-- Botão Outros -->
+        <div class="col-sm text-center check-laranja">
+          <button type="button" class="btn btn-address-type" data-address-type="outros">
+            <img src="../public/icons/estrela.png" width="30" class="img-fluid mb-2">
+            <div>Outros</div>
+            <input type="radio" name="tipoEndereco" value="Outros" hidden>
+          </button>
+        </div>
+        
+        <!-- Campo para nome personalizado (aparece apenas quando "Outros" está selecionado) -->
+        <div class="col-12 mt-3" id="custom-address-name-container" style="display: none;">
+          <label class="form-label"><strong>Digite o nome do endereço:</strong></label>
+          <input type="text" class="form-control" id="custom-address-name" placeholder="Ex: Casa da praia, Apartamento do trabalho">
+        </div>
+      </div>
+
+
+
+
+
+        
+        <!-- Campo de texto para "Outro" (inicialmente escondido) 
+        <div id="outroEnderecoContainer" class="mt-3 col-12" style="display: none;">
+          <div class="input-group">
+            <input type="text" class="form-control" id="nomeOutroEndereco" placeholder="Digite o nome do endereço">
+            <button class="btn btn-orange check-laranja " id="btnSalvarEndereco" type="button">
+              <i class="fas fa-save"></i> Salvar
+            </button>
+          </div>
+        </div>
+        -->
+        
+     <!--    Botão de confirmação (sempre visível)
+        <div class="col-12 mt-3 text-center">
+          <button class="btn btn-orange" id="btnConfirmarEndereco">
+            <i class="fas fa-check"></i> Confirmar Endereço
+          </button>
+        </div>
+      </div>
+ -->
+
+
+
+      
+      <div class="buttons-opcao-endereco">
+        <button class="button-branco" type="button" data-bs-dismiss="offcanvas">Cancelar</button>
+        <button class="button-black" type="button">Salvar endereço</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Offcanvas de Meus Dados -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="meusDadosOffcanvas" aria-labelledby="meusDadosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="meusDadosOffcanvasLabel">meus dados</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="dado-section">
+      <h6 class="dado-title">Dados pessoais</h6>
+      <div class="dado-item">
+        <span class="dado-label">Nome:</span>
+        <span class="dado-value" id="dadoNome"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">Aniversário:</span>
+        <span class="dado-value" id="dadoNascimento"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">CPF:</span>
+        <span class="dado-value" id="dadoCpf"></span>
+      </div>
+    </div>
+    
+    <div class="dado-section">
+      <h6 class="dado-title">Dados de contatos</h6>
+      <div class="dado-item">
+        <span class="dado-label">Telefone:</span>
+        <span class="dado-value" id="dadoTelefone"></span>
+      </div>
+      <div class="dado-item">
+        <span class="dado-label">Email:</span>
+        <span class="dado-value" id="dadoEmail"></span>
+      </div>
+    </div>
+    
+   
+      
+    <!-- Mensagem para usuários não cadastrados -->
+    <div id="semCadastroMsg" class="text-center py-4" style="display: none;">
+      <img src="#" width="60" class="mb-3">
+      <h6>Você ainda não possui cadastro</h6>
+      <p>Faça seu cadastro para acessar todas as funcionalidades</p>
+      <a href="../UserPages/formscadastro.html" class="btn btn-danger mt-2">Cadastrar agora</a>
+    </div>
+    
+    <!-- Conteúdo para usuários cadastrados (inicialmente escondido) -->
+    <div id="dadosUsuarioContent" style="display: none;">
+      <div class="dado-section">
+        <h6 class="dado-title">Editar meus dados</h6>
+        
+        <!-- Botão para ativar a edição -->
+        <button id="btnEditarDados" class="btn-editar ">
+          <img src="../public/icons/caneta-do-usuario.png" width="20"> Editar Informações
+        </button>
+        
+        <!-- Formulário de edição (inicialmente oculto) -->
+        <form id="formEditarDados" style="display: none;">
+          
+          <div class="mb-3">
+            <label class="dado-label">Nome Completo</label>
+            <input type="text" class="form-control" id="editarNome">
+          </div>
+         
+          
+          <div class="mb-3">
+            <label class="dado-label">Telefone</label>
+            <div class="row">
+              <div class="col-3">
+                <input type="text" class="form-control" id="editarDDD" placeholder="DDD">
+              </div>
+              <div class="col-9">
+                <input type="text" class="form-control" id="editarTelefone" placeholder="Número">
+              </div>
+            </div>
+          </div>
+          
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-light" onclick="cancelarEdicao()">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Offcanvas de Pedidos Atuais -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="meuspedidosOffcanvas" aria-labelledby="meuspedidosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="meuspedidosOffcanvasLabel">Meus Pedidos</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #1234</span>
+        <span class="pedido-status status-andamento">em andamento</span>
+      </div>
+      <div>Mussarela / <strong>GRANDE</strong></div>
+      <small class="text-muted">06/03/2025 às 21:28</small>
+    </div>
+  </div>
+</div>
+
+<!-- Offcanvas do Histórico de Pedidos -->
+<div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="pedidosOffcanvas" aria-labelledby="pedidosOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="pedidosOffcanvasLabel">Histórico de Pedidos</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #4301</span>
+        <span class="pedido-status status-entregue">entregue</span>
+      </div>
+      <div>Calabresa / <strong>MÉDIA</strong></div>
+      <small class="text-muted">01/04/2025 às 20:28</small>
+    </div>
+    
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #6074</span>
+        <span class="pedido-status status-entregue">entregue</span>
+      </div>
+      <div>Quatro Queijos / <strong>MÉDIA</strong></div>
+      <small class="text-muted">12/01/2025 às 23:48</small>
+    </div>
+    
+    <div class="pedido-item">
+      <div class="d-flex justify-content-between align-items-center">
+        <span class="pedido-numero">Pedido #8912</span>
+        <span class="pedido-status status-cancelado">cancelado</span>
+      </div>
+      <div>Portuguesa / <strong>GRANDE</strong></div>
+      <small class="text-muted">05/02/2025 às 19:15</small>
+    </div>
+  </div>
+</div>
+</header>
