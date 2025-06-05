@@ -515,9 +515,9 @@
                     <p class="pizza-preco">R$ 15,00</p>
                     <div class="quantidade">
                       <div class="quantidade-itens">
-                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                        <button class="btn_retirar btn-sm">-</button>
                         <span class="mx-2">0</span>
-                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                        <button class="btn_adicionar  btn-sm">+</button>
                       </div>
                     </div>
                   </div>
@@ -1091,6 +1091,7 @@ function atualizarBotaoCarrinho() {
 
 
 function irParaCarrinho() {
+  console.log("Função irParaCarrinho chamada!");
   const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
 
   if (carrinho.length === 0) {

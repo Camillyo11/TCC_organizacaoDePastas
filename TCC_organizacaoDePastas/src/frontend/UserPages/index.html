@@ -17,7 +17,7 @@
 <body>
   <div id="header-container"></div>
 
-  
+
   <main>
     <!-- área de introdução  img-fluid, rouede-->
     <section class="text-white">
@@ -39,8 +39,8 @@
     <div class="container my-3">
       <div class="row align-items-center">
         <div class="col-lg-3 col-md-4 col-12 d-flex justify-content-center align-items-center mb-4 mb-md-0">
-          <img src="../public/icons/LogoBellaMessa.png" alt="logo"
-            class="logo-imagem img-fluid rounded-circle" style="max-width: 250px;">
+          <img src="../public/icons/LogoBellaMessa.png" alt="logo" class="logo-imagem img-fluid rounded-circle"
+            style="max-width: 250px;">
         </div>
 
 
@@ -62,19 +62,19 @@
 
 
     <!-- ESCOLHA NÓS -->
-     <section class="sobrenós">
- <!--      <div class="botão-amarelo">
+    <section class="sobrenós">
+      <div class="botão-amarelo">
         <p class="fw-bold">Escolha nós!!!</p>
       </div>
 
-      <p class=" sobre h3">Porque escolher a bella Massa?</p>
+      <p class=" sobre h3" style="color: white;">Porque escolher a bella Massa?</p>
 
 
       <div class="accordion">
         <div class="accordion-item active">
           <div class="accordion-header">
             <span>Qualidade</span>
-            <span class="arrow">&#8594</span>
+            <span class="arrow">→</span>
           </div>
           <div class="accordion-content">
             Aqui na Dalle Pizza, somos apaixonados pelo que fazemos, por isso buscamos desenvolver nossos produtos
@@ -86,7 +86,7 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <span>Sabores</span>
-            <span class="arrow">&#8594</span>
+            <span class="arrow">→</span>
           </div>
           <div class="accordion-content">
             Temos uma variedade incrível de sabores! Desde os tradicionais até os mais ousados, para agradar todos os
@@ -97,7 +97,7 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <span>Promoções</span>
-            <span class="arrow">&#8594</span>
+            <span class="arrow">→</span>
           </div>
           <div class="accordion-content">
             Toda semana novas promoções para você aproveitar o melhor da nossa pizza pagando menos.
@@ -107,13 +107,13 @@
         <div class="accordion-item">
           <div class="accordion-header">
             <span>Atendimento</span>
-            <span class="arrow">&#8594</span>
+            <span class="arrow">→</span>
           </div>
           <div class="accordion-content">
             Atendimento rápido, cordial e com muito carinho. Aqui você é tratado como família.
           </div>
         </div>
-      </div> -->
+      </div>
     </section>
 
 
@@ -126,7 +126,7 @@
         class=" logo img-fluid rounded-circle" style="max-width: 250px; padding-left: 20px;">
     </div>
     <div class="container position-relative">
-      <div class="textbeneficios">
+      <div class="textbeneficios" style="color: white;">
         <h2 class="text-end">Peça pelo<br> nosso site e<br> ganhe<br> benefícios !!!</h2>
       </div>
     </div>
@@ -148,7 +148,8 @@
 
 
         <div class="beneficios">
-          <img class="icones-beneficios" src="../public/icons/bolo-de-aniversario.png" alt="promoção para aniversariantes">
+          <img class="icones-beneficios" src="../public/icons/bolo-de-aniversario.png"
+            alt="promoção para aniversariantes">
           <div class="beneficios-texto">
             <h3>Aniversariantes</h3>
             <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste accusamus accusantium ducimus culpa
@@ -178,7 +179,10 @@
     </section>
 
     <div class="text-center mt-4">
-      <button type="button" class="btn btn-cadastrar"><a  class="btn fw-bold" href="../UserPages/formscadastro.html" >CADASTRA-SE</a></button>
+      <div class="button-black-centralizar">
+      <button type="button" class="btn-cadastrar" id="botão-index-cadastro"><a 
+          href="../UserPages/formscadastro.html">CADASTRA-SE</a></button>
+          </div>
     </div>
 
 
@@ -193,142 +197,161 @@
               todos os dias temos promoções especiais para você !</P>
           </div>
           <div class="text-center p-5">
-            <button type="button" class="btn btn-promoções">
-              <a  class=" btn text-light" href="../UserPages/promocao.html">
+            <div class="button-black-centralizar">
+            <button type="button" class="btn-promoções">
+              <a class=" btn text-light" href="../UserPages/promocao.html">
                 <img src="../public/icons/food_15026869.png" alt="icone Bella Massa" width="50px">
                 PROMOÇÕES</a>
-              
+
             </button>
+            </div>
           </div>
 
         </div>
       </div>
 
-  
+
       <div class="text-center">
         <div class="logopromoção">
-          <img src="../public/icons/LogoBellaMessa.png" alt="logo bella massa"
-            class="logo-promoção rounded-circle">
+          <img src="../public/icons/LogoBellaMessa.png" alt="logo bella massa" class="logo-promoção rounded-circle">
         </div>
       </div>
 
     </section>
 
-<!--PARTE DA AVALIAÇÃO-->
-<section class="avaliação">
-  <div class="container-fluid py-5">
-    <div class="carousel slide" data-bs-ride="carousel" id="ads">
-      <div class="carousel-inner" id="avaliacoes-carrossel">
-        <!-- Itens do carrossel serão inseridos dinamicamente via JavaScript -->
-        
-        <!-- Item de fallback (enquanto carrega ou se não houver avaliações) -->
-        <div class="carousel-item active">
-          <h4 class="titulo-seção text-center fw-bolder">
-            O que os clientes pensam sobre nós?
-          </h4>
-          <div class="todos-p text-capitalize text-center">
-            <P class="comentarios text-center">
-              <i class="fa fa-quote-left"></i>
-              Carregando avaliações...
-              <i class="fa fa-quote-right"></i>
-            </P>
+    <!--PARTE DA AVALIAÇÃO-->
+    <section class="avaliação">
+      <div class="container-fluid py-5">
+        <div class="carousel slide" data-bs-ride="carousel" id="ads">
+          <div class="carousel-inner" id="avaliacoes-carrossel">
+            <!-- Itens do carrossel serão inseridos dinamicamente via JavaScript -->
+
+            <!-- Item de fallback (enquanto carrega ou se não houver avaliações) -->
+            <div class="carousel-item active">
+              <h4 class="titulo-seção text-center fw-bolder">
+                O que os clientes pensam sobre nós?
+              </h4>
+              <div class="todos-p text-capitalize text-center">
+                <P class="comentarios text-center">
+                  <i class="fa fa-quote-left"></i>
+                  Carregando avaliações...
+                  <i class="fa fa-quote-right"></i>
+                </P>
+              </div>
+            </div>
           </div>
+          <button class="carousel-control-prev" data-bs-target="#ads" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" data-bs-target="#ads" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
         </div>
       </div>
-      <button class="carousel-control-prev" data-bs-target="#ads" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" data-bs-target="#ads" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+    </section>
+
+
     </div>
-  </div>
-</section>
-
-
-      </div>
     </section>
   </main>
 
-
-</body> 
-
-  
-
-    <!--   FOOTER   -->
-    <footer class="footer-conteiner">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="">
-          </div>
-          <div class="col">
-            <h5>Endereço</h5>
-            <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
-            <p>São Paulo-SP</p>
-          </div>
-          <div class="col">
-            <h5>Telefone</h5>
-            <p>(11)9002-0922</p>
-            <p>(11)9002-0922</p>
-          </div>
-          <div class="col">
-            <h5>Horário de funcionamento</h5>
-            <h6>Terça a Quinta</h6>
-            <p> Das 17:00 ás 00:00</p>
-            <h6>Sexta á Sábado</h6>
-            <p> Das 17:00 ás 01:00</p>
-          </div>
-        </div>
-
-        <!-- Redes Sociais abaixo das colunas -->
-        <div class="row">
-          <div class="col redes-sociais">
-            <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
-            <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
-            <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
-          </div>
-        </div>
+  <!--   FOOTER   -->
+<footer class="footer-conteiner">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="">
       </div>
-    </footer>
-    
-    
+      <div class="col">
+        <h5>Endereço</h5>
+        <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+        <p>São Paulo-SP</p>
+      </div>
+      <div class="col">
+        <h5>Telefone</h5>
+        <p>(11)9002-0922</p>
+        <p>(11)9002-0922</p>
+      </div>
+      <div class="col">
+        <h5>Horário de funcionamento</h5>
+        <h6>Terça a Quinta</h6>
+        <p> Das 17:00 ás 00:00</p>
+        <h6>Sexta á Sábado</h6>
+        <p> Das 17:00 ás 01:00</p>
+      </div>
+    </div>
+
+    <!-- Redes Sociais abaixo das colunas -->
+    <div class="row">
+      <div class="col redes-sociais">
+        <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
+        <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
+        <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
 
 <script>
   // Carrega o header primeiro
-    fetch('../UserPages/header.html')
+  fetch('../UserPages/header.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('header-container').innerHTML = data;
     })
     .catch(error => console.error('Erro ao carregar o header:', error));
-    
-   // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
-   const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
-   modalTriggerList.map(function (modalTriggerEl) {
-     new bootstrap.Modal(modalTriggerEl);
-   });
 
-   const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-   offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-     new bootstrap.Offcanvas(offcanvasTriggerEl);
-   });
+  // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
+  const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+  modalTriggerList.map(function (modalTriggerEl) {
+    new bootstrap.Modal(modalTriggerEl);
+  });
 
-/* const items = document.querySelectorAll('.accordion-item');
-items.forEach(item => {
-  const header = item.querySelector('.accordion-header');
-
-  header.addEventListener('click', () => {
-    items.forEach(i => {
-      if (i !== item) i.classList.remove('active');
-    });
-    item.classList.toggle('active');
-});
-
-});   */
+  const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+  offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+    new bootstrap.Offcanvas(offcanvasTriggerEl);
+  });
 </script>
 
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const items = document.querySelectorAll('.accordion-item');
+
+    // Ativa o primeiro item por padrão
+    items[0].classList.add('active');
+
+    items.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+
+      header.addEventListener('click', () => {
+        // Fecha todos os outros itens
+        items.forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+
+        // Alterna o item clicado
+        item.classList.toggle('active');
+      });
+    });
+  });
+</script>
+
+
 <script src="../assets/js/auth.js"></script>
+
+</body>
 
 
 </html>

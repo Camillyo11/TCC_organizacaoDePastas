@@ -8,11 +8,12 @@
     --font1: "Montserrat Alternates";
     --font2: "Montagu Slab";
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
 
 /* HEADER/NAVBBAR */
 /* main footer{
@@ -21,13 +22,14 @@
     max-width: 900px;
     flex-direction: row
  */
-html, body {
+html,
+body {
     background-color: #991C08 !important;
     color: white;
     overflow-x: hidden;
 }
 
-  
+
 
 
 @media (max-width: 768px) {
@@ -325,38 +327,41 @@ a.login-button img {
     margin: 20px;
     gap: 10px;
 }
-  .button-black{
-    background-color: #000000 ;
-    color: white ;
-    font-weight: bold;  
-    border-radius: 90px ;
+
+.button-black {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    border-radius: 90px;
     padding: 10px 20px;
     font-size: 18px;
     text-decoration: none;
     display: inline-block;
     margin-top: 20px;
     font-weight: 500;
-  
-    
-   
-}
-.button-black:hover{
-    background-color:#f47a00;
+
+
+
 }
 
- .button-black-centralizar{
+.button-black:hover {
+    background-color: #f47a00;
+}
+
+.button-black-centralizar {
     text-align: center;
 
-} 
+}
 
 
- .button-black-centralizar a{
+.button-black-centralizar a {
     text-align: center;
     text-decoration: none !important;
     color: white !important;
     font-weight: bold;
     font-size: 18px;
-} 
+}
+
 .button-branco {
     background-color: #ffffff;
     color: black;
@@ -621,11 +626,11 @@ a.login-button img {
     height: 500px;
     background-size: cover;
     background-position: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 40px;
-   
+
 
 
     /* fixa o fundo */
@@ -635,7 +640,8 @@ a.login-button img {
 div#imagem1 {
     background-image: url("../../public/banners/ChatGPT\ Image\ 13_04_2025\,\ 19_56_00.png");
 }
-.imglogo1{
+
+.imglogo1 {
     max-width: 250px;
     height: auto;
     margin-right: 50px;
@@ -645,21 +651,22 @@ div#imagem1 {
 
 /* INTRODUÇÃO PARA TELAS MENORES */
 @media (max-width: 768px) {
-    .introdução h1{
+    .introdução h1 {
         font-size: 1.3em;
-        
+
     }
-} 
+}
+
 @media (max-width: 400px) {
-    .introdução h1{
+    .introdução h1 {
         font-size: 0.8em;
-        
+
     }
-} 
+}
 
 
 /* SOBRE NÓS */
-.sobre-nos{
+.sobre-nos {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -667,13 +674,15 @@ div#imagem1 {
     padding: 20px;
     flex-wrap: wrap;
 }
-.texto{
+
+.texto {
     flex: 1;
     min-width: 200px;
     text-align: justify;
 
 }
-.texto p{
+
+.texto p {
     color: #000;
     font-weight: 500;
     text-align: left;
@@ -683,7 +692,7 @@ div#imagem1 {
 }
 
 @media (max-width:768px) {
-    .sobre-nos{
+    .sobre-nos {
         font-size: 1.2em;
         flex-direction: column;
         text-align: center;
@@ -692,7 +701,7 @@ div#imagem1 {
 
     }
 
-    .texto p{
+    .texto p {
         font-family: var(--font1);
         text-align: center;
         flex-direction: column;
@@ -703,7 +712,7 @@ div#imagem1 {
         white-space: pre-line;
     }
 
-    .logo-imagem{
+    .logo-imagem {
         margin-bottom: 20px;
         width: 200px !important;
     }
@@ -713,20 +722,22 @@ div#imagem1 {
 
 
 /* ESCOLHA NÓS */
-.sobrenós{
+.sobrenós {
     background-color: #000;
     padding: 20px;
     margin-bottom: 30px;
-    
+
 
 }
-.sobre{
+
+.sobre {
     color: #991C08;
     font-family: var(--font2);
     text-align: center;
 }
-.botão-amarelo{
-   
+
+.botão-amarelo {
+
     border-radius: 15px;
     color: white;
     background-color: #f47a00;
@@ -744,19 +755,16 @@ div#imagem1 {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-left: 30px;
-  }
+}
 
-
-
-  .accordion-item {
+.accordion-item {
     border-bottom: 1px solid transparent;
     padding: 15px 0;
     background-color: #000000;
     border: none;
-   
-  }
+}
 
-  .accordion-header {
+.accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -766,150 +774,167 @@ div#imagem1 {
     color: #ffffff;
     background-color: #000000;
     transition: color 0.3s ease;
-  }
+}
 
-  .accordion-header:hover {
+.accordion-header:hover {
     color: #f47a00;
-  }
+}
 
-  .accordion-header .arrow {
+.accordion-header .arrow {
     color: #ffffff;
     font-size: 20px;
-    transition: color 0.3s ease;
-  }
+    transition: transform 0.3s ease;
+}
 
-  .accordion-item.active .arrow {
+
+.accordion-item.active .arrow {
     transform: rotate(90deg);
-  }
+}
 
-  .accordion-content {
+.accordion-content {
     max-height: 0;
     overflow: hidden;
-    transition: none 0.4s ease;
+    transition: max-height 0.4s ease;
     font-size: 16px;
-    color: rgb(255, 255, 255);
-    font-weight: medium;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
     padding-right: 10px;
-  }
+    margin-top: 0;
+}
 
-  .accordion-item.active .accordion-content {
+.accordion-item.active .accordion-content {
     max-height: 500px;
     margin-top: 10px;
-  }
+}
 
-  /* FIM DO ACCORDION */
+/* FIM DO ACCORDION */
 
-  /* PAGINA DE BENEFICIOS */
-  .qualidade{
+/* PAGINA DE BENEFICIOS */
+.qualidade {
     padding: 40px 20px;
     display: flex;
     justify-content: flex-end;
-    
-  }
-.textbeneficios{
+
+}
+
+.textbeneficios {
     font-family: var(--font2);
     padding-bottom: 80px;
     margin: 0 auto;
 }
-  .logo{
+
+.logo {
     max-width: 220px;
     position: absolute;
     margin-bottom: 2em;
     margin-top: 10px;
-  }
+}
 
-  @media (max-width: 768px){
-    .logo{
+@media (max-width: 768px) {
+    .logo {
         margin-bottom: 50px;
 
     }
-  }
-.benefits-container{
+}
+
+.benefits-container {
     max-width: 800px;
     width: 100%;
 }
-.beneficios{
+
+.beneficios {
     margin-bottom: 40px;
-    display: flex ;
+    display: flex;
     align-items: flex-start;
     max-width: 800px;
     justify-content: flex-start;
- }
+}
 
-.beneficios-texto h3{
+.beneficios-texto h3 {
     font-family: var(--font2);
     font-weight: 500;
     text-align: center;
     color: #000;
-    
+
 }
-.beneficios-texto p{
+
+.beneficios-texto p {
     margin: 0;
     font-size: 1em;
     text-align: center;
     line-height: 1.5;
 
 }
-.icones-beneficios{
+
+.icones-beneficios {
     width: 90px;
     height: 90px;
     margin-right: 20px;
     flex-shrink: 0;
 }
-.beneficios-texto{
+
+.beneficios-texto {
     flex: 1;
 }
-.beneficios{
+
+.beneficios {
     flex-direction: column;
 }
-.beneficios-texto{
+
+.beneficios-texto {
     text-align: center;
+    color: white;
 }
-.icones-beneficios{
+
+.icones-beneficios {
     margin-right: 0;
     margin-bottom: 15px;
 }
-.btn-cadastrar{
-    background-color: #f47a00;
+
+#botão-index-cadastro{
+    background-color: #F77F00;
+    border-radius: 50px;
     color: white;
     font-weight: 800px;
-    border-radius: 50px;
     border: none;
     padding: 8px;
     transition: 0.3s;
     margin-bottom: 30px;
- 
 }
-.btn-cadastrar:hover{
-    background-color: black;
-}
+
+
+
+
 
 /* FIM DA PARTE DE BENEFICIOS */
 
 /* PARTE DE PROMOÇÕES */
-.part-promoções{
+.part-promoções {
     background-color: #000;
     color: white;
     position: relative;
     margin: 0 auto;
     height: 300px;
     padding-top: 60px;
-    
+
 
 }
-.apvpromo h3{
+
+.apvpromo h3 {
     font-weight: 700px;
     font-family: var(--font2);
     font-size: 1.8em;
     margin-bottom: 10px;
 }
-.apvpromo p{
+
+.apvpromo p {
     font-family: var(--font1);
     margin-top: 10px;
     font-size: 1.0em;
 }
-.btn-promoções{
-    background-color: #f47a00;
+
+.btn-promoções {
+    background-color: #f47a00 !important;
     color: white;
     font-weight: 800px;
     border-radius: 50px;
@@ -920,19 +945,21 @@ div#imagem1 {
     align-items: center;
     transition: 0.3s;
 }
-.btn-promoções:hover{
+
+.btn-promoções:hover {
     background-color: rgb(255, 255, 255);
     color: #000;
 }
 
 @media (max-width:400px) {
-    .btn-promoções{
-       margin: 0 auto;
-       justify-items: center;
+    .btn-promoções {
+        margin: 0 auto;
+        justify-items: center;
     }
 }
-.logo-promoção{
-   
+
+.logo-promoção {
+
     object-fit: cover;
     margin-bottom: 2rem;
     position: absolute;
@@ -946,25 +973,28 @@ div#imagem1 {
     opacity: 0.9;
 }
 
-@media (max-width: 768px) { /* A LOGO NÃO APARECE EM TELAS MENORES */
+@media (max-width: 768px) {
+
+    /* A LOGO NÃO APARECE EM TELAS MENORES */
     .logopromoção {
-      visibility: hidden;
+        visibility: hidden;
     }
 }
-.avaliação{
+
+.avaliação {
     color: white;
     text-align: center;
-    padding:4px 2px;
+    padding: 4px 2px;
 }
 
-.imgusuario{
+.imgusuario {
     max-width: 180px;
     object-fit: cover;
     margin-bottom: 2rem;
     margin-top: 30px;
 }
 
-.avaliação h4{
+.avaliação h4 {
     font-family: var(--font1);
     font-weight: 700px;
     font-size: 2.8em;
@@ -973,29 +1003,32 @@ div#imagem1 {
 }
 
 @media (max-width:768px) {
-    .avaliação h4{
+    .avaliação h4 {
         font-size: 1.7em;
     }
 }
 
-.comentarios{
+.comentarios {
     color: #000;
     font-weight: 900px;
 }
 
-.nome{
+.nome {
     color: orange;
     font-weight: 500;
 }
 
-@media (max-width: 768px) {  /* PARA PAGINAS MENORES */
+@media (max-width: 768px) {
+
+    /* PARA PAGINAS MENORES */
     .part-promoções {
-      text-align: center;
+        text-align: center;
     }
 }
-.logopromoção{
-   float: right;
-   margin: auto;
+
+.logopromoção {
+    float: right;
+    margin: auto;
 
 }
 
@@ -1008,7 +1041,7 @@ div#imagem1 {
     color: rgb(255, 255, 255);
     padding: 20px 0px;
     text-align: center;
-    font-size: 14px;                                        
+    font-size: 14px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1051,9 +1084,3 @@ div#imagem1 {
     height: 40px;
     width: 40px;
 }
-
-
-
-
-
-

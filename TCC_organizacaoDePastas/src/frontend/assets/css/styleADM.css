@@ -402,17 +402,6 @@ border-radius: 10px;
     border-radius: 10px;
 }
 
-.btn_retirar{
-    background-color:#ef8a2c;
-    border: none;
-    font-weight: bolder;
-    color: #fff;
-    font-size: 16px;
-    padding: 20px;
-    border-radius:30px;
-    width: 95px;
-
-}
 
 .btn_voltar-itens{
     justify-content: right;
