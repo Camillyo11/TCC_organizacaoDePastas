@@ -657,6 +657,89 @@ document.getElementById("barraPesquisa").addEventListener("input", function() {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Carrega o estado dos produtos do localStorage ou servidor
+  loadProductStates();
+  
+  // Event listeners para os botões
+  document.querySelectorAll('.btn_retirar').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.card');
+      disableProduct(card);
+      saveProductState(card);
+    });
+  });
+  
+  document.querySelectorAll('.btn_voltar').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const card = this.closest('.card');
+      enableProduct(card);
+      saveProductState(card);
+    });
+  });
+});
+
+function disableProduct(card) {
+  card.classList.add('disabled-product');
+  card.querySelector('.btn_retirar').style.display = 'none';
+  card.querySelector('.btn_voltar').style.display = 'inline-block';
+  
+  // Adiciona atributo para identificar que está desabilitado
+  card.setAttribute('data-disabled', 'true');
+}
+
+function enableProduct(card) {
+  card.classList.remove('disabled-product');
+  card.querySelector('.btn_retirar').style.display = 'inline-block';
+  card.querySelector('.btn_voltar').style.display = 'none';
+  
+  // Remove atributo de desabilitado
+  card.removeAttribute('data-disabled');
+}
+
+function saveProductState(card) {
+  const productId = card.getAttribute('data-id');
+  const productType = card.getAttribute('data-type');
+  const isDisabled = card.hasAttribute('data-disabled');
+  
+  // Salva no localStorage (para demonstração)
+  let productsState = JSON.parse(localStorage.getItem('productsState')) || {};
+  productsState[`${productType}_${productId}`] = isDisabled;
+  localStorage.setItem('productsState', JSON.stringify(productsState));
+  
+  // Aqui você deve adicionar a chamada AJAX para salvar no servidor
+  saveToServer(productId, productType, isDisabled);
+}
+
+function loadProductStates() {
+  // Carrega do localStorage (para demonstração)
+  const productsState = JSON.parse(localStorage.getItem('productsState')) || {};
+  
+  // Aqui você deve adicionar a chamada AJAX para carregar do servidor
+  // loadFromServer();
+  
+  document.querySelectorAll('.card').forEach(card => {
+    const productId = card.getAttribute('data-id');
+    const productType = card.getAttribute('data-type');
+    const isDisabled = productsState[`${productType}_${productId}`];
+    
+    if (isDisabled) {
+      disableProduct(card);
+    }
+  });
+}
+
+// Funções para comunicação com o servidor (exemplo)
+function saveToServer(productId, productType, isDisabled) {
+  // Implemente a chamada AJAX para salvar no banco de dados
+  console.log(`Salvando estado: ${productType} ID ${productId} - ${isDisabled ? 'Desabilitado' : 'Habilitado'}`);
+}
+
+function loadFromServer() {
+  // Implemente a chamada AJAX para carregar os estados do banco de dados
+  // Retorna uma Promise com os estados dos produtos
+}
+
 </script>
 
 
