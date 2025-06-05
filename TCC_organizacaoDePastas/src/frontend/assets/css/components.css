@@ -4,33 +4,34 @@
 
 /* BUTTON PÁGINA ENDEREÇO */
 
-.buttons-opcao-endereco{
+.buttons-opcao-endereco {
     margin: 20px;
-     gap: 10px;  
- }
+    gap: 10px;
+}
 
- /* EDIÇÃO DE ENDEREÇO */
+/* EDIÇÃO DE ENDEREÇO */
 
 
 
- .button-branco{
-     background-color: #ffffff;
-     color: black;
-     font-weight: bolder;
-     padding: 8px 10px;
-     border-radius:30px;
-     width: 160px;
- }
- .button-branco:hover{
-     background-color:#f47a00;
-     color: white;
- }
- 
+.button-branco {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 8px 10px;
+    border-radius: 30px;
+    width: 160px;
+}
+
+.button-branco:hover {
+    background-color: #f47a00;
+    color: white;
+}
+
 
 /* BUTTON MEUS DADOS */
 
 .btn-editar {
-    background-color:#F77F00;
+    background-color: #F77F00;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -40,90 +41,96 @@
     text-align: left;
     justify-content: center;
     display: flex;
-    
+
 }
 
 
 /* OFFCANVA DE PERFIL DO USUARIO */
-.buttons-perfil{
+.buttons-perfil {
     display: flex;
     gap: 10px;
     margin: 30px;
     flex-direction: column;
 }
-.button-laranja-perfil{
+
+.button-laranja-perfil {
     background-color: #f47a00;
     color: black;
     font-weight: bolder;
     padding: 5px;
-    border-radius:10px;
+    border-radius: 10px;
     right: 20px;
 
 }
 
-.button-branco-perfil{
+.button-branco-perfil {
     background-color: #ffffff;
     color: black;
     font-weight: bolder;
     padding: 5px;
-    border-radius:10px;
+    border-radius: 10px;
     right: 20px;
 }
 
 /* buttonde sair da conta  */
 
-.button-sair{
-    background-color: #d31212 ;
-    color: white ;
-    font-weight: bold;  
-    border-radius: 10px ;
+.button-sair {
+    background-color: #d31212;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
     padding: 10px 20px;
     font-size: 18px;
     justify-content: left;
-    
-   
-}
-.button-sair:hover{
-    background-color:#f47a00;
+
+
 }
 
+.button-sair:hover {
+    background-color: #f47a00;
+}
 
- /* PÁGINA CONTATO */
 
- .button-black{
-    background-color: #000000 ;
-    color: white ;
-    font-weight: bold;  
-    border-radius: 90px ;
+/* PÁGINA CONTATO */
+
+.button-black {
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    border-radius: 90px;
     padding: 10px 20px;
     font-size: 18px;
     text-decoration: none;
     display: inline-block;
     margin-top: 20px;
     font-weight: 500;
-    
-   
+
+
 }
-.button-black:hover{
-    background-color:#f47a00;
+
+.button-black:hover {
+    background-color: #f47a00;
 }
+
 .center-button {
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 .center-button a {
     text-decoration: none;
     color: #eeeeee;
-    
+
 }
-.button-black-centralizar{
+
+.button-black-centralizar {
     text-align: center;
 }
 
-   /* FORMULARIO BOTÃO DE AVANÇAR */
+/* FORMULARIO BOTÃO DE AVANÇAR */
 
-   /* BOTÃO DE AVANÇAR */
+/* BOTÃO DE AVANÇAR */
 .button-laranja {
     background-color: #F77F00;
     border: none;
@@ -134,6 +141,7 @@
     margin-top: 30px;
     right: 20px;
 }
+
 .button-laranja-position {
     justify-content: right;
     display: flex;
@@ -145,14 +153,15 @@
     color: white;
 }
 
-.button-laranja{
+.button-laranja {
     margin-bottom: 30px;
     color: white;
     font-family: var(--font1);
     padding: 10px;
     font-weight: 800;
 }
-.pix-texto{
+
+.pix-texto {
     font-family: var(--font1);
     font-size: medium;
     font-weight: 600;
@@ -173,24 +182,24 @@
 
 
 
-    /* CARRINHO */
-    .add-pedido button {
+/* CARRINHO */
+.add-pedido button {
 
-        margin: 10px auto;
-        background-color: #F77F00;
-        color: white;
-        font-weight: bolder;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 30px;
-        margin-top: 10px;
-    }
-   
+    margin: 10px auto;
+    background-color: #F77F00;
+    color: white;
+    font-weight: bolder;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    margin-top: 10px;
+}
 
 
-.quantidade{
+
+.quantidade {
     background-color: rgb(8, 8, 8);
     border: none;
     padding: 5px 50px;
@@ -199,40 +208,49 @@
     cursor: pointer;
     width: 130px;
     margin-right: 10px;
-    
+
 }
-    .selecionada {
-      border: 2px solid green;
-      background-color: #e6ffe6;
-    }
-.quantidade-itens{
-color: #ffffff;
+
+.selecionada {
+    border: 2px solid green;
+    background-color: #e6ffe6;
+}
+
+.quantidade-itens {
+    color: #ffffff;
     display: flex;
     gap: 10px;
     justify-content: center;
-  
+    background-color: #000;
+    align-items: center;
+    justify-items: center;
+    border-radius: 999px;
+
 }
 
 .button-vermelho {
-    background-color:#991C08;
+    background-color: #991C08;
     border: none;
     font-weight: bolder;
     font-size: 16px;
     padding: 10px;
-    border-radius:30px;
+    border-radius: 30px;
     width: 200px;
- 
+
 }
-a{
+
+a {
     text-decoration: none !important;
-    color:inherit !important;
+    color: inherit !important;
     outline: none !important;
-    cursor:pointer !important;
-} 
-.button-vermelho:hover{
-    background-color:#f47a00;
+    cursor: pointer !important;
+}
+
+.button-vermelho:hover {
+    background-color: #f47a00;
     color: white;
 }
+
 .button-vermelho-position {
     justify-content: right;
     display: flex;
@@ -240,14 +258,14 @@ a{
 
 }
 
-.borda-radio{
-margin-top: -45px !important;
-margin-bottom: 10px !important;
-margin-right: -50px !important;
-display: flex !important;  
-width: 40px  !important;
-height: 40px  !important;
-box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
+.borda-radio {
+    margin-top: -45px !important;
+    margin-bottom: 10px !important;
+    margin-right: -50px !important;
+    display: flex !important;
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: inset 0 0 0 3px rgb(0, 0, 0);
 }
 
 
@@ -266,11 +284,12 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-   
-    
+
+
 }
-  /* AVALIAÇÃO CLIENTE  */
-  .btn-enviar {		
+
+/* AVALIAÇÃO CLIENTE  */
+.btn-enviar {
     padding: 0.8rem 2rem;
     color: white;
     background-color: orange;
@@ -293,7 +312,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 
 /*------------------------------------- ----SESSÃO DE BLOCOS E CARDS------------------------------------------------ */
- 
+
 /* PROMOÇÃO */
 .promocoes {
     display: flex;
@@ -330,70 +349,72 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     background-color: white;
     color: #000000;
 }
+
 .subtitle {
     color: #F77F00;
     font-weight: bold;
     font-size: 18px;
     text-align: center;
     margin-top: 100px;
-  }
+}
 
-  .promocoes {
+.promocoes {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     padding: 20px;
     background: #991C08;
-  }
+}
 
-  .card-promocao {
+.card-promocao {
     background: #f4f4f4;
     color: #000;
     padding: 15px;
-    width: 280px; 
+    width: 280px;
     border-radius: 10px;
     text-align: center;
-  }
+}
 
-  .promocoes :hover {
+.promocoes :hover {
     background-color: #F77F00;
     color: #fff
-  }
+}
 
-  .regulamento {
+.regulamento {
     background: #222;
     padding: 20px;
     text-align: center;
     color: #F77F00;
-  }
-  .regulamento p {
+}
+
+.regulamento p {
     color: #fff;
-  }
+}
 
 
 /* EDIÇÃO DE ENDEREÇO -> bloco de opções */
- .check-laranja{
+.check-laranja {
     background-color: #F77F00;
     color: white;
-    font-weight: bold;  
-    border-radius: 10px ;
+    font-weight: bold;
+    border-radius: 10px;
     padding: 10px 20px;
     font-size: 18px;
     justify-content: left;
-   
+
 }
 
 /* OFFCANVA DE PERFIL DO USUARIO */
 .progress-fidelidade {
     background-color: #F77F00;
-    border-radius:40px;
+    border-radius: 40px;
     margin-top: 20px;
- 
+
 }
 
 /* offcanava de meu perfil */
-.card-fidelidade{
+.card-fidelidade {
     background-color: #F77F00 !important;
     border-radius: 70px !important;
     padding: 10px;
@@ -407,14 +428,14 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 .sobre-nos {
     background-color: rgb(142, 8, 8);
     color: rgb(255, 255, 255);
-    padding:  8px;
+    padding: 8px;
     text-align: center;
     font-size: 16px;
     margin-top: 20px;
     margin-left: 20px;
-  border-radius: 20px;
+    border-radius: 20px;
 }
-   
+
 .sobre-nos .row {
     display: flex;
     justify-content: center;
@@ -429,7 +450,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 }
 
 /* pagina pagamento */
-.redondo{
+.redondo {
     border-radius: 50px;
 
 }
@@ -442,12 +463,13 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     margin-bottom: 50px;
     flex-wrap: wrap;
 }
-.opções-entrega:hover > :not(:hover){
+
+.opções-entrega:hover> :not(:hover) {
     opacity: .7;
     transform: scale(0.9);
 }
 
-.card-opção{
+.card-opção {
     font-family: var(--font1);
     background-color: #397a89;
     color: white;
@@ -462,26 +484,28 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     cursor: pointer;
     transition: all 0.3s;
 }
-.card-opção input{
+
+.card-opção input {
     display: none;
-    
+
 }
 
-.card-opção #opção-paga-agora{
+.card-opção #opção-paga-agora {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.card-opção #opção-paga-retirada{
+
+.card-opção #opção-paga-retirada {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-   
+
 }
 
-.card-opção input:checked + #opção-paga-agora{
+.card-opção input:checked+#opção-paga-agora {
     background-color: #f47a00;
     color: white;
     padding: 10px;
@@ -491,7 +515,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 }
 
-.card-opção input:checked + #opção-paga-retirada{
+.card-opção input:checked+#opção-paga-retirada {
     background-color: #f47a00;
     color: white;
     padding: 5px;
@@ -502,205 +526,207 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 }
 
-.card-opção:hover{
+.card-opção:hover {
     background-color: #3c9450;
     transform: scale(1.0);
     cursor: pointer;
 
 }
+
 /* CARRINHO */
 .conteiner-confirmacao {
-     padding: 20px;
-     border-radius: 15px;
- }
-  /* deseja adicionar novo endereço? */
- .novo-endereço {
-     font-family: var(--font1);
-     text-align: right;
-     background-color: #991C08;
-     border-radius: 10px;
-     border: none;
-     cursor: pointer;
-     padding: 8px;
-     font-weight: 700;
+    padding: 20px;
+    border-radius: 15px;
+}
 
- }
+/* deseja adicionar novo endereço? */
+.novo-endereço {
+    font-family: var(--font1);
+    text-align: right;
+    background-color: #991C08;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-weight: 700;
 
- a {
-     text-decoration: none;
-     color: #000;
- }
+}
 
-
- .link-alteraca-confirmacao {
-     text-align: center;
- }
-
- /* área dos pedidos  */
- .box-confirmacao {
-     background-color: #F77F00;
-     margin-bottom: 15px;
-     border-radius: 15px;
-     width: 100%;
-     margin: 0 auto;
-     margin-top: 40px;
-     padding: 20px;
-     text-align: left;
-     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-     transition: transform 0.5s ease;
-     margin-bottom: 50px;
-
- }
-
- .box-confirmacao:hover {
-     transform: scale(1.02);
- }
-
- /* bordinha pequena informando o tipo de pizza */
- .escolha-confirmacao {
-     background-color: #991C08;
-     border-radius: 15px;
-     padding: 5px 15px;
-     color: rgb(255, 255, 255);
-     font-weight: bold;
- }
-
- .box-confirmacao h3 {
-     color: #000;
-     font-family: var(--font2);
-     font-weight: 600;
- }
-
- .box-confirmacao p {
-     font-family: var(--font1);
-     color: #181515;
-     font-weight: 400;
-     margin-top: 20px;
- }
+a {
+    text-decoration: none;
+    color: #000;
+}
 
 
- .borda-confirmacao {
-     font-family: var(--font1);
-     font-weight: 500;
-     background-color: #991C08;
-     border-radius: 30px;
-     padding: 10px 20px;
-     color: white;
-     text-decoration: none;
-     font-size: 24px;
-     display: inline-block;
- }
+.link-alteraca-confirmacao {
+    text-align: center;
+}
 
- .preço-confirmacao {
-     font-family: var(--font2);
-     color: white;
-     font-size: 1.5em;
-     text-align: right;
-     font-weight: bold;
- }
+/* área dos pedidos  */
+.box-confirmacao {
+    background-color: #F77F00;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+    margin-bottom: 50px;
 
- .total-confirmacao {
-     font-family: var(--font1);
-     font-weight: 500;
-     background-color: #000000;
-     border-radius: 30px;
-     width: 100%;
-     padding: 8px;
-     color: white;
-     font-size: 24px;
-     margin: 0 auto;
-     justify-content: space-between;
-     display: flex;
-     margin-top: 10px;
- }
+}
 
- .total-confirmacao-total {
-     font-family: var(--font1);
-     font-weight: 800;
-     justify-content: space-between;
-     background-color: #f47a00;
-     border-radius: 30px;
-     width: 900px;
-     padding: 5px;
-     color: white;
-     font-size: 24px;
-     margin: 0 auto;
-     display: flex;
-     margin-top: 30px;
- }
+.box-confirmacao:hover {
+    transform: scale(1.02);
+}
 
- @media (max-width:768px) {
-     .total-confirmacao-total {
-         width: 300px;
-     }
- }
+/* bordinha pequena informando o tipo de pizza */
+.escolha-confirmacao {
+    background-color: #991C08;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
 
- .cupom-desconto {
-     display: flex;
-     flex-direction: column;
-     padding: 8px;
-     margin-top: 30px;
-     margin-bottom: 30px;
- }
+.box-confirmacao h3 {
+    color: #000;
+    font-family: var(--font2);
+    font-weight: 600;
+}
 
- .cupom-desconto span {
-     font-family: var(--font2);
-     color: white;
-     font-size: 2.0em;
-    
-        
- }
+.box-confirmacao p {
+    font-family: var(--font1);
+    color: #181515;
+    font-weight: 400;
+    margin-top: 20px;
+}
 
- #insire {
-     font-family: var(--font1);
-     font-size: 20px;
-    
- }
 
- input {
-     margin-top: 50px;
-     width: 500px;
-     margin: 0 auto;
-     border-radius: 10px;
-     border: none;
-     padding: 10px;
- }
+.borda-confirmacao {
+    font-family: var(--font1);
+    font-weight: 500;
+    background-color: #991C08;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    display: inline-block;
+}
 
- .cupom-desconto button{
+.preço-confirmacao {
+    font-family: var(--font2);
+    color: white;
+    font-size: 1.5em;
+    text-align: right;
+    font-weight: bold;
+}
+
+.total-confirmacao {
+    font-family: var(--font1);
+    font-weight: 500;
+    background-color: #000000;
+    border-radius: 30px;
+    width: 100%;
+    padding: 8px;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+    margin-top: 10px;
+}
+
+.total-confirmacao-total {
+    font-family: var(--font1);
+    font-weight: 800;
+    justify-content: space-between;
+    background-color: #f47a00;
+    border-radius: 30px;
+    width: 900px;
+    padding: 5px;
+    color: white;
+    font-size: 24px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+@media (max-width:768px) {
+    .total-confirmacao-total {
+        width: 300px;
+    }
+}
+
+.cupom-desconto {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.cupom-desconto span {
+    font-family: var(--font2);
+    color: white;
+    font-size: 2.0em;
+
+
+}
+
+#insire {
+    font-family: var(--font1);
+    font-size: 20px;
+
+}
+
+input {
+    margin-top: 50px;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.cupom-desconto button {
     margin-left: 750px;
     cursor: pointer;
     padding: 8px 8px;
     justify-content: center;
     justify-items: center;
-    
- }
+
+}
 
 
- .seta-pulando {
-     display: inline-block;
-     animation: pularSeta 1s infinite;
-     margin-bottom: 20px;
- }
+.seta-pulando {
+    display: inline-block;
+    animation: pularSeta 1s infinite;
+    margin-bottom: 20px;
+}
 
- .seta-svg {
-     width: 24px;
-     height: 24px;
-     color: orange;
- }
+.seta-svg {
+    width: 24px;
+    height: 24px;
+    color: orange;
+}
 
- @keyframes pularSeta {
+@keyframes pularSeta {
 
-     0%,
-     100% {
-         transform: translateY(0);
-     }
+    0%,
+    100% {
+        transform: translateY(0);
+    }
 
-     50% {
-         transform: translateY(8px);
-     }
- }
+    50% {
+        transform: translateY(8px);
+    }
+}
 
- .aplicar{
+.aplicar {
     font-family: var(--font1);
     border-radius: 15px;
     background-color: #f47a00;
@@ -711,95 +737,95 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     font-weight: 600;
     margin-top: -40px;
 
-    
-   
- }
+
+
+}
 
 
 
- .add-pedido button {
-     margin: 10px auto;
-     border: none;
-     background-color: #F77F00;
-     color: rgb(0, 0, 0);
-     font-weight: bolder;
-     padding: 10px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 30px;
-     margin-top: 30px;
- }
-
-
-
-
- .button-black-centralizar {
-     text-align: right;
- }
-
- .botão-pagamento {
-     font-family: var(--font1);
-     background-color: #f47a00;
-     color: #000;
-     font-weight: 700;
-     border-radius: 50px;
-     border: none;
-     padding: 8px;
-     gap: 8px;
-     display: inline-flex;
-     align-items: center;
-     transition: 0.3s;
-     margin-top: 30px;
- }
+.add-pedido button {
+    margin: 10px auto;
+    border: none;
+    background-color: #F77F00;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    margin-top: 30px;
+}
 
 
 
 
- .botão-pagamento:hover {
-     background-color: #000;
-     color: white;
- }
+.button-black-centralizar {
+    text-align: right;
+}
+
+.botão-pagamento {
+    font-family: var(--font1);
+    background-color: #f47a00;
+    color: #000;
+    font-weight: 700;
+    border-radius: 50px;
+    border: none;
+    padding: 8px;
+    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    transition: 0.3s;
+    margin-top: 30px;
+}
 
 
 
- .comentario-confirmacao {
-     height: 200px;
- }
+
+.botão-pagamento:hover {
+    background-color: #000;
+    color: white;
+}
 
 
 
- /* parte do endereço */
- .endereco-confirmacao {
-     margin: 0 auto;
-     border-radius: 20px;
-     width: 900px;
-     background-color: white;
-     color: #000000;
-     padding: 8px;
-     text-align: left;
-     padding-left: 15px;
-     display: flex;
-     justify-content: space-between;
-     margin-bottom: 10px;
-     align-items: center;
+.comentario-confirmacao {
+    height: 200px;
+}
 
- }
 
- @media (max-width:768px) {
-     .endereco-confirmacao {
-         width: 400px;
 
-     }
- }
+/* parte do endereço */
+.endereco-confirmacao {
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 900px;
+    background-color: white;
+    color: #000000;
+    padding: 8px;
+    text-align: left;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
 
- .endereco-confirmacao p {
-     text-align: center;
-     margin: 0 auto;
-     display: flex;
-     align-items: center;
-     gap: 0.7rem;
- }
+}
+
+@media (max-width:768px) {
+    .endereco-confirmacao {
+        width: 400px;
+
+    }
+}
+
+.endereco-confirmacao p {
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
 
 
 .endereco-confirmacao {
@@ -820,7 +846,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.escolha-confirmacao  {
+.escolha-confirmacao {
     background-color: #991C08;
     border-radius: 15px;
     padding: 5px 15px;
@@ -853,25 +879,27 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 }
 
 .tab-content {
-            height: 100%;
-        }
-        .cardapio-container {
-            min-height: 100vh;
+    height: 100%;
+}
 
-        } 
+.cardapio-container {
+    min-height: 100vh;
 
-        .full-width-row {
-            height: 100%;
-        }
+}
 
-    
+.full-width-row {
+    height: 100%;
+}
 
-.nav-categorias {  
+
+
+.nav-categorias {
     background-color: #F77F00;
     border-radius: 10px;
     font-weight: bold;
-   
+
 }
+
 .sabores-container {
     max-height: 600px;
     overflow-y: auto;
@@ -883,9 +911,9 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     margin-top: 30px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    
+
 }
 
 .pizza-card:hover {
@@ -899,49 +927,52 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     margin-bottom: 5px;
 }
 
-.opcoes-borda-radio{
-    
+.opcoes-borda-radio {
+
     justify-content: right;
     display: flex;
     margin-right: 50px;
 }
+
 /* pagina sobre nós */
 .avaliacao-bloco {
-    background-color: #FF8C00; /* Laranja */
+    background-color: #FF8C00;
+    /* Laranja */
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     max-width: 300px;
     width: 100%;
-  }
+}
 
-  .avaliacao-container {
+.avaliacao-container {
     display: flex;
     justify-content: center;
     margin: 20px 0;
-    
-  }
 
-  /* RESPOSTAS E AVALIAÇÃO PÁGINA */
+}
 
-  .evaluation-card {
+/* RESPOSTAS E AVALIAÇÃO PÁGINA */
+
+.evaluation-card {
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
     color: #eeeeee !important;
-    background-color:#991C08 !important;
+    background-color: #991C08 !important;
 }
 
 .admin-response {
     font-family: var(--font1);
-    background-color:#f47a00;
+    background-color: #f47a00;
     border-left: 4px solid #f35208a7;
     margin-top: 15px;
     padding: 15px;
     border-radius: 0 0 8px 8px;
 }
+
 /*------------------------------------- ----SESSÃO DE STATUS------------------------------------------------ */
 
 
@@ -967,8 +998,8 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     background-color: #222;
 }
 
-        /* DIV PRINCIPAL DA PARTE DE STATUS DO PROGRESSO /COMEÇO DA PART DE STATUS DE PROGRESSO */
-.status-timeline {              
+/* DIV PRINCIPAL DA PARTE DE STATUS DO PROGRESSO /COMEÇO DA PART DE STATUS DE PROGRESSO */
+.status-timeline {
     position: relative;
     padding-left: 50px;
     margin: 40px 0;
@@ -1028,7 +1059,8 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 }
 
 .progresso-tempo.current .status-progresso {
-    background-color: rgba(66, 179, 66, 0.859);;
+    background-color: rgba(66, 179, 66, 0.859);
+    ;
     border-left: 3px solid rgb(250, 250, 3);
 }
 
@@ -1279,12 +1311,12 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 }
 
 
-.contato-suporte{
+.contato-suporte {
     margin-top: 40px;
     font-size: 1.7em;
 }
 
-.contato-suporte a{ 
+.contato-suporte a {
     color: #000;
 }
 
@@ -1295,9 +1327,9 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 
 
-  /* PÁGINA CONTATO */
+/* PÁGINA CONTATO */
 
-  .contato-banner {
+.contato-banner {
     background: url('../../public/banners/fundo contato.png') center center / cover no-repeat;
     color: white;
     text-align: center;
@@ -1308,7 +1340,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     width: 100vh;
     height: 10px !important;
 
-   
+
 }
 
 /* PÁGINA SOBRE NÓS */
@@ -1323,7 +1355,7 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     width: 100vh;
     height: 10px !important;
 
-   
+
 }
 
 
@@ -1343,15 +1375,15 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 /* pagina sobre nós  */
 
-.img-localizacao{
-    gap:10px;
-      display: flex;
-  }
-  
-  .img-localizacao img{
-  width: 60px;
-  height: 60px;
-  }
+.img-localizacao {
+    gap: 10px;
+    display: flex;
+}
+
+.img-localizacao img {
+    width: 60px;
+    height: 60px;
+}
 
 
 /* cardapio */
@@ -1361,24 +1393,26 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     justify-content: center;
     justify-items: center;
 }
-.card-img-top {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
 
-.pizza-oculos img{
+.card-img-top {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.pizza-oculos img {
     width: 50%;
     height: 50%;
 }
+
 /* Pagamento */
 
 /* PARTE DOS CODIGO DO QRCODE */
- .pix-chave {
+.pix-chave {
     font-size: 20px;
     background-color: rgb(139, 129, 129);
     border-radius: 15px;
@@ -1386,18 +1420,19 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     border: none;
     font-weight: 900;
     width: 800px;
-    margin:0 auto;
+    margin: 0 auto;
     margin-top: 40px;
-    
+
 }
 
 @media (max-width:768px) {
-    .pix-chave{
+    .pix-chave {
         width: 430px;
         margin: 0 auto;
         margin-top: 40px;
     }
-} 
+}
+
 .qrcode img {
     background: white;
     /* ANIMAÇÃO DE FADE NO QRCODE(UMA PEQUENA TRANSIÇÃO) */
@@ -1422,7 +1457,8 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
     }
 
 
-} 
+}
+
 .feedback {
     font-family: var(--font1);
     font-weight: 700;
@@ -1433,12 +1469,12 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 }
 
 
-.validade{
+.validade {
     font-family: var(--font1);
     color: #c35454;
     margin-top: 10px;
     font-size: 14px;
-    font-weight:bolder;
+    font-weight: bolder;
     text-decoration: underline;
 }
 
@@ -1468,4 +1504,3 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 .card-conteudo {
     padding: 20px;
 }
-
