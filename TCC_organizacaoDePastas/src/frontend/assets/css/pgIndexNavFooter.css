@@ -844,6 +844,7 @@ div#imagem1 {
     
 }
 .beneficios-texto p{
+    color: white;
     margin: 0;
     font-size: 1em;
     text-align: center;
@@ -920,10 +921,12 @@ div#imagem1 {
     align-items: center;
     transition: 0.3s;
 }
+/*  
 .btn-promoções:hover{
     background-color: rgb(255, 255, 255);
     color: #000;
 }
+    */
 
 @media (max-width:400px) {
     .btn-promoções{

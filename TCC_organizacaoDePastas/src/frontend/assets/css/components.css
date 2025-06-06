@@ -133,6 +133,7 @@
     width: 200px;
     margin-top: 30px;
     right: 20px;
+    
 }
 .button-laranja-position {
     justify-content: right;
@@ -151,6 +152,7 @@
     font-family: var(--font1);
     padding: 10px;
     font-weight: 800;
+    margin-right: 50px;
 }
 .pix-texto{
     font-family: var(--font1);
@@ -190,28 +192,57 @@
    
     
     /* button de cardapio */
-.quantidade{
-    background-color: rgb(8, 8, 8);
-    border: none;
-    padding: 5px 50px;
-    margin: 0 auto;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 130px;
-    margin-right: 10px;
-    
-}
-    .selecionada {
-      border: 2px solid green;
-      background-color: #e6ffe6;
+/* div dos botoões de adicionar ou retirar do cardapio */
+.quantidade {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
     }
-.quantidade-itens{
-color: #ffffff;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  
-}
+
+    .quantidade-itens {
+        font-family: var(--font2);
+      display: inline-flex;
+      align-items: center;
+      background-color: #991C08;
+      padding: 0.6rem 1rem;
+      border-radius: 16px;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+/* botões da div de cima; pagina de cardapio  */
+    .btn_retirar,
+    .btn_adicionar {
+      background-color: #fbc02d;
+      color: #4e342e;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn_retirar:hover,
+    .btn_adicionar:hover {
+      transform: scale(1.1);
+    }
+
+    .btn_retirar {
+      background-color: #e64a19;
+      color: white;
+    }
+
+    .quantidade-itens span {
+      font-size: 1.4rem;
+      margin: 0 1rem;
+      width: 30px;
+      display: inline-block;
+      text-align: center;
+    }
+
 
 .button-vermelho {
     background-color:#991C08;
@@ -252,6 +283,10 @@ box-shadow: inset 0 0 0 3px rgb(0, 0, 0) ;
 
 
 /* PROMOÇÃO */
+
+.botão-promoção{
+    color: white;
+}
 
 .button-promoção {
     background-color: #F77F00;
