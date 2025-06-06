@@ -63,10 +63,10 @@
       <input type="text" class="cupom" id="cupom-aplique" placeholder="coloque seu cupom">
 
       <button class="aplicar" onclick="aplicarCupom()">aplicar</button>
-       <p id="feedback-cupom"></p>
+      <p id="feedback-cupom"></p>
     </div>
 
-     <script>
+    <script>
       function aplicarCupom() {
         const cupom = document.getElementById("cupom-aplique").value.trim().toLowerCase();
         const feedback = document.getElementById("feedback-cupom");
@@ -158,8 +158,11 @@
       const container = document.createElement('div');
       container.classList.add('box-confirmacao', 'p-3');
 
+
       // Badge com o tipo da pizza
       const tipo = `<span class="escolha-confirmacao tag badge bg-secodandary">${item.tipo}</span>`;
+
+
 
       // Título da(s) pizza(s)
       const pizzasTitulo = item.pizzas.map(p =>
@@ -182,16 +185,28 @@
         bebidasHTML = `<p><strong>Bebidas:</strong> ${bebidasFormatadas}</p>`;
       }
 
+      const index = carrinho.indexOf(item); // identifica a posição do item
+
       container.innerHTML = `
-    ${tipo}
-    ${pizzasTitulo}
-    ${preco}
-    ${borda}
-    ${bebidasHTML}
-  `;
+  <button class="excluir-btn" onclick="excluirPedido(${index})">🗑️</button>
+  
+  ${tipo}
+  ${pizzasTitulo}
+  ${preco}
+  ${borda}
+  ${bebidasHTML}
+`;
 
       resumoContainer.appendChild(container);
     });
+
+    function excluirPedido(index) {
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      location.reload();
+    }
+
 
 
 
@@ -263,7 +278,7 @@
 
       carrinhoContainer.innerHTML = html;
       totalPedidoElement.innerText =
-      `Total (com frete R$ ${valorFrete.toFixed(2)}): R$ ${totalComFrete.toFixed(2)}`;
+        `Total (com frete R$ ${valorFrete.toFixed(2)}): R$ ${totalComFrete.toFixed(2)}`;
     });
 
 
