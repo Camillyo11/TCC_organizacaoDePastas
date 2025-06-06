@@ -34,7 +34,7 @@ export function handleCadastroSubmit(e) {
 
   const usuario = {
     nome,
-   dataNascimento,  // mudar a chave para corresponder ao backend
+   data_nascimento: dataNascimento,  // mudar a chave para corresponder ao backend
     cpf,
     telefone,
     email,

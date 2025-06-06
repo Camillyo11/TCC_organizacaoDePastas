@@ -1,4 +1,3 @@
-// orderController
 const OrderService = require('../services/OrderService');
 
 // Criar um pedido

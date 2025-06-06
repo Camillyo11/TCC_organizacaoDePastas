@@ -14,46 +14,39 @@
 
 <body class="body-vermelho">
       <div id="header-container"></div>
-
       
 
   <!--  AVALIAÇÃO DAS ESTRELAS  -->
-  <div class="avalicao-estrelas">
-    <h1>Deixe seu avaliação</h1>
+<div class="avalicao-estrelas">
+  <h1>Deixe seu avaliação</h1>
+  <form id="avaliacaoForm">
     <div class="stars">
-      <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+      <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
       <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
       <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
       <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
       <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
     </div>
 
-    <script>
-      const stars = document.querySelectorAll('.stars input');
+    <div class="form-group-avaliacao">
+      <label class="label-comentario" for="mensagem">
+        <h5>Comentário:</h5>
+      </label>
+      <textarea id="mensagem" name="comentario" rows="4" maxlength="500" 
+        placeholder="Digite sua mensagem aqui"></textarea>
+    </div>
 
-      stars.forEach(star => {
-        star.addEventListener('change', () => {
-          alert(`Você avaliou com ${star.value} estrelas!`);
-        });
-      });
-    </script>
+    <!-- Campos ocultos para id_pedido e id_cliente -->
+    <input type="hidden" id="id_pedido" name="id_pedido">
+    <input type="hidden" id="id_cliente" name="id_cliente">
 
-  </div>
+    <div class="center-button">
+      <button type="submit" class="button-black btn-submit">Enviar</button>
+    </div>
+  </form>
+</div>
 
-
-  <div class="form-group-avaliacao">
-    <label class="label-comentario" for="mensagem">
-      <h5>Comentário:</h5>
-    </label>
-    <textarea id="mensagem" name="mensagem" rows="4" maxlength="500" ]
-      placeholder="Digite sua mensagem aqui"></textarea>
-  </div>
-
-
-  <div class="center-button">
-    <button type="submit" id="btnEnviarAvaliacao" class="button-black btn-submit">Enviar avaliação</button>
-  </div>
-
+ 
      <!--   FOOTER   -->
      <footer class="footer-conteiner">
       <div class="container text-center">
@@ -91,7 +84,8 @@
       </div>
     </footer>
     
-    <script src="JAVASCRIPT/jquery.js"></script>
+
+    <script src="../assets/js/auth.js"></script>
   <script src="/TCC_organizacaoDePastas/src/frontend/assets/js/loadHeader.js"></script>
   <script src="../assets/js/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -108,7 +102,6 @@ console.log(localStorage.getItem('isLoggedIn')); -->
 
 
 <!-- Script de carregamento (coloque no FINAL do body, após o bootstrap) -->
- <!-- 
 <script>
   fetch('../UserPages/header.html')
     .then(response => response.text())
@@ -127,76 +120,98 @@ console.log(localStorage.getItem('isLoggedIn')); -->
    offcanvasTriggerList.map(function (offcanvasTriggerEl) {
      new bootstrap.Offcanvas(offcanvasTriggerEl);
    });
-   const form = document.getElementById("avaliacaoForm");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  // lógica do envio
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById("avaliacaoForm");
+  
+  // Obter dados do usuário logado (do localStorage)
+  function getUsuarioLogado() {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    if (!usuario || !usuario.id_cliente) {
+      alert('Você precisa estar logado para enviar uma avaliação');
+      window.location.href = '../UserPages/login.html';
+      return null;
+    }
+    return usuario;
+  }
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    
+    const usuario = getUsuarioLogado();
+    if (!usuario) return;
+    
+    // Obter os valores do formulário
+    const formData = new FormData(form);
+    const avaliacao = {
+      nota: formData.get('rating'),
+      comentario: formData.get('comentario'),
+      id_pedido: formData.get('id_pedido'), // Você precisa definir isso (pode ser via URL ou outro método)
+      id_cliente: usuario.id_cliente
+    };
+
+    // Validação básica
+    if (!avaliacao.nota) {
+      alert('Por favor, selecione uma nota');
+      return;
+    }
+
+    try {
+      // Enviar para o backend
+      const response = await enviarAvaliacao(avaliacao);
+      
+      if (response.ok) {
+        alert('Avaliação enviada com sucesso! Obrigado pelo seu feedback.');
+        form.reset();
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao enviar avaliação');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      alert(error.message || 'Ocorreu um erro ao enviar sua avaliação. Por favor, tente novamente.');
+    }
+  });
+
+  // Função para enviar a avaliação para o backend
+  async function enviarAvaliacao(avaliacao) {
+    const token = localStorage.getItem('token'); // Obter token JWT do localStorage
+    
+    return fetch('/api/avaliacoes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(avaliacao)
+    });
+  }
+
+  // Opcional: Preencher id_pedido se estiver na URL (ex: ?pedido=123)
+  const urlParams = new URLSearchParams(window.location.search);
+  const idPedido = urlParams.get('pedido');
+  if (idPedido) {
+    document.getElementById('id_pedido').value = idPedido;
+  }
+
+  // Feedback visual para as estrelas (opcional)
+  const stars = document.querySelectorAll('.stars input');
+  stars.forEach(star => {
+    star.addEventListener('change', () => {
+      console.log(`Avaliação selecionada: ${star.value} estrelas`);
+    });
+  });
 });
+
 </script>
 
- -->
 
 
-<script>
-           fetch('../UserPages/header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-container').innerHTML = data;
-        })
-        .catch(error => console.error('Erro ao carregar o header:', error));
-        
-       // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
-       const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
-       modalTriggerList.map(function (modalTriggerEl) {
-         new bootstrap.Modal(modalTriggerEl);
-       });
+ 
+  
     
-       const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-       offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-         new bootstrap.Offcanvas(offcanvasTriggerEl);
-       }); 
 
-       
- document.addEventListener("DOMContentLoaded", function () {  /* garante que o script seja executado so dps que rodar o html */
-      const btn = document.getElementById("btnEnviarAvaliacao");
-      btn.addEventListener("click", function () {                   /* botão de enviar funcionando, enviando para o adm */
-        const comentario = document.getElementById("mensagem").value.trim();
-        const estrelas = document.querySelector('input[name="rating"]:checked')?.value || null;  /* recebe os valor das estrelas */
-        const dataHora = new Date().toISOString();
-        const usuario = "Cliente Anônimo";
-
-/* se caso a pessoa clicar no botão sem deixa avaliação, vai aparecer essa msg */
-        if (!estrelas && !comentario) {
-          alert("Por favor, avalie com estrelas ou escreva um comentário.");  
-          return;
-        }
-
-        const novaAvaliacao = {
-          id: Date.now(),
-          usuario,            /* banco feito pelo locastorage */
-          comentario,
-          estrelas,
-          data: dataHora,
-          resposta: null
-        };
-
-        const avaliacoes = JSON.parse(localStorage.getItem("avaliacoes") || "[]");  /* carrega o array(valor) do zero */
-        avaliacoes.push(novaAvaliacao); /* adiciona nova avaliação */
-        localStorage.setItem("avaliacoes", JSON.stringify(avaliacoes));  /* converte o valor em texto e salva no banco */
-
-        alert("Avaliação enviada com sucesso!");
-        document.getElementById("mensagem").value = "";
-        document.querySelectorAll('input[name="rating"]').forEach(e => e.checked = false);
-      });
-    });
-    </script>
 
   </body>
 
 </html>
-
-
-
-
-

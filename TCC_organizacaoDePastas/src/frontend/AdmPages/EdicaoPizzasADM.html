@@ -43,707 +43,202 @@
     </nav>
   </header>
 
+  <div class="container cardapio-container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <h2 class="text-center mb-4">Nossas Pizzas</h2> -->
+            
+            <!-- Abas de navegação entre categorias -->
+            <ul class="nav-categorias nav nav-tabs justify-content-center mb-4 " id="pizzaTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class=" nav-link-categoria nav-link active text-dark " id="salgadas-tab" data-bs-toggle="tab" data-bs-target="#salgadas" type="button" role="tab">Pizzas Salgadas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class=" nav-link-categoria nav-link text-dark " id="doces-tab" data-bs-toggle="tab" data-bs-target="#doces" type="button" role="tab">Pizzas Doces</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link-categoria nav-link  text-dark" id="bebidas-tab" data-bs-toggle="tab" data-bs-target="#bebidas" type="button" role="tab">Bebidas</button>
+                </li>
+            </ul>
 
- <div class="container cardapio-container">
-    <div class="row full-width-row">
-
-      <div class="col-md-12">
-        <!-- <h2 class="text-center mb-4">Nossas Pizzas</h2> -->
-
-        <!-- Abas de navegação entre categorias -->
-        <ul class="nav-categorias nav nav-tabs justify-content-center mb-4 " id="pizzaTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class=" nav-link-categoria nav-link active text-dark " id="salgadas-tab" data-bs-toggle="tab"
-              data-bs-target="#salgadas" type="button" role="tab">Pizzas
-              Salgadas</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class=" nav-link-categoria nav-link text-dark " id="doces-tab" data-bs-toggle="tab"
-              data-bs-target="#doces" type="button" role="tab">Pizzas Doces</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link-categoria nav-link  text-dark" id="bebidas-tab" data-bs-toggle="tab"
-              data-bs-target="#bebidas" type="button" role="tab">Bebidas</button>
-          </li>
-        </ul>
-
-
-
-        <div class="barra_pesquisa">
-          <input type="text" class="form-control" id="barraPesquisa" placeholder="🔍 Pesquisar">
-        </div>
-       
-
-
-
-        <!-- Conteúdo das abas -->
-        <div class="tab-content" id="pizzaTabsContent">
-          <!-- Tab Pizzas Salgadas -->
-
-          <div class="tab-pane fade show active sabores-container" id="salgadas" role="tabpanel">
             <h3 class="categoria-titulo">Pizzas Salgadas</h3>
-            <div class="row">
-
-              <!-- Pizza 1 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaFrangoComCatupiry.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Frango com Catupiry</h5>
-                    <p class="card-text">Molho, Mussarela, frango desfiado e catupiry</p>
-                   <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                        <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 2 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaBaiana.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Baiana</h5>
-                    <p class="card-text">Ervilha, cebola, mussarela, calabresa ralada, molho e
-                      pimenta</p>
-                  <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                        <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 3 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaCalabreza.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Calabresa</h5>
-                    <p class="card-text">Calabresa fatiada e cebola</p>
-              <div class="pizza-preco" data-preco="43.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 43,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 4 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaQuatroQueijo.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Quatro Queijo</h5>
-                    <p class="card-text">Mussarela, orégano e tomate</p>
-                    <div class="pizza-preco" data-preco="43.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 43,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                      <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 5 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaPalmito.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Palmito</h5>
-                    <p class="card-text">Combinação especial de mussarela e catupiry</p>
-                 <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                     <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 6 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaCalabrezaComCatupiry.png" class="card-img-top"
-                      alt="...">
-                    <h5 class="card-title pizza-nome">Calabresa com Catupiry</h5>
-                    <p class="card-text">Combinação especial de Calabresa e Cebola com catupiry</p>
-                     <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-
-              <!-- Pizza 7 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaportuguesa.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Portuguesa</h5>
-                    <p class="card-text">Combinação especial de presunto, cebola, ovo e mussarela
-                    </p>
-                   <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                          <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-
-              <!-- Pizza 8 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaFrangoComMilho.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Frango com milho</h5>
-                    <p class="card-text">Combinação especial de frango e milho</p>
-                 <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                   <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-
-              <!-- Pizza 9 -->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaQueijoBranco.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Queijo branco</h5>
-                    <p class="card-text">Combinação especial de mussarela e queijo fresco</p>
-              <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-
-              <!-- Pizza 10-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaStrogonoff.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Strogonoff</h5>
-                    <p class="card-text">Combinação especial de frango, mussarela e batata palha</p>
-             <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-              <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 11-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaBaconComCatupiry.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Canadense</h5>
-                    <p class="card-text">Combinação especial de Lombo, bacon, ervilha e mussarela
-                    </p>
-              <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-              <!-- Pizza 12-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/imgPizzas/pizzaPalmito.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Jardineira</h5>
-                    <p class="card-text">Combinação especial de calabresa, palmito, cebola e
-                      mussarela</p>
-                    <div class="pizza-preco" data-preco="47.90" data-categoria="salgada">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                          <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
-
-
-
-              <!-- Adicione mais pizzas conforme necessário -->
-            </div>
-
-
+            
+            <div class="barra_pesquisa">
+              <input type="text" class="form-control" placeholder="🔍 Pesquisar">
           </div>
 
+            <!-- Conteúdo das abas -->
+            <div class="tab-content" id="pizzaTabsContent">
+                <!-- Tab Pizzas Salgadas -->
+                <div class="tab-pane fade show active sabores-container" id="salgadas" role="tabpanel">
+                 
+                    <div class="row">
+                        <!-- Pizza 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card pizza-card h-100">
+                                <div class="card-body">
+                                  <img src="../img pizzas/pizzaFrangoComCatupiry.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title pizza-nome">Frango com Catupiry</h5>
+                                    <p class="card-text">Molho, Mussarela, frango desfiado e catupiry</p>
+                                    <p class="pizza-preco">R$ 47,90</p>
 
-          <!-- Tab Pizzas Doces-->
+                                    
+                                      <div class="retirar-voltar-itens">
+                                          <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                       
+                                          <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                                      </div>
 
-          <div class="tab-pane fade sabores-container" id="doces" role="tabpanel">
-            <h3 class="categoria-titulo">Pizzas Doces</h3>
-            <div class="row">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pizza 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card pizza-card h-100">
+                                <div class="card-body">
+                                  <img src="../img pizzas/pizzaBaiana.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title pizza-nome">Baiana</h5>
+                                    <p class="card-text">Ervilha, cebola, mussarela, calabresa ralada, molho e pimenta</p>
+                                    <p class="pizza-preco">R$ 43,90</p>
 
-              <!-- Pizza 1-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaBananaCondensado.png" class="card-img-top"
-                      alt="...">
-                    <h5 class="card-title pizza-nome">Banana Condensada</h5>
-                    <p class="card-text">Banana com leite condensado</p>
-                 <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
+                                    <div class="retirar-voltar-itens">
+                                        <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                     
+                                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pizza 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card pizza-card h-100">
+                                <div class="card-body">
+                                  <img src="../img pizzas/pizzaCalabreza.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title pizza-nome">Calabresa</h5>
+                                    <p class="card-text">Calabresa fatiada e cebola</p>
+                                    <p class="pizza-preco">R$ 43,90</p>
+                                   
+                                        <div class="retirar-voltar-itens">
+                                            <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                         
+                                            <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card pizza-card h-100">
+                                <div class="card-body">
+                                  <img src="../img pizzas/pizzaQuatroQueijo.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title pizza-nome">Quatro Queijo</h5>
+                                    <p class="card-text">Mussarela, orégano e tomate</p>
+                                    <p class="pizza-preco">R$ 43,90</p>
+                                    <div class="quantidade">
+                                      <div class="quantidade-itens">
+                                          <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                                          <span class="mx-2">0</span>
+                                          <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                                      </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pizza 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card pizza-card h-100">
+                                <div class="card-body">
+                                  <img src="../img pizzas/pizzaPalmito.png" class="card-img-top" alt="...">
+                                    <h5 class="card-title pizza-nome">Palmito</h5>
+                                    <p class="card-text">Combinação especial de mussarela e catupiry</p>
+                                    <p class="pizza-preco">R$ 47,90</p>
+                                    <div class="quantidade">
+                                      <div class="quantidade-itens">
+                                          <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                                          <span class="mx-2">0</span>
+                                          <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                                      </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Adicione mais pizzas conforme necessário -->
                     </div>
-
-                  </div>
-                </div>
-              </section>
-              <!-- Pizza 2-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaBrigadeiro.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Brigadeiro</h5>
-                    <p class="card-text">Chocolate ao leite e granulado</p>
-                 <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                        <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
+                    
+              
                     </div>
+                   
+                   <h3 class="categoria-titulo mt-5">Opções de Borda</h3>
+                   <div class="row">
+                       <div class="col-md-4">
+                           <div class="borda-option">
+                               <h5>Borda de Catupiry</h5>
+                               <p>+R$ 10,00</p>
+                               <div class="retirar-voltar-itens">
+                                <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                            </div>
 
-                  </div>
+                           </div>
+                       </div>
+                       <div class="col-md-4">
+                           <div class="borda-option">
+                               <h5>Borda de Cheddar</h5>
+                               <p>+R$ 10,00</p>
+                               <div class="retirar-voltar-itens">
+                                <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                            </div>
+                           </div>
+                           
+                       </div>
+                       <div class="col-md-4">
+                           <div class="borda-option">
+                               <h5>Borda de Chocolate</h5>
+                               <p>+R$ 15,00</p>
+                               <div class="retirar-voltar-itens">
+                                <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
+                                <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
+                            </div>
+                           </div>
+                       </div>
+
                 </div>
-              </section>
-              <!-- Pizza 3-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaChocorango.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Pizza Chocorango</h5>
-                    <p class="card-text">Chocolate ao leite com morango</p>
-                 <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
+                   
+    
+                
+                <!-- Tab Pizzas Doces (vazio por enquanto) -->
+                <div class="tab-pane fade sabores-container" id="doces" role="tabpanel">
+                    <h3 class="categoria-titulo">Pizzas Doces</h3>
+                    <p class="text-center">Em breve mais opções!</p>
                 </div>
-              </section>
-              <!-- Pizza 4-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaChocoUva.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Pizza ChocoUva</h5>
-                    <p class="card-text">Chocolate ao leite com uva verde</p>
-              <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                       <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
+                
+                <!-- Tab Bebidas (vazio por enquanto) -->
+                <div class="tab-pane fade sabores-container" id="bebidas" role="tabpanel">
+                    <h3 class="categoria-titulo">Bebidas</h3>
+                    <p class="text-center">Em breve mais opções!</p>
                 </div>
-              </section>
-              <!-- Pizza 5-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaM&M.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Pizza M&M</h5>
-                    <p class="card-text">Chocolate ao leite com M&M</p>
-                   <div class="pizza-preco" data-preco="47.90"data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                       <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-              <!-- Pizza 6-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Doces/pizzaRomeuJulieta.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Pizza Romeu e Julieta</h5>
-                    <p class="card-text">Mussarela com goiabada</p>
-                  <div class="pizza-preco" data-preco="47.90" data-categoria="doce">
-                    <p class="pizza-preco">R$ 47,90</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </section>
-
             </div>
-          </div>
-
-
-          <!-- Tab Bebidas-->
-          <div class="tab-pane fade sabores-container" id="bebidas" role="tabpanel">
-            <h3 class="categoria-titulo">Bebidas</h3>
-            <div class="row">
-              <!-- Bebida 1-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/Coca-cola1L.png" class="card-img-top" alt="...">
-                    <h5 class="card-title pizza-nome">Coca-Cola 1L</h5>
-                <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Bebida 2-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/Coca-cola2L.jpg" class="card-img-top" alt="...">
-                    <h5 class="card-title bebida-nome">Coca-cola 2L </h5>
-                   <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Bebida 3-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/Guarana2L.png" class="card-img-top" alt="...">
-                    <h5 class="card-title bebida-nome">Guarana 2L</h5>
-                     <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                       <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Bebida 4-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/Sprite.png" class="card-img-top" alt="...">
-                    <h5 class="card-title bebida-nome">Sprite 2L</h5>
-                   <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                    <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Bebida 5-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/FantaUva.png" class="card-img-top" alt="...">
-                    <h5 class="card-title bebida-nome">Fanta Uva 2L</h5>
-                      <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-               <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <!-- Bebida 6-->
-              <section class="col-md-6 col-lg-4">
-                <div class="card pizza-card h-100">
-                  <div class="card-body">
-                    <img src="../public/produtos/Bebidas/Tubaina2L.png" class="card-img-top" alt="...">
-                    <h5 class="card-title bebida-nome">Itubaina 2L</h5>
-            <div class="pizza-preco" data-preco="15.00" data-categoria="bebida">
-                    <p class="pizza-preco">R$ 15,00</p>
-                    <div class="quantidade">
-                      <div class="quantidade-itens">
-                         <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+            
+            <!-- Botões de ação -->
+            <div class=" button-vermelho-position ">
+                <button class="button-vermelho">EDITAR</button>
             </div>
-          </div>
         </div>
-      </div>
-
-
-
-      <section class="borda">
-        <h3 class="categoria-titulo mt-5">Opções de Borda</h3>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="borda-option">
-              <h5>Borda Tradicional</h5>
-              <p>+R$ 0,00</p>
-              <div class="opcoes-borda-radio text-start mt-3">
-                 <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                  <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="borda-option">
-              <h5>Borda de Catupiry</h5>
-              <p class="borda-preco">+R$ 10,00</p>
-              <div class="opcoes-borda-radio text-start mt-3">
-                <label class="radio-label">
-                 <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="borda-option">
-              <h5>Borda de Cheddar</h5>
-              <p  class="borda-preco">+R$ 10,00</p>
-              <div class="opcoes-borda-radio text-start mt-3">
-               <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="borda-option">
-              <h5>Borda de Chocolate</h5>
-              <p  class="borda-preco">+R$ 15,00</p>
-              <div class="opcoes-borda-radio text-start mt-3">
-                <button class="btn_retirar btn-outline-secondary btn-sm">Retirar</button>
-                        <button class="btn_voltar btn-outline-secondary btn-sm">Voltar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    </div>
+</div>
 
     <!-- BOOTSTARP JS -->
     <script src="../JAVASCRIPT/jquery.js"></script>
-     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-  
-
-
-    <script>
-
-      
-            // Barra de pesquisa
-document.getElementById("barraPesquisa").addEventListener("input", function() {
-  const termo = this.value.toLowerCase();
-  const abaAtiva = document.querySelector(".tab-pane.active");
-  
-  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
-    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
-    const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
-    card.parentElement.style.display = (nome.includes(termo) || descricao.includes(termo)) ? "" : "none";
-  });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Carrega o estado dos produtos do localStorage ou servidor
-  loadProductStates();
-  
-  // Event listeners para os botões
-  document.querySelectorAll('.btn_retirar').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const card = this.closest('.card');
-      disableProduct(card);
-      saveProductState(card);
-    });
-  });
-  
-  document.querySelectorAll('.btn_voltar').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const card = this.closest('.card');
-      enableProduct(card);
-      saveProductState(card);
-    });
-  });
-});
-
-function disableProduct(card) {
-  card.classList.add('disabled-product');
-  card.querySelector('.btn_retirar').style.display = 'none';
-  card.querySelector('.btn_voltar').style.display = 'inline-block';
-  
-  // Adiciona atributo para identificar que está desabilitado
-  card.setAttribute('data-disabled', 'true');
-}
-
-function enableProduct(card) {
-  card.classList.remove('disabled-product');
-  card.querySelector('.btn_retirar').style.display = 'inline-block';
-  card.querySelector('.btn_voltar').style.display = 'none';
-  
-  // Remove atributo de desabilitado
-  card.removeAttribute('data-disabled');
-}
-
-function saveProductState(card) {
-  const productId = card.getAttribute('data-id');
-  const productType = card.getAttribute('data-type');
-  const isDisabled = card.hasAttribute('data-disabled');
-  
-  // Salva no localStorage (para demonstração)
-  let productsState = JSON.parse(localStorage.getItem('productsState')) || {};
-  productsState[`${productType}_${productId}`] = isDisabled;
-  localStorage.setItem('productsState', JSON.stringify(productsState));
-  
-  // Aqui você deve adicionar a chamada AJAX para salvar no servidor
-  saveToServer(productId, productType, isDisabled);
-}
-
-function loadProductStates() {
-  // Carrega do localStorage (para demonstração)
-  const productsState = JSON.parse(localStorage.getItem('productsState')) || {};
-  
-  // Aqui você deve adicionar a chamada AJAX para carregar do servidor
-  // loadFromServer();
-  
-  document.querySelectorAll('.card').forEach(card => {
-    const productId = card.getAttribute('data-id');
-    const productType = card.getAttribute('data-type');
-    const isDisabled = productsState[`${productType}_${productId}`];
-    
-    if (isDisabled) {
-      disableProduct(card);
-    }
-  });
-}
-
-// Funções para comunicação com o servidor (exemplo)
-function saveToServer(productId, productType, isDisabled) {
-  // Implemente a chamada AJAX para salvar no banco de dados
-  console.log(`Salvando estado: ${productType} ID ${productId} - ${isDisabled ? 'Desabilitado' : 'Habilitado'}`);
-}
-
-function loadFromServer() {
-  // Implemente a chamada AJAX para carregar os estados do banco de dados
-  // Retorna uma Promise com os estados dos produtos
-}
-
-</script>
-
-
   </body>
-
   
   </html>

@@ -1,4 +1,3 @@
-/* menuController */
 const MenuService = require('../services/MenuService');
 
 

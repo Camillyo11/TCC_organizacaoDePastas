@@ -1,0 +1,1 @@
+/* Carrega scripts globais (navbar, menu, etc.) */

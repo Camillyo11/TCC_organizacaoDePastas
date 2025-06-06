@@ -515,9 +515,9 @@
                     <p class="pizza-preco">R$ 15,00</p>
                     <div class="quantidade">
                       <div class="quantidade-itens">
-                        <button class="btn_retirar btn-sm">-</button>
+                        <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
                         <span class="mx-2">0</span>
-                        <button class="btn_adicionar  btn-sm">+</button>
+                        <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
                       </div>
                     </div>
                   </div>
@@ -658,10 +658,7 @@
       <!-- Botões de ação -->
       <section>
         <div class="button-laranja-position mt-4">
-          <button id="btnIrCarrinho" class="btn btn-warning" onclick="irParaCarrinho()" >
-  Ir para o Carrinho
-</button>
-
+          <button id="btnAdicionarCarrinho" class="button-laranja " onclick="adicionarAoCarrinho()">Adicionar ao carrinho</button>
         </div>
       </section>
     </div>
@@ -748,216 +745,173 @@ document.getElementById("barraPesquisa").addEventListener("input", function() {
       return tabId === "salgadas" || tabId === "doces";
     }
 
-  function atualizarVisibilidadePizzas() {
-  const todasPizzas = document.querySelectorAll(".pizza-card");
+    function atualizarVisibilidadePizzas() {
+      const abaAtiva = document.querySelector(".tab-pane.active");
+      const tabId = abaAtiva.id;
 
-  todasPizzas.forEach(card => {
-    const isBebida = card.closest("#bebidas") !== null;
-    const qtd = parseInt(card.querySelector(".quantidade span").innerText);
-    const selecionada = card.classList.contains("selecionada");
+      abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const span = card.querySelector(".quantidade span");
+        const qtd = parseInt(span.innerText);
+        const selecionada = card.classList.contains("selecionada");
 
-    if (meioMeioAtivo && !isBebida) {
-      if (qtd > 0 || pizzasSelecionadas.length < 2 || selecionada) {
-        card.parentElement.style.display = "";
-      } else {
-        card.parentElement.style.display = "none";
-      }
-    } else {
-      card.parentElement.style.display = "";
-    }
-  });
-}
-
-document.querySelectorAll('input[name="modoPizza"]').forEach(radio => {
-  radio.addEventListener("change", function () {
-    meioMeioAtivo = (this.value === "meio");
-    pizzasSelecionadas = [];
-
-    const abaAtiva = document.querySelector(".tab-pane.active");
-    const tabId = abaAtiva.id;
-
-    abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
-      const span = card.querySelector(".quantidade span");
-      const nome = card.querySelector(".pizza-nome")?.innerText;
-      const qtd = parseInt(span.innerText);
-
-      if (isPizzaTab(tabId)) {
-        if (meioMeioAtivo) {
-          span.innerText = "0";
-          card.classList.remove("selecionada");
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          if (qtd > 0 || pizzasSelecionadas.length < 2 || selecionada) {
+            card.parentElement.style.display = "";
+          } else {
+            card.parentElement.style.display = "none";
+          }
         } else {
-          span.innerText = "0";
-          card.classList.remove("selecionada");
+          card.parentElement.style.display = "";
         }
-      }
-      card.parentElement.style.display = "";
+      });
+    }
+
+    document.querySelectorAll('input[name="modoPizza"]').forEach(radio => {
+      radio.addEventListener("change", function () {
+        meioMeioAtivo = (this.value === "meio");
+        pizzasSelecionadas = [];
+
+
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+
+        abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+          const span = card.querySelector(".quantidade span");
+          const qtd = parseInt(span.innerText);
+          const nome = card.querySelector(".pizza-nome")?.innerText;
+
+          if (isPizzaTab(tabId)) {
+            if (meioMeioAtivo) {
+              // Se já havia 1 unidade, usar como seleção inicial
+              if (qtd === 1 && pizzasSelecionadas.length < 2) {
+                card.classList.add("selecionada");
+                pizzasSelecionadas.push(nome);
+              } else {
+                // Zera apenas o que for além disso
+                span.innerText = "0";
+                card.classList.remove("selecionada");
+              }
+            } else {
+              // Se desligar o modo, apenas remove visuais
+              card.classList.remove("selecionada");
+            }
+          }
+
+          card.parentElement.style.display = "";
+        });
+
+        document.getElementById("confirmarPizzaInteira").style.display = meioMeioAtivo ? "none" : "block";
+        document.getElementById("confirmarMeioMeio").style.display = meioMeioAtivo && pizzasSelecionadas.length === 2 ? "block" : "none";
+
+      });
     });
 
-    // Exibir o botão correto
-    document.getElementById("confirmarPizzaInteira").style.display = meioMeioAtivo ? "none" : "block";
-    document.getElementById("confirmarMeioMeio").style.display = meioMeioAtivo ? "block" : "none";
 
-    atualizarVisibilidadePizzas();
-  });
-});
+    document.querySelectorAll(".btn_adicionar").forEach(button => {
+      button.addEventListener("click", function () {
+        const card = this.closest(".pizza-card");
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+        const span = card.querySelector(".quantidade span");
+        let valor = parseInt(span.innerText);
 
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          if (valor < 1 && pizzasSelecionadas.length < 2) {
+            span.innerText = valor + 1;
+            card.classList.add("selecionada");
+            pizzasSelecionadas.push(nome);
+          }
+        } else if (!meioMeioAtivo) {
+          if (valor < 10) {
+            span.innerText = valor + 1;
+          }
+        }
 
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          atualizarVisibilidadePizzas();
+          document.getElementById("confirmarMeioMeio").style.display =
+            pizzasSelecionadas.length === 2 ? "block" : "none";
+        }
+      });
+    });
 
+    document.querySelectorAll(".btn_retirar").forEach(button => {
+      button.addEventListener("click", function () {
+        const card = this.closest(".pizza-card");
+        const nome = card.querySelector(".pizza-nome")?.innerText;
+        const abaAtiva = document.querySelector(".tab-pane.active");
+        const tabId = abaAtiva.id;
+        const span = card.querySelector(".quantidade span");
+        let valor = parseInt(span.innerText);
 
-// BOTÃO DE ADICIONAR
-document.querySelectorAll(".btn_adicionar").forEach(button => {
-  button.addEventListener("click", function () {
-    const span = this.parentElement.querySelector("span");
-    let valor = parseInt(span.innerText);
-    const card = this.closest(".pizza-card");
-    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText;
-    const abaAtiva = document.querySelector(".tab-pane.active");
-    const tabId = abaAtiva.id;
+        if (valor > 0) {
+          span.innerText = valor - 1;
+          if (meioMeioAtivo && isPizzaTab(tabId) && valor - 1 === 0) {
+            card.classList.remove("selecionada");
+            pizzasSelecionadas = pizzasSelecionadas.filter(p => p !== nome);
+          }
+        }
 
-    const isPizza = tabId === "salgadas" || tabId === "doces";
-    const isBebida = tabId === "bebidas";
-
-    if (meioMeioAtivo && isPizza) {
-      if (valor < 1 && pizzasSelecionadas.length < 2) {
-        span.innerText = valor + 1;
-        card.classList.add("selecionada");
-        pizzasSelecionadas.push(nome);
-      }
-    } else {
-      if (valor < 10) {
-        span.innerText = valor + 1;
-      }
-    }
-
-    if (meioMeioAtivo && isPizza) {
-      atualizarVisibilidadePizzas();
-      //  MANTÉM O BOTÃO VISÍVEL
-      document.getElementById("confirmarMeioMeio").style.display = "block";
-    }
-  });
-});
-
-// BOTÃO DE RETIRAR
-document.querySelectorAll(".btn_retirar").forEach(button => {
-  button.addEventListener("click", function () {
-    const card = this.closest(".pizza-card");
-    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText;
-    const abaAtiva = document.querySelector(".tab-pane.active");
-    const tabId = abaAtiva.id;
-    const span = card.querySelector(".quantidade span");
-    let valor = parseInt(span.innerText);
-
-    if (valor > 0) {
-      span.innerText = valor - 1;
-      if (meioMeioAtivo && isPizzaTab(tabId) && valor - 1 === 0) {
-        card.classList.remove("selecionada");
-        pizzasSelecionadas = pizzasSelecionadas.filter(p => p !== nome);
-      }
-    }
-
-    if (meioMeioAtivo && isPizzaTab(tabId)) {
-      atualizarVisibilidadePizzas();
-      //  GARANTE QUE O BOTÃO CONTINUE VISÍVEL MESMO APÓS REMOVER UMA PIZZA
-      document.getElementById("confirmarMeioMeio").style.display = "block";
-    }
-  });
-});
-
+        if (meioMeioAtivo && isPizzaTab(tabId)) {
+          atualizarVisibilidadePizzas();
+          document.getElementById("confirmarMeioMeio").style.display =
+            pizzasSelecionadas.length === 2 ? "block" : "none";
+        }
+      });
+    });
 /* função de confirmar meio a meio */
-function confirmarMeioMeio() {
-  if (pizzasSelecionadas.length !== 2) {
-    alert("Escolha as duas metades da pizza.");
-    return;
-  }
+    function confirmarMeioMeio() {
+      const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+      const bordaLabel = bordaSelecionada?.closest(".borda-option")?.querySelector("h5")?.innerText || "Nenhuma";
 
-  const bebidasSelecionadas = [];
-  document.querySelectorAll(".pizza-card").forEach(card => {
-    const nome = card.querySelector(".bebida-nome")?.innerText;
-    const qtd = parseInt(card.querySelector(".quantidade span")?.innerText);
+      alert("Você selecionou Meio a Meio: " + pizzasSelecionadas.join(" + ") + " com borda: " + bordaLabel);
 
-    if (nome && qtd > 0) {
-      bebidasSelecionadas.push(`${nome} x${qtd}`);
+      // Reset
+      pizzasSelecionadas = [];
+      meioMeioAtivo = false;
+      document.getElementById("meioMeioCheckbox").checked = false;
+      document.getElementById("confirmarMeioMeio").style.display = "none";
+
+      document.querySelectorAll(".pizza-card").forEach(card => {
+        const span = card.querySelector(".quantidade span");
+        card.classList.remove("selecionada");
+        card.parentElement.style.display = "";
+        span.innerText = "0";
+      });
+    }
+
+/* função de confirmar pizza inteira */
+    function confirmarPizzaInteira() {
+  const abaAtiva = document.querySelector(".tab-pane.active");
+  const pizzasSelecionadasInteiras = [];
+
+  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+    const nome = card.querySelector(".pizza-nome")?.innerText;
+    const span = card.querySelector(".quantidade span");
+    const qtd = parseInt(span.innerText);
+
+    if (qtd > 0) {
+      pizzasSelecionadasInteiras.push(`${nome} x${qtd}`);
     }
   });
 
   const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
   const bordaLabel = bordaSelecionada?.closest(".borda-option")?.querySelector("h5")?.innerText || "Nenhuma";
 
-  alert(
-    "Você selecionou Meio a Meio: " +
-      pizzasSelecionadas.join(" + ") +
-      "\nBebidas: " +
-      (bebidasSelecionadas.length > 0 ? bebidasSelecionadas.join(", ") : "Nenhuma") +
-      "\nBorda: " +
-      bordaLabel
-  );
+  if (pizzasSelecionadasInteiras.length > 0) {
+    alert("Você selecionou: " + pizzasSelecionadasInteiras.join(", ") + " com borda: " + bordaLabel);
 
-  // Reset
-  pizzasSelecionadas = [];
-  document.querySelectorAll(".pizza-card").forEach(card => {
-    const span = card.querySelector(".quantidade span");
-    span.innerText = "0";
-    card.classList.remove("selecionada");
-    card.parentElement.style.display = "";
-  });
-  atualizarBotaoCarrinho();
+    // Resetar as quantidades após confirmação
+    abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+      card.querySelector(".quantidade span").innerText = "0";
+    });
 
+  } else {
+    alert("Nenhuma pizza foi selecionada.");
+  }
 }
-
-
-
-
-/* função de confirmar pizza inteira */
-function confirmarPizzaInteira() {
-  const pizzasSelecionadasInteiras = [];
-  const bebidasSelecionadas = [];
-
-  document.querySelectorAll(".pizza-card").forEach(card => {
-    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText;
-    const span = card.querySelector(".quantidade span");
-    const qtd = parseInt(span.innerText);
-
-    if (qtd > 0) {
-      const isBebida = !!card.querySelector(".bebida-nome");
-
-      if (isBebida) {
-        bebidasSelecionadas.push(`${nome} x${qtd}`);
-      } else {
-        pizzasSelecionadasInteiras.push(`${nome} x${qtd}`);
-      }
-    }
-  });
-
-  // Obtem borda apenas se houver pizza
-  const bordaSelecionada = pizzasSelecionadasInteiras.length > 0
-    ? document.querySelector('input[name="pagamento"]:checked')?.closest(".borda-option")?.querySelector("h5")?.innerText
-    : null;
-
-  // Gera mensagem
-  const mensagem = `Pizza: ${pizzasSelecionadasInteiras.length > 0
-    ? pizzasSelecionadasInteiras.join(", ")
-    : "nenhuma pizza foi selecionada"}\n` +
-    `Bebidas: ${bebidasSelecionadas.length > 0
-      ? bebidasSelecionadas.join(", ")
-      : "nenhuma"}\n` +
-    (bordaSelecionada ? `Borda: ${bordaSelecionada}` : "Borda: nenhuma");
-
-  alert(mensagem);
-
-  // Reset visual
-  document.querySelectorAll(".pizza-card").forEach(card => {
-    const span = card.querySelector(".quantidade span");
-    span.innerText = "0";
-    card.classList.remove("selecionada");
-    card.parentElement.style.display = "";
-  });
-
-  pizzasSelecionadas = [];
-  atualizarBotaoCarrinho();
-}
-
-
-
 
 
     document.getElementById("barraPesquisa").addEventListener("input", function () {
@@ -1083,42 +1037,10 @@ function calcularPrecoPizza(tipo, pizzas = [], bebidas = []) {
   return preco;
 }
 
-function atualizarBotaoCarrinho() {
-  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-  const botao = document.getElementById("btnIrCarrinho");
-  botao.disabled = carrinho.length === 0;
-}
 
 
-function irParaCarrinho() {
-  console.log("Função irParaCarrinho chamada!");
-  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
 
-  if (carrinho.length === 0) {
-    alert("Por favor, confirme seu pedido antes de ir para o carrinho.");
-    return;
-  }
-
-  // Redireciona para a página do carrinho
-  window.location.href = "carrinho.html";
-}
-
-
-// Chama ao carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-  atualizarBotaoCarrinho();
-});
-
-//testes
-document.addEventListener("DOMContentLoaded", () => {
-  const modoInicial = document.querySelector('input[name="modoPizza"]:checked')?.value;
-  meioMeioAtivo = modoInicial === "meio";
-
-  document.getElementById("confirmarPizzaInteira").style.display = meioMeioAtivo ? "none" : "block";
-  document.getElementById("confirmarMeioMeio").style.display = meioMeioAtivo ? "block" : "none";
-
-  atualizarBotaoCarrinho();
-});
+ 
 
   </script>
 

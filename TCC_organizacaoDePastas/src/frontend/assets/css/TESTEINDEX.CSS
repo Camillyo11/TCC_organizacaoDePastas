@@ -111,7 +111,14 @@ div#imagem1 {
 /* FIM DA PARTE SOBRE NÓS */
 
 
+/* ESCOLHA NÓS */
+.sobrenós{
+    background-color: #000;
+    padding: 20px;
+    margin-bottom: 30px;
+    
 
+}
 .sobre{
     color: #991C08;
     font-family: var(--font2);
@@ -128,6 +135,66 @@ div#imagem1 {
 }
 
 /* ACCORDION (PARTE DAS GAVETAS) */
+.accordion {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 30px;
+  }
+
+
+
+  .accordion-item {
+    border-bottom: 1px solid transparent;
+    padding: 15px 0;
+    background-color: #000000;
+    border: none;
+   
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #000000;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-header:hover {
+    color: #f47a00;
+  }
+
+  .accordion-header .arrow {
+    color: #ffffff;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-item.active .arrow {
+    transform: rotate(90deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: none 0.4s ease;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: medium;
+    padding-right: 10px;
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 500px;
+    margin-top: 10px;
+  }
 
   /* FIM DO ACCORDION */
 
@@ -201,24 +268,19 @@ div#imagem1 {
     margin-right: 0;
     margin-bottom: 15px;
 }
-.botão-cadastrar{
-    font-family: var(--font1);
+.btn-cadastrar{
     background-color: #f47a00;
-    color: #000;
-    font-weight: 700;
+    color: white;
+    font-weight: 800px;
     border-radius: 50px;
     border: none;
     padding: 8px;
-    gap: 8px;
-    display: inline-flex;
-    align-items: center;
     transition: 0.3s;
-    margin-top: 30px;
+    margin-bottom: 30px;
  
 }
-.botão-cadastrar:hover{
+.btn-cadastrar:hover{
     background-color: black;
-    color: white;
 }
 
 /* FIM DA PARTE DE BENEFICIOS */
@@ -258,7 +320,7 @@ div#imagem1 {
     transition: 0.3s;
 }
 .btn-promoções:hover{
-    background-color: rgb(255, 255, 255) !important;
+    background-color: rgb(255, 255, 255);
     color: #000;
 }
 
