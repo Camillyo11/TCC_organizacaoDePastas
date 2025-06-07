@@ -41,12 +41,12 @@
 
     <div class="total-confirmacao">
       <span>Subtotal:</span>
-      <span>R$ 95,80</span>
+      <span id="subtotal">R$ 00,00</span>
     </div>
 
     <div class="total-confirmacao">
       <span>Valor do frete:</span>
-      <span>R$ 5,00</span>
+      <span id="'frete">R$ 5,00</span>
     </div>
 
 
@@ -85,7 +85,7 @@
 
     <div class="total-confirmacao-total">
       <span>Valor total:</span>
-      <span class="text-black">R$ 100,80</span>
+      <span id="total" class="text-black"> R$ 00,0</span>
     </div>
 
 
@@ -96,7 +96,7 @@
     <textarea class="comentario-confirmacao form-control my-2" placeholder="Adicionar comentário"></textarea>
 
     <div class="add-pedido">
-      <button><a href="../UserPages/cardapio.html">Adicionar mais ao pedido</a></button>
+      <button id="botao-addmaispedido"><a href="../UserPages/cardapio.html">Adicionar mais ao pedido</a></button>
     </div>
 
 
@@ -185,6 +185,7 @@
         bebidasHTML = `<p><strong>Bebidas:</strong> ${bebidasFormatadas}</p>`;
       }
 
+      //para excluir o pedido
       const index = carrinho.indexOf(item); // identifica a posição do item
 
       container.innerHTML = `
@@ -200,15 +201,36 @@
       resumoContainer.appendChild(container);
     });
 
+    calcularTotais();
+
+
+    // Função para calcular totais
+    
+  function calcularTotais() {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const subtotal = carrinho.reduce((total, item) => total + (item.preco || 0), 0);
+    const frete = 5.00;
+    const total = subtotal + frete;
+
+    document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+    document.getElementById('frete').textContent = `R$ ${frete.toFixed(2)}`;
+    document.getElementById('totalvalor').textContent = `R$ ${total.toFixed(2)}`;
+  }
+
+    // função de add mais uma pizza invés de substituir
+
+    
+
     function excluirPedido(index) {
       const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
       carrinho.splice(index, 1);
+      //salva a exclusão do pedido
       localStorage.setItem("carrinho", JSON.stringify(carrinho));
       location.reload();
     }
 
 
-
+    
 
     document.addEventListener("DOMContentLoaded", function () {
       const carrinhoContainer = document.getElementById("carrinho-itens");
