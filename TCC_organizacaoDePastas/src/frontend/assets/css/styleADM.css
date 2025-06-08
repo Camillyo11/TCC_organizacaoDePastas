@@ -415,3 +415,24 @@ border-radius: 10px;
     background-color:#000000;
     color: white;
 }
+
+/* RETIRAR PIZZA */
+
+.item-retirado {
+    opacity: 0.6;
+    border: 1px dashed #ccc;
+    position: relative;
+}
+
+.item-retirado::after {
+    content: "RETIRADO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}

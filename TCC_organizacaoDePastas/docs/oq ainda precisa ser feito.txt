@@ -5,7 +5,7 @@ COISAS PARA RESOLVER
 
 -> Página ClientesCadastradosAdm: seria interessante se o adm pudesse pesquisar o nome de alguma usuário para achar informações como número e e-mail  (Camilly)
 
--> Página EdicaoPizzaAdm: Precisa resolver o nome de class  ✅  , pode tirar e voltar pizza ✅, precisa colocar id em cada pizza na página EditarPizza e cardapio e cadastrar todas as pizzas 🔄  (Camilly) 
+-> Página EdicaoPizzaAdm: Precisa resolver o nome de class  ✅  , pode tirar e voltar pizza ✅, precisa colocar id em cada pizza na página EditarPizza e cardapio e cadastrar todas as pizzas ✅  (Camilly) 
 
 ->Página Home ADM: Precisamos ver de criar/ fazer funcionar um  botão para desativar o site ou de repente só fazer isso ser automático(acho pouco interessante) . 
 
