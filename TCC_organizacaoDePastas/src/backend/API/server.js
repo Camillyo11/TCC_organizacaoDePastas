@@ -11,6 +11,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const avaliacaoRoutes = require('./routes/avaliacaoRoutes');
+const couponRoutes = require('./routes/couponRoutes');
 
 // Swagger setup
 const swaggerUi = require('swagger-ui-express');
@@ -68,6 +69,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/avaliacoes', avaliacaoRoutes);
+app.use('/api/cupons', couponRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Middleware de tratamento de erros
@@ -86,7 +88,7 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Rota não encontrada' });
 });
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
@@ -97,7 +99,9 @@ process.on('SIGTERM', () => {
   });
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${port}`);
   console.log(`Ambiente: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`URL: http://localhost:${port}`);
+  console.log(`Swagger UI: http://localhost:${port}/api-docs`);
 });

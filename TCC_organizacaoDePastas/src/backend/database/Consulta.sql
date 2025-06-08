@@ -1,9 +1,6 @@
-<<<<<<< HEAD:src/backend/database/Consulta.sql
--- Active: 1746148263820@@127.0.0.1@3306
-=======
+-- Active: 1734093795787@@127.0.0.1@3306
 -- Criação do banco
 DROP DATABASE IF EXISTS pizzaria;
->>>>>>> 8db0363a5dba5ced7a703ac492950cbcee8b8c4d:Consulta.sql
 CREATE DATABASE pizzaria;
 USE pizzaria;
 

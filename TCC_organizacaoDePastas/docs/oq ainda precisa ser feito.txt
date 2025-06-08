@@ -1,0 +1,46 @@
+COISAS PARA RESOLVER 
+(Gabriel)  (Camilly) (Lucas) (Murillo)
+------------------------------------------------------------ADM ---------------------------------------------------------
+->Colocar os caminho certos no navbar ✅ (Gabriel) 
+
+-> Página ClientesCadastradosAdm: seria interessante se o adm pudesse pesquisar o nome de alguma usuário para achar informações como número e e-mail  (Camilly)
+
+-> Página EdicaoPizzaAdm: Precisa resolver o nome de class  ✅  , pode tirar e voltar pizza ✅, precisa colocar id em cada pizza na página EditarPizza e cardapio e cadastrar todas as pizzas 🔄  (Camilly) 
+
+->Página Home ADM: Precisamos ver de criar/ fazer funcionar um  botão para desativar o site ou de repente só fazer isso ser automático(acho pouco interessante) . 
+
+-> Página PedidosEntreguesAdm: Fazer a página funcionar
+
+-> Página UltimosPedidoAdm: fazer funcionar.
+
+-> criar uma página para aparecer as mensagens que foram mandadas pela página contato do usuário ( estilo bem simples)  (Camilly)
+
+-> criar uma página para cadastrar novos produtos 🔄 (Camilly)
+
+-> Criar uma página para cadastrar cupons e avisos
+
+------------------------------------------------------------USER----------------------------------------------------------
+-> Página AvaliacaoResposta: Seria mais interessa que assim que os cliente fizesse uma avaliação ela fosse para cá direto sem necessariamente ter uma resposta do adm, e também seria melhor se as novas avaliações fosse para o topo ao invés de ir para as ultimas ( verifiacar o css do titulo ela ). 
+
+-> Página Avaliação : O usuário precisa ter uma conta para ele poder deixar uma avaliação, ele não pode ser anônimo e verificar quando essa página vai aparecer para o usuário ( logo depois deve receber a pizza claro, mas como ele vai receber? o Adm vai mandar um notificação ou a página vaia parecer automático após o cliente receber um pedido?)
+
+-> Página Cardapio: Fazer oq o Murrilo já está resolvendo, e arrumar uma foto nova para a pizza portuguesa( colocar a imagem na adm tbm ). Fazer com que o cliente possa escolher até 4 sabores em uma pizza só. (Murillo) 
+
+-> Página carrinho: Ver como o endereço será colocado nela;
+Fazer com que ela calcule os valores de vdd;✅
+ver como vai funcionar os cupons;
+ e deixar o cliente excluir algum pedido ✅. (Lucas)
+
+-> Página contato: Fazer ela enviar a mensagem de vdd (Murillo) 
+
+-> Página endereço: Só fazer ela a API do correio funcionar, o endereço realmente ser salvo e ver como essa página vai se comportar com os offcanvas. (Lucas)
+
+->Página cadastro/login: Fazer funcionar e ver como ela vai funcionar com o offcanva de edição de alguma informações e se ela realmente vai salvar tudo. (Lucas) 
+
+-> Página index: Ver se consegue colocar o negocio que o Gabriel tinha criado, e ver se os comentário deixado pelos clientes está vindo para cá( para isso a pessoa precisa está  logada). (Gabriel)  
+
+-> Página pagamento : Fazer o pix funcionar. (Lucas)
+
+-> Página promoção: Não lembro se entramos em um consenso de como ela vai funcionar .
+
+-> Página statusPedido: Fazer aperecer as informações das escolhares de pizza do cliente direitinho.

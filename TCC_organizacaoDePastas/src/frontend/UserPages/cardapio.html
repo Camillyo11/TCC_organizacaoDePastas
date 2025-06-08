@@ -13,7 +13,41 @@
   <link rel="stylesheet" a href="../assets/css/components.css">
   <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
   <title>Cardapio/selecionar pizza</title>
-  
+  <!-- Seu HTML existente do cardápio -->
+
+
+
+<style>
+/* Adicione isso no CSS do cardápio do cliente */
+[data-id].item-retirado {
+    display: none !important;
+}
+
+/* Ou alternativamente (se não usar classes) */
+.item-retirado {
+    display: none !important;
+}
+/* Garante que itens retirados nunca sejam mostrados */
+.item-retirado, [data-id].item-retirado {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+/* Mantém o layout organizado durante a pesquisa */
+.sabores-container .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sabores-container .row > [style*="display: none"] {
+    display: none !important;
+}
+</style>
+
 
 </head>
 
@@ -81,7 +115,7 @@
             <div class="row">
 
               <!-- Pizza 1 -->
-              <section class="col-md-6 col-lg-4">
+              <section class="col-md-6 col-lg-4 "data-id="pizza-frango-catupiry">
                 <div class="card pizza-card h-100">
                   <div class="card-body">
                     <img src="../public/produtos/imgPizzas/pizzaFrangoComCatupiry.png" class="card-img-top" alt="...">
@@ -719,20 +753,87 @@
 
 
 
-            // Barra de pesquisa
+
+
+
+
+    // Barra de pesquisa 
 document.getElementById("barraPesquisa").addEventListener("input", function() {
-  const termo = this.value.toLowerCase();
-  const abaAtiva = document.querySelector(".tab-pane.active");
-  
-  abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
-    const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
-    const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
-    card.parentElement.style.display = (nome.includes(termo) || descricao.includes(termo)) ? "" : "none";
-  });
+    const termo = this.value.toLowerCase();
+    const abaAtiva = document.querySelector(".tab-pane.active");
+    const itensRetirados = JSON.parse(localStorage.getItem('itensRetirados')) || [];
+    
+    abaAtiva.querySelectorAll(".pizza-card").forEach(card => {
+        const itemContainer = card.closest('[data-id]');
+        const itemId = itemContainer.dataset.id;
+        const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
+        const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
+        
+        const correspondeBusca = nome.includes(termo) || descricao.includes(termo);
+        const estaRetirado = itensRetirados.includes(itemId);
+        
+        // Aplicar lógica de visibilidade
+        if(estaRetirado) {
+            card.parentElement.style.display = "none";
+            card.parentElement.classList.add('item-retirado');
+        } else {
+            card.parentElement.style.display = correspondeBusca ? "" : "none";
+            card.parentElement.classList.remove('item-retirado');
+        }
+    });
 });
-     
+
+// Funções de retirar/voltar (separadas, fora do evento de pesquisa)
+function retirarItem(event) {
+    const btn = event.target;
+    const itemContainer = btn.closest('[data-id]');
+    const itemId = itemContainer.dataset.id;
+    const card = itemContainer.querySelector('.card, .borda-option');
+    
+    card.classList.add('item-retirado');
+    salvarItemRetirado(itemId, true);
+    itemContainer.style.display = 'none';
+}
+
+function voltarItem(event) {
+    const btn = event.target;
+    const itemContainer = btn.closest('[data-id]');
+    const itemId = itemContainer.dataset.id;
+    const card = itemContainer.querySelector('.card, .borda-option');
+    
+    card.classList.remove('item-retirado');
+    salvarItemRetirado(itemId, false);
+    
+    const termo = document.getElementById("barraPesquisa").value.toLowerCase();
+    if(termo === '') {
+        itemContainer.style.display = '';
+    } else {
+        const nome = card.querySelector(".pizza-nome, .bebida-nome")?.innerText?.toLowerCase() || "";
+        const descricao = card.querySelector(".card-text")?.innerText?.toLowerCase() || "";
+        itemContainer.style.display = (nome.includes(termo) || descricao.includes(termo) )? '' : 'none';
+    }
+}
+
+// Função auxiliar para salvar no localStorage
+function salvarItemRetirado(itemId, retirar) {
+    let itensRetirados = JSON.parse(localStorage.getItem('itensRetirados')) || [];
+    
+    if(retirar) {
+        if(!itensRetirados.includes(itemId)) {
+            itensRetirados.push(itemId);
+        }
+    } else {
+        itensRetirados = itensRetirados.filter(id => id !== itemId);
+    }
+    
+    localStorage.setItem('itensRetirados', JSON.stringify(itensRetirados));
+}
 
 
+
+
+
+    // Inicialização do Offcanvas
     const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
     offcanvasTriggerList.map(function (offcanvasTriggerEl) {
       new bootstrap.Offcanvas(offcanvasTriggerEl);
@@ -1126,6 +1227,304 @@ document.addEventListener("DOMContentLoaded", () => {
   atualizarBotaoCarrinho();
 });
 
+
+
+
+
+
+
+
+
+
+
+// Adicione esta função global para ser chamada de outras páginas
+async function carregarProdutos() {
+  try {
+    console.log('Iniciando carregamento de produtos...');
+    
+    const token = localStorage.getItem('token') || '';
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
+    
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    // 1. Busca produtos do backend
+    const [pizzasResponse, bebidasResponse] = await Promise.all([
+      fetch('/api/menu/pizzas', { headers }),
+      fetch('/api/menu/bebidas', { headers })
+    ]);
+
+    console.log('Respostas recebidas:', { pizzasResponse, bebidasResponse });
+
+    // Verifica se as respostas são JSON válidos
+    const pizzasBackend = await verificarRespostaJSON(pizzasResponse);
+    const bebidasBackend = await verificarRespostaJSON(bebidasResponse);
+
+    console.log('Dados do backend:', { pizzasBackend, bebidasBackend });
+
+    // 2. Busca imagens do localStorage
+    const produtosLocais = {
+      pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
+      bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
+    };
+
+    // 3. Combina os dados
+    const pizzasCompletas = pizzasBackend.map(pizzaBackend => {
+      const pizzaLocal = produtosLocais.pizzas.find(p => 
+        p.backendId === pizzaBackend.id_pizza || p.nome === pizzaBackend.sabor
+      );
+      
+      return {
+        ...pizzaBackend,
+        imagem: pizzaLocal?.imagem || 'img/produtos/padrao.png',
+        nome: pizzaBackend.sabor,
+        descricao: pizzaBackend.observacao,
+        categoria: determinarCategoria(pizzaBackend)
+      };
+    });
+
+    const bebidasCompletas = bebidasBackend.map(bebidaBackend => {
+      const bebidaLocal = produtosLocais.bebidas.find(b => 
+        b.backendId === bebidaBackend.id_bebida || b.nome === bebidaBackend.nome
+      );
+      
+      return {
+        ...bebidaBackend,
+        imagem: bebidaLocal?.imagem || 'img/produtos/bebida-padrao.png',
+        nome: bebidaBackend.nome
+      };
+    });
+
+    // 4. Exibe os produtos
+    preencherPizzasSalgadas(pizzasCompletas.filter(p => p.categoria === 'salgada'));
+    preencherPizzasDoces(pizzasCompletas.filter(p => p.categoria === 'doce'));
+    preencherBebidas(bebidasCompletas);
+    
+  } catch (error) {
+    console.error('Erro ao carregar produtos:', error);
+    // Fallback: tenta carregar apenas do localStorage se o backend falhar
+    carregarApenasLocal();
+    
+    // Mostra mensagem amigável para o usuário
+    mostrarMensagemErro('Não foi possível carregar o cardápio completo. Alguns produtos podem estar indisponíveis.');
+  }
+}
+
+// Funções auxiliares
+function determinarCategoria(pizza) {
+  if (pizza.tipo_borda?.toLowerCase().includes('doce')) return 'doce';
+  if (pizza.observacao?.toLowerCase().includes('doce')) return 'doce';
+  if (pizza.sabor?.toLowerCase().includes('doce')) return 'doce';
+  return 'salgada';
+}
+
+function mostrarMensagemErro(mensagem) {
+  const alerta = document.createElement('div');
+  alerta.className = 'alert alert-warning fixed-top m-3';
+  alerta.textContent = mensagem;
+  document.body.prepend(alerta);
+  
+  setTimeout(() => alerta.remove(), 5000);
+}
+
+
+
+function carregarApenasLocal() {
+  const produtosLocais = {
+    pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
+    bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
+  };
+  
+  preencherPizzasSalgadas(produtosLocais.pizzas.filter(p => p.categoria === 'salgada'));
+  preencherPizzasDoces(produtosLocais.pizzas.filter(p => p.categoria === 'doce'));
+  preencherBebidas(produtosLocais.bebidas);
+}
+
+// Modifique as funções de preenchimento para usar a estrutura de dados unificada
+function criarCardPizza(pizza) {
+  return `
+    <section class="col-md-6 col-lg-4">
+      <div class="card pizza-card h-100">
+        <div class="card-body">
+          <img src="${pizza.imagem}" class="card-img-top" alt="${pizza.nome}" 
+               onerror="this.onerror=null; this.src='img/produtos/padrao.png'">
+          <h5 class="card-title pizza-nome">${pizza.nome}</h5>
+          <p class="card-text">${pizza.descricao || 'Sem descrição'}</p>
+          <div class="pizza-preco" data-preco="${pizza.preco || pizza.preco_sabor}" data-categoria="${pizza.categoria}">
+            <p class="pizza-preco">R$ ${(pizza.preco || pizza.preco_sabor).toFixed(2).replace('.', ',')}</p>
+            <div class="quantidade">
+              <div class="quantidade-itens">
+                <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                <span class="mx-2">0</span>
+                <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    carregarProdutos();
+  });
+
+  function carregarProdutos() {
+    // Carrega produtos do localStorage (imagens)
+    const produtosLocais = {
+      pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
+      bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
+    };
+
+    // Carrega produtos do backend (dados textuais)
+    Promise.all([
+      fetch('/api/menu/pizzas').then(res => res.json()),
+      fetch('/api/menu/bebidas').then(res => res.json())
+    ])
+    .then(([pizzasBackend, bebidasBackend]) => {
+      // Combinar dados locais (com imagens) com dados do backend
+      const pizzasCompletas = pizzasBackend.map(pizzaBackend => {
+        const pizzaLocal = produtosLocais.pizzas.find(p => p.nome === pizzaBackend.sabor);
+        return {
+          ...pizzaBackend,
+          imagem: pizzaLocal?.imagem || 'imagem-padrao.png',
+          descricao: pizzaBackend.observacao,
+          categoria: pizzaBackend.tipo_borda.includes('Doce') ? 'doce' : 'salgada'
+        };
+      });
+
+      const bebidasCompletas = bebidasBackend.map(bebidaBackend => {
+        const bebidaLocal = produtosLocais.bebidas.find(b => b.nome === bebidaBackend.nome);
+        return {
+          ...bebidaBackend,
+          imagem: bebidaLocal?.imagem || 'imagem-padrao-bebida.png'
+        };
+      });
+
+      // Preencher as seções
+      preencherPizzasSalgadas(pizzasCompletas.filter(p => p.categoria === 'salgada'));
+      preencherPizzasDoces(pizzasCompletas.filter(p => p.categoria === 'doce'));
+      preencherBebidas(bebidasCompletas);
+    })
+    .catch(error => console.error('Erro ao carregar produtos:', error));
+  }
+
+  function preencherPizzasSalgadas(pizzas) {
+    const container = document.querySelector('#salgadas .row');
+    container.innerHTML = '';
+    
+    pizzas.forEach(pizza => {
+      container.innerHTML += criarCardPizza(pizza);
+    });
+    
+    configurarBotoes();
+  }
+
+  function preencherPizzasDoces(pizzas) {
+    const container = document.querySelector('#doces .row');
+    container.innerHTML = '';
+    
+    pizzas.forEach(pizza => {
+      container.innerHTML += criarCardPizza(pizza);
+    });
+    
+    configurarBotoes();
+  }
+
+  function preencherBebidas(bebidas) {
+    const container = document.querySelector('#bebidas .row');
+    container.innerHTML = '';
+    
+    bebidas.forEach(bebida => {
+      container.innerHTML += criarCardBebida(bebida);
+    });
+    
+    configurarBotoes();
+  }
+
+  function criarCardPizza(pizza) {
+    return `
+      <section class="col-md-6 col-lg-4">
+        <div class="card pizza-card h-100">
+          <div class="card-body">
+            <img src="${pizza.imagem}" class="card-img-top" alt="${pizza.sabor}" onerror="this.src='imagem-padrao.png'">
+            <h5 class="card-title pizza-nome">${pizza.sabor}</h5>
+            <p class="card-text">${pizza.observacao}</p>
+            <div class="pizza-preco" data-preco="${pizza.preco_sabor}" data-categoria="${pizza.categoria}">
+              <p class="pizza-preco">R$ ${pizza.preco_sabor.toFixed(2).replace('.', ',')}</p>
+              <div class="quantidade">
+                <div class="quantidade-itens">
+                  <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                  <span class="mx-2">0</span>
+                  <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function criarCardBebida(bebida) {
+    return `
+      <section class="col-md-6 col-lg-4">
+        <div class="card pizza-card h-100">
+          <div class="card-body">
+            <img src="${bebida.imagem}" class="card-img-top" alt="${bebida.nome}" onerror="this.src='imagem-padrao-bebida.png'">
+            <h5 class="card-title pizza-nome">${bebida.nome} ${bebida.tamanho}</h5>
+            <div class="pizza-preco" data-preco="${bebida.preco}" data-categoria="bebida">
+              <p class="pizza-preco">R$ ${bebida.preco.toFixed(2).replace('.', ',')}</p>
+              <div class="quantidade">
+                <div class="quantidade-itens">
+                  <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                  <span class="mx-2">0</span>
+                  <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  
+
+/* PARA RETIRAR E VOLTAR COM UM PRODUTO  */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica itens retirados no localStorage
+    const itensRetirados = JSON.parse(localStorage.getItem('itensRetirados')) || [];
+    
+    // Esconde os itens retirados
+    itensRetirados.forEach(id => {
+        const item = document.querySelector(`[data-id="${id}"]`);
+        if (item) {
+            item.style.display = 'none';
+            
+            // Opcional: Se você usar a classe item-retirado no cliente também
+            // item.classList.add('item-retirado');
+        }
+    });
+    
+    // Opcional: Atualização em tempo real (se o cliente ficar com a página aberta)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'itensRetirados') {
+            location.reload(); // Recarrega a página quando houver mudanças
+        }
+    });
+});
+
+
+
   </script>
 
   <!-- Bootstrap JS -->
@@ -1133,12 +1532,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 
-
-
-<!-- Seu FOOTER já pronto viria aqui -->
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</footer>
 
 </html>

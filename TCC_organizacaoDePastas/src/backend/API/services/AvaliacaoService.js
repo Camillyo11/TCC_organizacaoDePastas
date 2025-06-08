@@ -15,16 +15,12 @@ class AvaliacaoService {
 
   static async listarAvaliacoes({ semResposta = false } = {}) {
     try {
-       
-      // INÍCIO ÁREA MODIFICADA - Camilly
-      // Alterada a query para incluir JOIN com tabela cliente
-      let query = `SELECT a.*, c.nome FROM avaliacao a JOIN cliente c ON a.id_cliente = c.id_cliente`;
+      let query = `SELECT * FROM avaliacao`;
       let params = [];
       if (semResposta) {
-        // Adicionado prefixo 'a.' para evitar ambiguidade
-        query += ' WHERE a.resposta_loja IS NULL OR a.resposta_loja = ""';
-        //  FIM ÁREA MODIFICADA
-      }t [rows] = await db.query(query, params);
+        query += ' WHERE resposta_loja IS NULL OR resposta_loja = ""';
+      }
+      const [rows] = await db.query(query, params);
       return rows;
     } catch (error) {
       throw new Error('Erro ao buscar avaliações: ' + error.message);

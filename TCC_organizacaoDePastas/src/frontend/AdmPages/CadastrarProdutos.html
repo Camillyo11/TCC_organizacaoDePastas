@@ -1,328 +1,236 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página ADM - Cadastro de Produtos</title>
-  <link rel="stylesheet" href="../assets/css/styleADM.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Produtos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
-
-<body class="backgrond-black">
-  <header class="header-adm">
-    <nav class="nav-adm navbar navbar-lg bg-body-tertiary-dark navbar-dark">
-      <div class="container-fluid d-flex align-items-center">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Cadastros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Últimos pedidos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pedidos entregues</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Edição de produtos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Avaliações</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+<body class="bg-dark text-white">
 
   <div class="container mt-5">
-    <h2 class="text-center mb-4 text-white">Cadastro de Novos Produtos</h2>
-    
-    <!-- Abas para diferentes tipos de produtos -->
-    <ul class="nav nav-tabs justify-content-center mb-4" id="adminTabs" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="nova-pizza-tab" data-bs-toggle="tab" data-bs-target="#nova-pizza" type="button">Nova Pizza</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="nova-bebida-tab" data-bs-toggle="tab" data-bs-target="#nova-bebida" type="button">Nova Bebida</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="nova-borda-tab" data-bs-toggle="tab" data-bs-target="#nova-borda" type="button">Nova Borda</button>
-      </li>
-    </ul>
-  
-    <!-- Conteúdo das abas -->
-    <div class="tab-content p-3 border border-top-0 rounded-bottom bg-light" id="adminTabsContent">
-      <!-- Formulário para Nova Pizza -->
-      <div class="tab-pane fade show active" id="nova-pizza" role="tabpanel">
+    <h2 class="text-center mb-4">Cadastro de Produtos</h2>
+
+    <!-- Cadastro de Pizza -->
+    <div class="card bg-secondary mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Nova Pizza</h5>
         <form id="form-nova-pizza" class="row g-3">
           <div class="col-md-6">
-            <label for="pizza-nome" class="form-label">Nome da Pizza</label>
-            <input type="text" class="form-control" id="pizza-nome" required>
+            <label for="nomePizza" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nomePizza" name="nome" required />
           </div>
           <div class="col-md-6">
-            <label for="pizza-categoria" class="form-label">Categoria</label>
-            <select class="form-select" id="pizza-categoria" required>
+            <label for="precoPizza" class="form-label">Preço</label>
+            <input type="number" class="form-control" id="precoPizza" name="preco" step="0.01" required />
+          </div>
+          <div class="col-md-6">
+            <label for="categoriaPizza" class="form-label">Categoria</label>
+            <select class="form-select" id="categoriaPizza" name="categoria" required>
               <option value="salgada">Salgada</option>
               <option value="doce">Doce</option>
             </select>
           </div>
+          <div class="col-md-6">
+            <label for="imagemPizza" class="form-label">Imagem</label>
+            <input type="file" class="form-control" id="imagemPizza" name="imagem" accept="image/*" required />
+          </div>
           <div class="col-12">
-            <label for="pizza-descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="pizza-descricao" rows="2" required></textarea>
+            <label for="descricaoPizza" class="form-label">Descrição</label>
+            <textarea class="form-control" id="descricaoPizza" name="descricao" rows="3" required></textarea>
           </div>
-          <div class="col-md-4">
-            <label for="pizza-preco" class="form-label">Preço (R$)</label>
-            <input type="number" step="0.01" class="form-control" id="pizza-preco" required>
-          </div>
-          <div class="col-md-8">
-            <label for="pizza-imagem" class="form-label">Imagem</label>
-            <input type="file" class="form-control" id="pizza-imagem" accept="image/*">
-            <small class="text-muted">Tamanho recomendado: 500x500px</small>
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary">Cadastrar Pizza</button>
+          <div class="col-12">
+            <button type="button" class="btn btn-light" onclick="cadastrarProduto('pizza')">Cadastrar Pizza</button>
           </div>
         </form>
       </div>
-  
-      <!-- Formulário para Nova Bebida -->
-      <div class="tab-pane fade" id="nova-bebida" role="tabpanel">
+    </div>
+
+    <!-- Cadastro de Bebida -->
+    <div class="card bg-secondary mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Nova Bebida</h5>
         <form id="form-nova-bebida" class="row g-3">
           <div class="col-md-6">
-            <label for="bebida-nome" class="form-label">Nome da Bebida</label>
-            <input type="text" class="form-control" id="bebida-nome" required>
+            <label for="nomeBebida" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nomeBebida" name="nome" required />
           </div>
           <div class="col-md-6">
-            <label for="bebida-tamanho" class="form-label">Tamanho/Volume</label>
-            <input type="text" class="form-control" id="bebida-tamanho" placeholder="Ex: 1L, 350ml, Lata" required>
-          </div>
-          <div class="col-md-4">
-            <label for="bebida-preco" class="form-label">Preço (R$)</label>
-            <input type="number" step="0.01" class="form-control" id="bebida-preco" required>
-          </div>
-          <div class="col-md-8">
-            <label for="bebida-imagem" class="form-label">Imagem</label>
-            <input type="file" class="form-control" id="bebida-imagem" accept="image/*">
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary">Cadastrar Bebida</button>
-          </div>
-        </form>
-      </div>
-  
-      <!-- Formulário para Nova Borda -->
-      <div class="tab-pane fade" id="nova-borda" role="tabpanel">
-        <form id="form-nova-borda" class="row g-3">
-          <div class="col-md-6">
-            <label for="borda-nome" class="form-label">Nome da Borda</label>
-            <input type="text" class="form-control" id="borda-nome" required>
+            <label for="precoBebida" class="form-label">Preço</label>
+            <input type="number" class="form-control" id="precoBebida" name="preco" step="0.01" required />
           </div>
           <div class="col-md-6">
-            <label for="borda-preco" class="form-label">Preço Adicional (R$)</label>
-            <input type="number" step="0.01" class="form-control" id="borda-preco" required>
+            <label for="tamanhoBebida" class="form-label">Tamanho</label>
+            <input type="text" class="form-control" id="tamanhoBebida" name="tamanho" required />
+          </div>
+          <div class="col-md-6">
+            <label for="imagemBebida" class="form-label">Imagem</label>
+            <input type="file" class="form-control" id="imagemBebida" name="imagem" accept="image/*" required />
           </div>
           <div class="col-12">
-            <label for="borda-descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="borda-descricao" rows="2"></textarea>
-          </div>
-          <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary">Cadastrar Borda</button>
+            <button type="button" class="btn btn-light" onclick="cadastrarProduto('bebida')">Cadastrar Bebida</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  
-  <!-- Modal de Confirmação -->
-  <div class="modal fade" id="confirmacaoModal" tabindex="-1" aria-hidden="true">
+
+  <!-- Modal de Sucesso -->
+  <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">Produto Cadastrado!</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-content bg-success text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalSucessoLabel">Cadastro realizado com sucesso!</h5>
         </div>
-        <div class="modal-body">
-          <p id="confirmacaoMensagem">O produto foi cadastrado com sucesso!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary" id="btn-adicionar-outro">Adicionar outro</button>
+        <div class="modal-body" id="mensagemSucesso">
+          Produto cadastrado com sucesso!
         </div>
       </div>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Inicializa os formulários
-      initForms();
-      
-      // Inicializa os offcanvas (menu lateral)
-      const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-      offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-        new bootstrap.Offcanvas(offcanvasTriggerEl);
-      });
-    });
-
-    function initForms() {
-      // Formulário de Pizza
-      const formPizza = document.getElementById('form-nova-pizza');
-      formPizza.addEventListener('submit', function(e) {
-        e.preventDefault();
-        cadastrarProduto('pizza');
-      });
-
-      // Formulário de Bebida
-      const formBebida = document.getElementById('form-nova-bebida');
-      formBebida.addEventListener('submit', function(e) {
-        e.preventDefault();
-        cadastrarProduto('bebida');
-      });
-
-      // Formulário de Borda
-      const formBorda = document.getElementById('form-nova-borda');
-      formBorda.addEventListener('submit', function(e) {
-        e.preventDefault();
-        cadastrarProduto('borda');
-      });
-
-      // Botão "Adicionar outro" no modal
-      document.getElementById('btn-adicionar-outro').addEventListener('click', function() {
-        const modal = bootstrap.Modal.getInstance(document.getElementById('confirmacaoModal'));
-        modal.hide();
-        limparFormularioAtivo();
-      });
-    }
-
-    function cadastrarProduto(tipo) {
-      const dados = coletarDadosFormulario(tipo);
-      
-      if (validarDados(dados, tipo)) {
-        // Simulação do envio para o servidor
-        enviarParaServidor(dados, tipo)
-          .then(response => {
-            mostrarModalSucesso(tipo);
-            if (response.success) {
-              // Em produção, você provavelmente recarregaria a lista de produtos
-              // ou redirecionaria para a página de gerenciamento
-              console.log('Produto cadastrado:', response.produto);
-            }
-          })
-          .catch(error => {
-            console.error('Erro ao cadastrar:', error);
-            alert('Erro ao cadastrar produto. Tente novamente.');
-          });
-      }
-    }
+    // Objeto para armazenar os produtos localmente
+    const produtosLocais = {
+      pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
+      bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
+    };
 
     function coletarDadosFormulario(tipo) {
-      const dados = { tipo };
-      
       if (tipo === 'pizza') {
-        dados.nome = document.getElementById('pizza-nome').value;
-        dados.categoria = document.getElementById('pizza-categoria').value;
-        dados.descricao = document.getElementById('pizza-descricao').value;
-        dados.preco = parseFloat(document.getElementById('pizza-preco').value);
-        dados.imagem = document.getElementById('pizza-imagem').files[0];
-      } 
-      else if (tipo === 'bebida') {
-        dados.nome = document.getElementById('bebida-nome').value;
-        dados.tamanho = document.getElementById('bebida-tamanho').value;
-        dados.preco = parseFloat(document.getElementById('bebida-preco').value);
-        dados.imagem = document.getElementById('bebida-imagem').files[0];
-      } 
-      else if (tipo === 'borda') {
-        dados.nome = document.getElementById('borda-nome').value;
-        dados.preco = parseFloat(document.getElementById('borda-preco').value);
-        dados.descricao = document.getElementById('borda-descricao').value;
+        return {
+          nome: document.getElementById('nomePizza').value,
+          preco: parseFloat(document.getElementById('precoPizza').value),
+          categoria: document.getElementById('categoriaPizza').value,
+          imagem: document.getElementById('imagemPizza').files[0],
+          descricao: document.getElementById('descricaoPizza').value
+        };
       }
-      
-      return dados;
+      if (tipo === 'bebida') {
+        return {
+          nome: document.getElementById('nomeBebida').value,
+          preco: parseFloat(document.getElementById('precoBebida').value),
+          tamanho: document.getElementById('tamanhoBebida').value,
+          imagem: document.getElementById('imagemBebida').files[0]
+        };
+      }
     }
 
     function validarDados(dados, tipo) {
-      // Validações básicas
-      if (!dados.nome || dados.nome.trim() === '') {
-        alert('Por favor, informe o nome do produto');
-        return false;
+      for (let chave in dados) {
+        if (!dados[chave] && chave !== 'descricao') {
+          alert('Preencha todos os campos obrigatórios!');
+          return false;
+        }
       }
-      
-      if (isNaN(dados.preco) || dados.preco <= 0) {
-        alert('Por favor, informe um preço válido');
-        return false;
-      }
-      
-      if (tipo === 'pizza' && !dados.descricao) {
-        alert('Por favor, informe a descrição da pizza');
-        return false;
-      }
-      
       return true;
     }
 
-    function enviarParaServidor(dados, tipo) {
-      // Simulação de uma chamada AJAX para o servidor
-      return new Promise((resolve) => {
-        // Em um ambiente real, você usaria fetch() ou axios para enviar os dados
-        console.log('Enviando dados para o servidor:', dados);
-        
-        // Simulando uma resposta do servidor após 1 segundo
-        setTimeout(() => {
-          // Gerar um ID fictício para o novo produto
-          const novoId = Math.floor(Math.random() * 1000) + 100;
-          
-          // Criar objeto de resposta simulada
-          const response = {
-            success: true,
-            produto: {
-              id: novoId,
-              ...dados,
-              // Remover o arquivo de imagem dos dados retornados
-              imagem: tipo === 'pizza' ? 'pizza-placeholder.png' : 
-                     tipo === 'bebida' ? 'bebida-placeholder.png' : null
-            }
-          };
-          
-          resolve(response);
-        }, 1000);
-      });
-    }
-
     function mostrarModalSucesso(tipo) {
-      const modal = new bootstrap.Modal(document.getElementById('confirmacaoModal'));
-      const mensagem = document.getElementById('confirmacaoMensagem');
-      
-      let texto = '';
-      switch(tipo) {
-        case 'pizza': texto = 'A pizza foi cadastrada com sucesso!'; break;
-        case 'bebida': texto = 'A bebida foi cadastrada com sucesso!'; break;
-        case 'borda': texto = 'A borda foi cadastrada com sucesso!'; break;
-      }
-      
-      mensagem.textContent = texto;
+      const modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
+      const mensagem = document.getElementById('mensagemSucesso');
+      mensagem.textContent = `O ${tipo} foi cadastrado com sucesso!`;
       modal.show();
     }
 
-    function limparFormularioAtivo() {
-      // Encontra a aba ativa
-      const tabAtiva = document.querySelector('#adminTabs .nav-link.active');
-      const target = tabAtiva.getAttribute('data-bs-target');
-      const form = document.querySelector(`${target} form`);
-      
-      if (form) {
-        form.reset();
+    function limparFormulario(tipo) {
+      if (tipo === 'pizza') {
+        document.getElementById('form-nova-pizza').reset();
+      } else if (tipo === 'bebida') {
+        document.getElementById('form-nova-bebida').reset();
       }
     }
+
+    function converterImagemParaBase64(imagem, callback) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        callback(e.target.result);
+      };
+      reader.readAsDataURL(imagem);
+    }
+
+    function gerarIdUnico() {
+      return Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
+
+    async function cadastrarProduto(tipo) {
+      const dados = coletarDadosFormulario(tipo);
+
+      if (!validarDados(dados, tipo)) return;
+
+      // Converter imagem para Base64
+      if (dados.imagem) {
+        converterImagemParaBase64(dados.imagem, function(imagemBase64) {
+          const novoProduto = {
+            id: gerarIdUnico(),
+            nome: dados.nome,
+            preco: dados.preco,
+            imagem: imagemBase64
+          };
+
+          // Adicionar campos específicos
+          if (tipo === 'pizza') {
+            novoProduto.categoria = dados.categoria;
+            novoProduto.descricao = dados.descricao;
+            produtosLocais.pizzas.push(novoProduto);
+            localStorage.setItem('pizzas', JSON.stringify(produtosLocais.pizzas));
+          } else if (tipo === 'bebida') {
+            novoProduto.tamanho = dados.tamanho;
+            produtosLocais.bebidas.push(novoProduto);
+            localStorage.setItem('bebidas', JSON.stringify(produtosLocais.bebidas));
+          }
+
+         
+          enviarParaBackend(tipo, {
+            ...novoProduto,
+            imagem: null
+          });
+
+          mostrarModalSucesso(tipo);
+          limparFormulario(tipo);
+        });
+      } else {
+     
+        alert('Selecione uma imagem para o produto!');
+      }
+    }
+
+    function enviarParaBackend(tipo, dados) {
+      let endpoint, body;
+
+      if (tipo === 'pizza') {
+        endpoint = '/api/menu/pizzas';
+        body = {
+          sabor: dados.nome,
+          preco_sabor: dados.preco,
+          tipo_borda: 'Tradicional', 
+          preco_borda: 0, 
+          tamanho: 'Média', 
+          observacao: dados.descricao
+        };
+      } else if (tipo === 'bebida') {
+        endpoint = '/api/menu/bebidas';
+        body = {
+          nome: dados.nome,
+          tamanho: dados.tamanho,
+          preco: dados.preco
+        };
+      }
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token') // Assumindo que você tem autenticação
+        },
+        body: JSON.stringify(body)
+      })
+      .then(response => response.json())
+      .then(data => console.log('Sucesso no backend:', data))
+      .catch(error => console.error('Erro no backend:', error));
+    }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

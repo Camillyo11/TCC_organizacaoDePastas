@@ -1,4 +1,3 @@
-//authController.js
 const AuthService = require('../services/AuthService');
 const logger = require('../config/logger');
 
