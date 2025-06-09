@@ -141,198 +141,118 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+<script src="../assets/js/index.js"></script>
   <script>
-    fetch('../UserPages/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-container').innerHTML = data;
-      });
+const token = localStorage.getItem('token');
+if (!token) {
+  alert('Você precisa estar logado!');
+  window.location.href = 'login.html';
+}
 
-
-
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    const resumoContainer = document.getElementById('resumo-pedido');
-
-    carrinho.forEach(item => {
-      const container = document.createElement('div');
-      container.classList.add('box-confirmacao', 'p-3');
-
-
-      // Badge com o tipo da pizza
-      const tipo = `<span class="escolha-confirmacao tag badge bg-secodandary">${item.tipo}</span>`;
-
-
-
-      // Título da(s) pizza(s)
-      const pizzasTitulo = item.pizzas.map(p =>
-        typeof p === 'string' ? `<h3 class="mt-2">${p}</h3>` : `<h3 class="mt-2">${p.nome}</h3>`
-      ).join('');
-
-      // Preço
-      const preco = `<h2 class="preço-confirmacao">R$ ${item.preco.toFixed(2)}</h2>`;
-
-      // Borda
-      const borda = `<span class="borda-confirmacao">Borda: ${item.borda}</span>`;
-
-      // Bebidas (tratando se for string ou objeto)
-      let bebidasHTML = '<p><strong>Bebidas:</strong> Nenhuma</p>';
-      if (item.bebidas && item.bebidas.length > 0) {
-        const bebidasFormatadas = item.bebidas.map(b => {
-          if (typeof b === 'string') return b;
-          return `${b.nome} x${b.qtd}`;
-        }).join(', ');
-        bebidasHTML = `<p><strong>Bebidas:</strong> ${bebidasFormatadas}</p>`;
-      }
-
-      //para excluir o pedido
-      const index = carrinho.indexOf(item); // identifica a posição do item
-
-      container.innerHTML = `
-  <button class="excluir-btn" onclick="excluirPedido(${index})">🗑️</button>
-  
-  ${tipo}
-  ${pizzasTitulo}
-  ${preco}
-  ${borda}
-  ${bebidasHTML}
-`;
-
-      resumoContainer.appendChild(container);
+// Buscar endereço do usuário
+async function buscarEndereco() {
+  try {
+    const res = await fetch('http://localhost:3000/api/users/me', {
+      headers: { 'Authorization': `Bearer ${token}` }
     });
-
-    calcularTotais();
-
-
-    // Função para calcular totais
-    
-  function calcularTotais() {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    const subtotal = carrinho.reduce((total, item) => total + (item.preco || 0), 0);
-    const frete = 5.00;
-    const total = subtotal + frete;
-
-    document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
-    document.getElementById('frete').textContent = `R$ ${frete.toFixed(2)}`;
-    document.getElementById('total').textContent = `R$ ${total.toFixed(2)}`;
-  }
-
-    // função de add mais uma pizza invés de substituir
-
-    
-
-    function excluirPedido(index) {
-      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      carrinho.splice(index, 1);
-      //salva a exclusão do pedido
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      location.reload();
+    if (!res.ok) throw new Error();
+    const user = await res.json();
+    if (!user.endereco) {
+      window.location.href = 'endereco.html';
+      return;
     }
+    document.querySelector('.endereco-confirmacao p').innerHTML =
+      `<i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong> ${user.endereco.rua} - ${user.endereco.bairro} - N ${user.endereco.numero}`;
+  } catch {
+    window.location.href = 'endereco.html';
+  }
+}
+buscarEndereco();
 
+// Carrinho
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+const resumoContainer = document.getElementById('resumo-pedido');
+const subtotalSpan = document.getElementById('subtotal');
+const freteSpan = document.getElementById('frete');
+const totalSpan = document.getElementById('total');
+const FRETE = 5.00;
+let desconto = 0;
 
-    
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const carrinhoContainer = document.getElementById("carrinho-itens");
-      const totalPedidoElement = document.getElementById("total-pedido");
-      const valorFrete = 10.00; // Você pode alterar aqui o valor do frete
-      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-      if (carrinho.length === 0) {
-        carrinhoContainer.innerHTML = "<p class='text-white'>Carrinho vazio.</p>";
-        totalPedidoElement.innerText = "Total: R$ 0,00";
-        return;
-      }
-
-      let total = 0;
-
-      const html = carrinho.map(item => {
-        let subtotal = 0;
-
-        // Pizzas
-        const pizzasHtml = item.pizzas.map(p => {
-          const nomePizza = typeof p === 'string' ? p : p.nome;
-          const tipo = typeof p === 'object' && p.tipo ? p.tipo : 'salgada';
-          const modo = item.pizzas.length === 2 ? "Meia pizza" : "Pizza inteira";
-          const valorPizza = typeof p === 'object' && p.valor ? parseFloat(p.valor) : 0;
-
-          subtotal += valorPizza;
-
-          return `
-        <h3 class="mt-2">
-          ${nomePizza}
-          <span class="escolha-confirmacao tag badge bg-secondary ms-2">${modo}</span>
-          <span class="escolha-confirmacao tag badge bg-secondary ms-2">${tipo}</span>
-        </h3>
-      `;
-        }).join('');
-
-        // Bebida
-        let bebidaHtml = '';
-        if (item.bebida && item.bebida !== "") {
-          bebidaHtml = `<p class="mb-1 text-white">Bebida: ${item.bebida}</p>`;
-          subtotal += parseFloat(item.valorBebida || 0);
-        }
-
-        // Borda
-        let bordaHtml = '';
-        if (item.borda && item.borda !== "") {
-          bordaHtml = `<p class="mb-1 text-white">Borda: ${item.borda}</p>`;
-          subtotal += parseFloat(item.valorBorda || 0);
-        }
-
-        total += subtotal;
-
-        return `
-      <div class="card mb-3 bg-danger text-white">
-        <div class="card-body">
-          ${pizzasHtml}
-          ${bebidaHtml}
-          ${bordaHtml}
-          <p class="fw-bold mt-2">Subtotal: R$ ${subtotal.toFixed(2)}</p>
-        </div>
-      </div>
+// Renderiza o resumo do pedido
+function renderizarCarrinho() {
+  resumoContainer.innerHTML = '';
+  let subtotal = 0;
+  carrinho.forEach((item, index) => {
+    const container = document.createElement('div');
+    container.classList.add('box-confirmacao', 'p-3');
+    const tipo = `<span class="escolha-confirmacao tag badge bg-secondary">${item.tipo || ''}</span>`;
+    const pizzasTitulo = item.pizzas.map(p =>
+      typeof p === 'string' ? `<h3 class="mt-2">${p}</h3>` : `<h3 class="mt-2">${p.nome}</h3>`
+    ).join('');
+    const preco = `<h2 class="preço-confirmacao">R$ ${item.preco.toFixed(2)}</h2>`;
+    const borda = item.borda ? `<span class="borda-confirmacao">Borda: ${item.borda}</span>` : '';
+    let bebidasHTML = '<p><strong>Bebidas:</strong> Nenhuma</p>';
+    if (item.bebidas && item.bebidas.length > 0) {
+      const bebidasFormatadas = item.bebidas.map(b => typeof b === 'string' ? b : `${b.nome} x${b.qtd}`).join(', ');
+      bebidasHTML = `<p><strong>Bebidas:</strong> ${bebidasFormatadas}</p>`;
+    }
+    container.innerHTML = `
+      <button class="excluir-btn" onclick="excluirPedido(${index})">🗑️</button>
+      ${tipo}
+      ${pizzasTitulo}
+      ${preco}
+      ${borda}
+      ${bebidasHTML}
     `;
-      }).join('');
+    resumoContainer.appendChild(container);
+    subtotal += item.preco || 0;
+  });
+  subtotalSpan.textContent = `R$ ${subtotal.toFixed(2)}`;
+  freteSpan.textContent = `R$ ${FRETE.toFixed(2)}`;
+  let total = subtotal + FRETE - desconto;
+  totalSpan.textContent = `R$ ${total.toFixed(2)}`;
+}
+window.excluirPedido = function(index) {
+  carrinho.splice(index, 1);
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  renderizarCarrinho();
+};
 
-      // Total com frete
-      const totalComFrete = total + valorFrete;
+// Cupom de desconto
+function aplicarCupom() {
+  const cupom = document.getElementById("cupom-aplique").value.trim().toLowerCase();
+  const feedback = document.getElementById("feedback-cupom");
+  let subtotal = carrinho.reduce((total, item) => total + (item.preco || 0), 0);
 
-      carrinhoContainer.innerHTML = html;
-      totalPedidoElement.innerText =
-        `Total (com frete R$ ${valorFrete.toFixed(2)}): R$ ${totalComFrete.toFixed(2)}`;
-    });
+  if (cupom === "pizza10") {
+    desconto = subtotal * 0.10;
+    feedback.textContent = "✅ Cupom aplicado: 10% de desconto!";
+    feedback.style.color = "limegreen";
+  } else {
+    desconto = 0;
+    feedback.textContent = "❌ Cupom inválido ou expirado.";
+    feedback.style.color = "red";
+  }
+  renderizarCarrinho();
+}
+window.aplicarCupom = aplicarCupom;
 
+// Botão de adicionar mais ao pedido
+document.getElementById('botao-addmaispedido').addEventListener('click', function() {
+  window.location.href = '../UserPages/cardapio.html';
+});
 
-    // Comentário
-    const comentarioInput = document.querySelector('.comentario-confirmacao');
-    comentarioInput.addEventListener('input', () => {
-      const comentario = comentarioInput.value;
-      if (comentario) {
-        console.log(`Comentário adicionado: ${comentario}`);
-      }
-    });
+// Botão de pagamento
+document.querySelector('.button-black-centralizar a').addEventListener('click', function(event) {
+  if (carrinho.length === 0) {
+    event.preventDefault();
+    alert('Seu carrinho está vazio. Adicione itens antes de prosseguir para o pagamento.');
+  }
+});
 
-    document.querySelector('.add-pedido button').addEventListener('click', () => {
-      window.location.href = '../UserPages/cardapio.html';
-    });
-
-    document.querySelectorAll('.opcao-delivery .form-check-input').forEach(input => {
-      input.addEventListener('change', () => {
-        const entregaSelecionada = input.id === 'entregar' ? 'Entrega' : 'Retirada';
-        console.log(`Opção selecionada: ${entregaSelecionada}`);
-      });
-    });
-
-    document.querySelector('.button-black a').addEventListener('click', (event) => {
-      event.preventDefault();
-      if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio. Adicione itens antes de prosseguir para o pagamento.');
-      } else {
-        window.location.href = '../UserPages/pagamento.html';
-      }
-    });
-  </script>
+// Inicializa carrinho ao carregar
+renderizarCarrinho();
+</script>
 </body>
 
 </html>

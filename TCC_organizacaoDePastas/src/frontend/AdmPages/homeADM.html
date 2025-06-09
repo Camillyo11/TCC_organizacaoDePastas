@@ -13,6 +13,26 @@
 </head>
 
 <body class="backgrond-black">
+  <script>
+    // Supondo que você salva o token JWT no localStorage
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = '../index.html';
+    } else {
+      // Decodifica o token para pegar o role (sem depender de backend)
+      function parseJwt (token) {
+        try {
+          return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+          return null;
+        }
+      }
+      const payload = parseJwt(token);
+      if (!payload || payload.role !== 'admin') {
+        window.location.href = '../UserPages/index.html';
+      }
+    }
+  </script>
   <!-- NAVBAR -->
   <header class="header-adm">
     <nav class="nav-adm navbar navbar-lg bg-body-tertiary-dark navbar-dark">

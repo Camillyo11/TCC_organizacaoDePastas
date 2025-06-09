@@ -6,75 +6,38 @@ const loadAddresses = async () => {
         return window.location.href = 'login.html';
     }
 
-    try {
-        const response = await fetch('http://localhost:3000/api/address', {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
+  const userData = {
+    nome: document.getElementById('nome').value,
+    cpf: document.getElementById('cpf').value,
+    email: document.getElementById('email').value,
+    senha: document.getElementById('senha').value,
+    telefone: document.getElementById('telefone').value,
+    data_nascimento: document.getElementById('data_nascimento').value
+  };
 
-        if (response.ok) {
-            const addresses = await response.json();
-            renderAddresses(addresses);
-        }
-    } catch (error) {
-        console.error('Erro ao carregar endereços:', error);
+  try {
+    const response = await fetch('http://localhost:3000/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData)
+    });
+
+    const result = await response.json();
+    console.log(result);
+    if (result.error) {
+      // Mostra detalhes do erro no console e no alert
+      console.error(result.error.details);
+      alert(
+        (result.error.message || 'Erro') +
+        '\n' +
+        (result.error.details ? result.error.details.join('\n') : '')
+      );
+    } else {
+      alert(result.message);
+      window.location.href = 'index.html';
     }
-};
-
-// ==================== RENDERIZA ENDEREÇOS ====================
-const renderAddresses = (addresses) => {
-    const container = document.querySelector('.conteiner-endereço');
-    if (!container) return;
-
-    container.innerHTML = addresses.map(addr => `
-        <div class="d-flex justify-content-between align-items-center">
-            <button class="endereco-item">
-                <img src="../public/icons/fixar-mapa (1).png" width="30">
-                <h7>${addr.endereco}, ${addr.numero_casa}</h7>
-            </button>
-        </div>
-    `).join('');
-};
-
-// ==================== CADASTRA ENDEREÇO ====================
-document.getElementById('form-endereco')?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const token = localStorage.getItem('token');
-    if (!token) {
-        alert('Sessão expirada! Faça login novamente.');
-        return window.location.href = 'login.html';
-    }
-
-    const addressData = {
-        endereco: document.getElementById('endereco').value,
-        numero_casa: document.getElementById('numero').value,
-        complemento: document.getElementById('complemento').value,
-        bairro: document.getElementById('bairro').value,
-        cidade: document.getElementById('cidade').value,
-        estado: document.getElementById('estado').value,
-        cep: document.getElementById('cep').value
-    };
-
-    try {
-        const response = await fetch('http://localhost:3000/api/address', {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(addressData)
-        });
-
-        if (response.ok) {
-            alert('Endereço salvo!');
-            loadAddresses(); // Recarrega a lista
-        }
-    } catch (error) {
-        alert('Erro ao salvar endereço');
-    }
-});
-
-// Carrega endereços quando a página abre
-if (document.querySelector('.conteiner-endereço')) {
-    loadAddresses();
+  } catch (error) {
+    console.error('Erro ao registrar usuário:', error);
+    alert('Erro ao registrar usuário.');
+  }
 }

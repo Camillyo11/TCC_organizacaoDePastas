@@ -30,7 +30,7 @@
              <p>Onde desejar receber seu pedido ?</p>
          </div>
     
-     <form class="form-cadastro">
+     <form class="form-cadastro" id="form-endereco">
          
  
          <div class="mb-3">
@@ -59,8 +59,7 @@
 
          <div class="mb-3">
              <label for="text" class="form-label">Numero:</label>
-             <input type="text" id="telefone" name="numero" placeholder="digite seu número:"
-                 class=" form-input  " required>
+             <input type="text" id="numero" name="numero" placeholder="Digite seu número:" class="form-input" required>
          </div>
 
          <div class="mb-3">
@@ -171,7 +170,78 @@
     }); */
     </script>
     
+    <script>
+document.getElementById('cep').addEventListener('blur', function() {
+  const cep = this.value.replace(/\D/g, '');
+  if (cep.length === 8) {
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(res => res.json())
+      .then(data => {
+        if (!data.erro) {
+          document.getElementById('bairro').value = data.bairro || '';
+          document.getElementById('endereco').value = data.logradouro || '';
+          // Se quiser, pode adicionar cidade e estado também:
+          // document.getElementById('cidade').value = data.localidade || '';
+          // document.getElementById('estado').value = data.uf || '';
+        } else {
+          alert('CEP não encontrado!');
+        }
+      })
+      .catch(() => alert('Erro ao buscar o CEP!'));
+  }
+});
+</script>
     
+    <script>
+document.getElementById('form-endereco').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Você precisa estar logado!');
+    return;
+  }
+
+  // Pegue os dados do formulário
+  const endereco = document.getElementById('endereco').value;
+  const numero = document.getElementById('numero').value;
+  const complemento = document.getElementById('complemento').value;
+  const bairro = document.getElementById('bairro').value;
+  const cep = document.getElementById('cep').value;
+  // Adicione cidade e estado se quiser
+  // const cidade = document.getElementById('cidade').value;
+  // const estado = document.getElementById('estado').value;
+
+  try {
+    const response = await fetch('http://localhost:3000/api/users/endereco', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        endereco,
+        numero,
+        complemento,
+        bairro,
+        cep
+        // cidade,
+        // estado
+      })
+    });
+
+    const result = await response.json();
+    if (result.error) {
+      alert(result.error.message || 'Erro ao cadastrar endereço!');
+    } else {
+      alert(result.message || 'Endereço cadastrado com sucesso!');
+      window.location.href = 'index.html';
+    }
+  } catch (error) {
+    alert('Erro ao cadastrar endereço.');
+  }
+});
+</script>
     
      
       
