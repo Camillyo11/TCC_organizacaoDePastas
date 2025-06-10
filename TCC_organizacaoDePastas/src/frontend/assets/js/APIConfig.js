@@ -1,5 +1,5 @@
 // src/frontend/assets/js/apiConfig.js
-const API_BASE_URL = 'http://localhost:3000/api'; // Altere para produção
+const API_BASE_URL = 'http://localhost:3000:3000/api'; // Altere para produção
 
 class ApiService {
   static async request(endpoint, method = 'GET', data = null, requiresAuth = false) {

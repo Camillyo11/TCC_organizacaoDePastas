@@ -8,7 +8,7 @@ window.navbarLoaded = true;
 /* === CONSTANTES GLOBAIS === */
 
 function getAssetPath(relativePath) {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+  if (window.location.hostname === 'localhost:3000' || window.location.hostname === '127.0.0.1') {
     return `/TCC_organizacaoDePastas/src/frontend/${relativePath}`;
   }
   return `/${relativePath}`;

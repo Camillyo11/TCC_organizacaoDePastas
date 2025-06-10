@@ -1,5 +1,5 @@
 ### Variáveis de ambiente
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:3000:3000/api
 @authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJsdWNhc0BlbWFpbC5jb20iLCJpYXQiOjE3NDQyNDU0ODMsImV4cCI6MTc0NDMzMTg4M30.c1pKOeV1Aioj9CjWgOsmU4bvXk_9r-Bn4e2szgtC-R4
 
 ### Registro de usuário

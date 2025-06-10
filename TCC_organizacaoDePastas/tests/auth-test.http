@@ -1,5 +1,5 @@
 ### Variáveis de ambiente
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:3000:3000/api
 
 ### Registro de usuário
 POST {{baseUrl}}/auth/register

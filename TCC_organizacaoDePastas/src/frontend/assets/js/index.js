@@ -39,9 +39,7 @@ function buscarDadosUsuario() {
       return res.json();
     })
     .then(user => {
-      console.log('Resposta da API /api/users/me:', user);
       preencherPerfil(user);
-
       // Mostra os dados e oculta mensagem de não cadastrado
       const dados = document.getElementById('dadosUsuarioContent');
       const msg = document.getElementById('semCadastroMsg');
@@ -49,6 +47,7 @@ function buscarDadosUsuario() {
         dados.style.display = 'block';
         msg.style.display = 'none';
       }
+      registrarEventosEdicao(); // <-- só aqui!
     })
     .catch(err => {
       console.error('Erro ao buscar dados do usuário:', err);
@@ -62,20 +61,31 @@ document.addEventListener('DOMContentLoaded', function () {
     buscarDadosUsuario();
   }
 
-  const editarBtn = document.getElementById('btnEditarDados');
-  if (editarBtn) {
-    editarBtn.addEventListener('click', function () {
-      document.getElementById('formEditarDados').style.display = 'block';
-      document.getElementById('dadosUsuarioContent').style.display = 'none';
-      document.getElementById('editarNome').value = window.dadosUsuario.nome || '';
+  // Botão Editar Dados
+  const btnEditar = document.getElementById('btnEditarDados');
+  const formEditar = document.getElementById('formEditarDados');
+  const dadosUsuarioContent = document.getElementById('dadosUsuarioContent');
+
+  if (btnEditar && formEditar && dadosUsuarioContent) {
+    btnEditar.addEventListener('click', function () {
+      console.log('Cliquei em editar!');
+      // Preenche os campos com os dados atuais
+      document.getElementById('editarNome').value = window.dadosUsuario?.nome || '';
+      const telefone = window.dadosUsuario?.telefone || '';
+      document.getElementById('editarDDD').value = telefone.substring(0, 2);
+      document.getElementById('editarTelefone').value = telefone.substring(2);
+
+      formEditar.style.display = 'block';
+      btnEditar.style.display = 'none';
     });
   }
 
-  const cancelEdit = document.querySelector('#formEditarDados button[type="button"]');
-  if (cancelEdit) {
-    cancelEdit.addEventListener('click', function () {
-      document.getElementById('formEditarDados').style.display = 'none';
-      document.getElementById('dadosUsuarioContent').style.display = 'block';
+  // Botão Cancelar
+  const btnCancelar = formEditar?.querySelector('button[type="button"]');
+  if (btnCancelar) {
+    btnCancelar.addEventListener('click', function () {
+      formEditar.style.display = 'none';
+      btnEditar.style.display = 'block';
     });
   }
 
@@ -83,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (editForm) {
     editForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      console.log('Formulário de edição enviado!');
 
       const nome = document.getElementById('editarNome').value.trim() || window.dadosUsuario.nome;
       const ddd = document.getElementById('editarDDD').value.trim();
@@ -192,3 +203,33 @@ if (logoutBtn) {
     location.reload();
   });
 }
+
+function registrarEventosEdicao() {
+  const btnEditar = document.getElementById('btnEditarDados');
+  const formEditar = document.getElementById('formEditarDados');
+
+  if (btnEditar && formEditar) {
+    btnEditar.addEventListener('click', function () {
+      // Preenche os campos com os dados atuais
+      document.getElementById('editarNome').value = window.dadosUsuario?.nome || '';
+      const telefone = window.dadosUsuario?.telefone || '';
+      document.getElementById('editarDDD').value = telefone.substring(0, 2);
+      document.getElementById('editarTelefone').value = telefone.substring(2);
+
+      formEditar.style.display = 'block';
+      btnEditar.style.display = 'none';
+    });
+
+    // Botão cancelar
+    const btnCancelar = formEditar.querySelector('button[type="button"]');
+    if (btnCancelar) {
+      btnCancelar.addEventListener('click', function () {
+        formEditar.style.display = 'none';
+        btnEditar.style.display = 'block';
+      });
+    }
+  }
+}
+
+// Sempre que mostrar os dados do usuário, chame:
+registrarEventosEdicao();

@@ -1,7 +1,7 @@
 /**
  * Serviço para comunicação com a API do backend
  */
-const API_BASE_URL = 'http://localhost:3000/api'; // Altere se necessário
+const API_BASE_URL = 'http://localhost:3000:3000/api'; // Altere se necessário
 
 class ApiService {
     /**

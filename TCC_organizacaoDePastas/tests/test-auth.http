@@ -6,7 +6,7 @@
 ### 5. Execute a requisição de verificação
 
 ### Variáveis de ambiente
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:3000:3000/api
 
 ### 1. Registro de usuário
 POST {{baseUrl}}/auth/register

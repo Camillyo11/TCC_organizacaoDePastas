@@ -102,6 +102,6 @@ process.on('SIGTERM', () => {
 app.listen(port, '0.0.0.0', () => {
   console.log(`Servidor rodando na porta ${port}`);
   console.log(`Ambiente: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`URL: http://localhost:${port}`);
-  console.log(`Swagger UI: http://localhost:${port}/api-docs`);
+  console.log(`URL: http://localhost:3000`);
+  console.log(`Swagger UI: http://localhost:3000/api-docs`);
 });

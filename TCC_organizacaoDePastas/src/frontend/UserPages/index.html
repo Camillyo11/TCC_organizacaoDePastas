@@ -19,6 +19,44 @@
 <body>
   <div id="header-container"></div>
 
+  <!-- Adicione isso próximo ao topo do <body> ou onde faz sentido na sua página -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="meusDadosOffcanvas" aria-labelledby="meusDadosOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="meusDadosOffcanvasLabel">Meus Dados</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="dadosUsuarioContent">
+        <p><strong>Nome:</strong> <span id="dadoNome"></span></p>
+        <p><strong>Data de Nascimento:</strong> <span id="dadoNascimento"></span></p>
+        <p><strong>CPF:</strong> <span id="dadoCpf"></span></p>
+        <p><strong>Telefone:</strong> <span id="dadoTelefone"></span></p>
+        <p><strong>Email:</strong> <span id="dadoEmail"></span></p>
+        <button id="btnEditarDados" class="btn btn-warning">Editar Dados</button>
+        <button id="profileLogout" class="btn btn-danger mt-2">Sair</button>
+      </div>
+      <div id="semCadastroMsg" style="display:none;">
+        <p>Você ainda não possui cadastro.</p>
+      </div>
+      <!-- Formulário de edição -->
+      <form id="formEditarDados" style="display:none;">
+        <div class="mb-3">
+          <label for="editarNome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="editarNome" name="editarNome" required>
+        </div>
+        <div class="mb-3">
+          <label for="editarDDD" class="form-label">DDD</label>
+          <input type="text" class="form-control" id="editarDDD" name="editarDDD" maxlength="2" required>
+        </div>
+        <div class="mb-3">
+          <label for="editarTelefone" class="form-label">Telefone</label>
+          <input type="text" class="form-control" id="editarTelefone" name="editarTelefone" maxlength="9" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <button type="button" class="btn btn-secondary ms-2">Cancelar</button>
+      </form>
+    </div>
+  </div>
 
   <main>
     <!-- área de introdução  img-fluid, rouede-->
