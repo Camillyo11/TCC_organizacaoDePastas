@@ -10,52 +10,32 @@
 
 </head>
     <body class="backgrond-black">
-      <!-- NAVBAR -->
-  <header class="header-adm">
-    <nav class="nav-adm navbar navbar-lg bg-body-tertiary-dark navbar-dark">
-      <div class="container-fluid d-flex align-items-center ">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../AdmPages/homeADM.html">Home</a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/EdicaoPizzasADM.html">Editar cardapio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/utlimospedidosAdm.html">Pedidos recebidos </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/PedidosEntregueAdm.html">Pedidos finalizados</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/AvaliacaoAdm.html">Avaliação</a>
-            </li>
-               <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/CadastrarProdutos.html">Cadastrar produtos </a>
-            </li>
-             <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/respostaContato.html"> Responder contato</a>
-            </li>
-
-              <li class="nav-item">
-              <a class="nav-link" href="../AdmPages/ClientesCadastradosAdm.html"> Clientes cadastrados </a>
-            </li>
-           
-    
-          </ul>
-        </div>
-
-
-    </nav>
-
-
-  </header>
+        <!-- NAVBAR -->
+        <header class="header-adm">
+          <nav class="nav-adm navbar navbar-lg bg-body-tertiary-dark navbar-dark">
+            <div class="container-fluid d-flex align-items-center ">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+          </nav>
+        </header>
 
 
     <div class="Body-detalhes-pedido">
@@ -106,17 +86,51 @@
             <h2>STATUS DO PEDIDO</h2>
 
             <div class="button-status">
-                <button class="button-atualiza">Preparando</button>
-                <button class="button-atualiza">Pronto para envio</button>
+                <button class="button-atualiza">Pedido Confirmado</button>
+                <button class="button-atualiza">Pedido em preparo</button>
                 <button  class="button-atualiza">Saiu para entrega</button>
                 <button class="entregue-button">Entregue</button>
             </div>
         </div>
 
-     
+     <script>
+  const botoes = document.querySelectorAll('.button-atualiza, .entregue-button');
+
+  const statusMap = {
+    "Pedido Confirmado": 1,
+    "Pedido em preparo": 2,
+    "Saiu para entrega": 3,
+    "Entregue": 4
+  };
+
+  botoes.forEach((botao) => {
+    botao.addEventListener('click', () => {
+      const status = botao.innerText;
+      const statusValue = statusMap[status];
+      
+      // Salva o status e tempo no localStorage
+      localStorage.setItem('pedidoStatus', statusValue);
+      localStorage.setItem('tempoEstimado', calcularTempo(statusValue));
+
+      alert(`Status alterado para: ${status}`);
+    });
+  });
+
+  function calcularTempo(status) {
+    switch (status) {
+      case 1: return "30 minutos";
+      case 2: return "25 minutos";
+      case 3: return "15 minutos";
+      case 4: return "Entregue";
+      default: return "";
+    }
+  }
+</script>
+
+
 
     <!-- Bootstrap JS (opcional) -->
-    <<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>

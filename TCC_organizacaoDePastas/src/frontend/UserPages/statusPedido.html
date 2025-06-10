@@ -1,147 +1,1431 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="sttspedido.css">
 
-    <title>Status do Pedido</title>
-    <link rel="stylesheet" a href="../assets/css/pgIndexNavFooter.css">
-    <link rel="stylesheet" a href="../assets/css/auth.css">
-    <link rel="stylesheet" a href="../assets/css/main.css">
-    <link rel="stylesheet" a href="../assets/css/components.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Status pedidos</title>
 </head>
+<style>
+  /* MONTSERRAT ALTERNATIVES */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
 
-<body class="backgrond-black">
-    <div id="header-container"></div>
+/* MONTSERRAT SLAB */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
+
+:root {
+    --font1: "Montserrat Alternates";
+    --font2: "Montagu Slab";
+}
+
+html,
+body {
+    background-color: #991C08 !important;
+    overflow-x: hidden;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+    /* Para telas menores que 768px */
+
+    html,
+    body {
+        /* margin: 0;
+        padding: 10px; 
+        height: 100%; */
+        flex-direction: row;
+
+
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Para telas menores que 480px (celulares bem pequenos) */
+    html,
+    body {
+        margin: 0;
+        padding: 0px;
+        height: 100%;
+
+        flex-direction: row;
+    }
+
+}
+
+/* HEADER */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+    height: 100px;
+    z-index: 1000;
+
+
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: 80px;
+}
+
+a.login-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none !important;
+    cursor: pointer;
+
+    background-color: rgb(144, 33, 6) !important;
+    color: white;
+    font-size: 14px;
+    padding: 5px 5px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color !important;
+    border: none;
+
+
+}
+
+/* Remove o sublinhado no hover */
+a.login-button:hover {
+    background-color: rgb(211, 35, 11) !important;
+    text-decoration: none !important;
+}
+
+.button-navbar {
+    display: flex;
+    margin-left: auto;
+    gap: 10px;
+    padding: 10px;
+
+}
+
+button.login-button {
+    background-color: rgb(144, 33, 6) !important;
+    color: white;
+    font-size: 14px;
+    padding: 5px 5px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color !important;
+    margin-right: 20px;
+    border: none;
+    gap: 8px;
+    /* Espaço entre a imagem e o texto */
+    white-space: nowrap;
+    /* Impede que o texto quebre em várias linhas */
+
+}
+
+button.login-button:hover,
+a.login-button:hover {
+    background-color: rgb(211, 35, 11) !important;
+}
+
+
+button.login-button img,
+a.login-button img {
+    display: inline-block;
+    /* Garante que a imagem fique alinhada corretamente */
+    flex-shrink: 0;
+    /* Impede que a imagem diminua */
+}
+
+
+@media (max-width: 420px) {
+    .button-navbar {
+        flex-direction: row;
+        gap: 5px;
+        margin-left: 0;
+        width: 80%;
+        justify-content: flex-end;
+    }
+
+    .login-button {
+        background-color: rgb(144, 33, 6) !important;
+        color: white;
+        font-size: 10px;
+        padding: 5px 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s background-color !important;
+        border: none;
+
+    }
+
+}
+
+
+@media (max-width: 767.98px) {
+    .button-navbar {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: flex-end;
+        width: 75%;
+    }
+
+    .login-button {
+        background-color: rgb(144, 33, 6) !important;
+        color: white;
+        font-size: 14px;
+        padding: 5px 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s background-color !important;
+        border: none;
+
+
+
+    }
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+    color: #ffffff;
+
+
+
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    outline: none;
+    box-sizing: none;
+
+
+}
+
+.nav-link {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: #eeeeee;
+}
+
+@media (min-width:991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 2px;
+        visibility: hidden;
+        transition: 0.3 ease-in-out;
+    }
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    visibility: visible;
+}
+
+/* MODAL */
+.modal-header-preto {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 16px;
+
+}
+
+.modal-body {
+    background-color: rgb(144, 33, 6);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+
+}
+
+/* MODAL DE ENDEREÇO */
+/* Estilo para os itens de endereço */
+.endereco-item {
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #000;
+    width: 100%;
+    padding: 10px 10px;
+    font-weight: 40;
+    border-radius: 30px;
+    margin: 5px 0;
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+}
+
+.endereco-item h7 {
+    font-weight: bold;
+    color: #535151;
+
+}
+
+.coluna {
+    margin-top: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    margin: 10px;
+}
+
+
+/* Ajustes para o offcanvas-bottom */
+.offcanvas-bottom {
+    height: 90vh !important;
+    /* Ajuste a porcentagem conforme necessário */
+    max-height: 90vh !important;
+    /* Evita ultrapassar a tela */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* EDIÇÃO DE ENDEREÇO */
+
+/* PARTE TESTE  */
+
+.btn-address-type {
+    width: 100%;
+    padding: 15px 5px;
+    background-color: transparent;
+    border: 2px solid #ff6b00;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.btn-address-type:hover {
+    background-color: rgba(255, 107, 0, 0.1);
+}
+
+.btn-address-type.active {
+    background-color: #ff6b00;
+    color: white;
+}
+
+.btn-address-type img {
+    filter: brightness(0) invert(1);
+}
+
+.btn-address-type.active img {
+    filter: none;
+}
+
+/*  ENDEREÇO*/
+
+.offcanva-edicao-endereco {
+    background-color: rgb(144, 33, 6) !important;
+    color: white;
+    font-size: 20px;
+    padding: 15px 15px;
+    border-radius: 15px;
+    margin: 10px;
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 8px rgb(191, 0, 0);
+}
+
+.check-laranja {
+    background-color: #F77F00;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+
+}
+
+.buttons-opcao-endereco {
+    margin: 20px;
+    gap: 10px;
+}
+
+.button-branco {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 8px 10px;
+    border-radius: 30px;
+    width: 160px;
+
+
+}
+
+.button-branco:hover {
+    background-color: #f47a00;
+    color: white;
+}
+
+/* MEUS DADOS */
+/* Estilos para o offcanvas Meus Dados */
+.dado-section {
+    margin-bottom: 1.5rem;
+}
+
+.dado-title {
+    color: #f47a00;
+    font-weight: 750;
+    font-size: larger;
+    margin-bottom: 1rem;
+}
+
+.dado-item {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #333;
+}
+
+.dado-label {
+    font-weight: bold;
+    margin-left: 15px;
+    color: #000000;
+}
+
+.dado-value {
+    color: #ffffff;
+}
+
+.btn-editar {
+    background-color: #F77F00;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    width: 100%;
+    text-align: left;
+    justify-content: center;
+    display: flex;
+
+
+}
+
+.btn-editar img {
+    margin-right: 10px;
+}
+
+/* Estilos para o formulário de edição */
+#formEditarDados {
+    background-color: #F77F00;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilo para o modal */
+.modal-vermelhor {
+    background-color: rgb(144, 33, 6);
+    color: white;
+}
+
+.modal-todo-vermelhor .modal-content {
+    border-radius: 16px;
+}
+
+
+/* LOGIN */
+.form-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-container p {
+    text-align: center;
+    font-weight: 500;
+
+}
+
+.form-vermelho input {
+    border-radius: 100px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    background-color: white;
+
+}
+
+.link-recuperar-senha a {
+    color: white;
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid white;
+    /* Cor da linha */
+    margin: 10px;
+}
+
+/* OFFCANVA DE PERFIL DO USUARIO */
+.offcanvas-perfil {
+    background-color: #991C08 !important;
+}
+
+.offcanvas-title {
+
+    color: #eeeeee;
+}
+
+.buttons-perfil {
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+    flex-direction: column;
+}
+
+.button-laranja-perfil {
+    background-color: #f47a00;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 10px;
+    right: 20px;
+
+}
+
+.button-branco-perfil {
+    background-color: #ffffff;
+    color: black;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 10px;
+    right: 20px;
+}
+
+.progress-fidelidade {
+    background-color: #F77F00;
+    border-radius: 40px;
+    margin-top: 20px;
+
+
+
+}
+
+
+.progress-fidelidade h6 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bolder;
+    flex-direction: column;
+
+}
+
+.progress-fidelidade p {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top: 10px;
+    display: flex;
+}
+
+
+.card-fidelidade {
+    background-color: #F77F00 !important;
+    border-radius: 70px !important;
+    padding: 10px;
+    margin: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.button-sair {
+    background-color: #d31212;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    justify-content: left;
+
+
+}
+
+.button-sair:hover {
+    background-color: #f47a00;
+}
+
+.position-button-sair h6 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bolder;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+
+/* OFFCANVA -> PEDIDO  */
+
+/* Estilos para o offcanvas de pedidos */
+.pedido-item {
+    border-radius: 20px;
+    margin: 20px 5px;
+    background-color: #ffffff;
+    padding: 20px;
+
+}
+
+
+.pedido-numero {
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+
+.pedido-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.status-entregue {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-andamento {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-cancelado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.pedido-detalhes {
+    flex: 1;
+}
+
+.pedido-tamanho {
+    font-weight: bold;
+}
+
+.pedido-data {
+    color: #6c757d;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 3px;
+}
+
+.offcanvas-pedidos {
+    width: 400px;
+}
+
+.offcanvas-header-pedidos {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+}
+
+.offcanvas-title-pedidos {
+    color: #f47a00;
+    font-weight: bold;
+}
+
+
+
+/* PÁGINA STATUS PEDIDO */
+
+.conteiner-status {
+    margin-top: 120px;
+    color: rgb(255, 255, 255);
+}
+
+.barra {
+    /* BARRA DE PROGRESSO DO PEDIDO*/
+
+    margin: 0 auto;
+    width: 700px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+.barra div {
+    /* AINDA BARRA DE PROGRESSO */
+    height: 100%;
+    border-radius: 10px;
+    background-color: #222;
+}
+
+        /* DIV PRINCIPAL DA PARTE DE STATUS DO PROGRESSO /COMEÇO DA PART DE STATUS DE PROGRESSO */
+.status-timeline {              
+    position: relative;
+    padding-left: 50px;
+    margin: 40px 0;
+    padding-right: 50px;
+}
+
+.status-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #e0e0e0;
+}
+
+/*  DEIXA O BLOCO RELATIVO COM UMA MARGIN EMBAIXO DE 30PX */
+.progresso-tempo {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.propgresso-tempo:last-child {
+    margin-bottom: 0;
+}
+
+/* ICONES DE STATUS DO PEDIDO/ CONFENFERE-MOTINHA E CASA */
+.status-icone {
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+/*  */
+.progresso-tempo.active .status-icone {
+    background-color: rgb(60, 200, 60);
+}
+
+.progresso-tempo.current .status-icone {
+    background-color: rgb(250, 250, 3);
+    animation: pulse 1.5s infinite;
+}
+
+.status-progresso {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f47a00;
+}
+
+.progresso-tempo.current .status-progresso {
+    background-color: rgba(66, 179, 66, 0.859);;
+    border-left: 3px solid rgb(250, 250, 3);
+}
+
+.progresso-tempo.active .status-progresso {
+    background-color: rgb(124, 131, 120);
+    border-left: 3px solid rgb(60, 200, 60);
+}
+
+.status-progresso h3 {
+    font-family: var(--font2);
+    margin-bottom: 5px;
+    color: white;
+}
+
+.status-progresso p {
+    font-family: var(--font1);
+    color: rgb(0, 0, 0);
+    padding-top: 5px;
+}
+
+.status-tempo {
+    font-size: 0.9rem;
+    color: #000000;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.status-tempo i {
+    margin-right: 5px;
+}
+
+
+
+.status h3 {
+    font-family: var(--font2);
+    font-weight: 600;
+    border-radius: 20px;
+    color: #000;
+    /* começo da pagina/status so pedido */
+    background-color: #F77F00;
+    padding: 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.status p {
+    font-family: var(--font1);
+    font-weight: 400;
+    /* paragráfo embaixo do status de pedido */
+    margin-top: 20px;
+}
+
+
+
+.status1 {
+    background-color: #000;
+    text-align: center;
+    font-family: var(--font1);
+    /* parte do codigo do pedido e o tempo estimado */
+    font-weight: 800;
+    font-size: 20px;
+    padding-left: 40px;
+
+}
+
+.status2 {
+    text-align: center;
+    margin-bottom: 5%;
+    background-color: #F77F00;
+    border-radius: 15px;
+}
+
+/* INICIO DA BARRA DE PROGRESSO */
+
+.progresso-container {
+    text-align: center;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+
+.progress-container {
+    display: flex;
+    background-color: #333;
+    height: 6px;
+    border-radius: 5px;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 50px;
+    width: 600px;
+    max-width: 100%;
+
+}
+
+.progress-container::before {
+    content: '';
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -1;
+
+
+}
+
+.progress {
+    position: absolute;
+    height: 100%;
+    background: linear-gradient(to right, #f57c00, #ffb300);
+    width: 0%;
+    border-radius: 5px;
+    transition: 0.5 ease;
+
+}
+
+.circle {
+    background-color: white;
+    color: #999;
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -12px;
+    transform: translateX(-50%);
+    border: 3px solid #e0e0e0e0;
+    transition: background-color 0.3s;
+
+}
+
+.circle.active {
+    border-color: #2e9346;
+    background-color: #2e9346;
+    color: white;
+}
+
+
+
+/* FINAL DA BARRA DE PROGRESSO */
+
+/* COMEÇO DA PARTE DE DETALHES DO PEDIDO */
+.detalhes {
+    background-color: white;
+    color: #000;
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 530px;
+    margin-bottom: 100px;
+
+}
+
+.detalhes>h3 {
+    text-align: center;
+    color: #f47a00;
+    font-family: var(--font1);
+    font-weight: 700;
+    padding-top: 10px;
+    border-bottom: 2px solid black;
+}
+
+.detalhes-pedido {
+    padding: 1.5em;
+    border-radius: 10px;
+    background-color: rgb(227, 217, 217);
+    margin-bottom: 15px;
+}
+
+.info-detalhes {
+    font-family: var(--font1);
+    text-align: end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-dados {
+    color: black;
+    font-weight: 700;
+}
+
+.info-valores {
+    text-align: right;
+}
+
+/* FIM DA PARTE DE DETALHES DO PEDIDO */
+
+
+
+/* COMEÇO DA PARTE DE ITENS DO PEDIDO */
+.itens-pedido {
+    background-color: #F77F00;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.itens-pedido {
+    padding-bottom: 0.5em;
+}
+
+.itens-pedido h3 {
+    font-family: var(--font2);
+    font-weight: 700;
+    background-color: #d31212;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.quantidade-item {
+    justify-content: space-between;
+
+}
+
+.lista-item {
+    list-style: none;
+}
+
+.lista-pedidos {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8em;
+}
+
+.titulo-do-mapa {
+    color: #000;
+    font-family: var(--font2);
+    font-weight: 700;
+
+}
+
+@media (max-width:768px) {
+    .mapa {
+        width: 400px;
+
+    }
+}
+
+
+.contato-suporte{
+    margin-top: 40px;
+    font-size: 1.7em;
+}
+
+.contato-suporte a{ 
+    color: #000;
+}
+
+/* FOOTER/RODAPÉ */
+.footer-conteiner {
+    background-color: rgb(50, 48, 48);
+    color: rgb(255, 255, 255);
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    bottom: 0;
+
+
+}
+
+.logo-grande {
+    width: 200px;
+    height: 200px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    gap: 50px;
+}
+
+.redes-sociais .midia {
+    gap: 40px;
+}
+
+.redes-sociais .midia img {
+    height: 40px;
+    width: 40px;
+}
+</style>
+<body>
+    <header>
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand me-auto" href="index.html">
+                    <img src="img/logo.png" alt="Logo da Bella Massa" width="100"
+                        height="100">
+                </a>
+                <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BELLA MASSA</h5>
+                        <button type="button" class="btn-close btn-close-white btn-primary btn-sm"
+                            data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 text-white">
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2 active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Sobre nós</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Promoções</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Cardápio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Contato</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Botões do Navbar -->
+                <div class="button-navbar ms-auto">
+                    <button type="button" class="login-button btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        <img src="img/login.png" height="30" width="30"> Conta
+                    </button>
+                    <button class="login-button"><a href=""></a>
+                        <img src="img/carrinho.png" height="30" width="30"> Pedidos
+                    </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Modal (movido para fora do navbar) -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="container p-5">
+                            <form class="form-vermelho">
+                                <div class="mb-3">
+                                    <div class="title">
+                                        <h1>Acesse sua conta</h1>
+                                    </div>
+                                    <label for="email" class="form-label">Digite seu email:</label>
+                                    <input type="email" name="email_usuario" placeholder="Digite seu email" id="email"
+                                        class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="">Digite sua senha:</label>
+                                    <input type="password" name="senha_usuario" placeholder="Digite sua senha"
+                                        id="senha" class="form-control" required>
+                                </div>
+                                <div class="link-recuperar-senha">
+                                    <a href="#">esqueci minha senha</a>
+                                </div>
+                                <div class="center-button">
+                                    <button type="submit" class="button-black btn-submit">Conectar</button>
+                                </div>
+                                <div class="form-container">
+                                    <div class="divider">
+                                        <span>ou</span>
+                                    </div>
+                                    <p>Ainda não tem cadastro?</p>
+                                    <div class="center-button">
+                                        <button type="submit" class="button-black btn-submit"><a
+                                                href="../src/formscadastro.html">Quero me
+                                                cadastrar</a></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+     -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
 
     <main>
         <section class="conteiner-status text-center">
-            <h3>Status do Pedido</h3>
-
             <div class="status">
-                <h3>Pedido em preparo</h3>
+                <h3>Status do Pedido</h3>
+                <p>Nós cuidamos de tudo para você!</p>
             </div>
+
             <br>
             <div class="status1">
-                <p><strong>Codigo do pedido: 001</strong></p>
-                <p><strong>Tempo estimado: 30 minutos</strong></p>
-            </div>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
-            </div>
-            <div class="status2">
-                <table style="width:100%">
-                    <tr>
-                        <th>Pedido recebido</th>
-                        <th>Pedido confirmado</th>
-                        <th>Pedido em preparo</th>
-                        <th>Pedido a caminho</th>
-                        <th>Pedido entregue</th>
-                    </tr>
-                </table>
+                <p><strong class="text-success">Codigo do pedido: 00001</strong> <br>
+                    Tempo estimado: 30 minutos</p>
             </div>
 
-            <!--   MAPA ONLINE   -->
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.38358367543!2d-46.76851652385652!3d-23.697992278706298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5212f9627de5%3A0x1c5ccd29c1a3e96a!2sEtec%20Jardim%20%C3%82ngela!5e0!3m2!1spt-BR!2sbr!4v1716510745441!5m2!1spt-BR!2sbr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>"
+            <div class="barra">
+                <div style="width: 75%;"></div>
+            </div>
+
+
+
+            <div class="status-timeline">
+                <div class="progresso-tempo active">
+                    <div class="status-icone">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Confirmado</h3>
+                        <p>Seu pedido foi recebido e confirmado pela BellaMassa.</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:26 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo active">
+                    <div class="status-icone">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido em Preparação</h3>
+                        <p>Sua pizza está sendo preparada com todo amor da BellaMassa.</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:33 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo current">
+                    <div class="status-icone">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Saiu para Entrega</h3>
+                        <p>Seu pedido saiu para entrega. Jajá você ira degustar do melhor da BellaMassa !</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:40 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progresso-tempo">
+                    <div class="status-icone">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="status-progresso">
+                        <h3>Pedido Entregue</h3>
+                        <p>Seu pedido foi entregue com sucesso. Bom apetite!</p>
+                        <div class="status-tempo">
+                            <i class="far fa-clock"></i> 23:55 - 18/05/2025
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <section class="detalhes container">
+                <h3>Meus pedidos</h3>
+                <div class="detalhes-pedido">
+                    <div class="info-detalhes">
+
+                        <span class="info-dados text-capitalize">data de pedido:</span>
+                        <span class="info-valores text-right">11/05/2025 - 11:30 </span>
+                    </div>
+
+                    <div class="info-detalhes">
+
+                        <span class="info-dados text-capitalize">endereço da entrega:</span>
+                        <span class="info-valores text-right text-capitalize">rua anesio soares publio, 321 -
+                            <br>jardim
+                            herculano - SP </span>
+                    </div>
+
+                    <P class="text-success fw-bold col-12 ">Obrigado por confiar em nós. Bom apetite !</P>
+
+                </div>
+
+                <div class="itens-pedido">
+                    <h3 class="text-center">Itens do Pedido</h3>
+                    <ul class="lista-item">
+
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">1x</span>
+                            <span>Pizza de frango com catupiry</span>
+                            <span class="valor-item text-dark">R$ 45,90</span>
+
+                        </li>
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">2x</span>
+                            <span>Refrigerante Coca-Cola</span>
+                            <span class="valor-item text-dark">R$ 24,50</span>
+
+                        </li>
+                        <li class="lista-pedidos">
+                            <span class="quantidade-item fw-bolder">1x</span>
+                            <span> Pizza de Calabresa</span>
+                            <span class="valor-item text-dark">R$ 45,90</span>
+
+                        </li>
+
+                        <li style="padding-top: 10px; border-top: 1px solid rgb(32, 32, 32); font-weight: 600;">
+                            <span class="fw-bolder text-capitalize">total do pedido:</span>
+                            <span class="valor-item text-dark fw-bold">R$ 116,30 </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <div class="contato-suporte">
+                <div class="text-center fw-bold">Problemas no seu pedido? <strong><a href="contato.html">Fale Conosco !</a></strong></div>
+            </div>
+
 
         </section>
     </main>
-  <!--   FOOTER   -->
-  <footer class="footer-conteiner">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          <img class="logo-grande" src="../public/icons/LogoBellaMessa.png" alt="Logo da Bella Massa">
+
+
+    <!--   FOOTER   -->
+    <footer class="footer-conteiner">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <img class="logo-grande" src="img/logo.png" alt="">
+                </div>
+                <div class="col">
+                    <h5>Endereço</h5>
+                    <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
+                    <p>São Paulo-SP</p>
+                </div>
+                <div class="col">
+                    <h5>Telefone</h5>
+                    <p>(11)9002-0922</p>
+                    <p>(11)9002-0922</p>
+                </div>
+                <div class="col">
+                    <h5>Horário de funcionamento</h5>
+                    <h6>Terça a Quinta</h6>
+                    <p> Das 17:00 ás 00:00</p>
+                    <h6>Sexta á Sábado</h6>
+                    <p> Das 17:00 ás 01:00</p>
+                </div>
+            </div>
+
+            <!-- Redes Sociais abaixo das colunas -->
+            <div class="row">
+                <div class="col redes-sociais">
+                    <a href="#" class="midia"><img src="img/zap.png" height="30" width="30"></a>
+                    <a href="#" class="midia"><img src="img/emal.png" height="30" width="30"></a>
+                    <a href="#" class="midia"><img src="img/ttk.png" height="30" width="30"></a>
+                </div>
+            </div>
         </div>
-        <div class="col">
-          <h5>Endereço</h5>
-          <p>Av João Gonçalves dos Reis, 350, Medeiros(Esquina com a Av Francisco Nobre)</p>
-          <p>São Paulo-SP</p>
-        </div>
-        <div class="col">
-          <h5>Telefone</h5>
-          <p>(11)9002-0922</p>
-          <p>(11)9002-0922</p>
-        </div>
-        <div class="col">
-          <h5>Horário de funcionamento</h5>
-          <h6>Terça a Quinta</h6>
-          <p> Das 17:00 ás 00:00</p>
-          <h6>Sexta á Sábado</h6>
-          <p> Das 17:00 ás 01:00</p>
-        </div>
-      </div>
-
-      <!-- Redes Sociais abaixo das colunas -->
-      <div class="row">
-        <div class="col redes-sociais">
-          <a href="#" class="midia"><img src="../public/icons/whatsapp.png" height="30" width="30"></a>
-          <a href="#" class="midia"><img src="../public/icons/instagram.png" height="30" width="30"></a>
-          <a href="#" class="midia"><img src="../public/icons/tik-tok (1).png" height="30" width="30"></a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-   
-<script src="../assets/js/auth.js"></script>
-  <script src="/TCC_organizacaoDePastas/src/frontend/assets/js/loadHeader.js"></script>
-  <script src="../assets/js/navbar.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    </footer>
 
 
 
-     <!--  // Abra o console do navegador (F12) e execute:
-localStorage.removeItem('isLoggedIn');
-localStorage.removeItem('usuario');
-localStorage.clear();
-console.log(localStorage.getItem('isLoggedIn')); -->
-
-<script src="../assets/js/index.js"></script>
-<!-- Script de carregamento (coloque no FINAL do body, após o bootstrap) -->
 <script>
-  fetch('../UserPages/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-    })
-    .catch(error => console.error('Erro ao carregar o header:', error));
-    
-   // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
-   const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
-   modalTriggerList.map(function (modalTriggerEl) {
-     new bootstrap.Modal(modalTriggerEl);
-   });
+  window.onload = function () {
+    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+    const tempos = ["23:26", "23:33", "23:40", "23:55"];
+    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
 
-   const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-   offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-     new bootstrap.Offcanvas(offcanvasTriggerEl);
-   });
-   const form = document.getElementById("avaliacaoForm");
+    // Atualiza a barra de progresso
+    const barra = document.querySelector('.barra div');
+    barra.style.width = `${(statusAtual - 1) * 33}%`;
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  // lógica do envio
-});
+    // Atualiza estimativa de tempo
+    document.querySelector('.status1 p').innerHTML = `
+      <strong class="text-success">Codigo do pedido: 00001</strong> <br>
+      Tempo estimado: ${estimado}
+    `;
+
+    // Atualiza status de progresso
+    const statusList = document.querySelectorAll('.progresso-tempo');
+    statusList.forEach((item, index) => {
+      item.classList.remove('current', 'active');
+      if (index + 1 < statusAtual) {
+        item.classList.add('active');
+      } else if (index + 1 === statusAtual) {
+        item.classList.add('current');
+      }
+    });
+  };
+</script>
+
+<script>
+  function checarStatus() {
+    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+    atualizarStatusNaTela(statusAtual);
+  }
+
+  function atualizarStatusNaTela(status) {
+    const statusList = document.querySelectorAll('.progresso-tempo');
+    const barra = document.querySelector('.barra div');
+    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+
+    barra.style.width = `${(status - 1) * 33}%`;
+    document.querySelector('.status1 p').innerHTML = `
+      <strong class="text-success">Codigo do pedido: 00001</strong> <br>
+      Tempo estimado: ${estimado}
+    `;
+
+    statusList.forEach((item, index) => {
+      item.classList.remove('current', 'active');
+      if (index + 1 < status) item.classList.add('active');
+      else if (index + 1 === status) item.classList.add('current');
+    });
+  }
+
+  // Checa a cada 5 segundos
+  setInterval(checarStatus, 5000);
 </script>
 
 
+    <!-- BOOTSTARP JS -->
+    <script src="JAVASCRIPT/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
 
- 
-  
-    
-
-
-  </body>
+</body>
 
 </html>

@@ -13,6 +13,8 @@
   <!--BOOTSTRAP-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="../assets/css/pgIndexNavFooter.css">
 </head>
 
@@ -110,50 +112,71 @@
       <p class=" sobre h3" style="color: white;">Porque escolher a bella Massa?</p>
 
 
-      <div class="accordion">
-        <div class="accordion-item active">
-          <div class="accordion-header">
-            <span>Qualidade</span>
-            <span class="arrow">&#8594</span>
-          </div>
-          <div class="accordion-content">
-            Aqui na Dalle Pizza, somos apaixonados pelo que fazemos, por isso buscamos desenvolver nossos produtos
-            sempre com um diferencial. Trabalhamos com ingredientes selecionados que fazem das nossas pizzas serem
-            únicas. Buscamos oferecer sempre o melhor ao nosso cliente.
+      <div class="accordion" id="customAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Qualidade
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#customAccordion">
+            <div class="accordion-body">
+              Aqui na Dalle Pizza, somos apaixonados pelo que fazemos, por isso buscamos desenvolver nossos produtos
+              sempre com um diferencial. Trabalhamos com ingredientes selecionados que fazem das nossas pizzas serem
+              únicas. Buscamos oferecer sempre o melhor ao nosso cliente.
+            </div>
           </div>
         </div>
-
+    
         <div class="accordion-item">
-          <div class="accordion-header">
-            <span>Sabores</span>
-            <span class="arrow">&#8594</span>
-          </div>
-          <div class="accordion-content">
-            Temos uma variedade incrível de sabores! Desde os tradicionais até os mais ousados, para agradar todos os
-            gostos.
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo">
+              Sabores
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#customAccordion">
+            <div class="accordion-body">
+              Temos uma variedade incrível de sabores! Desde os tradicionais até os mais ousados, para agradar todos os
+              gostos.
+            </div>
           </div>
         </div>
-
+    
         <div class="accordion-item">
-          <div class="accordion-header">
-            <span>Promoções</span>
-            <span class="arrow">&#8594</span>
-          </div>
-          <div class="accordion-content">
-            Toda semana novas promoções para você aproveitar o melhor da nossa pizza pagando menos.
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Promoções
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#customAccordion">
+            <div class="accordion-body">
+              Toda semana novas promoções para você aproveitar o melhor da nossa pizza pagando menos.
+            </div>
           </div>
         </div>
-
+    
         <div class="accordion-item">
-          <div class="accordion-header">
-            <span>Atendimento</span>
-            <span class="arrow">&#8594</span>
-          </div>
-          <div class="accordion-content">
-            Atendimento rápido, cordial e com muito carinho. Aqui você é tratado como família.
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+              aria-expanded="false" aria-controls="collapseFour">
+              Atendimento
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#customAccordion">
+            <div class="accordion-body">
+              Atendimento rápido, cordial e com muito carinho. Aqui você é tratado como família.
+            </div>
           </div>
         </div>
       </div>
+      
     </section>
 
 
@@ -364,19 +387,9 @@
   offcanvasTriggerList.map(function (offcanvasTriggerEl) {
     new bootstrap.Offcanvas(offcanvasTriggerEl);
   });
-
-   const items = document.querySelectorAll('.accordion-item');
-  items.forEach(item => {
-    const header = item.querySelector('.accordion-header');
-
-    header.addEventListener('click', () => {
-      items.forEach(i => {
-        if (i !== item) i.classList.remove('active');
-      });
-      item.classList.toggle('active');
-  });
-
-  });   
+ 
+  
+    
 </script>
 
 
