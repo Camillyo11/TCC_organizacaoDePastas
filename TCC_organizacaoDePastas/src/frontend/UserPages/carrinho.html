@@ -252,7 +252,13 @@ document.querySelector('.button-black-centralizar a').addEventListener('click', 
 
 // Inicializa carrinho ao carregar
 renderizarCarrinho();
+
+localStorage.setItem("pedidoAtual", JSON.stringify(carrinho));
+localStorage.setItem("enderecoEntrega", "Rua Anesio Soares Publio, 321 - Jardim Herculano - SP");
+
 </script>
+
+
 </body>
 
 </html>

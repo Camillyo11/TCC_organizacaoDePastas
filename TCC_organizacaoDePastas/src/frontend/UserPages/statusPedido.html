@@ -13,1066 +13,1067 @@
     <title>Status pedidos</title>
 </head>
 <style>
-  /* MONTSERRAT ALTERNATIVES */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
+    /* MONTSERRAT ALTERNATIVES */
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
 
-/* MONTSERRAT SLAB */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
+    /* MONTSERRAT SLAB */
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Montagu+Slab:opsz,wght@16..144,100..700&family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500;1,600&family=Oswald:wght@200..700&display=swap');
 
-:root {
-    --font1: "Montserrat Alternates";
-    --font2: "Montagu Slab";
-}
-
-html,
-body {
-    background-color: #991C08 !important;
-    overflow-x: hidden;
-    margin: 0;
-    box-sizing: border-box;
-    margin-top: 100px;
-}
-
-@media (max-width: 768px) {
-    /* Para telas menores que 768px */
+    :root {
+        --font1: "Montserrat Alternates";
+        --font2: "Montagu Slab";
+    }
 
     html,
     body {
-        /* margin: 0;
+        background-color: #991C08 !important;
+        overflow-x: hidden;
+        margin: 0;
+        box-sizing: border-box;
+        margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+        /* Para telas menores que 768px */
+
+        html,
+        body {
+            /* margin: 0;
         padding: 10px; 
         height: 100%; */
-        flex-direction: row;
+            flex-direction: row;
 
 
-    }
-}
-
-@media (max-width: 480px) {
-
-    /* Para telas menores que 480px (celulares bem pequenos) */
-    html,
-    body {
-        margin: 0;
-        padding: 0px;
-        height: 100%;
-
-        flex-direction: row;
+        }
     }
 
-}
+    @media (max-width: 480px) {
 
-/* HEADER */
-.navbar-brand {
-    font-size: 24px;
-    font-weight: 500;
-    color: rgb(255, 255, 255);
-    margin-left: 20px;
-    height: 100px;
-    z-index: 1000;
+        /* Para telas menores que 480px (celulares bem pequenos) */
+        html,
+        body {
+            margin: 0;
+            padding: 0px;
+            height: 100%;
 
-
-}
-
-.navbar-brand img {
-    width: 80px;
-    height: 80px;
-}
-
-a.login-button {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none !important;
-    cursor: pointer;
-
-    background-color: rgb(144, 33, 6) !important;
-    color: white;
-    font-size: 14px;
-    padding: 5px 5px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s background-color !important;
-    border: none;
-
-
-}
-
-/* Remove o sublinhado no hover */
-a.login-button:hover {
-    background-color: rgb(211, 35, 11) !important;
-    text-decoration: none !important;
-}
-
-.button-navbar {
-    display: flex;
-    margin-left: auto;
-    gap: 10px;
-    padding: 10px;
-
-}
-
-button.login-button {
-    background-color: rgb(144, 33, 6) !important;
-    color: white;
-    font-size: 14px;
-    padding: 5px 5px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s background-color !important;
-    margin-right: 20px;
-    border: none;
-    gap: 8px;
-    /* Espaço entre a imagem e o texto */
-    white-space: nowrap;
-    /* Impede que o texto quebre em várias linhas */
-
-}
-
-button.login-button:hover,
-a.login-button:hover {
-    background-color: rgb(211, 35, 11) !important;
-}
-
-
-button.login-button img,
-a.login-button img {
-    display: inline-block;
-    /* Garante que a imagem fique alinhada corretamente */
-    flex-shrink: 0;
-    /* Impede que a imagem diminua */
-}
-
-
-@media (max-width: 420px) {
-    .button-navbar {
-        flex-direction: row;
-        gap: 5px;
-        margin-left: 0;
-        width: 80%;
-        justify-content: flex-end;
-    }
-
-    .login-button {
-        background-color: rgb(144, 33, 6) !important;
-        color: white;
-        font-size: 10px;
-        padding: 5px 10px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: 0.3s background-color !important;
-        border: none;
+            flex-direction: row;
+        }
 
     }
 
-}
+    /* HEADER */
+    .navbar-brand {
+        font-size: 24px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+        margin-left: 20px;
+        height: 100px;
+        z-index: 1000;
 
 
-@media (max-width: 767.98px) {
-    .button-navbar {
-        flex-direction: row;
-        gap: 10px;
-        justify-content: flex-end;
-        width: 75%;
     }
 
-    .login-button {
+    .navbar-brand img {
+        width: 80px;
+        height: 80px;
+    }
+
+    a.login-button {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none !important;
+        cursor: pointer;
+
         background-color: rgb(144, 33, 6) !important;
         color: white;
         font-size: 14px;
-        padding: 5px 10px;
+        padding: 5px 5px;
         border-radius: 50px;
         text-decoration: none;
         transition: 0.3s background-color !important;
         border: none;
 
 
+    }
+
+    /* Remove o sublinhado no hover */
+    a.login-button:hover {
+        background-color: rgb(211, 35, 11) !important;
+        text-decoration: none !important;
+    }
+
+    .button-navbar {
+        display: flex;
+        margin-left: auto;
+        gap: 10px;
+        padding: 10px;
 
     }
-}
 
-.navbar-toggler {
-    border: none;
-    font-size: 1.25rem;
-    color: #ffffff;
+    button.login-button {
+        background-color: rgb(144, 33, 6) !important;
+        color: white;
+        font-size: 14px;
+        padding: 5px 5px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: 0.3s background-color !important;
+        margin-right: 20px;
+        border: none;
+        gap: 8px;
+        /* Espaço entre a imagem e o texto */
+        white-space: nowrap;
+        /* Impede que o texto quebre em várias linhas */
+
+    }
+
+    button.login-button:hover,
+    a.login-button:hover {
+        background-color: rgb(211, 35, 11) !important;
+    }
+
+
+    button.login-button img,
+    a.login-button img {
+        display: inline-block;
+        /* Garante que a imagem fique alinhada corretamente */
+        flex-shrink: 0;
+        /* Impede que a imagem diminua */
+    }
+
+
+    @media (max-width: 420px) {
+        .button-navbar {
+            flex-direction: row;
+            gap: 5px;
+            margin-left: 0;
+            width: 80%;
+            justify-content: flex-end;
+        }
+
+        .login-button {
+            background-color: rgb(144, 33, 6) !important;
+            color: white;
+            font-size: 10px;
+            padding: 5px 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s background-color !important;
+            border: none;
+
+        }
+
+    }
+
+
+    @media (max-width: 767.98px) {
+        .button-navbar {
+            flex-direction: row;
+            gap: 10px;
+            justify-content: flex-end;
+            width: 75%;
+        }
+
+        .login-button {
+            background-color: rgb(144, 33, 6) !important;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s background-color !important;
+            border: none;
 
 
 
-}
+        }
+    }
 
-.navbar-toggler:focus,
-.btn-close:focus {
-    outline: none;
-    box-sizing: none;
+    .navbar-toggler {
+        border: none;
+        font-size: 1.25rem;
+        color: #ffffff;
 
 
-}
 
-.nav-link {
-    color: rgb(255, 255, 255);
-    font-weight: 500;
+    }
 
-}
+    .navbar-toggler:focus,
+    .btn-close:focus {
+        outline: none;
+        box-sizing: none;
 
-.nav-link:hover,
-.nav-link:active {
-    color: #eeeeee;
-}
 
-@media (min-width:991px) {
-    .nav-link::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+    }
+
+    .nav-link {
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+
+    }
+
+    .nav-link:hover,
+    .nav-link:active {
+        color: #eeeeee;
+    }
+
+    @media (min-width:991px) {
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            visibility: hidden;
+            transition: 0.3 ease-in-out;
+        }
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        visibility: visible;
+    }
+
+    /* MODAL */
+    .modal-header-preto {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-size: 16px;
+
+    }
+
+    .modal-body {
+        background-color: rgb(144, 33, 6);
+        justify-content: center;
+        align-items: center;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+
+
+    }
+
+    /* MODAL DE ENDEREÇO */
+    /* Estilo para os itens de endereço */
+    .endereco-item {
+        cursor: pointer;
+        background-color: #ffffff;
+        color: #000;
         width: 100%;
-        height: 2px;
-        visibility: hidden;
-        transition: 0.3 ease-in-out;
+        padding: 10px 10px;
+        font-weight: 40;
+        border-radius: 30px;
+        margin: 5px 0;
+        flex-direction: row;
+        display: flex;
+        gap: 10px;
     }
-}
-
-.nav-link:hover::before,
-.nav-link.active::before {
-    visibility: visible;
-}
-
-/* MODAL */
-.modal-header-preto {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    font-size: 16px;
-
-}
-
-.modal-body {
-    background-color: rgb(144, 33, 6);
-    justify-content: center;
-    align-items: center;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-
-
-}
-
-/* MODAL DE ENDEREÇO */
-/* Estilo para os itens de endereço */
-.endereco-item {
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #000;
-    width: 100%;
-    padding: 10px 10px;
-    font-weight: 40;
-    border-radius: 30px;
-    margin: 5px 0;
-    flex-direction: row;
-    display: flex;
-    gap: 10px;
-}
-
-.endereco-item h7 {
-    font-weight: bold;
-    color: #535151;
-
-}
-
-.coluna {
-    margin-top: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    justify-items: center;
-    margin: 10px;
-}
-
-
-/* Ajustes para o offcanvas-bottom */
-.offcanvas-bottom {
-    height: 90vh !important;
-    /* Ajuste a porcentagem conforme necessário */
-    max-height: 90vh !important;
-    /* Evita ultrapassar a tela */
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-}
-
-/* EDIÇÃO DE ENDEREÇO */
-
-/* PARTE TESTE  */
-
-.btn-address-type {
-    width: 100%;
-    padding: 15px 5px;
-    background-color: transparent;
-    border: 2px solid #ff6b00;
-    color: white;
-    border-radius: 8px;
-    transition: all 0.3s;
-}
-
-.btn-address-type:hover {
-    background-color: rgba(255, 107, 0, 0.1);
-}
-
-.btn-address-type.active {
-    background-color: #ff6b00;
-    color: white;
-}
-
-.btn-address-type img {
-    filter: brightness(0) invert(1);
-}
-
-.btn-address-type.active img {
-    filter: none;
-}
-
-/*  ENDEREÇO*/
-
-.offcanva-edicao-endereco {
-    background-color: rgb(144, 33, 6) !important;
-    color: white;
-    font-size: 20px;
-    padding: 15px 15px;
-    border-radius: 15px;
-    margin: 10px;
-    margin-right: 10px;
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgb(191, 0, 0);
-}
 
-.check-laranja {
-    background-color: #F77F00;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-    justify-content: left;
+    .endereco-item h7 {
+        font-weight: bold;
+        color: #535151;
+
+    }
+
+    .coluna {
+        margin-top: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        justify-items: center;
+        margin: 10px;
+    }
+
+
+    /* Ajustes para o offcanvas-bottom */
+    .offcanvas-bottom {
+        height: 90vh !important;
+        /* Ajuste a porcentagem conforme necessário */
+        max-height: 90vh !important;
+        /* Evita ultrapassar a tela */
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
+    /* EDIÇÃO DE ENDEREÇO */
+
+    /* PARTE TESTE  */
+
+    .btn-address-type {
+        width: 100%;
+        padding: 15px 5px;
+        background-color: transparent;
+        border: 2px solid #ff6b00;
+        color: white;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .btn-address-type:hover {
+        background-color: rgba(255, 107, 0, 0.1);
+    }
+
+    .btn-address-type.active {
+        background-color: #ff6b00;
+        color: white;
+    }
+
+    .btn-address-type img {
+        filter: brightness(0) invert(1);
+    }
+
+    .btn-address-type.active img {
+        filter: none;
+    }
+
+    /*  ENDEREÇO*/
+
+    .offcanva-edicao-endereco {
+        background-color: rgb(144, 33, 6) !important;
+        color: white;
+        font-size: 20px;
+        padding: 15px 15px;
+        border-radius: 15px;
+        margin: 10px;
+        margin-right: 10px;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 4px 8px rgb(191, 0, 0);
+    }
+
+    .check-laranja {
+        background-color: #F77F00;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        justify-content: left;
+
+    }
+
+    .buttons-opcao-endereco {
+        margin: 20px;
+        gap: 10px;
+    }
+
+    .button-branco {
+        background-color: #ffffff;
+        color: black;
+        font-weight: bolder;
+        padding: 8px 10px;
+        border-radius: 30px;
+        width: 160px;
+
+
+    }
 
-}
+    .button-branco:hover {
+        background-color: #f47a00;
+        color: white;
+    }
 
-.buttons-opcao-endereco {
-    margin: 20px;
-    gap: 10px;
-}
+    /* MEUS DADOS */
+    /* Estilos para o offcanvas Meus Dados */
+    .dado-section {
+        margin-bottom: 1.5rem;
+    }
 
-.button-branco {
-    background-color: #ffffff;
-    color: black;
-    font-weight: bolder;
-    padding: 8px 10px;
-    border-radius: 30px;
-    width: 160px;
+    .dado-title {
+        color: #f47a00;
+        font-weight: 750;
+        font-size: larger;
+        margin-bottom: 1rem;
+    }
 
-
-}
-
-.button-branco:hover {
-    background-color: #f47a00;
-    color: white;
-}
+    .dado-item {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #333;
+    }
+
+    .dado-label {
+        font-weight: bold;
+        margin-left: 15px;
+        color: #000000;
+    }
+
+    .dado-value {
+        color: #ffffff;
+    }
 
-/* MEUS DADOS */
-/* Estilos para o offcanvas Meus Dados */
-.dado-section {
-    margin-bottom: 1.5rem;
-}
-
-.dado-title {
-    color: #f47a00;
-    font-weight: 750;
-    font-size: larger;
-    margin-bottom: 1rem;
-}
-
-.dado-item {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid #333;
-}
-
-.dado-label {
-    font-weight: bold;
-    margin-left: 15px;
-    color: #000000;
-}
-
-.dado-value {
-    color: #ffffff;
-}
-
-.btn-editar {
-    background-color: #F77F00;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    margin-top: 0.5rem;
-    width: 100%;
-    text-align: left;
-    justify-content: center;
-    display: flex;
-
-
-}
-
-.btn-editar img {
-    margin-right: 10px;
-}
-
-/* Estilos para o formulário de edição */
-#formEditarDados {
-    background-color: #F77F00;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-/* Estilo para o modal */
-.modal-vermelhor {
-    background-color: rgb(144, 33, 6);
-    color: white;
-}
-
-.modal-todo-vermelhor .modal-content {
-    border-radius: 16px;
-}
-
-
-/* LOGIN */
-.form-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.form-container p {
-    text-align: center;
-    font-weight: 500;
-
-}
-
-.form-vermelho input {
-    border-radius: 100px;
-    padding: 12px;
-    font-size: 16px;
-    width: 100%;
-    background-color: white;
-
-}
-
-.link-recuperar-senha a {
-    color: white;
-    font-size: 15px;
-    text-decoration: underline;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-}
-
-.divider::before,
-.divider::after {
-    content: "";
-    flex: 1;
-    border-bottom: 2px solid white;
-    /* Cor da linha */
-    margin: 10px;
-}
-
-/* OFFCANVA DE PERFIL DO USUARIO */
-.offcanvas-perfil {
-    background-color: #991C08 !important;
-}
-
-.offcanvas-title {
-
-    color: #eeeeee;
-}
-
-.buttons-perfil {
-    display: flex;
-    gap: 10px;
-    margin: 30px;
-    flex-direction: column;
-}
-
-.button-laranja-perfil {
-    background-color: #f47a00;
-    color: black;
-    font-weight: bolder;
-    padding: 5px;
-    border-radius: 10px;
-    right: 20px;
-
-}
-
-.button-branco-perfil {
-    background-color: #ffffff;
-    color: black;
-    font-weight: bolder;
-    padding: 5px;
-    border-radius: 10px;
-    right: 20px;
-}
-
-.progress-fidelidade {
-    background-color: #F77F00;
-    border-radius: 40px;
-    margin-top: 20px;
-
-
-
-}
-
-
-.progress-fidelidade h6 {
-    color: #000000;
-    font-size: 16px;
-    font-weight: bolder;
-    flex-direction: column;
-
-}
-
-.progress-fidelidade p {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bolder;
-    margin-top: 10px;
-    display: flex;
-}
-
-
-.card-fidelidade {
-    background-color: #F77F00 !important;
-    border-radius: 70px !important;
-    padding: 10px;
-    margin: 20px;
-    color: #ffffff;
-    font-weight: bold;
-    text-align: center;
-}
-
-.button-sair {
-    background-color: #d31212;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 18px;
-    justify-content: left;
-
-
-}
-
-.button-sair:hover {
-    background-color: #f47a00;
-}
-
-.position-button-sair h6 {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bolder;
-    flex-direction: column;
-    margin-top: 60px;
-}
-
-
-/* OFFCANVA -> PEDIDO  */
-
-/* Estilos para o offcanvas de pedidos */
-.pedido-item {
-    border-radius: 20px;
-    margin: 20px 5px;
-    background-color: #ffffff;
-    padding: 20px;
-
-}
-
-
-.pedido-numero {
-    font-weight: bold;
-    color: #000000;
-    font-size: 1.1rem;
-}
-
-
-.pedido-status {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.status-entregue {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.status-andamento {
-    background-color: #fff3cd;
-    color: #856404;
-}
-
-.status-cancelado {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.pedido-detalhes {
-    flex: 1;
-}
-
-.pedido-tamanho {
-    font-weight: bold;
-}
-
-.pedido-data {
-    color: #6c757d;
-    font-size: 0.9rem;
-    display: block;
-    margin-top: 3px;
-}
-
-.offcanvas-pedidos {
-    width: 400px;
-}
-
-.offcanvas-header-pedidos {
-    border-bottom: 1px solid #dee2e6;
-    padding-bottom: 1rem;
-}
-
-.offcanvas-title-pedidos {
-    color: #f47a00;
-    font-weight: bold;
-}
-
-
-
-/* PÁGINA STATUS PEDIDO */
-
-.conteiner-status {
-    margin-top: 120px;
-    color: rgb(255, 255, 255);
-}
-
-.barra {
-    /* BARRA DE PROGRESSO DO PEDIDO*/
-
-    margin: 0 auto;
-    width: 700px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: gray;
-}
-
-.barra div {
-    /* AINDA BARRA DE PROGRESSO */
-    height: 100%;
-    border-radius: 10px;
-    background-color: #222;
-}
-
-        /* DIV PRINCIPAL DA PARTE DE STATUS DO PROGRESSO /COMEÇO DA PART DE STATUS DE PROGRESSO */
-.status-timeline {              
-    position: relative;
-    padding-left: 50px;
-    margin: 40px 0;
-    padding-right: 50px;
-}
-
-.status-timeline::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #e0e0e0;
-}
-
-/*  DEIXA O BLOCO RELATIVO COM UMA MARGIN EMBAIXO DE 30PX */
-.progresso-tempo {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.propgresso-tempo:last-child {
-    margin-bottom: 0;
-}
-
-/* ICONES DE STATUS DO PEDIDO/ CONFENFERE-MOTINHA E CASA */
-.status-icone {
-    position: absolute;
-    left: -50px;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 18px;
-}
-
-/*  */
-.progresso-tempo.active .status-icone {
-    background-color: rgb(60, 200, 60);
-}
-
-.progresso-tempo.current .status-icone {
-    background-color: rgb(250, 250, 3);
-    animation: pulse 1.5s infinite;
-}
-
-.status-progresso {
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f47a00;
-}
-
-.progresso-tempo.current .status-progresso {
-    background-color: rgba(66, 179, 66, 0.859);;
-    border-left: 3px solid rgb(250, 250, 3);
-}
-
-.progresso-tempo.active .status-progresso {
-    background-color: rgb(124, 131, 120);
-    border-left: 3px solid rgb(60, 200, 60);
-}
-
-.status-progresso h3 {
-    font-family: var(--font2);
-    margin-bottom: 5px;
-    color: white;
-}
-
-.status-progresso p {
-    font-family: var(--font1);
-    color: rgb(0, 0, 0);
-    padding-top: 5px;
-}
-
-.status-tempo {
-    font-size: 0.9rem;
-    color: #000000;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.status-tempo i {
-    margin-right: 5px;
-}
-
-
-
-.status h3 {
-    font-family: var(--font2);
-    font-weight: 600;
-    border-radius: 20px;
-    color: #000;
-    /* começo da pagina/status so pedido */
-    background-color: #F77F00;
-    padding: 5px;
-    margin-left: 30%;
-    margin-right: 30%;
-}
-
-.status p {
-    font-family: var(--font1);
-    font-weight: 400;
-    /* paragráfo embaixo do status de pedido */
-    margin-top: 20px;
-}
-
-
-
-.status1 {
-    background-color: #000;
-    text-align: center;
-    font-family: var(--font1);
-    /* parte do codigo do pedido e o tempo estimado */
-    font-weight: 800;
-    font-size: 20px;
-    padding-left: 40px;
-
-}
-
-.status2 {
-    text-align: center;
-    margin-bottom: 5%;
-    background-color: #F77F00;
-    border-radius: 15px;
-}
-
-/* INICIO DA BARRA DE PROGRESSO */
-
-.progresso-container {
-    text-align: center;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-
-}
-
-
-.progress-container {
-    display: flex;
-    background-color: #333;
-    height: 6px;
-    border-radius: 5px;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 50px;
-    width: 600px;
-    max-width: 100%;
-
-}
-
-.progress-container::before {
-    content: '';
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    transform: translateY(-50%);
-    z-index: -1;
-
-
-}
-
-.progress {
-    position: absolute;
-    height: 100%;
-    background: linear-gradient(to right, #f57c00, #ffb300);
-    width: 0%;
-    border-radius: 5px;
-    transition: 0.5 ease;
-
-}
-
-.circle {
-    background-color: white;
-    color: #999;
-    border-radius: 100px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -12px;
-    transform: translateX(-50%);
-    border: 3px solid #e0e0e0e0;
-    transition: background-color 0.3s;
-
-}
-
-.circle.active {
-    border-color: #2e9346;
-    background-color: #2e9346;
-    color: white;
-}
-
-
-
-/* FINAL DA BARRA DE PROGRESSO */
-
-/* COMEÇO DA PARTE DE DETALHES DO PEDIDO */
-.detalhes {
-    background-color: white;
-    color: #000;
-    border-radius: 20px;
-    border: 1px solid black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: 530px;
-    margin-bottom: 100px;
-
-}
-
-.detalhes>h3 {
-    text-align: center;
-    color: #f47a00;
-    font-family: var(--font1);
-    font-weight: 700;
-    padding-top: 10px;
-    border-bottom: 2px solid black;
-}
-
-.detalhes-pedido {
-    padding: 1.5em;
-    border-radius: 10px;
-    background-color: rgb(227, 217, 217);
-    margin-bottom: 15px;
-}
-
-.info-detalhes {
-    font-family: var(--font1);
-    text-align: end;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.info-dados {
-    color: black;
-    font-weight: 700;
-}
-
-.info-valores {
-    text-align: right;
-}
-
-/* FIM DA PARTE DE DETALHES DO PEDIDO */
-
-
-
-/* COMEÇO DA PARTE DE ITENS DO PEDIDO */
-.itens-pedido {
-    background-color: #F77F00;
-    border-radius: 20px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.itens-pedido {
-    padding-bottom: 0.5em;
-}
-
-.itens-pedido h3 {
-    font-family: var(--font2);
-    font-weight: 700;
-    background-color: #d31212;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.quantidade-item {
-    justify-content: space-between;
-
-}
-
-.lista-item {
-    list-style: none;
-}
-
-.lista-pedidos {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.8em;
-}
-
-.titulo-do-mapa {
-    color: #000;
-    font-family: var(--font2);
-    font-weight: 700;
-
-}
-
-@media (max-width:768px) {
-    .mapa {
+    .btn-editar {
+        background-color: #F77F00;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: left;
+        justify-content: center;
+        display: flex;
+
+
+    }
+
+    .btn-editar img {
+        margin-right: 10px;
+    }
+
+    /* Estilos para o formulário de edição */
+    #formEditarDados {
+        background-color: #F77F00;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+
+
+
+
+
+
+
+
+
+    /* Estilo para o modal */
+    .modal-vermelhor {
+        background-color: rgb(144, 33, 6);
+        color: white;
+    }
+
+    .modal-todo-vermelhor .modal-content {
+        border-radius: 16px;
+    }
+
+
+    /* LOGIN */
+    .form-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .form-container p {
+        text-align: center;
+        font-weight: 500;
+
+    }
+
+    .form-vermelho input {
+        border-radius: 100px;
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        background-color: white;
+
+    }
+
+    .link-recuperar-senha a {
+        color: white;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+    }
+
+    .divider::before,
+    .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 2px solid white;
+        /* Cor da linha */
+        margin: 10px;
+    }
+
+    /* OFFCANVA DE PERFIL DO USUARIO */
+    .offcanvas-perfil {
+        background-color: #991C08 !important;
+    }
+
+    .offcanvas-title {
+
+        color: #eeeeee;
+    }
+
+    .buttons-perfil {
+        display: flex;
+        gap: 10px;
+        margin: 30px;
+        flex-direction: column;
+    }
+
+    .button-laranja-perfil {
+        background-color: #f47a00;
+        color: black;
+        font-weight: bolder;
+        padding: 5px;
+        border-radius: 10px;
+        right: 20px;
+
+    }
+
+    .button-branco-perfil {
+        background-color: #ffffff;
+        color: black;
+        font-weight: bolder;
+        padding: 5px;
+        border-radius: 10px;
+        right: 20px;
+    }
+
+    .progress-fidelidade {
+        background-color: #F77F00;
+        border-radius: 40px;
+        margin-top: 20px;
+
+
+
+    }
+
+
+    .progress-fidelidade h6 {
+        color: #000000;
+        font-size: 16px;
+        font-weight: bolder;
+        flex-direction: column;
+
+    }
+
+    .progress-fidelidade p {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bolder;
+        margin-top: 10px;
+        display: flex;
+    }
+
+
+    .card-fidelidade {
+        background-color: #F77F00 !important;
+        border-radius: 70px !important;
+        padding: 10px;
+        margin: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .button-sair {
+        background-color: #d31212;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        justify-content: left;
+
+
+    }
+
+    .button-sair:hover {
+        background-color: #f47a00;
+    }
+
+    .position-button-sair h6 {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bolder;
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+
+    /* OFFCANVA -> PEDIDO  */
+
+    /* Estilos para o offcanvas de pedidos */
+    .pedido-item {
+        border-radius: 20px;
+        margin: 20px 5px;
+        background-color: #ffffff;
+        padding: 20px;
+
+    }
+
+
+    .pedido-numero {
+        font-weight: bold;
+        color: #000000;
+        font-size: 1.1rem;
+    }
+
+
+    .pedido-status {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .status-entregue {
+        background-color: #d4edda;
+        color: #155724;
+    }
+
+    .status-andamento {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
+    .status-cancelado {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .pedido-detalhes {
+        flex: 1;
+    }
+
+    .pedido-tamanho {
+        font-weight: bold;
+    }
+
+    .pedido-data {
+        color: #6c757d;
+        font-size: 0.9rem;
+        display: block;
+        margin-top: 3px;
+    }
+
+    .offcanvas-pedidos {
         width: 400px;
+    }
+
+    .offcanvas-header-pedidos {
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 1rem;
+    }
+
+    .offcanvas-title-pedidos {
+        color: #f47a00;
+        font-weight: bold;
+    }
+
+
+
+    /* PÁGINA STATUS PEDIDO */
+
+    .conteiner-status {
+        margin-top: 120px;
+        color: rgb(255, 255, 255);
+    }
+
+    .barra {
+        /* BARRA DE PROGRESSO DO PEDIDO*/
+
+        margin: 0 auto;
+        width: 700px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: gray;
+    }
+
+    .barra div {
+        /* AINDA BARRA DE PROGRESSO */
+        height: 100%;
+        border-radius: 10px;
+        background-color: #222;
+    }
+
+    /* DIV PRINCIPAL DA PARTE DE STATUS DO PROGRESSO /COMEÇO DA PART DE STATUS DE PROGRESSO */
+    .status-timeline {
+        position: relative;
+        padding-left: 50px;
+        margin: 40px 0;
+        padding-right: 50px;
+    }
+
+    .status-timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: #e0e0e0;
+    }
+
+    /*  DEIXA O BLOCO RELATIVO COM UMA MARGIN EMBAIXO DE 30PX */
+    .progresso-tempo {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .propgresso-tempo:last-child {
+        margin-bottom: 0;
+    }
+
+    /* ICONES DE STATUS DO PEDIDO/ CONFENFERE-MOTINHA E CASA */
+    .status-icone {
+        position: absolute;
+        left: -50px;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+    }
+
+    /*  */
+    .progresso-tempo.active .status-icone {
+        background-color: rgb(60, 200, 60);
+    }
+
+    .progresso-tempo.current .status-icone {
+        background-color: rgb(250, 250, 3);
+        animation: pulse 1.5s infinite;
+    }
+
+    .status-progresso {
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f47a00;
+    }
+
+    .progresso-tempo.current .status-progresso {
+        background-color: rgba(66, 179, 66, 0.859);
+        ;
+        border-left: 3px solid rgb(250, 250, 3);
+    }
+
+    .progresso-tempo.active .status-progresso {
+        background-color: rgb(124, 131, 120);
+        border-left: 3px solid rgb(60, 200, 60);
+    }
+
+    .status-progresso h3 {
+        font-family: var(--font2);
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .status-progresso p {
+        font-family: var(--font1);
+        color: rgb(0, 0, 0);
+        padding-top: 5px;
+    }
+
+    .status-tempo {
+        font-size: 0.9rem;
+        color: #000000;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .status-tempo i {
+        margin-right: 5px;
+    }
+
+
+
+    .status h3 {
+        font-family: var(--font2);
+        font-weight: 600;
+        border-radius: 20px;
+        color: #000;
+        /* começo da pagina/status so pedido */
+        background-color: #F77F00;
+        padding: 5px;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+
+    .status p {
+        font-family: var(--font1);
+        font-weight: 400;
+        /* paragráfo embaixo do status de pedido */
+        margin-top: 20px;
+    }
+
+
+
+    .status1 {
+        background-color: #000;
+        text-align: center;
+        font-family: var(--font1);
+        /* parte do codigo do pedido e o tempo estimado */
+        font-weight: 800;
+        font-size: 20px;
+        padding-left: 40px;
 
     }
-}
+
+    .status2 {
+        text-align: center;
+        margin-bottom: 5%;
+        background-color: #F77F00;
+        border-radius: 15px;
+    }
+
+    /* INICIO DA BARRA DE PROGRESSO */
+
+    .progresso-container {
+        text-align: center;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+
+    }
 
 
-.contato-suporte{
-    margin-top: 40px;
-    font-size: 1.7em;
-}
+    .progress-container {
+        display: flex;
+        background-color: #333;
+        height: 6px;
+        border-radius: 5px;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 50px;
+        width: 600px;
+        max-width: 100%;
 
-.contato-suporte a{ 
-    color: #000;
-}
+    }
 
-/* FOOTER/RODAPÉ */
-.footer-conteiner {
-    background-color: rgb(50, 48, 48);
-    color: rgb(255, 255, 255);
-    padding: 20px 0px;
-    text-align: center;
-    font-size: 14px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-top: 50px;
-    bottom: 0;
+    .progress-container::before {
+        content: '';
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 4px;
+        width: 100%;
+        transform: translateY(-50%);
+        z-index: -1;
 
 
-}
+    }
 
-.logo-grande {
-    width: 200px;
-    height: 200px;
-}
+    .progress {
+        position: absolute;
+        height: 100%;
+        background: linear-gradient(to right, #f57c00, #ffb300);
+        width: 0%;
+        border-radius: 5px;
+        transition: 0.5 ease;
 
-.col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    }
 
-.redes-sociais {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin-top: 20px;
-    padding: 10px;
-    width: 100%;
-    gap: 50px;
-}
+    .circle {
+        background-color: white;
+        color: #999;
+        border-radius: 100px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: -12px;
+        transform: translateX(-50%);
+        border: 3px solid #e0e0e0e0;
+        transition: background-color 0.3s;
 
-.redes-sociais .midia {
-    gap: 40px;
-}
+    }
 
-.redes-sociais .midia img {
-    height: 40px;
-    width: 40px;
-}
+    .circle.active {
+        border-color: #2e9346;
+        background-color: #2e9346;
+        color: white;
+    }
+
+
+
+    /* FINAL DA BARRA DE PROGRESSO */
+
+    /* COMEÇO DA PARTE DE DETALHES DO PEDIDO */
+    .detalhes {
+        background-color: white;
+        color: #000;
+        border-radius: 20px;
+        border: 1px solid black;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 530px;
+        margin-bottom: 100px;
+
+    }
+
+    .detalhes>h3 {
+        text-align: center;
+        color: #f47a00;
+        font-family: var(--font1);
+        font-weight: 700;
+        padding-top: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .detalhes-pedido {
+        padding: 1.5em;
+        border-radius: 10px;
+        background-color: rgb(227, 217, 217);
+        margin-bottom: 15px;
+    }
+
+    .info-detalhes {
+        font-family: var(--font1);
+        text-align: end;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .info-dados {
+        color: black;
+        font-weight: 700;
+    }
+
+    .info-valores {
+        text-align: right;
+    }
+
+    /* FIM DA PARTE DE DETALHES DO PEDIDO */
+
+
+
+    /* COMEÇO DA PARTE DE ITENS DO PEDIDO */
+    .itens-pedido {
+        background-color: #F77F00;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .itens-pedido {
+        padding-bottom: 0.5em;
+    }
+
+    .itens-pedido h3 {
+        font-family: var(--font2);
+        font-weight: 700;
+        background-color: #d31212;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    .quantidade-item {
+        justify-content: space-between;
+
+    }
+
+    .lista-item {
+        list-style: none;
+    }
+
+    .lista-pedidos {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8em;
+    }
+
+    .titulo-do-mapa {
+        color: #000;
+        font-family: var(--font2);
+        font-weight: 700;
+
+    }
+
+    @media (max-width:768px) {
+        .mapa {
+            width: 400px;
+
+        }
+    }
+
+
+    .contato-suporte {
+        margin-top: 40px;
+        font-size: 1.7em;
+    }
+
+    .contato-suporte a {
+        color: #000;
+    }
+
+    /* FOOTER/RODAPÉ */
+    .footer-conteiner {
+        background-color: rgb(50, 48, 48);
+        color: rgb(255, 255, 255);
+        padding: 20px 0px;
+        text-align: center;
+        font-size: 14px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin-top: 50px;
+        bottom: 0;
+
+
+    }
+
+    .logo-grande {
+        width: 200px;
+        height: 200px;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .redes-sociais {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .redes-sociais .midia {
+        gap: 40px;
+    }
+
+    .redes-sociais .midia img {
+        height: 40px;
+        width: 40px;
+    }
 </style>
+
 <body>
     <header>
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand me-auto" href="index.html">
-                    <img src="img/logo.png" alt="Logo da Bella Massa" width="100"
-                        height="100">
+                    <img src="img/logo.png" alt="Logo da Bella Massa" width="100" height="100">
                 </a>
                 <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
@@ -1260,59 +1261,35 @@ a.login-button img {
 
             <section class="detalhes container">
                 <h3>Meus pedidos</h3>
+
                 <div class="detalhes-pedido">
                     <div class="info-detalhes">
-
                         <span class="info-dados text-capitalize">data de pedido:</span>
-                        <span class="info-valores text-right">11/05/2025 - 11:30 </span>
+                        <span class="info-valores text-right" id="data-pedido"></span>
                     </div>
 
                     <div class="info-detalhes">
-
                         <span class="info-dados text-capitalize">endereço da entrega:</span>
-                        <span class="info-valores text-right text-capitalize">rua anesio soares publio, 321 -
-                            <br>jardim
-                            herculano - SP </span>
+                        <span class="info-valores text-right text-capitalize" id="endereco-entrega">
+                           
+                        </span>
                     </div>
 
-                    <P class="text-success fw-bold col-12 ">Obrigado por confiar em nós. Bom apetite !</P>
-
+                    <p class="text-success fw-bold col-12">Obrigado por confiar em nós. Bom apetite !</p>
                 </div>
 
                 <div class="itens-pedido">
                     <h3 class="text-center">Itens do Pedido</h3>
                     <ul class="lista-item">
-
-                        <li class="lista-pedidos">
-                            <span class="quantidade-item fw-bolder">1x</span>
-                            <span>Pizza de frango com catupiry</span>
-                            <span class="valor-item text-dark">R$ 45,90</span>
-
-                        </li>
-                        <li class="lista-pedidos">
-                            <span class="quantidade-item fw-bolder">2x</span>
-                            <span>Refrigerante Coca-Cola</span>
-                            <span class="valor-item text-dark">R$ 24,50</span>
-
-                        </li>
-                        <li class="lista-pedidos">
-                            <span class="quantidade-item fw-bolder">1x</span>
-                            <span> Pizza de Calabresa</span>
-                            <span class="valor-item text-dark">R$ 45,90</span>
-
-                        </li>
-
-                        <li style="padding-top: 10px; border-top: 1px solid rgb(32, 32, 32); font-weight: 600;">
-                            <span class="fw-bolder text-capitalize">total do pedido:</span>
-                            <span class="valor-item text-dark fw-bold">R$ 116,30 </span>
-                        </li>
+                       
                     </ul>
                 </div>
-
             </section>
 
+
             <div class="contato-suporte">
-                <div class="text-center fw-bold">Problemas no seu pedido? <strong><a href="contato.html">Fale Conosco !</a></strong></div>
+                <div class="text-center fw-bold">Problemas no seu pedido? <strong><a href="contato.html">Fale Conosco
+                            !</a></strong></div>
             </div>
 
 
@@ -1359,72 +1336,111 @@ a.login-button img {
 
 
 
-<script>
-  window.onload = function () {
-    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
-    const tempos = ["23:26", "23:33", "23:40", "23:55"];
-    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+    <script>
+        window.onload = function () {
+            const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+            const tempos = ["23:26", "23:33", "23:40", "23:55"];
+            const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
 
-    // Atualiza a barra de progresso
-    const barra = document.querySelector('.barra div');
-    barra.style.width = `${(statusAtual - 1) * 33}%`;
+            // Atualiza a barra de progresso
+            const barra = document.querySelector('.barra div');
+            barra.style.width = `${(statusAtual - 1) * 33}%`;
 
-    // Atualiza estimativa de tempo
-    document.querySelector('.status1 p').innerHTML = `
+            // Atualiza estimativa de tempo
+            document.querySelector('.status1 p').innerHTML = `
       <strong class="text-success">Codigo do pedido: 00001</strong> <br>
       Tempo estimado: ${estimado}
     `;
 
-    // Atualiza status de progresso
-    const statusList = document.querySelectorAll('.progresso-tempo');
-    statusList.forEach((item, index) => {
-      item.classList.remove('current', 'active');
-      if (index + 1 < statusAtual) {
-        item.classList.add('active');
-      } else if (index + 1 === statusAtual) {
-        item.classList.add('current');
-      }
+            // Atualiza status de progresso
+            const statusList = document.querySelectorAll('.progresso-tempo');
+            statusList.forEach((item, index) => {
+                item.classList.remove('current', 'active');
+                if (index + 1 < statusAtual) {
+                    item.classList.add('active');
+                } else if (index + 1 === statusAtual) {
+                    item.classList.add('current');
+                }
+            });
+        };
+    </script>
+
+    <script>
+  const lista = document.querySelector(".lista-item");
+
+  const pedido = JSON.parse(localStorage.getItem("pedidoAtual"));
+
+  if (!pedido || pedido.length === 0) {
+    lista.innerHTML = "<li><strong>Nenhum item encontrado no pedido.</strong></li>";
+  } else {
+    let totalPedido = 0;
+
+    // Limpa lista anterior (caso haja conteúdo fixo)
+    lista.innerHTML = "";
+
+    pedido.forEach(item => {
+      const subtotal = item.quantidade * item.preco;
+      totalPedido += subtotal;
+
+      const li = document.createElement("li");
+      li.className = "lista-pedidos";
+      li.innerHTML = `
+        <span class="quantidade-item fw-bolder">${item.quantidade}x</span>
+        <span>${item.nome}</span>
+        <span class="valor-item text-dark">R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
+      `;
+      lista.appendChild(li);
     });
-  };
+
+    // Adiciona total ao final
+    const totalLi = document.createElement("li");
+    totalLi.style = "padding-top: 10px; border-top: 1px solid rgb(32, 32, 32); font-weight: 600;";
+    totalLi.innerHTML = `
+      <span class="fw-bolder text-capitalize">total do pedido:</span>
+      <span class="valor-item text-dark fw-bold">R$ ${totalPedido.toFixed(2).replace('.', ',')}</span>
+    `;
+    lista.appendChild(totalLi);
+  }
 </script>
 
-<script>
-  function checarStatus() {
-    const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
-    atualizarStatusNaTela(statusAtual);
-  }
 
-  function atualizarStatusNaTela(status) {
-    const statusList = document.querySelectorAll('.progresso-tempo');
-    const barra = document.querySelector('.barra div');
-    const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+    <script>
+        function checarStatus() {
+            const statusAtual = parseInt(localStorage.getItem('pedidoStatus')) || 1;
+            atualizarStatusNaTela(statusAtual);
+        }
 
-    barra.style.width = `${(status - 1) * 33}%`;
-    document.querySelector('.status1 p').innerHTML = `
+        function atualizarStatusNaTela(status) {
+            const statusList = document.querySelectorAll('.progresso-tempo');
+            const barra = document.querySelector('.barra div');
+            const estimado = localStorage.getItem('tempoEstimado') || "30 minutos";
+
+            barra.style.width = `${(status - 1) * 33}%`;
+            document.querySelector('.status1 p').innerHTML = `
       <strong class="text-success">Codigo do pedido: 00001</strong> <br>
       Tempo estimado: ${estimado}
     `;
 
-    statusList.forEach((item, index) => {
-      item.classList.remove('current', 'active');
-      if (index + 1 < status) item.classList.add('active');
-      else if (index + 1 === status) item.classList.add('current');
-    });
-  }
+            statusList.forEach((item, index) => {
+                item.classList.remove('current', 'active');
+                if (index + 1 < status) item.classList.add('active');
+                else if (index + 1 === status) item.classList.add('current');
+            });
+        }
 
-  // Checa a cada 5 segundos
-  setInterval(checarStatus, 5000);
-</script>
+        // Checa a cada 5 segundos
+        setInterval(checarStatus, 5000);
+    </script>
 
 
     <!-- BOOTSTARP JS -->
     <script src="JAVASCRIPT/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-        </script>
+    </script>
 
 </body>
 
