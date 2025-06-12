@@ -63,14 +63,19 @@ body {
 
 /* CONTAINER AJUSTADO */
 .container-cadastro {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) ;
+    backdrop-filter: blur(10px);
     border-radius: 30px;
     margin: 20px 0;
     margin: 0 auto;
-    width: 850px;
+    max-width: 600px;
+    padding: 30px;
     margin-bottom: 50px;
     background-color: #820000e4;
+}
 
-
+.form-group{
+    margin-bottom: 20px;
 }
 /* BELLA MASSA */
 .title {
@@ -115,14 +120,6 @@ body {
 
 
 /* PARTE DO FORMULARIO */
-.form-cadastro {
-    padding: 10px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 15px;
-    width: 800px;
-
-}
 
 .form-label {
     font-family: var(--font1);
@@ -130,6 +127,7 @@ body {
     color: #000000;
     font-size: 1.2em;
     display: block;
+    margin-bottom: 5px;
     text-align: left;
 }
 
@@ -139,6 +137,25 @@ body {
     border-radius: 10px;
     border: none;
     margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.form-row{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-duplo{
+    display: flex;
+    gap: 20px;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
 }
 /* FINAL DO CSS DO FORMULARIO */
 
@@ -157,6 +174,8 @@ body {
     padding: 5px;
     border: none;
     font-size: 1.3em;
+   
+
 
 }
 
@@ -164,6 +183,7 @@ body {
     background-color: #000;
     color: white;
 }
+
 
 
 
@@ -313,7 +333,7 @@ body {
 
 }
 
-.form-cadastro {
+/* .form-cadastro {
     padding: 10px;
     text-align: center;
     margin: 0 auto;
@@ -321,23 +341,23 @@ body {
     width: 800px;
 
 }
-
-.form-label {
+ */
+/* .form-label {
     font-family: var(--font1);
     font-weight: 500;
     color: #000;
     font-size: 1.2em;
     display: block;
     text-align: left;
-}
+} */
 
-.form-input {
+/* .form-input {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     border: none;
     margin-bottom: 30px;
-}
+} */
 
 
 .cep-link {
