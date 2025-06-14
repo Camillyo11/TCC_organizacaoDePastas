@@ -136,148 +136,125 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Objeto para armazenar os produtos localmente
-    const produtosLocais = {
-      pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
-      bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
+const API_URL = 'http://localhost:3000/api/menu';
+
+// Função para buscar sabor pelo nome
+async function buscarSaborPorNome(nome) {
+  const res = await fetch(`${API_URL}/sabores`);
+  const sabores = await res.json();
+  return sabores.find(s => s.nome.toLowerCase() === nome.toLowerCase());
+}
+
+// Função para criar sabor se não existir
+async function criarSabor(nome, preco) {
+  const token = localStorage.getItem('token');
+  const res = await fetch(`${API_URL}/sabores`, {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({ nome, preco })
+  });
+  const data = await res.json();
+  // Após criar, buscar o sabor para pegar o id
+  return buscarSaborPorNome(nome);
+}
+
+// Função principal de cadastro
+async function cadastrarProduto(tipo) {
+  if (tipo === 'pizza') {
+    const nome = document.getElementById('nomePizza').value.trim();
+    const preco = parseFloat(document.getElementById('precoPizza').value);
+    const categoria = document.getElementById('categoriaPizza').value;
+    const descricao = document.getElementById('descricaoPizza').value.trim();
+    const imagemInput = document.getElementById('imagemPizza');
+    if (!imagemInput.files[0]) {
+      alert('Selecione uma imagem!');
+      return;
+    }
+    const imagemUrl = 'produtos/imgPizzas/' + imagemInput.files[0].name;
+
+    // 1. Verifica se o sabor já existe
+    let sabor = await buscarSaborPorNome(nome);
+    if (!sabor) {
+      sabor = await criarSabor(nome, preco);
+    }
+    if (!sabor || !sabor.id_sabor) {
+      alert('Erro ao criar ou localizar sabor!');
+      return;
+    }
+
+    // 2. Cadastra a pizza
+    const pizzaPayload = {
+      imagem_url: imagemUrl,
+      tipo_borda: 'tradicional', // ou pegue de um campo se quiser
+      preco_borda: 0,
+      tamanho: categoria === 'salgada' ? 'media' : 'broto', // exemplo, ajuste conforme seu form
+      observacao: descricao,
+      id_pedido: 1, // coloque um id_pedido válido ou null se permitido
+      sabores: [sabor.id_sabor]
     };
 
-    function coletarDadosFormulario(tipo) {
-      if (tipo === 'pizza') {
-        return {
-          nome: document.getElementById('nomePizza').value,
-          preco: parseFloat(document.getElementById('precoPizza').value),
-          categoria: document.getElementById('categoriaPizza').value,
-          imagem: document.getElementById('imagemPizza').files[0],
-          descricao: document.getElementById('descricaoPizza').value
-        };
-      }
-      if (tipo === 'bebida') {
-        return {
-          nome: document.getElementById('nomeBebida').value,
-          preco: parseFloat(document.getElementById('precoBebida').value),
-          tamanho: document.getElementById('tamanhoBebida').value,
-          imagem: document.getElementById('imagemBebida').files[0]
-        };
-      }
+    const token = localStorage.getItem('token');
+
+const res = await fetch(`${API_URL}/pizzas`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
+  body: JSON.stringify(pizzaPayload)
+});
+    if (res.ok) {
+      mostrarModalSucesso('Pizza cadastrada com sucesso!');
+      document.getElementById('form-nova-pizza').reset();
+    } else {
+      alert('Erro ao cadastrar pizza!');
     }
+  }
 
-    function validarDados(dados, tipo) {
-      for (let chave in dados) {
-        if (!dados[chave] && chave !== 'descricao') {
-          alert('Preencha todos os campos obrigatórios!');
-          return false;
-        }
-      }
-      return true;
+  if (tipo === 'bebida') {
+    const nome = document.getElementById('nomeBebida').value.trim();
+    const preco = parseFloat(document.getElementById('precoBebida').value);
+    const tamanho = document.getElementById('tamanhoBebida').value.trim();
+    const imagemInput = document.getElementById('imagemBebida');
+    if (!imagemInput.files[0]) {
+      alert('Selecione uma imagem!');
+      return;
     }
+    const imagemUrl = 'produtos/Bebidas/' + imagemInput.files[0].name;
 
-    function mostrarModalSucesso(tipo) {
-      const modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
-      const mensagem = document.getElementById('mensagemSucesso');
-      mensagem.textContent = `O ${tipo} foi cadastrado com sucesso!`;
-      modal.show();
+    const bebidaPayload = {
+      imagem_url: imagemUrl,
+      nome,
+      tamanho,
+      preco,
+      id_pedido: 1 // coloque um id_pedido válido ou null se permitido
+    };
+
+    const res = await fetch(`${API_URL}/bebidas`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bebidaPayload)
+    });
+    if (res.ok) {
+      mostrarModalSucesso('Bebida cadastrada com sucesso!');
+      document.getElementById('form-nova-bebida').reset();
+    } else {
+      alert('Erro ao cadastrar bebida!');
     }
+  }
+}
 
-    function limparFormulario(tipo) {
-      if (tipo === 'pizza') {
-        document.getElementById('form-nova-pizza').reset();
-      } else if (tipo === 'bebida') {
-        document.getElementById('form-nova-bebida').reset();
-      }
-    }
-
-    function converterImagemParaBase64(imagem, callback) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        callback(e.target.result);
-      };
-      reader.readAsDataURL(imagem);
-    }
-
-    function gerarIdUnico() {
-      return Date.now().toString(36) + Math.random().toString(36).substr(2);
-    }
-
-    async function cadastrarProduto(tipo) {
-      const dados = coletarDadosFormulario(tipo);
-
-      if (!validarDados(dados, tipo)) return;
-
-      // Converter imagem para Base64
-      if (dados.imagem) {
-        converterImagemParaBase64(dados.imagem, function(imagemBase64) {
-          const novoProduto = {
-            id: gerarIdUnico(),
-            nome: dados.nome,
-            preco: dados.preco,
-            imagem: imagemBase64
-          };
-
-          // Adicionar campos específicos
-          if (tipo === 'pizza') {
-            novoProduto.categoria = dados.categoria;
-            novoProduto.descricao = dados.descricao;
-            produtosLocais.pizzas.push(novoProduto);
-            localStorage.setItem('pizzas', JSON.stringify(produtosLocais.pizzas));
-          } else if (tipo === 'bebida') {
-            novoProduto.tamanho = dados.tamanho;
-            produtosLocais.bebidas.push(novoProduto);
-            localStorage.setItem('bebidas', JSON.stringify(produtosLocais.bebidas));
-          }
-
-         
-          enviarParaBackend(tipo, {
-            ...novoProduto,
-            imagem: null
-          });
-
-          mostrarModalSucesso(tipo);
-          limparFormulario(tipo);
-        });
-      } else {
-     
-        alert('Selecione uma imagem para o produto!');
-      }
-    }
-
-    function enviarParaBackend(tipo, dados) {
-      let endpoint, body;
-
-      if (tipo === 'pizza') {
-        endpoint = '/api/menu/pizzas';
-        body = {
-          sabor: dados.nome,
-          preco_sabor: dados.preco,
-          tipo_borda: 'Tradicional', 
-          preco_borda: 0, 
-          tamanho: 'Média', 
-          observacao: dados.descricao
-        };
-      } else if (tipo === 'bebida') {
-        endpoint = '/api/menu/bebidas';
-        body = {
-          nome: dados.nome,
-          tamanho: dados.tamanho,
-          preco: dados.preco
-        };
-      }
-
-      fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('token') // Assumindo que você tem autenticação
-        },
-        body: JSON.stringify(body)
-      })
-      .then(response => response.json())
-      .then(data => console.log('Sucesso no backend:', data))
-      .catch(error => console.error('Erro no backend:', error));
-    }
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+// Função para mostrar modal de sucesso
+function mostrarModalSucesso(msg) {
+  document.getElementById('mensagemSucesso').innerText = msg;
+  const modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
+  modal.show();
+}
+</script>
 </body>
 </html>

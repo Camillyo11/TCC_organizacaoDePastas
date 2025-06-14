@@ -164,14 +164,6 @@ if (loginForm) {
           localStorage.setItem('isLoggedIn', 'true');
           alert("Login realizado com sucesso!");
 
-          // Decodifica o token para pegar o role
-          function parseJwt(token) {
-            try {
-              return JSON.parse(atob(token.split('.')[1]));
-            } catch (e) {
-              return null;
-            }
-          }
           const payload = parseJwt(data.token);
 
           // Redireciona conforme o role
@@ -179,29 +171,11 @@ if (loginForm) {
             window.location.href = '../AdmPages/homeADM.html';
             return; // Impede execução do restante
           }
-
-          const modal = bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-          if (modal) modal.hide();
-
-          updateAccountButton();
-          buscarDadosUsuario();
-
-          // Mostra os dados e oculta mensagem de não cadastrado
-          const dados = document.getElementById('dadosUsuarioContent');
-          const msg = document.getElementById('semCadastroMsg');
-          if (dados && msg) {
-            dados.style.display = 'block';
-            msg.style.display = 'none';
-          }
-
-        } else {
-          alert("Erro: " + (data.message || 'Login falhou.'));
+          // Se não for admin, pode redirecionar para outra página se quiser
+          location.reload();
         }
       })
-      .catch(err => {
-        console.error(err);
-        alert("Erro ao conectar com o servidor.");
-      });
+      .catch(() => alert('Erro no login'));
   });
 }
 

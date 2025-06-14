@@ -21,18 +21,30 @@ function renderMenuSection(containerId, items) {
   if (!container) return;
 
   container.innerHTML = items.map(item => `
-    <div class="menu-item">
-      <img src="${item.imagem_url || 'images/default-food.png'}" alt="${item.nome}">
-      <h3>${item.nome}</h3>
-      <p>${item.descricao || ''}</p>
-      <span class="price">R$ ${item.preco.toFixed(2)}</span>
-      <button class="btn-add-to-cart" data-id="${item.id}" data-type="${containerId.includes('pizza') ? 'pizza' : 'drink'}">
-        Adicionar
-      </button>
-    </div>
+    <section class="col-md-6 col-lg-4" data-id="${item.id}">
+      <div class="card pizza-card h-100">
+        <div class="card-body">
+          <img src="${item.imagem_url || 'images/default-food.png'}" class="card-img-top" alt="${item.nome}">
+          <h5 class="card-title pizza-nome">${item.nome}</h5>
+          <p class="card-text">${item.descricao || ''}</p>
+          <div class="pizza-preco" data-preco="${item.preco}">
+            <p class="pizza-preco">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+            <div class="quantidade">
+              <div class="quantidade-itens">
+                <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
+                <span class="mx-2">0</span>
+                <button class="btn_adicionar btn-outline-secondary btn-sm">+</button>
+              </div>
+            </div>
+            <button class="btn-add-to-cart" data-id="${item.id}" data-type="${containerId.includes('pizza') ? 'pizza' : 'drink'}">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   `).join('');
 
-  // Adiciona eventos aos botões
   container.querySelectorAll('.btn-add-to-cart').forEach(btn => {
     btn.addEventListener('click', addToCart);
   });
