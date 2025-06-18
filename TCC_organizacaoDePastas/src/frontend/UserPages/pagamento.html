@@ -10,6 +10,8 @@
     <link rel="stylesheet" a href="../assets/css/forms.css">
     <link rel="stylesheet" a href="../assets/css/main.css">
     <link rel="stylesheet" a href="../assets/css/components.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <title>Pagamento na entrega</title>
 </head>
 
@@ -54,10 +56,10 @@
           <p>Leia o QR Code pelo seu pix</p>
         </div>
         <div class="qrcode">
-          <img src="../public/icons/QR_Code_Afinz.png" alt="QR Code para pagamento">
+          <img id="qrcode-pix" src="" alt="QR Code para pagamento PIX">
         </div>
 
-        <p class="pix-chave">aB3cD9Ef6GH7JjK8L2M3NoPqR1StUvUXx</p>
+        <p class="pix-chave" id="pix-chave">lucasamerico029@gmail.com</p>
 
         <p class="validade mt-2"><strong>Código válido até: <span class="validade">21/11/2024 20:30</span></strong></p>
         <div class="botão-copiar">
@@ -117,9 +119,9 @@
     function mostrarAreaPix() {
       const pagarAgora = document.getElementById('agora').checked;
       const areaPix = document.getElementById('areaPix');
-      
       if (pagarAgora) {
         areaPix.style.display = 'block';
+        atualizarQRCodePix();
       } else {
         areaPix.style.display = 'none';
       }
@@ -127,19 +129,38 @@
 
     // Função para copiar o Pix
     function copiarPix() {
-      const chave = "aB3cD9Ef6GH7JjK8L2M3NoPqR1StUvUXx";
+      const chave = document.getElementById('pix-chave').textContent;
       navigator.clipboard.writeText(chave);
       document.getElementById("feedback").style.display = "block";
-      
-      // Esconde o feedback após 3 segundos
       setTimeout(() => {
         document.getElementById("feedback").style.display = "none";
       }, 3000);
     }
 
-    // Mostra a área do Pix ao carregar a página se "Pagar agora" estiver selecionado
-    document.addEventListener('DOMContentLoaded', mostrarAreaPix);
-  
+    // Função para atualizar o QR Code do PIX
+    function atualizarQRCodePix() {
+  let valorTexto = document.querySelector('.valor').textContent;
+  let valor = valorTexto.replace(/[^0-9,]/g, '').replace(',', '.');
+  valor = parseFloat(valor);
+  if (isNaN(valor)) valor = 0;
+  const chavePix = 'lucasamerico029@gmail.com';
+
+  const pixData = `00020126580014br.gov.bcb.pix0136${chavePix}520400005303986540${valor.toFixed(2).replace('.', '')}5802BR5913Bella Massa6009Sao Paulo61080540900062070503***6304`; 
+  // ATENÇÃO: esse pixData é só um exemplo incompleto, o QR Code Pix oficial é um padrão mais complexo, sugiro usar libs específicas para isso
+
+  // Para teste simples, só coloque a chavePix:
+  const textoQR = chavePix + ' ' + valor.toFixed(2);
+
+  // Limpa o div antes
+  const qrDiv = document.getElementById('qrcode-pix');
+  qrDiv.innerHTML = '';
+  new QRCode(qrDiv, {
+    text: textoQR,
+    width: 240,
+    height: 240,
+  });
+}
+
 
   <!-- Seus scripts de biblioteca aqui -->
 
@@ -163,10 +184,6 @@
    });
 </script>
 
-<script type="module" src="../assets/js/auth.js"></script>
- <script type="module" src="../assets/js/checkout.js"></script>
-
- 
   
     
 

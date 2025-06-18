@@ -1,4 +1,4 @@
-// produtos.js (versão corrigida)
+// produtos.js atualizado e funcional
 
 // IMPORTAÇÃO DO HEADER
 fetch('../UserPages/header.html')
@@ -8,25 +8,21 @@ fetch('../UserPages/header.html')
   })
   .catch(error => console.error('Erro ao carregar o header:', error));
 
-// Inicialização de componentes Bootstrap
+// Bootstrap init
 const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
 modalTriggerList.map(modalTriggerEl => new bootstrap.Modal(modalTriggerEl));
-
 const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
 offcanvasTriggerList.map(offcanvasTriggerEl => new bootstrap.Offcanvas(offcanvasTriggerEl));
 
-// Função para verificar JSON válido
-async function verificarRespostaJSON(response) {
+// Funções auxiliares
+function verificarRespostaJSON(response) {
   if (!response.ok) throw new Error('Resposta inválida');
-  return await response.json();
+  return response.json();
 }
 
-// Função para determinar categoria
 function determinarCategoria(pizza) {
-  if (pizza.tipo_borda?.toLowerCase().includes('doce')) return 'doce';
-  if (pizza.observacao?.toLowerCase().includes('doce')) return 'doce';
-  if (pizza.sabor?.toLowerCase().includes('doce')) return 'doce';
-  return 'salgada';
+  const obs = pizza.observacao?.toLowerCase() || "";
+  return obs.includes("doce") ? "doce" : "salgada";
 }
 
 function mostrarMensagemErro(mensagem) {
@@ -37,7 +33,6 @@ function mostrarMensagemErro(mensagem) {
   setTimeout(() => alerta.remove(), 5000);
 }
 
-// Função principal
 async function carregarProdutos() {
   try {
     const token = localStorage.getItem('token') || '';
@@ -55,51 +50,29 @@ async function carregarProdutos() {
     const pizzasBackend = await verificarRespostaJSON(pizzasResponse);
     const bebidasBackend = await verificarRespostaJSON(bebidasResponse);
 
-    const produtosLocais = {
-      pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
-      bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
-    };
+    const pizzasCompletas = pizzasBackend.map(pizza => ({
+      ...pizza,
+      nome: pizza.sabor,
+      descricao: pizza.observacao,
+      imagem: pizza.imagem_url && pizza.imagem_url !== '' ? `/${pizza.imagem_url.replace(/^\/+/, '')}` : '/produtos/imgPizzas/imagem-padrao.png',
+      preco: pizza.preco_sabor || 0,
+      categoria: determinarCategoria(pizza)
+    }));
 
-    const pizzasCompletas = pizzasBackend.map(pizzaBackend => {
-      const pizzaLocal = produtosLocais.pizzas.find(p => p.backendId === pizzaBackend.id_pizza || p.nome === pizzaBackend.sabor);
-      return {
-        ...pizzaBackend,
-        imagem: pizzaLocal?.imagem || 'imagem-padrao.png',
-        nome: pizzaBackend.sabor,
-        descricao: pizzaBackend.observacao,
-        categoria: determinarCategoria(pizzaBackend),
-        preco: pizzaBackend.preco_sabor || 47.90
-      };
-    });
-
-    const bebidasCompletas = bebidasBackend.map(bebidaBackend => {
-      const bebidaLocal = produtosLocais.bebidas.find(b => b.backendId === bebidaBackend.id_bebida || b.nome === bebidaBackend.nome);
-      return {
-        ...bebidaBackend,
-        imagem: bebidaLocal?.imagem || 'imagem-padrao-bebida.png',
-        nome: bebidaBackend.nome
-      };
-    });
+    const bebidasCompletas = bebidasBackend.map(bebida => ({
+      ...bebida,
+      nome: bebida.nome,
+      imagem: bebida.imagem_url || 'imagem-padrao-bebida.png',
+      preco: bebida.preco || 0
+    }));
 
     preencherPizzasSalgadas(pizzasCompletas.filter(p => p.categoria === 'salgada'));
     preencherPizzasDoces(pizzasCompletas.filter(p => p.categoria === 'doce'));
     preencherBebidas(bebidasCompletas);
-
   } catch (error) {
     console.error('Erro ao carregar produtos:', error);
-    carregarApenasLocal();
-    mostrarMensagemErro('Não foi possível carregar o cardápio completo. Alguns produtos podem estar indisponíveis.');
+    mostrarMensagemErro('Erro ao carregar cardápio. Tente novamente mais tarde.');
   }
-}
-
-function carregarApenasLocal() {
-  const produtosLocais = {
-    pizzas: JSON.parse(localStorage.getItem('pizzas')) || [],
-    bebidas: JSON.parse(localStorage.getItem('bebidas')) || []
-  };
-  preencherPizzasSalgadas(produtosLocais.pizzas.filter(p => p.categoria === 'salgada'));
-  preencherPizzasDoces(produtosLocais.pizzas.filter(p => p.categoria === 'doce'));
-  preencherBebidas(produtosLocais.bebidas);
 }
 
 function criarCardPizza(pizza) {
@@ -111,7 +84,7 @@ function criarCardPizza(pizza) {
           <h5 class="card-title pizza-nome">${pizza.nome}</h5>
           <p class="card-text">${pizza.descricao}</p>
           <div class="pizza-preco" data-preco="${pizza.preco}" data-categoria="${pizza.categoria}">
-            <p class="pizza-preco">R$ ${pizza.preco.toFixed(2).replace('.', ',')}</p>
+            <p class="pizza-preco">R$ ${Number(pizza.preco).toFixed(2).replace('.', ',')}</p>
             <div class="quantidade">
               <div class="quantidade-itens">
                 <button class="btn_retirar btn-outline-secondary btn-sm">-</button>
@@ -132,7 +105,7 @@ function criarCardBebida(bebida) {
       <div class="card pizza-card h-100">
         <div class="card-body">
           <img src="${bebida.imagem}" class="card-img-top" alt="${bebida.nome}" onerror="this.src='imagem-padrao-bebida.png'">
-          <h5 class="card-title pizza-nome">${bebida.nome} ${bebida.tamanho || ''}</h5>
+          <h5 class="card-title pizza-nome">${bebida.nome}</h5>
           <div class="pizza-preco" data-preco="${bebida.preco}" data-categoria="bebida">
             <p class="pizza-preco">R$ ${bebida.preco.toFixed(2).replace('.', ',')}</p>
             <div class="quantidade">
@@ -187,9 +160,27 @@ function configurarBotoes() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  carregarProdutos();
-});
+function calcularPrecoPizza(tipo, pizzas = [], bebidas = []) {
+  let preco = 0;
+  if (tipo === "meio") {
+    preco += 71.00;
+  } else {
+    pizzas.forEach(p => preco += 47.90 * p.qtd);
+  }
+  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
+  const bordaTipo = bordaSelecionada?.value || "";
+  if (["catupiry", "cheddar"].includes(bordaTipo)) preco += 10;
+  if (["chocolate"].includes(bordaTipo)) preco += 15;
+  bebidas.forEach(b => preco += b.qtd * 15.00);
+  return preco;
+}
+
+function atualizarBotaoCarrinho() {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+  const botao = document.getElementById("btnIrCarrinho");
+  if (botao) botao.disabled = carrinho.length === 0;
+}
+
 function confirmarPizzaInteira() {
   const pizzasSelecionadas = [];
   const bebidasSelecionadas = [];
@@ -199,11 +190,8 @@ function confirmarPizzaInteira() {
     const qtd = parseInt(card.querySelector(".quantidade span").innerText);
     if (qtd > 0) {
       const isBebida = card.closest("#bebidas") !== null;
-      if (isBebida) {
-        bebidasSelecionadas.push({ nome, qtd });
-      } else {
-        pizzasSelecionadas.push({ nome, qtd });
-      }
+      if (isBebida) bebidasSelecionadas.push({ nome, qtd });
+      else pizzasSelecionadas.push({ nome, qtd });
     }
   });
 
@@ -230,50 +218,19 @@ function confirmarPizzaInteira() {
     ? bebidasSelecionadas.map(b => `${b.nome} x${b.qtd}`).join(", ")
     : "Nenhuma";
 
-  alert(
-    `Resumo do pedido:\n` +
-    `Pizza(s): ${pizzasText}\n` +
-    `Borda: ${bordaLabel}\n` +
-    `Bebidas: ${bebidasText}\n\n` +
-    `Clique em \"Adicionar ao Carrinho\" para finalizar.`
-  );
-
+  alert(`Resumo do pedido:\nPizza(s): ${pizzasText}\nBorda: ${bordaLabel}\nBebidas: ${bebidasText}\n\nClique em \"Adicionar ao Carrinho\" para finalizar.`);
   atualizarBotaoCarrinho();
 }
 
-function calcularPrecoPizza(tipo, pizzas = [], bebidas = []) {
-  let preco = 0;
-  if (tipo === "meio") {
-    preco += 71.00;
-  } else {
-    pizzas.forEach(p => preco += 47.90 * p.qtd);
-  }
-
-  const bordaSelecionada = document.querySelector('input[name="pagamento"]:checked');
-  const bordaTipo = bordaSelecionada?.value || "";
-  if (["catupiry", "cheddar"].includes(bordaTipo)) preco += 10;
-  if (["chocolate"].includes(bordaTipo)) preco += 15;
-
-  bebidas.forEach(b => preco += b.qtd * 15.00);
-  return preco;
-}
-
-function atualizarBotaoCarrinho() {
-  const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-  const botao = document.getElementById("btnIrCarrinho");
-  if (botao) {
-    botao.disabled = carrinho.length === 0;
-  }
-};
-
 function irParaCarrinho() {
   const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
-
   if (carrinho.length === 0) {
     alert("Por favor, confirme seu pedido antes de ir para o carrinho.");
     return;
   }
-
-  // Redireciona para a página do carrinho
   window.location.href = "carrinho.html";
-};
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  carregarProdutos();
+});
