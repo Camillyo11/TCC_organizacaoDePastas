@@ -535,7 +535,7 @@ async function carregarProdutos() {
       
       return {
         ...pizzaBackend,
-        imagem: pizzaLocal?.imagem || 'img/produtos/padrao.png',
+        imagem: pizzaLocal?.imagem,
         nome: pizzaBackend.sabor,
         descricao: pizzaBackend.observacao,
         categoria: determinarCategoria(pizzaBackend)
@@ -549,7 +549,7 @@ async function carregarProdutos() {
       
       return {
         ...bebidaBackend,
-        imagem: bebidaLocal?.imagem || 'img/produtos/bebida-padrao.png',
+        imagem: bebidaLocal?.imagem,
         nome: bebidaBackend.nome
       };
     });
@@ -607,7 +607,7 @@ function criarCardPizza(pizza) {
     <section class="col-md-6 col-lg-4">
       <div class="card pizza-card h-100">
         <div class="card-body">
-          <img src="${pizza.imagem}" class="card-img-top" alt="${pizza.sabor}" onerror="this.src='imagem-padrao.png'">
+          <img src="${pizza.imagem}" class="card-img-top" alt="${pizza.sabor}">
           <h5 class="card-title pizza-nome">${pizza.sabor}</h5>
           <p class="card-text">${pizza.observacao}</p>
           <div class="pizza-preco" data-preco="${preco}" data-categoria="${pizza.categoria}">
@@ -650,7 +650,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const pizzaLocal = produtosLocais.pizzas.find(p => p.nome === pizzaBackend.sabor);
         return {
           ...pizzaBackend,
-          imagem: pizzaLocal?.imagem || 'imagem-padrao.png',
+          imagem: pizzaLocal?.imagem,
           descricao: pizzaBackend.observacao,
           categoria: pizzaBackend.tipo_borda.includes('Doce') ? 'doce' : 'salgada'
         };
@@ -736,7 +736,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <section class="col-md-6 col-lg-4">
         <div class="card pizza-card h-100">
           <div class="card-body">
-            <img src="${bebida.imagem}" class="card-img-top" alt="${bebida.nome}" onerror="this.src='imagem-padrao-bebida.png'">
+            <img src="${bebida.imagem}" class="card-img-top" alt="${bebida.nome}">
             <h5 class="card-title pizza-nome">${bebida.nome} ${bebida.tamanho}</h5>
             <div class="pizza-preco" data-preco="${bebida.preco}" data-categoria="bebida">
               <p class="pizza-preco">R$ ${bebida.preco.toFixed(2).replace('.', ',')}</p>
