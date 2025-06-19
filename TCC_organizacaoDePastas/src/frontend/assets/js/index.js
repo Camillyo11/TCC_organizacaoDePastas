@@ -15,13 +15,16 @@ if (localStorage.getItem('token')) {
 
 // Preenche o perfil com os dados do usuário
 function preencherPerfil(user) {
-  document.getElementById('dadoNome').textContent = user.nome || '';
-  document.getElementById('dadoNascimento').textContent = user.data_nascimento
-    ? new Date(user.data_nascimento).toLocaleDateString()
-    : '';
-  document.getElementById('dadoCpf').textContent = user.cpf || '';
-  document.getElementById('dadoTelefone').textContent = user.telefone || '';
-  document.getElementById('dadoEmail').textContent = user.email || '';
+  const nomeEl = document.getElementById('dadoNome');
+  if (nomeEl) nomeEl.textContent = user.nome || '';
+  const nascEl = document.getElementById('dadoNascimento');
+  if (nascEl) nascEl.textContent = user.data_nascimento ? new Date(user.data_nascimento).toLocaleDateString() : '';
+  const cpfEl = document.getElementById('dadoCpf');
+  if (cpfEl) cpfEl.textContent = user.cpf || '';
+  const telEl = document.getElementById('dadoTelefone');
+  if (telEl) telEl.textContent = user.telefone || '';
+  const emailEl = document.getElementById('dadoEmail');
+  if (emailEl) emailEl.textContent = user.email || '';
 
   window.dadosUsuario = user;
 }

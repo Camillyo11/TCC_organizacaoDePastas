@@ -55,16 +55,14 @@
           <h4 class="mt-4">Pix</h4>
           <p>Leia o QR Code pelo seu pix</p>
         </div>
-        <div class="qrcode">
-          <img id="qrcode-pix" src="" alt="QR Code para pagamento PIX">
+        <div class="qrcode d-flex justify-content-center mt-3">
+          <div id="qrcode-pix"></div>
         </div>
+  <p class="text-white mb-1">Código Pix:</p>
+  <pre id="codigo-pix" class="bg-dark text-white p-3 rounded" style="overflow-x: auto;"></pre>
 
-        <p class="pix-chave" id="pix-chave">lucasamerico029@gmail.com</p>
-
-        <p class="validade mt-2"><strong>Código válido até: <span class="validade">21/11/2024 20:30</span></strong></p>
-        <div class="botão-copiar">
-          <button class="btn btn-info" onclick="copiarPix()">Copiar chave Pix</button>
-        </div>
+  <button class="btn btn-outline-light mt-2" onclick="copiarCodigoPix()">Copiar código</button>
+</div>
         <div class="feedback" id="feedback">
           <img src="../public/icons/icons8-conta-verificada-48.png" alt="ícone de verificação" width="35px">
           Chave pix copiada com sucesso!
@@ -74,7 +72,7 @@
       </div>
      
     </div>  
-    <a href="statusPedido.html"  class="button-laranja float-end" >Finalizar pedido</a>
+    <button class="button-laranja float-end" onclick="mostrarModal()">Finalizar pedido</button>
   </main>
 
    <!--   FOOTER   -->
@@ -113,7 +111,6 @@
       </div>
     </div>
   </footer>
-  <script src="../assets/js/index.js"></script>
   <script>
     // Mostra ou esconde a área do Pix baseado na seleção
     function mostrarAreaPix() {
@@ -126,7 +123,9 @@
         areaPix.style.display = 'none';
       }
     }
-
+function gerarPayloadPix(chave, valor) {
+    return `00020126580014br.gov.bcb.pix0136${chave}520400005303986540${valor.toFixed(2).replace('.', '')}5802BR5913Bella Massa6009Sao Paulo61080540900062070503***6304`;
+  }
     // Função para copiar o Pix
     function copiarPix() {
       const chave = document.getElementById('pix-chave').textContent;
@@ -139,6 +138,27 @@
 
     // Função para atualizar o QR Code do PIX
     function atualizarQRCodePix() {
+  let valorTexto = document.querySelector('.valor').textContent;
+  let valor = valorTexto.replace(/[^0-9,]/g, '').replace(',', '.');
+  valor = parseFloat(valor);
+  if (isNaN(valor)) valor = 0;
+
+  const chavePix = 'lucasamerico029@gmail.com';
+  const payloadPix = gerarPayloadPix(chavePix, valor);
+
+  // Atualiza o QR Code
+  const qrDiv = document.getElementById('qrcode-pix');
+  qrDiv.innerHTML = '';
+  new QRCode(qrDiv, {
+    text: payloadPix,
+    width: 240,
+    height: 240,
+  });
+
+  // Mostra o código em texto na tela
+  document.getElementById('codigo-pix').textContent = payloadPix;
+}
+
   let valorTexto = document.querySelector('.valor').textContent;
   let valor = valorTexto.replace(/[^0-9,]/g, '').replace(',', '.');
   valor = parseFloat(valor);
@@ -159,8 +179,21 @@
     width: 240,
     height: 240,
   });
+
+function copiarCodigoPix() {
+  const codigo = document.getElementById('codigo-pix').textContent;
+  navigator.clipboard.writeText(codigo).then(() => {
+    alert('Código Pix copiado com sucesso!');
+  });
 }
 
+    function mostrarModal() {
+      const modal = new bootstrap.Modal(document.getElementById('modalPagamentoConfirmado'));
+      modal.show();
+      setTimeout(() => {
+        window.location.href = 'statusPedido.html';
+      }, 5000);
+    }
 
   <!-- Seus scripts de biblioteca aqui -->
 
@@ -169,6 +202,11 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById('header-container').innerHTML = data;
+      // Garante que o script index.js seja executado após inserir o header
+      const script = document.createElement('script');
+      script.src = '../assets/js/index.js';
+      script.type = 'text/javascript';
+      document.body.appendChild(script);
     })
     .catch(error => console.error('Erro ao carregar o header:', error));
     
@@ -188,6 +226,22 @@
     
 
 
-  </body>
+  <!-- MODAL de pagamento confirmado -->
+  <div class="modal fade" id="modalPagamentoConfirmado" tabindex="-1" aria-labelledby="modalPagamentoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="modalPagamentoLabel">Pagamento Confirmado</h5>
+        </div>
+        <div class="modal-body">
+          
+          <p class="mt-3">Obrigado! Seu pagamento via Pix foi confirmado.</p>
+          <p>Você será redirecionado em instantes...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 
 </html>
