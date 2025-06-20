@@ -104,8 +104,7 @@
     display: inline-block;
     margin-top: 20px;
     font-weight: 500;
-
-
+    border: none;
 }
 
 .button-black:hover {
@@ -151,7 +150,7 @@
 
 .button-laranja:hover {
     background-color: #000000;
-    color: white;
+    color: white !important;
 }
 
 .button-laranja {
@@ -161,7 +160,9 @@
     padding: 10px;
     font-weight: 800;
     margin-right: 50px;
+    text-align: center;
 }
+
 
 .pix-texto {
     font-family: var(--font1);
@@ -473,15 +474,17 @@ a {
 
 /* SOBRE NÓS */
 .sobre-nos {
+  
     background-color: rgb(142, 8, 8);
     color: rgb(255, 255, 255);
     padding: 8px;
     text-align: center;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 80px;
     margin-left: 20px;
     border-radius: 20px;
 }
+
 
 .sobre-nos .row {
     display: flex;
