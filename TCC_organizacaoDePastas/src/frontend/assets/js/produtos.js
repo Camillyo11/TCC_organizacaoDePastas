@@ -222,15 +222,47 @@ function confirmarPizzaInteira() {
   atualizarBotaoCarrinho();
 }
 
-function irParaCarrinho() {
+async function irParaCarrinho() {
+  // 1. Verifica se há itens no carrinho
   const carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
   if (carrinho.length === 0) {
-    alert("Por favor, confirme seu pedido antes de ir para o carrinho.");
+    alert("Seu carrinho está vazio. Adicione itens antes de finalizar.");
     return;
   }
-  window.location.href = "carrinho.html";
-}
 
+  // 2. Verifica se está logado
+  const token = localStorage.getItem("token");
+  if (!token) {
+    localStorage.setItem('redirectAfterLogin', 'carrinho.html');
+    window.location.href = "../UserPages/login.html";
+    return;
+  }
+
+  // 3. Verifica endereço (apenas se logado e com carrinho não vazio)
+  try {
+    const response = await fetch("http://localhost:3000/api/users/endereco", {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+
+    if (!response.ok) throw new Error("Erro na API");
+
+    const enderecos = await response.json();
+
+    // Redireciona SE não houver endereços
+    if (!enderecos || enderecos.length === 0) {
+      window.location.href = "../UserPages/endereco.html";
+      return;
+    }
+
+    // Se tudo OK, vai para o carrinho
+    window.location.href = "carrinho.html";
+
+  } catch (error) {
+    console.error("Erro:", error);
+    // Em caso de erro, permite continuar para o carrinho
+    window.location.href = "carrinho.html";
+  }
+}
 document.addEventListener('DOMContentLoaded', () => {
   carregarProdutos();
 });

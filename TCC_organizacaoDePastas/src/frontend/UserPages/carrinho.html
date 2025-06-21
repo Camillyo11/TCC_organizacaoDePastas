@@ -152,17 +152,17 @@ if (!token) {
 // Buscar endereço do usuário
 async function buscarEndereco() {
   try {
-    const res = await fetch('http://localhost:3000/api/users/me', {
+    const res = await fetch('http://localhost:3000/api/users/endereco', {
       headers: { 'Authorization': `Bearer ${token}` }
     });
     if (!res.ok) throw new Error();
-    const user = await res.json();
-    if (!user.endereco) {
+    const endereco = await res.json();
+    if (!endereco) {
       window.location.href = 'endereco.html';
       return;
     }
     document.querySelector('.endereco-confirmacao p').innerHTML =
-      `<i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong> ${user.endereco.rua} - ${user.endereco.bairro} - N ${user.endereco.numero}`;
+      `<i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong> ${endereco.rua} - ${endereco.bairro} - N ${endereco.numero}`;
   } catch {
     window.location.href = 'endereco.html';
   }

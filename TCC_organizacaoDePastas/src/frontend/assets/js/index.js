@@ -182,6 +182,8 @@ if (loginForm) {
   });
 }
 
+
+
 // Logout
 const logoutBtn = document.getElementById('profileLogout');
 if (logoutBtn) {
