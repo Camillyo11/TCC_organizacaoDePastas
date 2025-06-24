@@ -3,15 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="../public/icons/LogoBellaMessa.png" />
-  <title>Carrinho</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/pgIndexNavFooter.css">
   <link rel="stylesheet" href="../assets/css/forms.css">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="icon" type="image/png" href="../public/icons/LogoBellaMessa.png" />
+    <title>Carrinho Bella Massa</title>
 </head>
 
 <body class="body-vermelho">
@@ -23,12 +22,10 @@
       <h1>Confirmação de Pedido</h1>
     </div>
     <div class="endereco-confirmacao">
-      <p><i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong> AV.
-        Baronesa - Jardim Ângela - N 21</p>
-
-      <a href="#" class="novo-endereço"> + adicionar outro endereço</a>
-    </div>
-
+  <p><i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong></p>
+  <div id="enderecosUsuario"></div>
+  <a href="#" class="novo-endereço"> + adicionar outro endereço</a>
+</div>
 
 
 
@@ -39,10 +36,9 @@
 
 
 
-
     <div class="total-confirmacao">
       <span>Subtotal:</span>
-      <span id="subtotal">R$ 00,00</span>
+      <span id="subtotal">R$ 100,00</span>
     </div>
 
     <div class="total-confirmacao">
@@ -67,29 +63,13 @@
       <p id="feedback-cupom"></p>
     </div>
 
-    <script>
-      function aplicarCupom() {
-        const cupom = document.getElementById("cupom-aplique").value.trim().toLowerCase();
-        const feedback = document.getElementById("feedback-cupom");
-
-        if (cupom === "pizza10") {
-          feedback.textContent = "✅ Cupom aplicado com sucesso!";
-          feedback.style.color = "limegreen";
-        } else {
-          feedback.textContent = "❌ Cupom inválido ou expirado.";
-          feedback.style.color = "red";
-        }
-      }
-    </script>
-
+    
 
 
     <div class="total-confirmacao-total">
   <span>Valor total:</span>
   <span id="total" class="text-black"> R$ 00,0</span>
 </div>
-
-
 
 
 
@@ -106,7 +86,6 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="footer-conteiner">
     <div class="container text-center">
       <div class="row">
@@ -142,7 +121,7 @@
     </div>
   </footer>
 
-<script src="../assets/js/index.js"></script>
+
   <script>
 const token = localStorage.getItem('token');
 if (!token) {
@@ -150,25 +129,7 @@ if (!token) {
   window.location.href = 'login.html';
 }
 
-// Buscar endereço do usuário
-async function buscarEndereco() {
-  try {
-    const res = await fetch('http://localhost:3000/api/users/endereco', {
-      headers: { 'Authorization': `Bearer ${token}` }
-    });
-    if (!res.ok) throw new Error();
-    const endereco = await res.json();
-    if (!endereco) {
-      window.location.href = 'endereco.html';
-      return;
-    }
-    document.querySelector('.endereco-confirmacao p').innerHTML =
-      `<i class="fas fa-map-marker-alt"></i><strong> Endereço:</strong> ${endereco.rua} - ${endereco.bairro} - N ${endereco.numero}`;
-  } catch {
-    window.location.href = 'endereco.html';
-  }
-}
-buscarEndereco();
+
 
 // Carrinho
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -177,11 +138,11 @@ const subtotalSpan = document.getElementById('subtotal');
 const freteSpan = document.getElementById('frete');
 const totalSpan = document.getElementById('total');
 const FRETE = 5.00;
-let desconto = 0;
+// desconto will be retrieved inside renderizarCarrinho from localStorage
 
 // Renderiza o resumo do pedido
 function renderizarCarrinho() {
-  resumoContainer.innerHTML = '';
+  resumoContainer.innerHTML = ''; // Clear previous items
   let subtotal = 0;
   carrinho.forEach((item, index) => {
     const container = document.createElement('div');
@@ -208,35 +169,47 @@ function renderizarCarrinho() {
     resumoContainer.appendChild(container);
     subtotal += item.preco || 0;
   });
+
+  // Update subtotals, freight, and total
   subtotalSpan.textContent = `R$ ${subtotal.toFixed(2)}`;
   freteSpan.textContent = `R$ ${FRETE.toFixed(2)}`;
+
+  // Retrieve discount from localStorage
+  let desconto = parseFloat(localStorage.getItem("descontoCupom")) || 0;
+
+  // Remove existing discount display if any (to prevent duplicates on re-render)
+  const existingDescontoEl = document.getElementById('desconto-row');
+  if (existingDescontoEl) {
+      existingDescontoEl.remove();
+  }
+
+  // Add discount display if applicable
+  if (desconto > 0) {
+    const descontoEl = document.createElement('div');
+    descontoEl.id = 'desconto-row'; // Add an ID for easy removal
+    descontoEl.classList.add('total-confirmacao');
+    descontoEl.innerHTML = `<span>Desconto:</span><span id="desconto">- R$ ${desconto.toFixed(2)}</span>`;
+    
+    // Insert the discount row before the total row
+    const totalConfirmacaoTotal = document.querySelector('.total-confirmacao-total');
+    if (totalConfirmacaoTotal) {
+        totalConfirmacaoTotal.parentNode.insertBefore(descontoEl, totalConfirmacaoTotal);
+    } else {
+        // Fallback if total-confirmacao-total is not found
+        document.querySelector('.conteiner-confirmacao').insertBefore(descontoEl, document.querySelector('.comentario-confirmacao'));
+    }
+  }
+
   let total = subtotal + FRETE - desconto;
   totalSpan.textContent = `R$ ${total.toFixed(2)}`;
 }
+
 window.excluirPedido = function(index) {
   carrinho.splice(index, 1);
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
   renderizarCarrinho();
 };
 
-// Cupom de desconto
-function aplicarCupom() {
-  const cupom = document.getElementById("cupom-aplique").value.trim().toLowerCase();
-  const feedback = document.getElementById("feedback-cupom");
-  let subtotal = carrinho.reduce((total, item) => total + (item.preco || 0), 0);
-
-  if (cupom === "pizza10") {
-    desconto = subtotal * 0.10;
-    feedback.textContent = "✅ Cupom aplicado: 10% de desconto!";
-    feedback.style.color = "limegreen";
-  } else {
-    desconto = 0;
-    feedback.textContent = "❌ Cupom inválido ou expirado.";
-    feedback.style.color = "red";
-  }
-  renderizarCarrinho();
-}
-window.aplicarCupom = aplicarCupom;
 
 // Botão de adicionar mais ao pedido
 document.getElementById('botao-addmaispedido').addEventListener('click', function() {
@@ -255,9 +228,15 @@ document.querySelector('.button-black-centralizar a').addEventListener('click', 
 renderizarCarrinho();
 
 localStorage.setItem("pedidoAtual", JSON.stringify(carrinho));
-localStorage.setItem("enderecoEntrega", "Rua Anesio Soares Publio, 321 - Jardim Herculano - SP");
+
 
 </script>
+<script src="../assets/js/checkout.js"></script>
+
+</body>
+
+</html>
+
 
 <script src="../assets/js/index.js"></script>
 <script src="../assets/js/navbar.js"></script>

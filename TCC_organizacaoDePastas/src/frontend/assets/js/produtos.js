@@ -107,7 +107,7 @@ function criarCardBebida(bebida) {
           <img src="${bebida.imagem}" class="card-img-top" alt="${bebida.nome}" onerror="this.src='imagem-padrao-bebida.png'">
           <h5 class="card-title pizza-nome">${bebida.nome}</h5>
           <div class="pizza-preco" data-preco="${bebida.preco}" data-categoria="bebida">
-            <p class="pizza-preco">R$ ${bebida.preco.toFixed(2).replace('.', ',')}</p>
+            <p class="pizza-preco">R$ ${Number(bebida.preco).toFixed(2).replace('.', ',')}</p>
             <div class="quantidade">
               <div class="quantidade-itens">
                 <button class="btn_retirar btn-outline-secondary btn-sm">-</button>

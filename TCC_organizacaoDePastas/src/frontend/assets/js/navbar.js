@@ -1,3 +1,5 @@
+
+
 // Verificação de carregamento duplicado
 if (window.navbarLoaded) {
   console.warn('Navbar já foi carregado anteriormente');
@@ -23,7 +25,7 @@ function updateAccountButton() {
   if (isLoggedIn) {
     // Usuário logado - mostra "Meu Perfil"
     accountBtn.innerHTML = `<img src="${IMG_PATHS.user}" height="25" width="25"> Meu Perfil`;
-    accountBtn.onclick = function (e) {
+    accountBtn.onclick = function(e) {
       e.preventDefault();
       showProfileOffcanvas();
     };
@@ -46,7 +48,7 @@ function showProfileOffcanvas() {
 
   // Cria e insere o novo offcanvas
   const offcanvasHTML = `
-    <div class= " offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="profileOffcanvas" aria-labelledby="profileOffcanvasLabel">
+    <div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="profileOffcanvas" aria-labelledby="profileOffcanvasLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="profileOffcanvasLabel">MEU PERFIL</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -86,10 +88,19 @@ function setupProfileOffcanvasEvents(offcanvas) {
   // Botão Minhas Informações
   document.getElementById('minhasInfoBtn')?.addEventListener('click', () => {
     offcanvas.hide();
-    setTimeout(() => showUserDataOffcanvas(), 300);
+    setTimeout(() => {
+      // Mostra o offcanvas de dados do usuário
+      const meusDadosOffcanvas = new bootstrap.Offcanvas(document.getElementById('meusDadosOffcanvas'));
+      meusDadosOffcanvas.show();
+      
+      // Se estiver logado, busca os dados
+      if (localStorage.getItem('token') && window.buscarDadosUsuario) {
+        window.buscarDadosUsuario();
+      }
+    }, 300);
   });
 
-  // ✅ Botão Histórico de Pedidos (abre offcanvas já existente no HTML)
+  // Botão Histórico de Pedidos
   document.getElementById('historicoPedidosBtn')?.addEventListener('click', () => {
     offcanvas.hide();
     setTimeout(() => {
@@ -98,7 +109,7 @@ function setupProfileOffcanvasEvents(offcanvas) {
     }, 300);
   });
 
-  // ✅ Botão Endereços Salvos (abre modal já existente no HTML)
+  // Botão Endereços Salvos
   document.getElementById('enderecosBtn')?.addEventListener('click', () => {
     offcanvas.hide();
     setTimeout(() => {
@@ -117,55 +128,26 @@ function setupProfileOffcanvasEvents(offcanvas) {
   });
 }
 
-
-/* === OFFCANVAS DE DADOS DO USUÁRIO === */
-function showUserDataOffcanvas() {
-  const isLoggedIn = localStorage.getItem('token') !== null;
-  const semCadastroMsg = document.getElementById('semCadastroMsg');
-  const dadosUsuarioContent = document.getElementById('dadosUsuarioContent');
-  const formEditar = document.getElementById('formEditarDados');
-  const btnEditar = document.getElementById('btnEditarDados');
-
-  // Define o que mostrar
-  if (semCadastroMsg && dadosUsuarioContent) {
-    semCadastroMsg.style.display = isLoggedIn ? 'none' : 'block';
-    dadosUsuarioContent.style.display = isLoggedIn ? 'block' : 'none';
-  }
-
-  // Garante que o formulário de edição comece escondido
-  if (formEditar && btnEditar) {
-    formEditar.style.display = 'none';
-    btnEditar.style.display = 'block';
-  }
-
-  // Exibe o offcanvas de dados
-  const meusDadosOffcanvas = new bootstrap.Offcanvas(document.getElementById('meusDadosOffcanvas'));
-  meusDadosOffcanvas.show();
-
-  // Busca os dados se estiver logado
-  if (isLoggedIn && window.buscarDadosUsuario) {
-    window.buscarDadosUsuario();
-  }
-}
-
 /* === INICIALIZAÇÃO === */
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   if (typeof bootstrap === 'undefined') {
     console.error('Bootstrap não está carregado!');
     return;
   }
 
+  // Atualiza o botão da conta
   updateAccountButton();
 
+  // Configura o evento de login para atualizar o botão após login
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', function (e) {
+    loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      if (window.handleLogin) {
-        window.handleLogin(e).then(() => {
-          updateAccountButton();
-        });
-      }
+      
+      // ... seu código de login existente ...
+      
+      
+      updateAccountButton();
     });
   }
 });

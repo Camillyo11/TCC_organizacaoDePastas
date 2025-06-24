@@ -222,6 +222,162 @@ function copiarCodigoPix() {
    offcanvasTriggerList.map(function (offcanvasTriggerEl) {
      new bootstrap.Offcanvas(offcanvasTriggerEl);
    });
+
+
+
+
+
+
+
+
+
+
+
+// Função chamada ao clicar em "Finalizar pedido"
+function mostrarModal() {
+  const modal = new bootstrap.Modal(document.getElementById('modalPagamentoConfirmado'));
+  modal.show();
+
+  salvarPedidoNoLocalStorage();
+
+  setTimeout(() => {
+    window.location.href = 'statusPedido.html';
+  }, 5000);
+}
+
+function salvarPedidoNoLocalStorage() {
+  const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+  const token = localStorage.getItem('token');
+  const enderecoTexto = document.querySelector('.endereco-confirmacao p')?.innerText.replace(' Endereço:', '').trim() || '';
+  
+  // Extrai partes do endereço
+  const enderecoParts = enderecoTexto.split('-').map(part => part.trim());
+  const [rua, bairro, numero] = enderecoParts;
+
+  // Recupera dados do usuário do perfil
+  fetch('http://localhost:3000/api/users/me', {
+    headers: { 'Authorization': `Bearer ${token}` }
+  })
+    .then(res => res.json())
+    .then(user => {
+      const id = Date.now();
+      const valorTotal = calcularValorTotal(carrinho);
+      const pagamentoSelecionado = document.querySelector('input[name="pagamento"]:checked');
+      const formaPagamento = pagamentoSelecionado?.id === 'agora' ? 'Pix' : 'Dinheiro';
+      const statusPagamento = formaPagamento === 'Pix' ? 'Pago' : 'Pendente';
+
+      // Formata os itens do carrinho para o padrão do sistema
+      const itensFormatados = carrinho.map(item => ({
+        nome: item.pizzas.map(p => typeof p === 'string' ? p : p.nome).join(', '),
+        bebidas: item.bebidas ? item.bebidas.map(b => typeof b === 'string' ? b : `${b.nome} x${b.qtd}`).join(', ') : 'Nenhuma',
+        preco: item.preco || 0
+      }));
+
+      const novoPedido = {
+        id,
+        cliente: {
+          id: user.id,
+          nome: user.nome,
+          email: user.email,
+          telefone: user.telefone,
+          endereco: enderecoTexto
+        },
+        enderecoEntrega: {
+          rua,
+          bairro,
+          numero
+        },
+        formaPagamento,
+        statusPagamento,
+        status: "pendente", // Status inicial do sistema
+        data: new Date().toISOString(),
+        itens: itensFormatados,
+        valorTotal,
+        frete: 5.00,
+        desconto: 0
+      };
+
+      // Salva nos pedidos pendentes (nova estrutura)
+      const pedidosPendentes = JSON.parse(localStorage.getItem('pedidosPendentes')) || [];
+      pedidosPendentes.unshift(novoPedido); // Adiciona no início
+      localStorage.setItem('pedidosPendentes', JSON.stringify(pedidosPendentes));
+
+      // Mantém compatibilidade com o sistema antigo (se necessário)
+      const pedidosAntigos = JSON.parse(localStorage.getItem('pedidos')) || [];
+      pedidosAntigos.push({
+        ...novoPedido,
+        status: 0, // Para compatibilidade com sistema numérico
+        hora: new Date().toLocaleTimeString('pt-BR')
+      });
+      localStorage.setItem('pedidos', JSON.stringify(pedidosAntigos));
+
+      // Limpa carrinho
+      localStorage.removeItem('carrinho');
+      
+      // Atualiza histórico do usuário (opcional)
+      atualizarHistoricoUsuario(user.id, id);
+    })
+    .catch(err => {
+      console.error('Erro ao buscar dados do usuário:', err);
+      alert('Erro ao finalizar pedido. Por favor, tente novamente.');
+    });
+}
+
+function calcularValorTotal(carrinho) {
+  const subtotal = carrinho.reduce((total, item) => total + (item.preco || 0), 0);
+  const frete = 5.00;
+  // Aplica desconto se existir
+  const desconto = parseFloat(localStorage.getItem('descontoAplicado')) || 0;
+  return parseFloat((subtotal + frete - desconto).toFixed(2));
+}
+
+function atualizarHistoricoUsuario(userId, pedidoId) {
+  const usuarios = JSON.parse(localStorage.getItem('usuariosHistorico')) || {};
+  if (!usuarios[userId]) {
+    usuarios[userId] = [];
+  }
+  usuarios[userId].push(pedidoId);
+  localStorage.setItem('usuariosHistorico', JSON.stringify(usuarios));
+}
+
+// Adiciona evento ao botão de finalizar pedido
+document.querySelector('.button-black-centralizar a').addEventListener('click', function(e) {
+  if (carrinho.length === 0) {
+    e.preventDefault();
+    alert('Seu carrinho está vazio. Adicione itens antes de prosseguir para o pagamento.');
+    return;
+  }
+  
+  // Verifica se o endereço está cadastrado
+  const endereco = document.querySelector('.endereco-confirmacao p');
+  if (!endereco || endereco.textContent.includes('Endereço não cadastrado')) {
+    e.preventDefault();
+    alert('Por favor, cadastre um endereço antes de finalizar o pedido.');
+    window.location.href = 'endereco.html';
+    return;
+  }
+  
+  // Verifica forma de pagamento selecionada
+  const pagamentoSelecionado = document.querySelector('input[name="pagamento"]:checked');
+  if (!pagamentoSelecionado) {
+    e.preventDefault();
+    alert('Por favor, selecione uma forma de pagamento.');
+    return;
+  }
+  
+  // Se tudo ok, mostra o modal
+  mostrarModal();
+});
+
+
+
+
+
+
+
+
+
+   
 </script>
 
   

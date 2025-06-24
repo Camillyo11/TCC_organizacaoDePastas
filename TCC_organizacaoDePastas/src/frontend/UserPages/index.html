@@ -365,28 +365,29 @@
 
 <script>
   // Carrega o header primeiro
-  fetch('../UserPages/header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-container').innerHTML = data;
-      // Só aqui carregue o index.js
-      const script = document.createElement('script');
-      script.src = '../assets/js/index.js';
-      document.body.appendChild(script);
-    })
-    .catch(error => console.error('Erro ao carregar o header:', error));
-
-  // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
-  const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
-  modalTriggerList.map(function (modalTriggerEl) {
-    new bootstrap.Modal(modalTriggerEl);
-  });
-
-  const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
-  offcanvasTriggerList.map(function (offcanvasTriggerEl) {
-    new bootstrap.Offcanvas(offcanvasTriggerEl);
-  });
- 
+ fetch('../UserPages/header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-container').innerHTML = data;
+        })
+        .catch(error => console.error('Erro ao carregar o header:', error));
+        
+       // Re-inicialize os componentes Bootstrap que dependem de data-bs-toggle
+       const modalTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="modal"]'));
+       modalTriggerList.map(function (modalTriggerEl) {
+         new bootstrap.Modal(modalTriggerEl);
+       });
+    
+       const offcanvasTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="offcanvas"]'));
+       offcanvasTriggerList.map(function (offcanvasTriggerEl) {
+         new bootstrap.Offcanvas(offcanvasTriggerEl);
+       });
+       const form = document.getElementById("avaliacaoForm");
+    
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      // lógica do envio
+    });
   
     
 </script>
