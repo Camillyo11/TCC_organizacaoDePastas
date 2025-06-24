@@ -140,30 +140,28 @@ a.login-button img {
     /* Impede que a imagem diminua */
 }
 
-
 @media (max-width: 420px) {
     .button-navbar {
+          padding: 4px 2px;
         flex-direction: row;
-        gap: 5px;
+        gap: 2px;
         margin-left: 0;
-        width: 80%;
+        margin-right: 0;
         justify-content: flex-end;
     }
-
-    .login-button {
-        background-color: rgb(144, 33, 6) !important;
-        color: white;
-        font-size: 10px;
-        padding: 5px 10px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: 0.3s background-color !important;
-        border: none;
-
+    .navbar-brand img {
+    width: 80px;
+    height: 80px;
+    margin-right:-5px;
+    margin-left: -10px;
     }
-
+    button.login-button {
+    padding: 2px 3px;
+    border: none;
+    font-size: 10px;
+    gap: 2px;
 }
-
+}
 
 @media (max-width: 767.98px) {
     .button-navbar {
@@ -380,7 +378,7 @@ a.login-button img {
 
 /* Estilo para o modal */
 .modal-vermelhor {
-    background-color: rgb(144, 33, 6);
+    background-color: rgb(144, 33, 6) !important;
     color: white;
 }
 

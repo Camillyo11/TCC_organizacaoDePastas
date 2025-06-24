@@ -287,6 +287,11 @@
   </div>
 </div>
 
+
+
+
+
+
 <!-- Offcanvas de Meus Dados -->
 <div class="offcanvas-perfil offcanvas offcanvas-end" tabindex="-1" id="meusDadosOffcanvas" aria-labelledby="meusDadosOffcanvasLabel">
   <div class="offcanvas-header">
@@ -321,28 +326,23 @@
         <span class="dado-value" id="dadoEmail"></span>
       </div>
     </div>
-    
-   
-      
-    <!-- Mensagem para usuários não cadastrados -->
+
+    <!-- Mensagem para não cadastrados -->
     <div id="semCadastroMsg" class="text-center py-4" style="display: none;">
-      <img src="#" width="60" class="mb-3">
+      <img src="../public/icons/conta.png" width="60" class="mb-3">
       <h6>Você ainda não possui cadastro</h6>
       <p>Faça seu cadastro para acessar todas as funcionalidades</p>
       <a href="../UserPages/formscadastro.html" class="btn btn-danger mt-2">Cadastrar agora</a>
     </div>
-    
-    <!-- Conteúdo para usuários cadastrados (inicialmente escondido) -->
+
+    <!-- Conteúdo para usuários cadastrados -->
     <div id="dadosUsuarioContent" style="display: none;">
       <div class="dado-section">
         <h6 class="dado-title">Editar meus dados</h6>
-        
-        <!-- Botão para ativar a edição -->
-        <button id="btnEditarDados" class="btn-editar ">
+        <button id="btnEditarDados" class="btn-editar">
           <img src="../public/icons/caneta-do-usuario.png" width="20"> Editar Informações
         </button>
         
-        <!-- Formulário de edição (inicialmente oculto) -->
         <form id="formEditarDados" style="display: none;">
           <div class="mb-3">
             <label class="dado-label">Nome Completo</label>
@@ -366,17 +366,18 @@
         </form>
       </div>
 
-      <!-- Botão de Sair -->
-      <button id="profileLogout" class="btn btn-danger mt-4 w-100">
+      <button id="btnSair" class="btn btn-danger mt-4 w-100">
         <i class="bi bi-box-arrow-right"></i> Sair
       </button>
     </div>
-  
-
-      </div>
-    </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -435,4 +436,5 @@
   </div>
 </div>
 </header>
+
 <script src="/src/frontend/assets/js/index.js"></script>
